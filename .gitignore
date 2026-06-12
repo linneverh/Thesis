@@ -1,4 +1,3 @@
-# LaTeX build artifacts
 *.aux
 *.bbl
 *.bcf
@@ -15,10 +14,6 @@
 *.nav
 *.snm
 *.vrb
-
-# Editor / OS
 .vscode/
 .DS_Store
-
-# Claude Code
 .claude/
