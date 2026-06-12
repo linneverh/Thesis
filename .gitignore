@@ -1,0 +1,24 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# Editor / OS
+.vscode/
+.DS_Store
+
+# Claude Code
+.claude/
