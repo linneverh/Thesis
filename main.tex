@@ -1,0 +1,1532 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\textbf{Navigating the Sustainability Disclosure Ecosystem}
+
+\emph{A diagnostic framework for European seafood processing SMEs}
+
+\emph{moving from reactive compliance to proactive sustainability
+strategy}
+
+\textbf{Introduction and Methodology - Working Paper}
+
+Linne Verhoeven
+
+May 2026
+
+\section{1. Introduction}\label{introduction}
+
+\subsection{1.1 Sustainability as
+strategy}\label{sustainability-as-strategy}
+
+Companies are increasingly faced with sustainability demands originating
+from regulatory, market, and societal stakeholders. The way firms
+respond to these demands varies along a continuum of sustainability
+maturity, between two ideal-typical postures (Russo \& Fouts, 1997;
+Sharma \& Vredenburg, 1998).
+
+A reactive approach implies that the firm meets the bare minimum of
+stakeholder demands by acting only when external pressure arises.
+Sustainable practices are not specifically developed and remain
+peripheral to the business model. Firms with a reactive posture comply
+with the minimum sustainability prerequisites required to operate but
+are unlikely to benefit from performance gains associated with deeper
+sustainability integration. A proactive approach, in contrast, implies
+voluntary engagement that exceeds the legal minimum, contributing to
+environmental and social development as well as long-term economic
+performance. Empirical evidence from CSR research in small and
+medium-sized enterprises (SMEs) suggests that proactive economic-related
+CSR generates positive direct effects on financial performance over the
+long term (Torugsa et al., 2013).
+
+The barrier to proactive engagement, particularly for
+resource-constrained firms, is not lack of intent but external-input
+overload. Fragmented and complex sustainability governance pushes SMEs
+toward reactive compliance behaviour rather than strategic integration
+(Chan et al., 2022). Where multiple stakeholders demand different
+information through different channels, the practical effect on SMEs
+with limited compliance capacity is paralysis or minimum-viable
+response.
+
+\subsection{1.2 SME sustainability
+constraints}\label{sme-sustainability-constraints}
+
+SMEs face a well-documented set of constraints that shape their
+sustainability strategy choices. These include: limited financial and
+managerial resources; lack of dedicated internal expertise in
+environmental and social reporting; weak data systems and IT
+infrastructure; high dependence on a small number of B2B customers; and
+uncertainty regarding the evolving regulatory landscape (Battisti \&
+Perry, 2011).
+
+In practice these constraints mean that an SME confronted by multiple,
+overlapping sustainability requirements cannot simply expand its
+compliance function proportionally. Each new disclosure request from a
+customer, certifier, investor, or regulator imposes a fixed overhead
+disproportionate to the firm\textquotesingle s size. The resulting
+incentive is to treat sustainability disclosure as transactional
+compliance, answering questionnaires as they arrive, rather than as a
+strategic investment in capabilities that could serve multiple demands
+simultaneously (Interview).
+
+\subsection{1.3 Fragmented governance in the seafood
+sector}\label{fragmented-governance-in-the-seafood-sector}
+
+Seafood is the most highly traded food product globally, with per capita
+consumption increasing more rapidly than other animal proteins (Barklay
+and Miller., 2018). The sector is structurally complex, involving global
+sourcing networks, multiple processing stages, and exposure to a wide
+range of sustainability risks including greenhouse gas emissions, marine
+ecosystem impacts, antimicrobial use, forced labour in fishing fleets,
+and food safety incidents (Barklay and Miller., 2018).
+
+European seafood processors face this complexity from a position of
+compounded pressure. In addition to horizontal European legislation
+addressing waste and packaging (Regulation (EU) 2025/40), sustainability
+claims (the proposed Empowering Consumers Directive, Directive (EU)
+2024/825), and corporate sustainability disclosure (CSRD/ESRS, CSDDD),
+the sector is subject to a dense overlay of sector-specific regulation:
+the EU Common Fisheries Policy (Regulation (EU) No~1380/2013), the IUU
+Regulation (Council Regulation 1005/2008), the recast Control Regulation
+(2023/2842), the EU Deforestation Regulation (2023/1115, relevant for
+aquaculture feed sourcing), and the Farm to Fork Strategy under the
+European Green Deal.
+
+Layered on top of this regulatory architecture is a fragmented landscape
+of voluntary instruments: certifications (MSC for wild-capture, ASC and
+BAP for aquaculture, GLOBALG.A.P.), food safety standards (IFS Food,
+BRCGS, FSSC 22000, benchmarked by GFSI), supply-chain transparency
+platforms (Sedex/SMETA, EcoVadis), investor frameworks (CDP, SBTi, TCFD,
+IFRS S2, the Coller FAIRR Protein Producer Index), industry initiatives
+(GSSI, GDST, Move to Minus 15, ISSF for tuna), and management-system
+standards (ISO 14001, 45001, 50001). Governance is structurally
+fragmented, with no single coordinating actor and overlapping but
+non-identical demands from each (Bush \& Oosterveer, 2019).
+
+The empirical implication, surfaced in early scoping interviews for this
+research, is that European seafood SMEs receive sustainability data
+requests from multiple actors who individually demand reasonable
+information but collectively impose an unsustainable response burden.
+The SME response, predictably, is reactive: comply with the loudest
+demand, defer the rest, do not invest in capability that would serve
+more demands than the one in front of them.
+
+\subsection{1.4 The sustainability reporting
+landscape}\label{the-sustainability-reporting-landscape}
+
+The European Union has positioned corporate sustainability reporting as
+a key lever for the European Green Deal, intending to improve the
+availability, comparability, and reliability of sustainability
+information available to investors, regulators, and value-chain partners
+(European Commission, 2019). Disclosure is conceptualised not only as a
+transparency mechanism but as a tool that shapes economic behaviour by
+directing capital toward sustainable activities.
+
+The Corporate Sustainability Reporting Directive (CSRD; Directive (EU)
+2022/2464) operationalises this ambition. CSRD is implemented through
+the European Sustainability Reporting Standards (ESRS; Commission
+Delegated Regulation (EU) 2023/2772), which define mandatory disclosure
+requirements across twelve cross-cutting and topical standards covering
+environmental, social, and governance dimensions. ESRS introduces the
+double materiality principle, requiring undertakings to report both on
+how sustainability matters affect their financial performance and on the
+firm\textquotesingle s own impacts on the economy, environment, and
+people (EFRAG, 2021).
+
+CSRD scope is restricted to large undertakings and listed entities
+meeting specified employee, turnover, and balance-sheet thresholds.
+Under the Omnibus simplification proposals (European Commission, 2025),
+the scope of CSRD has been further restricted, with smaller
+previously-in-scope firms now exempted. The majority of European seafood
+processing companies fall below CSRD thresholds and are therefore not
+directly subject to ESRS reporting obligations.
+
+To address the disclosure needs of out-of-scope SMEs, EFRAG has
+developed the Voluntary Sustainability Reporting Standard for SMEs
+(VSME), comprising a basic and a comprehensive module. VSME is designed
+to be proportionate to SME constraints, reducing the disclosure load
+from approximately 1,000 ESRS datapoints to approximately 100. Adoption
+is voluntary, but the framework is intended to provide a recognised
+reference set that satisfies the most common information requests SMEs
+receive from value-chain partners and financial institutions.
+
+In practice, however, two structural gaps are observable. First, the
+leap from no sustainability reporting at all to even the basic VSME
+module remains significant for many SMEs (interview). Second, the gap
+between VSME and full ESRS is substantially larger and is precisely the
+territory in which non-CSRD seafood SMEs operate when responding to
+ad-hoc customer questionnaires, certification audits, and investor
+requests. The sustainability reporting frame, in other words, does not
+cover the operational reality of European seafood SMEs in the post-CSRD
+environment.
+
+\subsection{1.5 Research gap and the diagnostic-tool
+argument}\label{research-gap-and-the-diagnostic-tool-argument}
+
+Existing literature addresses several aspects of this problem in
+isolation. Sustainability reporting maturity models describe staged
+organizational evolution in reporting practice (Baumgartner et al.,
+2010; Cöster et al., 2020). Studies of CSRD implementation costs
+document the burden faced by in-scope firms (EFRAG, 2025).
+Stakeholder-pressure literature explains why firms respond to particular
+demands (Mitchell, Agle \& Wood, 1997; Suchman, 1995).
+Institutional-isomorphism theory provides a lens on why disclosure
+conventions converge despite formal voluntariness (DiMaggio \& Powell,
+1983). The seafood-specific literature documents the fragmented
+private-governance landscape (Bush et al., 2017; Tlusty, 2012;
+Vandergeest, 2018).
+
+What is missing is an integrated empirical analysis that (i) maps the
+actual cross-framework disclosure demand facing European seafood SMEs,
+(ii) identifies where multiple stakeholders converge versus where they
+diverge, and (iii) translates that empirical pattern into a diagnostic
+tool that lets an SME self-position on the reactive-to-proactive
+spectrum and identify which capability investments would most
+efficiently expand its sustainability response.
+
+This thesis addresses that gap. The empirical material is drawn from the
+disclosure practice of five large European seafood processors that are
+CSRD-reporting; this cohort defines the realistic upper bound of
+seafood-sector disclosure depth. Cross-referenced against the broader
+stakeholder ecosystem of regulators, customers, investors, and industry
+initiatives, the analysis identifies disclosure topics that face
+concentrated cross-stakeholder demand. These hotspots define the
+high-leverage capability investments for SMEs: topics where building
+reporting capability once satisfies many demands simultaneously,
+enabling the SME to shift from reactive question-by-question response to
+proactive capability-driven engagement.
+
+\section{2. Research questions and
+contribution}\label{research-questions-and-contribution}
+
+\subsection{2.1 Research questions}\label{research-questions}
+
+The research is organised around three interconnected questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{RQ1 - Empirical:} What ESRS topical disclosure requirements
+  are actually reported on by mature European seafood processing
+  companies, and what does this empirical cohort reveal about the
+  practical upper bound of sector disclosure depth?
+\item
+  \textbf{RQ2 - Analytical:} Across the full landscape of regulatory,
+  customer, investor, and industry frameworks active in the European
+  seafood sector, which disclosure topics constitute hotspots of
+  concentrated cross-stakeholder demand?
+\item
+  \textbf{RQ3 - Prescriptive:} How can a European mid-sized seafood
+  processor diagnose its current sustainability posture (reactive vs
+  proactive) and prioritize capability investments to progress along
+  that spectrum in a way that satisfies the most pressing
+  cross-stakeholder demands?
+\end{enumerate}
+
+\subsection{2.2 Intended contributions}\label{intended-contributions}
+
+The thesis contributes to three audiences:
+
+\begin{itemize}
+\item
+  \textbf{For seafood SMEs (primary audience):} a diagnostic framework
+  and a stage-of-development roadmap that translates the complexity of
+  the disclosure ecosystem into a sequence of capability investments
+  tailored to the SME\textquotesingle s current posture and identified
+  stakeholder pressures.
+\item
+  \textbf{For academic literature:} a first systematic mapping of
+  cross-stakeholder disclosure demand at the sector level using a
+  defined coverage scale. An extension of sustainability-reporting
+  maturity-model literature with a diagnostic-tool operationalization.
+  An empirically grounded application of the reactive/proactive CSR
+  distinction.
+\item
+  \textbf{For EU policy (secondary):} empirical input to the ongoing
+  simplification debate (Omnibus, VSME extension, sector standards
+  postponement). The cross-stakeholder hotspot analysis identifies where
+  the regulatory and voluntary disclosure ecosystem is converging and
+  therefore where coordination or capping of demand would deliver
+  disproportionate burden reduction for SMEs. This aligns with the
+  Competitiveness Compass target of cutting administrative burden by
+  ≥35\% for SMEs (European Commission, 2025).
+\end{itemize}
+
+\section{3. Conceptual framework}\label{conceptual-framework}
+
+\subsection{3.1 The reactive-proactive sustainability
+spectrum}\label{the-reactive-proactive-sustainability-spectrum}
+
+The reactive-proactive distinction (Sharma \& Vredenburg, 1998; Torugsa
+et al., 2013) provides the central organising frame. The two postures
+differ along several dimensions:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2564}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3718}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3718}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Dimension}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Reactive posture}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Proactive posture}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Trigger for action} & External demand (questionnaire, audit,
+regulatory deadline) & Strategic anticipation; voluntary commitments \\
+\textbf{Disclosure approach} & Transactional, question-by-question;
+minimum viable & Capability-driven, integrated; goes beyond legal
+minimum \\
+\textbf{Data infrastructure} & Ad-hoc, manual, rebuilt per request &
+Systematic, automated, reusable across demands \\
+\textbf{Strategic positioning} & Compliance cost center & Competitive
+differentiation; risk-adjusted financial benefit \\
+\textbf{Stakeholder relationship} & Defensive; minimum communication &
+Proactive engagement; trust-building \\
+\end{longtable}
+}
+
+(for now made by me based on: Sharma \& Vredenburg, 1998; Torugsa et
+al., 2013)
+
+Empirical evidence in CSR research indicates that the proactive posture
+is associated with positive long-term financial performance effects
+(Torugsa et al., 2013). The barrier to adoption among
+resource-constrained SMEs is not rejection of the proactive posture in
+principle, but the absence of a tractable pathway from reactive practice
+to proactive capability given the fragmented and unpredictable nature of
+external demand (interview -- look for source).
+
+\subsection{3.2 Stakeholder pressure and fragmented
+governance}\label{stakeholder-pressure-and-fragmented-governance}
+
+Stakeholder-salience theory (Mitchell, Agle \& Wood, 1997) explains how
+firms triage competing claims based on the legitimacy, urgency, and
+power of each stakeholder. In contexts of single-stakeholder dominance,
+the response is clear. In contexts of multiple legitimate stakeholders
+with overlapping but non-identical demands, case in point for the
+seafood sustainability ecosystem, the absence of demand coordination
+creates the fragmentation problem: each stakeholder is individually
+legitimate, but the cumulative response burden is unmanageable.
+
+Institutional theory (DiMaggio \& Powell, 1983) further explains why
+disclosure conventions converge across firms even where formally
+voluntary: coercive isomorphism (regulatory pressure), mimetic
+isomorphism (copying perceived leaders), and normative isomorphism
+(professionalisation of sustainability functions) all push firms toward
+similar disclosure choices. For SMEs the mimetic mechanism is
+particularly relevant because they typically lack the in-house expertise
+to develop independent positions.
+
+The fragmented governance of the seafood sustainability movement, with
+regulator, brands, retailers, certifiers, NGOs, and investors all
+exercising parallel and overlapping demands (Bush et al., 2019),
+represents an extreme case of the multi-stakeholder challenge. This
+thesis takes as its starting analytical premise that the SME response to
+such fragmentation is structurally reactive, and that this reactivity is
+not a failure of SME intent but a rational adaptation to incoherent
+external demand.
+
+\subsection{3.3 The bridge: cross-stakeholder demand
+convergence}\label{the-bridge-cross-stakeholder-demand-convergence}
+
+The conceptual bridge from reactive to proactive in this fragmented
+environment lies in identifying disclosure topics where multiple
+stakeholders converge. Where the same topic is demanded by a customer
+(e.g., via a chain-of-custody certification), an investor (via a CDP
+questionnaire), an industry framework (via GRI 13), and a regulator (via
+ESRS or a sector-specific instrument), the SME that invests in
+capability for that topic obtains compound returns: a single capability
+investment satisfies multiple demands.
+
+Hotspots of cross-stakeholder convergence therefore represent the
+strategic-investment opportunities through which an SME can begin to
+move from reactive to proactive. Building disclosure capability on a
+hotspot topic delivers, by definition, leverage: each unit of capability
+invested generates response capacity across multiple stakeholders. By
+contrast, building capability on a topic demanded by only one
+stakeholder type generates narrower returns and entrenches the
+transactional posture.
+
+This insight motivates the central analytical construct of the thesis: a
+heatmap of disclosure topics by stakeholder type, populated from a
+systematic mapping of the seafood sustainability ecosystem. The hotspots
+identified in this heatmap form the empirical basis for a
+stages-of-development roadmap and a diagnostic tool through which an SME
+can position itself, identify its highest-leverage next investment, and
+progressively expand its sustainability response.
+
+\subsection{3.4 The seafood sustainability playing field: an integrative
+framework}\label{the-seafood-sustainability-playing-field-an-integrative-framework}
+
+Sections 3.1 to 3.3 establish three building blocks: the
+reactive-proactive continuum along which firms position themselves
+(3.1); the fragmented, multi-stakeholder structure of sustainability
+pressure in the seafood sector (3.2); and the principle that
+cross-stakeholder convergence creates leverage (3.3). This section
+integrates these building blocks into a single organising framework, the
+seafood sustainability playing field, which constitutes the central
+conceptual contribution of this thesis. The framework serves two
+purposes: it provides a structured map of the disclosure environment in
+which seafood firms operate, and, through the construct of capability
+corridors, it identifies where compliance with mandatory requirements
+can be deliberately extended into proactive sustainability strategy.
+
+\subsubsection{The three structuring
+axes}\label{the-three-structuring-axes}
+
+The playing field organises the disclosure environment along three axes.
+The first two are structural, in that they define the position of every
+requirement, while the third is an attributional overlay.
+
+The necessity axis is the framework's spine. It positions each
+requirement on a spectrum of obligation that runs from a foundational
+floor up through four tiers. Beneath the four tiers sits Tier 0, food
+integrity: the non-negotiable food-safety and food-law floor - General
+Food Law, the hygiene regulations, and the customer-required food-safety
+certifications IFS Food, BRCGS and FSSC 22000 - that every EU seafood
+processor clears before any sustainability question arises. Tier 0 is in
+scope of the firm but is held in a separate band rather than treated as
+a sustainability requirement, because it is a precondition of operating.
+Above it, Tier 1, legal license to operate, comprises requirements
+without which the firm cannot lawfully operate, such as the
+catch-certificate regime of the EU IUU Regulation, the Fisheries Control
+Regulation, the EU Deforestation Regulation and packaging law; the
+Common Fisheries Policy frames this regime but binds Member States
+rather than the processor directly. Tier 2, market license to operate,
+comprises requirements that are legally optional but commercially
+non-negotiable, because no major retail customer will list a supplier
+without them, such as MSC or ASC chain-of-custody certification for
+particular products and the SMETA and EcoVadis social-audit memberships.
+Tier 3, competitive expectation, comprises requirements that are
+increasingly normalised, such that their absence constitutes a
+competitive disadvantage, such as VSME reporting and the value-chain
+disclosures cascaded from customers under CSRD and its ESRS standards.
+Tier 4, strategic differentiation, comprises genuinely voluntary
+commitments that signal leadership. Alongside the tiers, a separate
+enabling layer (Layer 2) holds the methods, management systems and data
+infrastructure - the GHG Protocol, the ISO management-system standards,
+life-cycle-assessment methods - whose necessity is derived from the
+demand they serve rather than being intrinsic, and which therefore sit
+outside the necessity grid. This axis is grounded in legitimacy theory
+(Suchman, 1995), whose distinction between pragmatic, moral and
+cognitive legitimacy corresponds to the progression from legally
+enforced to normatively expected obligation, and in institutional theory
+(DiMaggio \& Powell, 1983), whose coercive, mimetic and normative
+isomorphism mechanisms correspond to the lower, middle and upper tiers
+respectively. The necessity axis is structurally central because it maps
+directly onto the reactive-proactive continuum of Section 3.1: a
+reactive firm operates only within the foundation and Tiers 1 and 2,
+whereas a proactive firm extends its engagement into Tiers 3 and 4.
+
+The domain axis classifies each sustainability requirement by its
+subject matter, distinguishing two categories: seafood-sector
+sustainability (the sector-specific environmental and social topics such
+as bycatch, stock health, aquaculture welfare, and chain-of-custody
+traceability) and general corporate sustainability (the cross-sector
+topics such as greenhouse-gas emissions, energy, labour, and
+governance). Core operational and food-integrity requirements - food
+safety, hygiene, basic legal compliance - are not treated as a third
+domain but as the Tier 0 foundation described above, because they are a
+precondition of operating rather than a position on the sustainability
+spectrum. The domain axis thus presents the distinction between
+seafood-specific and general sustainability requirements as two adjacent
+columns, while food integrity underlies both.
+
+The source axis attributes each requirement to its primary stakeholder
+driver: regulator, customer, investor, or industry and civil society.
+Unlike the first two axes, source is not used to structure the framework
+but is applied as a colour-coded overlay, because stakeholder drivers
+cross-cut both necessity and domain. Source is assigned by a single
+test: does the instrument legally bind the processor? If it does, the
+driver is the regulator (for example the EU Deforestation Regulation,
+packaging law, or occupational-safety law). If it does not, the driver
+is the stakeholder that transmits the demand - a customer audit codes to
+customer, a capital-market expectation to investor - and self-adopted
+voluntary frameworks are coded by their primary intended audience, with
+investor-facing standards such as IFRS S1/S2 and TNFD coding to investor
+and multistakeholder or NGO-led standards such as GRI and SBTi coding to
+industry and civil society. This axis draws on stakeholder-salience
+theory (Mitchell, Agle \& Wood, 1997): the same requirement may be
+demanded with differing power, legitimacy and urgency by different
+actors.
+
+A second overlay, obligation locus, records separately from source
+whether the processor is itself the bound party. A requirement is direct
+where the processor is the obligated, certified or reporting entity;
+indirect where the obligation sits elsewhere in the value chain and
+reaches the processor through its own disclosure duty or a buyer's
+demand, in which case it is placed at the tier of that transmission
+mechanism; and context where the instrument binds a Member State or
+another actor with no mechanism that transmits an obligation to the
+processor at all. Source and locus are orthogonal. The EU Deforestation
+Regulation is regulator-driven and direct; the fisheries-labour
+Directive is customer-driven, because it binds vessel owners and reaches
+the processor through social audits, yet its locus is indirect; the
+voluntary VSME standard is investor-driven and direct; and CSRD reaches
+the sub-threshold processor as a customer-driven, indirect value-chain
+demand. Holding the two dimensions apart prevents the common error of
+reading the legally bound party off the identity of the actor who
+actually applies the pressure.
+
+Rendering source and locus as overlays rather than axes makes visible a
+pattern central to the argument of this thesis, namely that necessity,
+domain, source and locus are correlated but not identical. Tier 1
+requirements are predominantly regulator-driven and direct, Tier 2
+predominantly customer-driven, and the voluntary upper tiers spread
+across investor and industry drivers. It is the visible gradient of this
+correlation, rather than its assumption, that the framework contributes.
+Figure 1 presents the populated framework, with the necessity tiers as
+rows, the two domain categories as columns, each instrument positioned
+in its cell and colour-coded by source, and its obligation locus marked.
+
+\subsubsection{Capability corridors and the compliance-to-strategy
+synergy}\label{capability-corridors-and-the-compliance-to-strategy-synergy}
+
+A grid of requirements organised by necessity and domain is a
+descriptive map; it does not, by itself, explain how a firm moves from
+reactive compliance to proactive strategy. The construct that performs
+this function is the capability corridor. A capability corridor is an
+underlying organisational capability, a body of data, a process, or an
+information system, upon which multiple requirements across different
+cells of the framework draw. The construct is grounded in the
+resource-based view of the firm (Barney, 1991) and the
+dynamic-capabilities literature (Teece, 2007): a capability, once built,
+is fungible across the demands that require it.
+
+Two corridors illustrate the construct. The traceability corridor runs
+from a Tier 1 anchor, the catch-certificate and lot-tracking obligations
+of the IUU and Control Regulations, through Tier 2 chain-of-custody
+certification (MSC, ASC) and the GDST traceability standard, into Tier 3
+value-chain disclosure under VSME and ESRS. The supplier-engagement
+corridor runs from a Tier 2 anchor, the supplier-control requirements of
+food safety certifications such as IFS Food and BRCGS, through SMETA
+social auditing into Tier 3 value-chain worker disclosure. In each case
+a single capability, built to satisfy a lower-tier mandatory
+requirement, also supplies a substantial share of the infrastructure
+required by higher-tier strategic disclosures.
+
+This observation yields the framework's central strategic proposition.
+Because a capability built for a lower-tier mandatory requirement
+subsidises the higher-tier requirements that draw on the same corridor,
+the marginal cost of proactive sustainability disclosure is considerably
+lower than it appears when each requirement is assessed in isolation. A
+firm that builds traceability capability because Tier 1 law compels it
+has, in doing so, already financed a substantial portion of the
+infrastructure required for MSC certification and for ESRS value-chain
+disclosure. The proactive sustainability strategy, on this account, is
+to a large degree the deliberate recognition and extension of
+capabilities the firm was compelled to build for legal survival. The
+reactive firm, by contrast, rebuilds capability requirement by
+requirement, never recognising the corridor, and so perpetually pays the
+full isolated cost of each demand. The corridors are therefore where
+compliance becomes strategy, and they constitute the conceptual bridge,
+anticipated in Section 3.3, between the reactive and proactive postures.
+
+\subsubsection{Relationship to the empirical
+analysis}\label{relationship-to-the-empirical-analysis}
+
+The playing field is a conceptual framework; the empirical chapters of
+this thesis populate and test it. Phases 1 and 2 of the methodology
+(Sections 4.3 and 4.4) identify the disclosure topics and the
+instruments that occupy the framework's cells. Phase 3 (Section 4.5)
+codes the demand each instrument places on each topic, producing the
+cross-framework demand matrix that empirically substantiates the source
+overlay and reveals where corridors run. Phase 4 (Section 4.6) operates
+on this matrix to identify cross-stakeholder hotspots and to assign
+topics to development stages.
+
+A clarification is required regarding the relationship between the
+framework's necessity tiers and the development stages produced by the
+Phase 4 analysis, because the two are related but distinct. The
+necessity tiers are a structural property of each requirement, namely
+how obligatory it is, and form the rows of the framework. The
+development stages are an empirical product of the demand analysis,
+namely how many stakeholder types converge on a topic, and identify
+where leverage is concentrated. A topic may be high in necessity but
+narrow in cross-stakeholder demand, or low in necessity but broad in
+demand. The roadmap that this thesis ultimately proposes therefore
+sequences capability investment by necessity first and by
+cross-stakeholder leverage second: a firm addresses its Tier 1
+obligations as a precondition of operating, and, among the topics within
+reach at each tier, prioritises those that sit on high-leverage
+corridors. Necessity defines what must be done; the demand analysis
+defines, among what must or could be done, where to begin.
+
+\section{4. Methodology}\label{methodology}
+
+\subsection{4.1 Research design
+overview}\label{research-design-overview}
+
+The research employs a mixed-methods empirical design organised in five
+phases:
+
+\begin{itemize}
+\item
+  \textbf{Phase 1 - Universe construction.} Defining the set of
+  disclosure topics in scope for the analysis, drawn from cohort
+  empirical practice (ESRS-derived) and supplemented with
+  sector-material topics outside ESRS (GRI).
+\item
+  \textbf{Phase 2 - Landscape mapping.} Cataloguing the regulatory,
+  customer-driven, investor-driven, and industry-driven frameworks
+  active in the European seafood sustainability ecosystem.
+\item
+  \textbf{Phase 3 - Cross-framework demand mapping.} Coding each
+  disclosure topic against each priority framework on a defined coverage
+  scale, producing the central demand matrix.
+\item
+  \textbf{Phase 4 - Hotspot analysis and stage assignment.} Identifying
+  topics with concentrated cross-stakeholder demand. Assigning topics to
+  development stages; constructing the diagnostic tool.
+\item
+  \textbf{Phase 5 - Case study validation.} Applying the framework to
+  one or two SME case studies to test usability and refine the
+  diagnostic tool.
+\end{itemize}
+
+\subsection{4.2 Empirical scope: the large-reporter
+cohort}\label{empirical-scope-the-large-reporter-cohort}
+
+The empirical foundation is the disclosure practice of five large
+European seafood processing companies that are CSRD-reporting or have
+published sustainability reports of comparable depth: Bolton Group, A.
+Espersen A/S, Mowi ASA, Nomad Foods Limited, and Profand Group. These
+five represent the realistic upper bound of European seafood sector
+disclosure depth and span both wild-capture and aquaculture operations,
+branded and private-label, listed and unlisted.
+
+The data sources are each company\textquotesingle s most recent publicly
+available sustainability report (2023 or 2024 reporting cycle),
+supplemented where available by their CSRD-aligned ESRS-index
+appendices. The unit of empirical analysis is the ESRS Disclosure
+Requirement (DR); each report was coded for whether the company reports
+against each of the 70 ESRS topical DRs (E1--E5, S1--S4, G1).
+
+\subsection{4.3 Phase 1 - Universe
+construction}\label{phase-1---universe-construction}
+
+The disclosure-topic universe used in the cross-framework mapping is
+constructed in four steps.
+
+\textbf{Step 1.1 Cohort coverage matrix}
+
+A binary coverage matrix is built recording, for each ESRS topical DR
+and each of the six cohort companies, whether the DR is materially
+reported against. For the three GRI-reporting companies, disclosures are
+first translated onto the ESRS DR scale through the GRI--ESRS bridge, so
+the matrix is lens-unified across all six companies. This matrix is the
+empirical record of disclosure practice in the cohort.
+
+\textbf{Step 1.2 Consensus filter: the 26-DR core and topic-level
+resolution}
+
+The core universe is built from the bridged coverage matrix by a
+unit-aware consensus rule applied in two tiers, both operating at the
+same ≥5-of-6 evidentiary threshold.
+
+Tier 1 --- DR-level consensus. A Disclosure Requirement is admitted to
+the universe if reported by at least five of the six cohort companies.
+Reporting by ≥5/6 is treated as strong empirical evidence that the DR is
+both material to the sector and feasible to report on at scale. Applied
+to the bridged coverage matrix, this rule yields a consensus core of 26
+DRs.
+
+Tier 2 --- Topic-level resolution. Because the GRI--ESRS bridge places
+all six companies on a common DR scale, reporting that is dispersed
+across several DRs within one topical area can fall below the DR-level
+threshold even when most companies report the topic. To correct this
+granularity artefact, the firm-union is computed at topic level for each
+ESRS topical standard: a topic is admitted as a single topic-level row
+if at least five of the six companies report on at least one DR within
+that topic. Applied uniformly across all topical standards, this rule
+admits two additional topics:
+
+• Biodiversity (ESRS E4) --- 5 of 6 companies report at least one of
+E4-1 through E4-5, with reporting dispersed across the policy, action,
+target and metric DRs such that no individual sub-DR clears the ≥5/6
+bar.
+
+• Consumer health and food safety (ESRS S4) --- 5 of 6 companies report
+at least one S4 DR, again dispersed across sub-DRs.
+
+GRI 13 (Agriculture, Aquaculture and Fishing Sectors 2022) corroborates
+the sector-materiality of both topics. Because these additions enter at
+the same evidentiary standard as Tier 1, no relaxed or ad-hoc rescue
+threshold is introduced. The high-confidence universe at the close of
+Step 1.2 contains 28 entries: the 26 Tier 1 DRs plus the two Tier 2
+topics.
+
+A consequence of the two-tier rule is that 26 entries are coded at DR
+level and 2 at topic level in the cross-framework demand matrix of Phase
+3. This asymmetry is treated as a feature rather than a flaw: the
+granularity of each entry's row in the demand matrix matches the
+granularity at which cohort evidence supports its inclusion. A
+Coding\_Level column is carried alongside each row to make the
+granularity transparent throughout the analysis.
+
+\textbf{Step 1.3 GRI 13 sector cross-check}
+
+The 28-entry high-confidence universe is cross-referenced against the 26
+likely-material topics enumerated in GRI 13: Agriculture, Aquaculture
+and Fishing Sectors 2022. Each GRI 13 topic is classified into one of
+three categories:
+
+• Covered --- at least one mapped ESRS DR is present in the
+high-confidence universe.
+
+• Reporting gap --- a mapped ESRS DR exists but is not in the universe,
+indicating that the cohort under-reports the topic relative to its
+sector materiality per GRI 13.
+
+• Structural gap --- no ESRS DR exists for the topic at all, indicating
+that ESRS itself does not cover what GRI 13 considers sector-material.
+
+The reporting-gap and structural-gap categories together describe the
+topics for which an ESRS-centric universe would understate the
+disclosure environment that European seafood SMEs actually face.
+
+\textbf{Step 1.4 Sector-material topics carried into the demand matrix}
+
+The cross-check in Step 1.3 is not left as commentary. The five topics
+that are most sector-defining for seafood yet have no clean ESRS (and,
+equally, no VSME) home are carried into Phase 3 as a separate,
+explicitly flagged block of sector-material rows: supply-chain
+traceability (chain of custody), wild-stock status and sustainable wild
+sourcing, feed and marine-ingredient sourcing, antimicrobial use, and
+animal welfare. Wild-stock status partly overlaps ESRS E4 and is
+retained as a distinct sourcing-decision row; the remaining four have no
+dedicated Disclosure Requirement in either ESRS or the VSME standard.
+
+These five are deliberately not derived from cohort consensus --- the
+cohort does not report them at scale precisely because the reporting
+taxonomy does not ask for them. They are admitted on a different,
+clearly labelled basis: sector materiality per GRI 13 and demand by EU
+sector legislation or major non-regulatory frameworks active in the
+seafood ecosystem (e.g. the IUU and Fisheries Control Regulations,
+MSC/ASC chain of custody, GDST, FisheryProgress). Carrying them as a
+flagged block keeps the cohort-evidenced core and the sector-material
+additions epistemically distinct, while ensuring the demand matrix
+reflects the disclosure environment a seafood SME actually faces rather
+than an ESRS-only abstraction. In the matrix these rows score near-zero
+across the ESRS/VSME and investor columns and concentrate on the seafood
+certification and regulatory columns --- the contrast is itself a
+finding: an SME preparing only for VSME would miss the topics its buyers
+and regulators most demand.
+
+\textbf{Final universe}
+
+The disclosure-topic universe used as the row dimension of the
+cross-framework demand matrix in Phase 3 comprises 33 rows:
+
+• 26 Tier 1 entries --- DR-level cohort consensus (≥5/6);
+
+• 2 Tier 2 entries --- topic-level cohort consensus (≥5/6): E4
+Biodiversity and S4 Consumer health and food safety;
+
+• 5 sector-material entries --- structural-gap seafood topics carried in
+on GRI 13 / sector-legislation grounds, flagged as additions rather than
+cohort-evidenced.
+
+Each entry is carried into Phase 3 with metadata indicating its
+inclusion tier, its coding level (DR or Topic), and a confidence flag
+distinguishing the 28 cohort-evidenced high-confidence entries from the
+5 sector-material additions.
+
+\subsection{4.4 Phase 2 - Landscape
+mapping}\label{phase-2---landscape-mapping}
+
+Phase 2 catalogues the full landscape of frameworks, standards,
+certifications and initiatives that place sustainability-disclosure
+demands on a European seafood-processing SME, and arranges them into the
+necessity-by-domain map that populates the playing field of Section 3.4.
+The cohort sustainability reports are the empirical entry point: every
+framework explicitly referenced by at least one cohort company is
+included, and desk research enriches the metadata and adds instruments
+that are binding on the entity but absent from cohort disclosure.
+Necessity is assessed throughout from the perspective of the SME - a B2B
+supplier of 50 to 250 employees selling to large EU retailers - so the
+same instrument may sit at a different tier for a differently situated
+firm.
+
+\textbf{The necessity tiers and domains.}
+
+\hl{\emph{Key Question: What happens to the firm without it?}
+Can\textquotesingle t lawfully operate → Tier 1. Customers
+won\textquotesingle t list you → Tier 2. Falling behind peers → Tier 3.
+Pure leadership signal → Tier 4.}
+
+Each instrument is placed in one cell of a grid whose rows are necessity
+tiers and whose columns are the two sustainability domains. The rows are
+a Tier 0 foundation of food-integrity law and food-safety certification,
+which is in scope of the firm but excluded from the disclosure analysis
+and held in a separate band; Tier 1, legal license to operate, of
+instruments that legally bind the processor; Tier 2, market license, of
+requirements that are legally optional but commercially non-negotiable;
+Tier 3, competitive expectation; and Tier 4, strategic differentiation.
+The columns are seafood-sector sustainability and general corporate
+sustainability. A separate enabling layer, Layer 2, holds the
+measurement methods, management systems and data infrastructure - for
+example the GHG Protocol, the ISO 14001/45001/50001 standards and
+life-cycle-assessment methods - whose necessity is derived from the
+demand they serve and which therefore sit outside the grid.
+
+\textbf{Source: the binds-the-processor test.}
+
+\hl{\emph{Key Question: Who drives the obligation to the processor?}
+Decision rule: Does the instrument legally bind the processor?
+\textbf{Yes → Regulator.} \textbf{No → the stakeholder that transmits
+the demand} (buyer audit/questionnaire → Customer; capital-market
+expectation → Investor; self-adopted voluntary framework → by intended
+audience)}
+
+Each instrument is assigned a single primary stakeholder driver by a
+pinned test, so that the coding is reproducible rather than
+impressionistic. The test asks whether the instrument legally binds the
+processor; if it does, the source is the regulator, and if it does not,
+the source is the stakeholder that actually transmits the demand to the
+firm. The four codes are:
+
+\begin{itemize}
+\item
+  \textbf{Regulator:} the instrument legally binds the processor - for
+  example the IUU and Fisheries Control Regulations, the EU
+  Deforestation Regulation, the Packaging and Packaging Waste
+  Regulation, and occupational-safety and working-time law.
+\item
+  \textbf{Customer:} the instrument does not bind the processor but is
+  transmitted by retail or B2B buyers through audits, supplier
+  questionnaires and value-chain data requests - for example MSC, ASC,
+  BAP, GLOBALG.A.P., Sedex/SMETA and EcoVadis, and, for a sub-threshold
+  SME, the CSRD/ESRS, CSDDD and CDP demands cascaded from large
+  customers.
+\item
+  \textbf{Investor:} the instrument is driven by capital-market
+  expectations and its primary intended user is a provider of capital -
+  SFDR, the EU Taxonomy, IFRS S1/S2, the FAIRR and Dow Jones indices,
+  and VSME, which a sub-threshold SME adopts largely at the prompting of
+  lenders and banks.
+\item
+  \textbf{Industry / NGO:} self-adopted voluntary frameworks whose
+  primary audience is multistakeholder or NGO-led - GRI (incl. GRI 13),
+  SBTi, the UN Global Compact and SDGs, GDST, FIPs/FisheryProgress, ISSF
+  and SeaBOS.
+\end{itemize}
+
+\textbf{Obligation locus.}
+
+\hl{\emph{Key Question: Is the processor itself the bound party?}
+Decision rule: Processor is the obligated/certified/reporting entity →
+\textbf{Direct (●)}. Obligation sits elsewhere in the chain and reaches
+the processor via a buyer demand or its own disclosure duty →
+\textbf{Indirect (○)}. Binds a Member State or other actor with no
+transmission to the processor → \textbf{Context (---)}}
+
+Orthogonally to source, each instrument carries an obligation-locus code
+that records whether the processor is itself the bound party, encoded in
+the map as a filled marker for direct, an open marker for indirect, and
+a dash for context. A requirement is direct where the processor is the
+obligated, certified or reporting entity - the EUDR due-diligence duty,
+MSC or ASC certification of the seafood it sells, its own VSME report.
+It is indirect where the obligation sits elsewhere in the chain and
+reaches the processor through a buyer demand or its own disclosure duty,
+in which case it is placed at the tier of that transmission mechanism -
+the fisheries-labour Directive, which binds vessel owners, or CSRD and
+CSDDD, which bind large undertakings and cascade down. It is context
+where the instrument binds a Member State or another actor with no
+mechanism transmitting an obligation to the processor - the Common
+Fisheries Policy, the Marine Strategy Framework Directive, RFMO catch
+rules, the Water and Waste Framework Directives - and these are retained
+in-cell as greyed context rather than active demands. Source and locus
+are independent: an instrument can be customer-driven yet indirect (the
+fisheries-labour Directive) or regulator-driven yet context (the Common
+Fisheries Policy).
+
+\textbf{Scoping and consolidation decisions.}
+
+Four coding decisions are applied consistently and recorded with the
+map. First, dual-channel instruments that reach a sub-threshold SME
+through both customers and capital markets - CSRD/ESRS, CSDDD and CDP -
+are coded Customer, because for a firm below the CSRD threshold the
+dominant transmitter is the large customer's value-chain data and
+due-diligence cascade rather than its own investors; the Investor code
+is reserved for instruments whose primary intended user is capital.
+Second, certification locus follows a core-product test: a scheme is
+direct only where the processor holds it for the seafood it sells (MSC,
+ASC, BAP, GLOBALG.A.P.) and indirect where the certified material is a
+non-core input the processor does not physically handle. Third, on that
+logic RSPO is demoted from a first-class Tier 2 entry to a conditional
+footnote, because palm reaches a seafood processor only through upstream
+feed and so fails the direct test unless palm is itself a processing
+input, while the underlying deforestation-commodity exposure is in any
+case already binding through EUDR at Tier 1 (soy certifications such as
+RTRS and ProTerra are excluded on the same reasoning). Fourth, the
+investor-reporting frameworks are consolidated: SASB and TCFD are not
+listed separately but are incorporated into IFRS S1/S2 under the ISSB,
+and CSRD and ESRS are held as a single entry. General business
+regulation that is neither food integrity nor sustainability - the VAT
+Directive and the Union Customs Code - is excluded.
+
+The map is deliberately not mutually exclusive. Because Phase 3
+decomposes each requirement into its underlying disclosure topics in
+order to locate overlap, a topic demanded by several instruments is left
+visible under each of them rather than assigned to a single owner.
+
+Each instrument is documented with its issuing organisation, year
+established or effective, EU regulatory status, sector applicability,
+geographic scope, primary stakeholder driver, obligation locus,
+seafood-sector relevance, references to cohort report pages, and
+official URL. This produces the landscape-mapping reference document
+that accompanies this thesis as a structured workbook.
+
+For the detailed Phase 3 demand mapping, a priority subset of
+approximately twelve frameworks is selected on the basis of (i) coverage
+across the four stakeholder types, (ii) explicit indicator-level demand
+on the entity rather than methodological reference, and (iii) presence
+in the cohort's actual reporting practice. The provisional priority list
+comprises VSME, MSC, ASC, BAP, Sedex/SMETA, IFS Food, BRCGS, EcoVadis,
+CDP, SBTi, GRI 13 and GDST.
+
+\subsection{4.5 Phase 3 - Cross-framework demand
+mapping}\label{phase-3---cross-framework-demand-mapping}
+
+The central analytical construct is a coverage matrix with rows = 43
+disclosure topics and columns = \textasciitilde12 priority frameworks.
+Each cell is coded on a three-level scale:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Coverage scale (defined ex ante)}
+
+0: Not covered: the framework does not address this topic.
+
+1: Touched: the framework mentions or implicitly references the topic,
+but does not require specific reporting or certification on it
+
+2: Required: the framework explicitly requires the entity to report on,
+certify, or disclose the topic.
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+}
+
+Every non-zero cell is documented with a one-line justification
+including a citation to the source framework paragraph or indicator.
+This per-cell documentation constitutes the audit trail and protects
+against reviewer challenges to the coding decisions.
+
+The distinction between methodology providers (e.g., GHG Protocol, ISO
+14001, which provide accounting or process standards but do not pressure
+entities to report) and disclosure askers (e.g., CDP, SBTi, MSC -which
+require entities to submit information) is made explicit.
+Methodology-only frameworks are documented in the landscape mapping but
+treated separately in the demand analysis.
+
+\subsection{4.6 Phase 4 - Hotspot analysis and stage
+assignment}\label{phase-4---hotspot-analysis-and-stage-assignment}
+
+Once the demand matrix is populated, several analytical operations are
+performed.
+
+\textbf{Aggregation by stakeholder type}
+
+The framework columns are collapsed into four stakeholder-driver buckets
+(regulator-SME, regulator-sector, customer, investor, industry/NGO),
+producing for each disclosure topic a count of frameworks demanding it
+within each stakeholder type.
+
+\textbf{Hotspot scoring}
+
+Two complementary measures are computed per topic:
+
+\begin{itemize}
+\item
+  \textbf{Coverage breadth:} total number of priority frameworks with a
+  non-zero coverage code for the topic.
+\item
+  \textbf{Stakeholder diversity:} number of distinct stakeholder-driver
+  types in which at least one framework requires the topic. This measure
+  rewards cross-stakeholder convergence over within-stakeholder
+  repetition.
+\end{itemize}
+
+Hotspot identification prioritises stakeholder diversity, on the
+conceptual argument that topics demanded by multiple stakeholder types
+deliver the highest leverage from a single capability investment.
+
+\textbf{Stage assignment}
+
+Topics are assigned to one of three development stages, with thresholds
+set after inspection of the empirical distribution:
+
+\begin{itemize}
+\item
+  \textbf{Stage 1 - Foundational:} topics with ≥3 stakeholder types
+  demanding and ≥6 frameworks covering. Multiple stakeholders
+  independently identify these as material; reporting infrastructure
+  built for one stakeholder serves several. Highest priority for SME
+  initial investment.
+\item
+  \textbf{Stage 2 - Expansion:} topics with 2 stakeholder types and 3--5
+  frameworks. Cross-stakeholder consensus is forming; build capability
+  as resources allow.
+\item
+  \textbf{Stage 3 - Specialist / regulatory-only:} topics covered by
+  ESRS regulation or by one specialist framework only. Required for
+  compliance where in scope, but not yet drawing broad demand.
+\end{itemize}
+
+\textbf{The diagnostic tool}
+
+The diagnostic tool operationalises the stage-of-development logic for
+individual SMEs. It comprises two inputs and two outputs.
+
+\textbf{Input 1 - current reporting posture self-assessment:} a short
+structured self-assessment (5--8 items) positioning the SME on the
+reactive-to-proactive spectrum. Indicative items: presence of formal
+sustainability strategy; presence of a dedicated sustainability function
+or role; whether reporting is initiated externally (reactive) or
+internally (proactive); presence of voluntary commitments (e.g.,
+SBTi-aligned targets); whether disclosure data is reusable across
+multiple stakeholder requests.
+
+\textbf{Input 2 - stakeholder-pressure mapping:} the SME identifies
+which stakeholders are actively requesting sustainability information
+(e.g., specific major retail customers and which questionnaire formats,
+specific certifications required for product placement, any investor
+pressure, any regulatory pressure beyond CSRD baseline). This input
+reflects the SME\textquotesingle s actual external demand environment.
+
+\textbf{Output 1 - prioritised disclosure topics:} the subset of Stage 1
+topics whose demanding frameworks align with the SME\textquotesingle s
+identified stakeholder pressures. These are the topics for which
+capability investment delivers maximum response coverage given the
+SME\textquotesingle s specific situation.
+
+\textbf{Output 2 - staged roadmap:} a recommended sequencing of
+capability investments across Stage 1 → Stage 2 → Stage 3, scaled to the
+SME\textquotesingle s current posture and resourcing.
+
+The diagnostic positioning on the reactive-to-proactive spectrum is
+operationalised through the self-assessment in Input 1, on the basis
+that reactive vs proactive is a behavioural rather than a measurable
+categorical state, and that the SME itself is best placed to
+characterise its current orientation.
+
+\subsection{4.7 Phase 5 - Case study
+validation}\label{phase-5---case-study-validation}
+
+The framework is validated through one or two deep case studies of
+European mid-sized seafood processing SMEs (50--250 employees, primarily
+B2B suppliers to large EU retailers). For each case the following
+sequence is applied:
+
+\begin{itemize}
+\item
+  Initial scoping interview (\textasciitilde60 min) to characterise the
+  firm: size, operations, value-chain position, existing certification
+  portfolio, current sustainability reporting practice, current
+  customer/investor pressures.
+\item
+  Application of the diagnostic tool --- the firm completes the
+  self-assessment and stakeholder-pressure mapping under researcher
+  guidance.
+\item
+  Generation of the recommended prioritised topic set and staged roadmap
+  from the framework.
+\item
+  Validation interview (\textasciitilde60 min) to discuss the
+  recommendations: feasibility, perceived utility, gaps, misalignments
+  with the firm\textquotesingle s lived context. Findings inform
+  refinement of the tool.
+\end{itemize}
+
+The case study sample is intentionally small (1--2 firms) and the
+validation is formative rather than confirmatory. Generalisation beyond
+the case is not claimed; the case studies are used to test usability and
+refine the diagnostic tool, not to validate the underlying empirical
+claims about the cohort or the cross-framework demand pattern.
+
+\subsection{4.8 Framework validation
+strategy}\label{framework-validation-strategy}
+
+The seafood sustainability playing field (Section 3.4) is a conceptual
+framework, and the standards by which such a framework is assessed
+differ from those applied to a hypothesis. A conceptual framework is not
+proven; it is developed through a structured process and substantiated
+through convergent evidence (Jabareen, 2009; Meredith, 1993). The
+framework advances two distinct claims that require different forms of
+substantiation. The descriptive claim is that the seafood sustainability
+disclosure environment can be exhaustively and unambiguously organised
+by the necessity, domain and source axes. The explanatory claim, which
+is the more substantive and the more demanding to substantiate, is that
+capability corridors exist, such that capability investment compelled by
+a lower-tier mandatory requirement materially subsidises higher-tier
+strategic disclosure. Five complementary validation strategies are
+employed; no single one is treated as conclusive, and the framework's
+credibility rests on their convergence.
+
+\subsubsection{Leg 1 - Theoretical
+grounding}\label{leg-1---theoretical-grounding}
+
+Each axis of the framework is anchored in established theory rather than
+derived ad hoc. The necessity axis draws on legitimacy theory (Suchman,
+1995) and institutional theory (DiMaggio \& Powell, 1983); the source
+overlay on stakeholder-salience theory (Mitchell, Agle \& Wood, 1997);
+the capability-corridor construct on the resource-based view (Barney,
+1991) and the dynamic-capabilities literature (Teece, 2007); and the
+domain axis on materiality and sector-standard literature. Demonstrating
+that every structural component of the framework follows from prior
+theory substantiates its architecture as theoretically coherent.
+
+\subsubsection{Leg 2 - Descriptive completeness and inter-coder
+reliability}\label{leg-2---descriptive-completeness-and-inter-coder-reliability}
+
+The descriptive claim is tested empirically during Phase 2. Every
+instrument identified in the landscape mapping is classified into
+exactly one necessity-by-domain cell with one primary source
+attribution. The framework is descriptively valid to the extent that
+this classification is exhaustive, in that no instrument requires a
+residual category, and unambiguous, in that instruments genuinely
+spanning cells are few and are documented as such. To establish that the
+classification is replicable rather than idiosyncratic, a second coder
+independently classifies a sample of instruments, and inter-coder
+agreement is reported using Cohen's kappa; agreement above the
+conventional threshold for substantial reliability substantiates that
+the framework can be applied consistently.
+
+\subsubsection{Leg 3 - Expert face
+validity}\label{leg-3---expert-face-validity}
+
+The framework is presented to expert informants, namely sustainability
+leads at the cohort companies and managers at the SME case-study firms,
+who are asked whether its tiers, domains and corridors correspond to
+their professional experience. This constitutes member checking, a
+recognised qualitative-validation technique (Lincoln \& Guba, 1985).
+Expert feedback is documented systematically, including instances in
+which it challenges the framework, and revisions made in response to
+such feedback are reported as evidence of validation rather than
+concealed.
+
+\subsubsection{Leg 4 - Substantiation of the capability-corridor
+mechanism}\label{leg-4---substantiation-of-the-capability-corridor-mechanism}
+
+The explanatory claim is substantiated through two converging methods.
+First, an input-overlap analysis codes the underlying data and process
+inputs required by each instrument situated on a corridor; demonstrating
+that, for example, MSC chain-of-custody, the GDST standard and ESRS
+value-chain disclosure draw on a common body of lot-level traceability
+data provides objective evidence that the corridor is real. Second,
+retrospective testimony is gathered from the large-reporter cohort:
+informants are asked directly whether capability built for a mandatory
+requirement reduced the marginal effort of subsequent disclosures.
+Convergence between the objective input-overlap evidence and the
+testimonial evidence substantiates the corridor mechanism more strongly
+than either method alone.
+
+\subsubsection{Leg 5 - Instrumental validation through case
+application}\label{leg-5---instrumental-validation-through-case-application}
+
+Finally, the framework is applied to the SME case studies described in
+Section 4.7. If it correctly locates a firm's current posture, correctly
+identifies the corridors offering that firm the greatest leverage given
+its stakeholder pressures, and is recognised by the firm as an accurate
+and actionable diagnosis, the framework is validated instrumentally,
+that is, by its demonstrated usefulness in application. This corresponds
+to the pattern-matching logic of case-study research (Yin, 2018): the
+framework predicts a pattern, and the case evidence is examined for
+correspondence to it.
+
+Together, these five strategies validate the framework to a degree
+appropriate to the available evidence, and it is important to state the
+limits of this claim precisely. The descriptive claim, that the
+framework organises the observed ecosystem, can be substantiated
+robustly through Legs 1 to 3. The explanatory claim, that mandatory
+compliance subsidises strategic sustainability through capability
+corridors, is substantiated as plausible and evidenced through Leg 4 and
+as useful through Leg 5 but, given the small cohort and the limited
+number of case studies, is not claimed to be causally proven. The
+defensible position is that the evidence is consistent with the corridor
+mechanism, that firms report having experienced it, and that the
+instruments on a corridor demonstrably share inputs, rather than that a
+causal relationship has been established beyond doubt.
+
+\section{5. Expected outputs and chapter
+structure}\label{expected-outputs-and-chapter-structure}
+
+The thesis produces five concrete artefacts mapping to chapter structure
+as follows.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3205}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3397}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3397}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Chapter}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Central artefact}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Form}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Ch. 1 Introduction + Ch. 2 Conceptual framework & The reactive→proactive
+frame; the cross-stakeholder convergence argument & Prose; reactive vs
+proactive comparison table \\
+Ch. 3 Methodology & The five-phase methodology, the 43-topic universe
+definition, the 0/1/2 coverage scale & Prose; methodology figure showing
+the funnel from 70 DRs → 36 → 43 \\
+Ch. 4 Cohort empirical analysis & Descriptive empirics of large-reporter
+disclosure practice & Heatmaps; per-topic and per-company coverage
+charts \\
+Ch. 5 Cross-framework demand mapping & The central heatmap (33 topics ×
+37 frameworks); stakeholder aggregation & Master heatmap figure;
+per-stakeholder breakdown charts \\
+Ch. 6 Stages-of-development roadmap + diagnostic tool & Stage 1/2/3
+assignment per topic; the diagnostic tool architecture & Staged roadmap
+figure; diagnostic tool process diagram \\
+Ch. 7 Case study validation & Application and refinement based on 1--2
+SME case studies & Case study narratives with tool output \\
+Ch. 8 Discussion + policy implications & Implications for SME
+sustainability practice; engagement with the EU simplification debate
+(Omnibus, VSME, sector standards) & Prose; brief policy
+recommendations \\
+Appendix & Prioritised KPI shortlist for European seafood SMEs (Stage 1
++ Stage 2 disclosures expanded to representative KPIs) & Structured
+table \\
+Appendix & Full landscape mapping (37 frameworks with metadata) &
+Reference table \\
+Appendix & Full coverage matrix (43 × 12 with per-cell justifications) &
+Audit table \\
+\end{longtable}
+}
+
+\section{}\label{section}
+
+\section{}\label{section-1}
+
+\section{6. Scope notes and known
+limitations}\label{scope-notes-and-known-limitations}
+
+\begin{itemize}
+\item
+  \textbf{Empirical scope.} Findings apply to European mid-sized seafood
+  processing SMEs (50--250 employees) primarily supplying large EU
+  retailers under B2B arrangements. Extension to other SME profiles
+  (smaller firms, primary producers, B2C operations) is treated as
+  future work.
+\item
+  \textbf{Cohort representativeness.} The five-company cohort represents
+  an upper bound of sector disclosure depth rather than an average.
+  Inferences about typical practice are not made from this cohort; the
+  cohort is used to establish what is empirically feasible to disclose,
+  not what is typical.
+\item
+  \textbf{Cross-framework coding subjectivity.} Coding of framework
+  coverage on the 0/1/2 scale involves analyst judgement. Mitigation:
+  ex-ante coding rubric, per-cell documentation with source citations,
+  sensitivity analysis on threshold choices.
+\item
+  \textbf{Case study generalisability.} One or two case studies cannot
+  validate the framework empirically across the SME population. The case
+  studies serve as usability tests of the diagnostic tool, not as
+  confirmatory empirical evidence for the framework structure.
+\item
+  \textbf{Static framework snapshot.} The regulatory and voluntary
+  framework landscape is evolving rapidly (Omnibus simplification, VSME
+  refinement, CSDDD phased entry, sector ESRS postponement). Findings
+  reflect the landscape as observed in May 2026.
+\end{itemize}
+
+APPENDIX:
+
+TOOL
+
+\subsubsection{What the SME sees - Step 1: Self-assessment (Input
+1)}\label{what-the-sme-sees---step-1-self-assessment-input-1}
+
+\textbf{Where are you on the reactive ↔ proactive spectrum? (7 items,
+takes 5 minutes)}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.0198}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.6397}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3405}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{\#}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Question}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{SME\textquotesingle s answer}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Do you have a formal written sustainability strategy approved by
+leadership? & In development \\
+2 & Do you have a dedicated sustainability function or full-time role? &
+Part of another role (50\%) \\
+3 & What primarily initiates your sustainability reporting work? &
+Mostly external requests, some internal \\
+4 & Do you have voluntary external commitments (e.g., SBTi, Net-Zero
+pledge)? & Considering --- not yet committed \\
+5 & Is your sustainability data reusable across multiple customer
+requests? & Partially --- rebuilt for each major customer \\
+6 & Do you measure and report on metrics that no customer or regulator
+currently requires? & No \\
+7 & Does sustainability factor into your 3-year strategic planning? &
+Limited --- mentioned but not central \\
+\end{longtable}
+}
+
+→ \textbf{Score: 9 / 21 --- early-stage reactive, transitioning.}
+
+\subsubsection{Step 2: Active stakeholder pressures (Input
+2)}\label{step-2-active-stakeholder-pressures-input-2}
+
+\textbf{Tick all that currently apply. Add detail where prompted.}
+
+\emph{Customer pressures (B2B retailer / buyer requirements):}
+
+\begin{itemize}
+\item
+  ☑ Sedex/SMETA audit required → \emph{by Lidl, ICA}
+\item
+  ☑ EcoVadis assessment requested → \emph{by Albert Heijn}
+\item
+  ☑ MSC chain-of-custody → \emph{all wild-capture products}
+\item
+  ☑ ASC certification (in progress) → \emph{for farmed salmon launch}
+\item
+  ☑ Customer ESG questionnaire (custom format) → \emph{Lidl annual; ICA
+  biannual}
+\item[$\square$]
+  BRCGS / IFS Food (food safety) --- \emph{already certified, taken as
+  given}
+\end{itemize}
+
+\emph{Investor / financial pressures:}
+
+\begin{itemize}
+\item
+  ☑ Bank sustainability-linked loan covenant → \emph{small green loan
+  from local bank, requires basic emissions reporting}
+\item[$\square$]
+  CDP submission requested
+\item[$\square$]
+  Equity investor ESG questions
+\end{itemize}
+
+\emph{Regulatory pressures (direct):}
+
+\begin{itemize}
+\item[$\square$]
+  CSRD direct (out of scope)
+\item
+  ☑ VSME considering for next reporting year
+\item
+  ☑ EU IUU regulation compliance (catch certificates for sourced wild
+  fish)
+\item
+  ☑ EU Control Regulation 2023/2842 --- digital traceability rollout
+\end{itemize}
+
+\emph{Industry / NGO / Sector:}
+
+\begin{itemize}
+\item[$\square$]
+  GRI reporting
+\item[$\square$]
+  Industry coalition / FAIRR engagement
+\item[$\square$]
+  NGO scrutiny
+\end{itemize}
+
+\subsubsection{Step 3: What the tool does (the
+logic)}\label{step-3-what-the-tool-does-the-logic}
+
+The tool now cross-references:
+
+\begin{itemize}
+\item
+  The SME\textquotesingle s \emph{active frameworks} (from Input 2):
+  Sedex/SMETA, EcoVadis, MSC, ASC, Lidl-questionnaire,
+  ICA-questionnaire, bank-loan-covenant, VSME, IUU, Control Reg
+\item
+  The demand matrix (43 topics × 12 frameworks): which topics each of
+  those active frameworks asks about
+\item
+  Stage assignments per topic
+\end{itemize}
+
+Filters and ranks the Stage 1 topics by \emph{how many of the
+SME\textquotesingle s active frameworks demand each topic}.
+
+\subsubsection{Step 4: What the SME gets back ---
+Output}\label{step-4-what-the-sme-gets-back-output}
+
+\textbf{Your situation:} \emph{Early-stage reactive (9/21). Active
+demand from 6 customer-driven frameworks, 1 investor-driven, 4
+regulatory.}
+
+\textbf{Output 1 --- Your top 10 priority topics (Stage 1, ranked by
+demand alignment with your pressures):}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0629}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3051}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4353}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1967}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{Rank}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Topic}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\# of your active frameworks demanding this}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Stakeholder types covered}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Scope 1 + 2 GHG emissions & 7 of your 11 (Sedex, EcoVadis, MSC
+chain-of-custody, Lidl Q, VSME, bank-loan, \ldots) & Customer, Investor,
+Regulator \\
+2 & Own workforce H\&S incidents & 6 (Sedex, EcoVadis, Lidl Q, ICA Q,
+ASC, VSME) & Customer, Regulator \\
+3 & Chain-of-custody / product traceability & 6 (MSC, ASC, Lidl Q, IUU,
+Control Reg, ICA Q) & Customer, Regulator \\
+4 & Energy consumption & 5 (EcoVadis, Lidl Q, VSME, bank-loan, ASC) &
+Customer, Investor, Regulator \\
+5 & Water use & 4 (ASC, EcoVadis, Lidl Q, VSME) & Customer, Regulator \\
+6 & Value chain worker policies (forced labour, child labour) & 4
+(Sedex/SMETA, ICA Q, EcoVadis, Lidl Q) & Customer \\
+7 & Anti-corruption policy + incidents & 4 (Sedex, EcoVadis, Lidl Q,
+VSME) & Customer, Regulator \\
+8 & Waste generated by processing & 4 (Lidl Q, EcoVadis, VSME, ASC) &
+Customer, Regulator \\
+9 & Animal welfare (aquaculture-specific) & 3 (ASC, BAP, NGO interest) &
+Customer \\
+10 & Antimicrobial use (aquaculture) & 3 (ASC, BAP, F2F Strategy) &
+Customer, Regulator \\
+\end{longtable}
+}
+
+\textbf{Output 2 --- Your staged roadmap (personalised):}
+
+\textbf{Stage 1 --- Foundation (start now, 6--12 months):} Build
+capability on topics 1--5. These satisfy ≥4 of your active frameworks
+each. Recommended sequence: GHG (1) → traceability (3) → energy + water
+(4, 5) → H\&S (2). Estimated coverage gain: \textasciitilde70\% of your
+current external requests answerable from one data infrastructure.
+
+\textbf{Stage 2 --- Expansion (12--24 months, once Stage 1 is
+operational):} Add topics 6--8 plus VSME basic module formalisation.
+This positions you to handle Lidl\textquotesingle s deepening
+sustainability scorecard and EcoVadis level improvements, plus respond
+to additional customer ESG questionnaires without rebuild.
+
+\textbf{Stage 3 --- Differentiation (24+ months, proactive moves):}
+Topics 9--10 (animal welfare, antimicrobial use) --- currently demanded
+by ASC + sector frameworks but not yet by most retailers. Investing here
+positions Nordic Whitefish as an aquaculture sustainability leader as
+you launch farmed salmon, ahead of likely retailer asks in 2027--28.
+
+\textbf{Positioning note:}
+
+Your self-assessment placed you at 9/21 --- \emph{early-stage reactive
+transitioning}. The Stage 1 priorities above, if implemented, would move
+you to \emph{capability-driven proactive}, because your reporting
+infrastructure would be designed to serve multiple stakeholder demands
+simultaneously rather than rebuilt per request.
+
+\end{document}
