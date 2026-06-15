@@ -63,6 +63,9 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric}
+
 \author{}
 \date{}
 
@@ -685,325 +688,371 @@ construction}\label{phase-1---universe-construction}
 
 The disclosure-topic universe used in the cross-framework mapping is
 constructed in four steps.
+% =====================================================================
+%  REVISED METHODOLOGY — Phase 1 (amended) + Phase 3 (rewritten)
+%  Drop-in replacement text. Changes vs. your current draft:
+%    (1) Universe is now 32 rows (AMU merged into Animal health & welfare
+%        -> 4 sector-material gap rows, not 5).
+%    (2) Phase 3 codes the FULL Phase 2 landscape (~37 instruments),
+%        not "~12 priority frameworks", and 32 rows, not 43.
+%    (3) NEW: datapoint-grounded scoring protocol.
+%    (4) NEW: out-of-frame demand register.
+%  Editorial flags:  \resflag  marks text that may belong in RESULTS.
+%  Figure needs:  \usepackage{tikz}  \usetikzlibrary{shapes.geometric,arrows.meta,positioning}
+%               + \usepackage{soul} (you already use \hl)
+% =====================================================================
 
-\textbf{Step 1.1 Cohort coverage matrix}
+\newcommand{\resflag}{\textbf{\textcolor{red}{[$\to$ RESULTS?]}}}
 
-A binary coverage matrix is built recording, for each ESRS topical DR
-and each of the six cohort companies, whether the DR is materially
-reported against. For the three GRI-reporting companies, disclosures are
-first translated onto the ESRS DR scale through the GRI--ESRS bridge, so
-the matrix is lens-unified across all six companies. This matrix is the
-empirical record of disclosure practice in the cohort.
-
-\textbf{Step 1.2 Consensus filter: the 26-DR core and topic-level
-resolution}
-
-The core universe is built from the bridged coverage matrix by a
-unit-aware consensus rule applied in two tiers, both operating at the
-same $\geq$5-of-6 evidentiary threshold.
-
-Tier 1 --- DR-level consensus. A Disclosure Requirement is admitted to
-the universe if reported by at least five of the six cohort companies.
-Reporting by $\geq$5/6 is treated as strong empirical evidence that the DR is
-both material to the sector and feasible to report on at scale. Applied
-to the bridged coverage matrix, this rule yields a consensus core of 26
-DRs.
-
-Tier 2 --- Topic-level resolution. Because the GRI--ESRS bridge places
-all six companies on a common DR scale, reporting that is dispersed
-across several DRs within one topical area can fall below the DR-level
-threshold even when most companies report the topic. To correct this
-granularity artefact, the firm-union is computed at topic level for each
-ESRS topical standard: a topic is admitted as a single topic-level row
-if at least five of the six companies report on at least one DR within
-that topic. Applied uniformly across all topical standards, this rule
-admits two additional topics:
-
-$\bullet$ Biodiversity (ESRS E4) --- 5 of 6 companies report at least one of
-E4-1 through E4-5, with reporting dispersed across the policy, action,
-target and metric DRs such that no individual sub-DR clears the $\geq$5/6
-bar.
-
-$\bullet$ Consumer health and food safety (ESRS S4) --- 5 of 6 companies report
-at least one S4 DR, again dispersed across sub-DRs.
-
-GRI 13 (Agriculture, Aquaculture and Fishing Sectors 2022) corroborates
-the sector-materiality of both topics. Because these additions enter at
-the same evidentiary standard as Tier 1, no relaxed or ad-hoc rescue
-threshold is introduced. The high-confidence universe at the close of
-Step 1.2 contains 28 entries: the 26 Tier 1 DRs plus the two Tier 2
-topics.
-
-A consequence of the two-tier rule is that 26 entries are coded at DR
-level and 2 at topic level in the cross-framework demand matrix of Phase
-3. This asymmetry is treated as a feature rather than a flaw: the
-granularity of each entry's row in the demand matrix matches the
-granularity at which cohort evidence supports its inclusion. A
-Coding\_Level column is carried alongside each row to make the
-granularity transparent throughout the analysis.
-
-\textbf{Step 1.3 GRI 13 sector cross-check}
-
-The 28-entry high-confidence universe is cross-referenced against the 26
-likely-material topics enumerated in GRI 13: Agriculture, Aquaculture
-and Fishing Sectors 2022. Each GRI 13 topic is classified into one of
-three categories:
-
-$\bullet$ Covered --- at least one mapped ESRS DR is present in the
-high-confidence universe.
-
-$\bullet$ Reporting gap --- a mapped ESRS DR exists but is not in the universe,
-indicating that the cohort under-reports the topic relative to its
-sector materiality per GRI 13.
-
-$\bullet$ Structural gap --- no ESRS DR exists for the topic at all, indicating
-that ESRS itself does not cover what GRI 13 considers sector-material.
-
-The reporting-gap and structural-gap categories together describe the
-topics for which an ESRS-centric universe would understate the
-disclosure environment that European seafood SMEs actually face.
-
+% ---------------------------------------------------------------------
+% AMENDMENT TO STEP 1.4 (replaces the "five topics" paragraph)
+% ---------------------------------------------------------------------
 \textbf{Step 1.4 Sector-material topics carried into the demand matrix}
 
-The cross-check in Step 1.3 is not left as commentary. The five topics
-that are most sector-defining for seafood yet have no clean ESRS (and,
-equally, no VSME) home are carried into Phase 3 as a separate,
-explicitly flagged block of sector-material rows: supply-chain
-traceability (chain of custody), wild-stock status and sustainable wild
-sourcing, feed and marine-ingredient sourcing, antimicrobial use, and
-animal welfare. Wild-stock status partly overlaps ESRS E4 and is
-retained as a distinct sourcing-decision row; the remaining four have no
-dedicated Disclosure Requirement in either ESRS or the VSME standard.
+The cross-check in Step 1.3 is not left as commentary. The topics that
+are most sector-defining for seafood yet have no clean ESRS (and,
+equally, no VSME) home are carried into Phase 3 as a separate, explicitly
+flagged block of sector-material rows. After consolidation this block
+comprises \emph{four} rows: supply-chain traceability (chain of custody);
+wild-stock status and sustainable wild sourcing; feed and
+marine-ingredient sourcing; and animal health and welfare. Antimicrobial
+use, treated as a fifth candidate in earlier drafting, is folded into the
+animal-health-and-welfare row rather than carried separately, for two
+reasons: it has no home of its own in GRI~13 (it is neither a topic nor a
+disclosure in the standard), and the certification schemes that demand it
+(ASC, BAP) treat antibiotic stewardship as an element of fish-health
+management. Wild-stock status partly overlaps ESRS~E4 and is retained as a
+distinct sourcing-decision row; the coding rule that separates the two is
+pinned in Phase~3 (Section~4.5).
 
-These five are deliberately not derived from cohort consensus --- the
-cohort does not report them at scale precisely because the reporting
-taxonomy does not ask for them. They are admitted on a different,
-clearly labelled basis: sector materiality per GRI 13 and demand by EU
-sector legislation or major non-regulatory frameworks active in the
-seafood ecosystem (e.g. the IUU and Fisheries Control Regulations,
-MSC/ASC chain of custody, GDST, FisheryProgress). Carrying them as a
-flagged block keeps the cohort-evidenced core and the sector-material
-additions epistemically distinct, while ensuring the demand matrix
-reflects the disclosure environment a seafood SME actually faces rather
-than an ESRS-only abstraction. In the matrix these rows score near-zero
-across the ESRS/VSME and investor columns and concentrate on the seafood
-certification and regulatory columns --- the contrast is itself a
-finding: an SME preparing only for VSME would miss the topics its buyers
-and regulators most demand.
+These rows are deliberately \emph{not} derived from cohort consensus --
+the cohort does not report them at scale precisely because the ESRS
+taxonomy does not ask for them. They are admitted on a different, clearly
+labelled basis, and that basis differs by row. Two correspond to named
+GRI~13 topics: traceability to GRI~13.23 (Supply chain traceability) and
+animal health and welfare to GRI~13.11 (Animal health and welfare). The
+other two are not GRI~13 topics but are carried by the
+fishing/aquaculture \emph{sector-specific disclosures} that GRI files
+under biodiversity -- wild-stock under the ``aquatic organisms caught or
+harvested'' disclosure (13.3.11) and feed under the ``aquaculture
+production'' disclosure (13.3.10) -- together with demand from EU sector
+legislation and major non-regulatory frameworks (the IUU and Fisheries
+Control Regulations, MSC/ASC chain of custody, GDST, FisheryProgress).
+Each gap row additionally carries a system tag (\emph{wild},
+\emph{aqua}, or \emph{both}) recording the production system to which it
+applies, so that a wild-capture-only or aquaculture-only firm excludes
+the rows that do not concern it.
 
+Carrying these as a flagged block keeps the cohort-evidenced core and the
+sector-material additions epistemically distinct. \resflag\ In the matrix
+these rows score near-zero across the ESRS/VSME and investor columns and
+concentrate on the seafood-certification and regulatory columns; that
+contrast is an empirical result of the coding, not a premise, and may
+read better in the results chapter.
+
+% ---------------------------------------------------------------------
+% AMENDMENT TO "Final universe" (replaces the 33-row list)
+% ---------------------------------------------------------------------
 \textbf{Final universe}
 
 The disclosure-topic universe used as the row dimension of the
-cross-framework demand matrix in Phase 3 comprises 33 rows:
+cross-framework demand matrix in Phase~3 comprises \textbf{32 rows}:
 
-$\bullet$ 26 Tier 1 entries --- DR-level cohort consensus ($\geq$5/6);
+$\bullet$ 26 Tier~1 entries -- DR-level cohort consensus ($\geq$5/6);
 
-$\bullet$ 2 Tier 2 entries --- topic-level cohort consensus ($\geq$5/6): E4
+$\bullet$ 2 Tier~2 entries -- topic-level cohort consensus ($\geq$5/6): E4
 Biodiversity and S4 Consumer health and food safety;
 
-$\bullet$ 5 sector-material entries --- structural-gap seafood topics carried in
-on GRI 13 / sector-legislation grounds, flagged as additions rather than
-cohort-evidenced.
+$\bullet$ 4 sector-material entries -- structural-gap seafood topics carried
+in on GRI~13 / sector-legislation grounds, flagged as additions rather
+than cohort-evidenced, and merging antimicrobial use into animal health
+and welfare.
 
-Each entry is carried into Phase 3 with metadata indicating its
-inclusion tier, its coding level (DR or Topic), and a confidence flag
-distinguishing the 28 cohort-evidenced high-confidence entries from the
-5 sector-material additions.
+Each entry carries metadata indicating its inclusion tier, its coding
+level (DR or Topic), a confidence flag distinguishing the 28
+cohort-evidenced high-confidence entries from the 4 sector-material
+additions, and -- for the gap rows -- a production-system tag. The full
+funnel is therefore 70 ESRS topical DRs $\to$ 28 high-confidence entries
+(26 DR + 2 topic) $\to$ 32 rows after the four sector-material additions.
+% NOTE: update the Ch.5 expected-outputs table, which still reads
+% "70 DRs -> 36 -> 43"; the current funnel is 70 -> 28 -> 32.
 
-\subsection{4.4 Phase 2 - Landscape
+\subsection{4.4 Phase 2 -- Landscape
 mapping}\label{phase-2---landscape-mapping}
 
-Phase 2 catalogues the full landscape of frameworks, standards,
-certifications and initiatives that place sustainability-disclosure
-demands on a European seafood-processing SME, and arranges them into the
-necessity-by-domain map that populates the playing field of Section 3.4.
-The cohort sustainability reports are the empirical entry point: every
-framework explicitly referenced by at least one cohort company is
-included, and desk research enriches the metadata and adds instruments
-that are binding on the entity but absent from cohort disclosure.
-Necessity is assessed throughout from the perspective of the SME - a B2B
-supplier of 50 to 250 employees selling to large EU retailers - so the
-same instrument may sit at a different tier for a differently situated
-firm.
+Where Phase~1 fixes the \emph{rows} of the demand matrix, Phase~2 fixes
+its \emph{columns}: the instruments that make up the
+sustainability-disclosure ecosystem a European seafood-processing SME
+actually faces. The output is a structured catalogue -- the
+Necessity~$\times$~Domain map -- recording, for every instrument, who demands it and what it's strategic importance is.
 
-\textbf{The necessity tiers and domains.}
+\textbf{Organising frame.} Instruments are arrayed on two axes. The
+\emph{necessity} axis ranks each instrument by how imperative it is from
+the SME's perspective, in four tiers: Tier~1, legal licence to operate
+(binding law); Tier~2, market licence to operate (customer-demanded
+certifications and audits without which market access is lost); Tier~3,
+competitive expectation (reporting frameworks peers adopt); and Tier~4,
+strategic differentiation (voluntary leadership initiatives). The
+\emph{domain} axis separates seafood-sector-specific instruments from
+general corporate-sustainability instruments. Two bands sit outside this
+grid: a Tier~0 food-integrity foundation -- the food-safety and food-law
+floor every processor clears before sustainability strategy begins, in
+scope of the firm but out of scope of the disclosure analysis -- and a
+Layer~2 enabling layer of methods, management systems and data
+infrastructure used to satisfy the demands above (the
+``methodology providers versus disclosure askers'' distinction,
+Section~4.5).
 
-\hl{\emph{Key Question: What happens to the firm without it?}
-Can\textquotesingle t lawfully operate $\to$ Tier 1. Customers
-won\textquotesingle t list you $\to$ Tier 2. Falling behind peers $\to$ Tier 3.
-Pure leadership signal $\to$ Tier 4.}
+\textbf{Inclusion rule.} An instrument is admitted to the Layer~1 grid
+only if it passes two gates, judged on the instrument's own text.
+\emph{Gate~1 (ESG topic):}
+the instrument bears on an environmental, social or governance matter,
+which excludes fiscal, customs and data-protection law. \emph{Gate~2 (own
+binding organisation-level obligation):} the instrument itself imposes on
+the firm a binding organisation-level obligation -- a disclosure,
+due-diligence, certification, management-mechanism or market-access
+requirement -- rather than an individual employee entitlement or an
+obligation that binds only Member States. Gate~2 admits
+process-and-mechanism duties (the OSH Framework Directive, the
+Whistleblowing Directive's internal-reporting-channel requirement) on the
+same footing as reporting duties, while excluding individual-entitlement
+labour law (the Work--Life Balance Directive) and Member-State-binding
+instruments (the Adequate Minimum Wages Directive). A third carve-out
+keeps product- and food-safety conformity in the Tier~0 foundation, even
+though the consumer-health topic re-enters Phase~3 through the frameworks
+that ask about it. The full candidate set -- including instruments
+considered and rejected, with the gate each failed -- is recorded in a
+scope log, so that membership is reproducible rather than a matter of
+recall.
 
-Each instrument is placed in one cell of a grid whose rows are necessity
-tiers and whose columns are the two sustainability domains. The rows are
-a Tier 0 foundation of food-integrity law and food-safety certification,
-which is in scope of the firm but excluded from the disclosure analysis
-and held in a separate band; Tier 1, legal license to operate, of
-instruments that legally bind the processor; Tier 2, market license, of
-requirements that are legally optional but commercially non-negotiable;
-Tier 3, competitive expectation; and Tier 4, strategic differentiation.
-The columns are seafood-sector sustainability and general corporate
-sustainability. A separate enabling layer, Layer 2, holds the
-measurement methods, management systems and data infrastructure - for
-example the GHG Protocol, the ISO 14001/45001/50001 standards and
-life-cycle-assessment methods - whose necessity is derived from the
-demand they serve and which therefore sit outside the grid.
+\textbf{Stakeholder source and obligation locus.} Each admitted
+instrument carries two attributes that its Phase~3 column inherits. Its
+\emph{source} records the dominant stakeholder whose demand the processor
+actually answers, determined by the test ``does the instrument legally
+bind the processor?'': where it does, the source is the regulator; where
+it does not, the source is the transmitting stakeholder -- a customer
+audit, a capital-market expectation, or an industry/NGO initiative. For a
+sub-threshold SME selling B2B to large retailers, this rule reassigns
+several instruments whose nominal issuer is a regulator to the customer
+channel through which the SME actually experiences them: CSRD/ESRS,
+CSDDD and CDP are coded \emph{customer}, because the dominant transmitter
+is the large customer's value-chain data request rather than the capital
+market, while the \emph{investor} code is reserved for instruments whose
+primary intended user is capital (SFDR, the EU Taxonomy, IFRS~S1/S2, and
+VSME via lenders). The \emph{obligation locus} records separately whether
+the processor is the bound entity (\emph{direct}), is reached through
+another party's duty (\emph{indirect}), or merely operates within a
+regime that binds someone else (\emph{context}).
 
-\textbf{Source: the binds-the-processor test.}
+\textbf{Firm-profile conditionality.} Several instruments apply only to
+firms with particular characteristics. These are flagged
+scope-conditional and governed in Phase~3 by firm-profile
+include-switches: the F-gas Regulation applies only where fluorinated
+refrigerants are used; the Pay Transparency Directive only at or above
+150 employees; ISSF only to tuna processors; and RSPO only where palm is
+physically handled as an input. Setting the firm profile activates or
+deactivates these columns and excludes the inapplicable ones from that
+firm's demand sums. A small number of instruments are retained in the
+catalogue for ecosystem completeness but carry no scorable demand on the
+SME and are excluded from the demand sums: investor benchmarks that rate
+only large listed firms (the Coller~FAIRR Protein Producer Index, the
+Dow~Jones Sustainability Index), a keystone-company coalition the SME
+cannot join (SeaBOS), and a scheme-benchmarking body that imposes no
+direct obligation on the processor (GSSI).
 
-\hl{\emph{Key Question: Who drives the obligation to the processor?}
-Decision rule: Does the instrument legally bind the processor?
-\textbf{Yes $\to$ Regulator.} \textbf{No $\to$ the stakeholder that transmits
-the demand} (buyer audit/questionnaire $\to$ Customer; capital-market
-expectation $\to$ Investor; self-adopted voluntary framework $\to$ by intended
-audience)}
+\textbf{Output.} The result is the column dimension of the Phase~3
+matrix: the full ecosystem catalogued in this phase -- the
+\hl{[N $\approx$ 38]} instruments carried into Phase~3, of which three
+investor and coalition benchmarks are retained but unscored -- each
+tagged with its tier, domain, source, obligation locus, an independence
+weight (Section~4.6) and any firm-profile condition. The map is
+intentionally \emph{not} mutually exclusive: a single topic reached by
+several instruments remains visible under each, because the
+cross-framework convergence that Phase~3 measures depends on that overlap
+being preserved rather than collapsed.
+% TODO: confirm [N] against the Phase 2 workbook and reconcile with the
+% "approximately 37 instruments" figure in §4.5.
 
-Each instrument is assigned a single primary stakeholder driver by a
-pinned test, so that the coding is reproducible rather than
-impressionistic. The test asks whether the instrument legally binds the
-processor; if it does, the source is the regulator, and if it does not,
-the source is the stakeholder that actually transmits the demand to the
-firm. The four codes are:
+% =====================================================================
+\subsection{4.5 Phase 3 -- Cross-framework demand mapping}
+\label{phase-3---cross-framework-demand-mapping}
+% =====================================================================
 
-\begin{itemize}
-\item
-  \textbf{Regulator:} the instrument legally binds the processor - for
-  example the IUU and Fisheries Control Regulations, the EU
-  Deforestation Regulation, the Packaging and Packaging Waste
-  Regulation, and occupational-safety and working-time law.
-\item
-  \textbf{Customer:} the instrument does not bind the processor but is
-  transmitted by retail or B2B buyers through audits, supplier
-  questionnaires and value-chain data requests - for example MSC, ASC,
-  BAP, GLOBALG.A.P., Sedex/SMETA and EcoVadis, and, for a sub-threshold
-  SME, the CSRD/ESRS, CSDDD and CDP demands cascaded from large
-  customers.
-\item
-  \textbf{Investor:} the instrument is driven by capital-market
-  expectations and its primary intended user is a provider of capital -
-  SFDR, the EU Taxonomy, IFRS S1/S2, the FAIRR and Dow Jones indices,
-  and VSME, which a sub-threshold SME adopts largely at the prompting of
-  lenders and banks.
-\item
-  \textbf{Industry / NGO:} self-adopted voluntary frameworks whose
-  primary audience is multistakeholder or NGO-led - GRI (incl. GRI 13),
-  SBTi, the UN Global Compact and SDGs, GDST, FIPs/FisheryProgress, ISSF
-  and SeaBOS.
-\end{itemize}
+The central analytical construct is a coverage matrix whose rows are the
+32 disclosure topics of the final universe (Section~4.3) and whose
+columns are the ecosystem of frameworks, standards, certifications and
+initiatives catalogued in Phase~2. Rather than the provisional
+twelve-framework subset, the matrix codes the \emph{full} Phase~2
+landscape -- approximately 37 instruments spanning the four stakeholder
+drivers (regulator, customer, investor, industry/NGO)
+% FLAG: confirm the exact count against your Phase 2 workbook and
+% reconcile Section 4.4, which still says "a priority subset of
+% approximately twelve frameworks". Either (a) drop the 12-framework
+% language and state that Phase 3 codes the full set, or (b) keep 12 as
+% a presentational focus for the headline heatmap while coding all 37.
+-- so that convergence is measured across the demand environment the SME
+actually faces. Each column carries, as attributes inherited from
+Phase~2, its primary stakeholder driver and its obligation locus (direct,
+indirect, context), and an independence weight used in the
+dependency-adjusted aggregation of Phase~4 (Section~4.6); columns that a
+given firm's profile renders inapplicable (e.g. a tuna-specific or
+refrigerant-specific instrument) are deactivated by firm-profile
+include-switches and excluded from that firm's sums.
 
-\textbf{Obligation locus.}
+\textbf{The coverage scale.} Each cell is coded on a three-level scale,
+defined ex ante:
 
-\hl{\emph{Key Question: Is the processor itself the bound party?}
-Decision rule: Processor is the obligated/certified/reporting entity $\to$
-\textbf{Direct ($\bullet$)}. Obligation sits elsewhere in the chain and reaches
-the processor via a buyer demand or its own disclosure duty $\to$
-\textbf{Indirect ($\circ$)}. Binds a Member State or other actor with no
-transmission to the processor $\to$ \textbf{Context (---)}}
-
-Orthogonally to source, each instrument carries an obligation-locus code
-that records whether the processor is itself the bound party, encoded in
-the map as a filled marker for direct, an open marker for indirect, and
-a dash for context. A requirement is direct where the processor is the
-obligated, certified or reporting entity - the EUDR due-diligence duty,
-MSC or ASC certification of the seafood it sells, its own VSME report.
-It is indirect where the obligation sits elsewhere in the chain and
-reaches the processor through a buyer demand or its own disclosure duty,
-in which case it is placed at the tier of that transmission mechanism -
-the fisheries-labour Directive, which binds vessel owners, or CSRD and
-CSDDD, which bind large undertakings and cascade down. It is context
-where the instrument binds a Member State or another actor with no
-mechanism transmitting an obligation to the processor - the Common
-Fisheries Policy, the Marine Strategy Framework Directive, RFMO catch
-rules, the Water and Waste Framework Directives - and these are retained
-in-cell as greyed context rather than active demands. Source and locus
-are independent: an instrument can be customer-driven yet indirect (the
-fisheries-labour Directive) or regulator-driven yet context (the Common
-Fisheries Policy).
-
-\textbf{Scoping and consolidation decisions.}
-
-Four coding decisions are applied consistently and recorded with the
-map. First, dual-channel instruments that reach a sub-threshold SME
-through both customers and capital markets - CSRD/ESRS, CSDDD and CDP -
-are coded Customer, because for a firm below the CSRD threshold the
-dominant transmitter is the large customer's value-chain data and
-due-diligence cascade rather than its own investors; the Investor code
-is reserved for instruments whose primary intended user is capital.
-Second, certification locus follows a core-product test: a scheme is
-direct only where the processor holds it for the seafood it sells (MSC,
-ASC, BAP, GLOBALG.A.P.) and indirect where the certified material is a
-non-core input the processor does not physically handle. Third, on that
-logic RSPO is demoted from a first-class Tier 2 entry to a conditional
-footnote, because palm reaches a seafood processor only through upstream
-feed and so fails the direct test unless palm is itself a processing
-input, while the underlying deforestation-commodity exposure is in any
-case already binding through EUDR at Tier 1 (soy certifications such as
-RTRS and ProTerra are excluded on the same reasoning). Fourth, the
-investor-reporting frameworks are consolidated: SASB and TCFD are not
-listed separately but are incorporated into IFRS S1/S2 under the ISSB,
-and CSRD and ESRS are held as a single entry. General business
-regulation that is neither food integrity nor sustainability - the VAT
-Directive and the Union Customs Code - is excluded.
-
-The map is deliberately not mutually exclusive. Because Phase 3
-decomposes each requirement into its underlying disclosure topics in
-order to locate overlap, a topic demanded by several instruments is left
-visible under each of them rather than assigned to a single owner.
-
-Each instrument is documented with its issuing organisation, year
-established or effective, EU regulatory status, sector applicability,
-geographic scope, primary stakeholder driver, obligation locus,
-seafood-sector relevance, references to cohort report pages, and
-official URL. This produces the landscape-mapping reference document
-that accompanies this thesis as a structured workbook.
-
-For the detailed Phase 3 demand mapping, a priority subset of
-approximately twelve frameworks is selected on the basis of (i) coverage
-across the four stakeholder types, (ii) explicit indicator-level demand
-on the entity rather than methodological reference, and (iii) presence
-in the cohort's actual reporting practice. The provisional priority list
-comprises VSME, MSC, ASC, BAP, Sedex/SMETA, IFS Food, BRCGS, EcoVadis,
-CDP, SBTi, GRI 13 and GDST.
-
-\subsection{4.5 Phase 3 - Cross-framework demand
-mapping}\label{phase-3---cross-framework-demand-mapping}
-
-The central analytical construct is a coverage matrix with rows = 43
-disclosure topics and columns = \textasciitilde12 priority frameworks.
-Each cell is coded on a three-level scale:
-
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 0\tabcolsep) * \real{1.0000}}@{}}
+{\def\LTcaptype{none}
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{\linewidth}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Coverage scale (defined ex ante)}
 
-0: Not covered: the framework does not address this topic.
+0 -- Not covered: the framework does not address this topic, or its
+demand maps only to datapoints outside the row universe (see
+out-of-frame rule below).
 
-1: Touched: the framework mentions or implicitly references the topic,
-but does not require specific reporting or certification on it
+1 -- Touched: the framework references the topic but does not require
+reporting or certification on any of the topic's datapoints.
 
-2: Required: the framework explicitly requires the entity to report on,
-certify, or disclose the topic.
+2 -- Required: the framework explicitly requires the entity to report on,
+certify, or disclose at least one datapoint belonging to the topic.
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\end{longtable}
-}
+\end{longtable}}
 
-Every non-zero cell is documented with a one-line justification
-including a citation to the source framework paragraph or indicator.
-This per-cell documentation constitutes the audit trail and protects
-against reviewer challenges to the coding decisions.
+\textbf{Datapoint-grounded coding.} A score is assigned against the
+\emph{constituent datapoints} of a requirement, not against the title of
+its Disclosure Requirement. For the 28 cohort-evidenced rows, each DR is
+decomposed into its official EFRAG datapoints using the ESRS datapoint
+master (the EFRAG datapoint list, filtered to the same ``keep'' layer
+applied in Phase~1), producing a requirement-to-datapoint linkage; the 26
+DR-level rows resolve to 356 datapoints and the two topic-level rows (E4,
+S4) to a further 152. A framework scores~2 on a requirement where its
+indicators demand at least one of that requirement's datapoints,~1 where
+it references the topic but maps to none of those datapoints as a
+reporting or certification requirement, and~0 where it is silent. This
+discipline makes each judgement concrete and reproducible: it converts
+``does framework $f$ address topic $r$?'' into ``does $f$ demand any
+datapoint of $r$?''. \resflag\ It also surfaces corrections -- for
+example, whistleblowing demand resolves to the governance row that
+actually carries whistleblowing datapoints rather than to an adjacent
+anti-corruption row -- which, if reported, are findings about coding
+rather than method.
 
-The distinction between methodology providers (e.g., GHG Protocol, ISO
-14001, which provide accounting or process standards but do not pressure
-entities to report) and disclosure askers (e.g., CDP, SBTi, MSC -which
-require entities to submit information) is made explicit.
+\textbf{Coding levels.} The granularity of each row matches the
+granularity at which cohort evidence supports it (the \texttt{Coding\_Level}
+column). For the two topic-level rows the requirement comprises all
+datapoints across the topic's sub-DRs, and a framework is scored against
+the topic as a whole. For the four sector-material gap rows no ESRS
+datapoint exists by construction; these are scored instead against the
+criteria of the demanding frameworks themselves -- for instance MSC
+Principle~1 stock-status reference points for wild-stock, GDST key data
+elements for traceability, and ASC antibiotic and survival criteria for
+animal health and welfare.
+
+\textbf{The wild-stock / E4 boundary.} Because wild-stock status partly
+overlaps ESRS~E4, a pinned rule prevents double-counting: stock-status
+and legal-sourcing demand (MSC Principle~1, the IUU catch-certificate
+regime, FisheryProgress) codes to the wild-stock row, whereas
+generic biodiversity and ecosystem-impact demand (ESRS~E4, GRI~101,
+TNFD, and MSC Principle~2 on bycatch and habitat) codes to E4. A single
+framework may therefore legitimately score on both rows through different
+provisions.
+
+\textbf{Out-of-frame demand.} A framework's indicator-level demand
+sometimes maps cleanly onto an ESRS datapoint that lies \emph{outside}
+the cohort-defined universe. The Pay Transparency Directive's gender
+pay-gap requirement maps to ESRS~S1-16, and the Working Time Directive to
+S1-11/S1-15 -- none of which cleared the $\geq$5/6 consensus and so have no
+row. Such demand is scored~0 against the in-universe rows; it is
+\emph{not} reassigned to the nearest available row, since doing so would
+misattribute the demand and inflate that row. Instead it is recorded in a
+separate out-of-frame demand register (framework $\to$ demanded DR $\to$
+reason out of frame). This preserves the cohort-grounded logic of the
+universe -- a framework's contribution to the matrix is the
+\emph{intersection} of its demand with the cohort-evidenced universe, not
+the union of everything it asks -- while keeping the observation visible.
+\resflag\ That mandatory labour-standards disclosure (pay transparency,
+working time) and the voluntary sustainability-reporting universe occupy
+partly disjoint spaces is itself a finding for the discussion.
+
+\textbf{Methodology providers vs disclosure askers.} The distinction
+between methodology providers (e.g. the GHG Protocol, ISO~14001, which
+supply accounting or process standards but do not themselves pressure an
+entity to report) and disclosure askers (e.g. CDP, SBTi, MSC, which
+require an entity to submit or certify information) is made explicit.
 Methodology-only frameworks are documented in the landscape mapping but
-treated separately in the demand analysis.
+held in the enabling layer and excluded from the demand sums.
+
+\textbf{Audit trail.} Every non-zero cell is documented in a
+justification log with a one-line rationale, a citation to the source
+framework clause or indicator, \emph{and} the identifier(s) of the ESRS
+datapoint(s) the demand maps to. This per-cell documentation constitutes
+the audit trail and protects the coding against reviewer challenge.
+Figure~\ref{fig:cell-coding} sets out the decision applied to each cell.
+
+% ---------------------------------------------------------------------
+% FIGURE: per-cell coding protocol
+% ---------------------------------------------------------------------
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance = 9mm and 14mm,
+  font = \small,
+  box/.style   = {rectangle, rounded corners, draw, align=center,
+                  text width=46mm, inner sep=4pt},
+  dec/.style   = {diamond, aspect=2, draw, align=center,
+                  inner sep=1pt, text width=34mm},
+  term/.style  = {rectangle, draw, fill=black!6, align=center,
+                  text width=30mm, inner sep=4pt},
+  arr/.style   = {-{Stealth[length=2mm]}}
+]
+\node[box] (start) {Cell: framework $f$ $\times$ requirement $r$};
+\node[dec, below=of start] (gap) {Is $r$ a sector-material gap row?};
+\node[term, right=24mm of gap] (crit) {Score 0/1/2 against demanding-framework criteria};
+\node[dec, below=14mm of gap] (addr) {Does $f$ address topic $r$ at all?};
+\node[term, right=24mm of addr] (silent) {Score \textbf{0}\\(silent)};
+\node[dec, below=14mm of addr] (map) {Does $f$ demand a datapoint of $r$?};
+\node[term, left=18mm of map] (touch) {Score \textbf{1}\\(topic referenced, no datapoint required)};
+\node[dec, below=14mm of map] (inuni) {Is that datapoint in the universe?};
+\node[term, below=of inuni] (req) {Score \textbf{2}\\(required datapoint hit)};
+\node[term, right=18mm of inuni] (oof) {Score \textbf{0}\\+ out-of-frame register};
+
+\draw[arr] (start) -- (gap);
+\draw[arr] (gap) -- node[above]{yes} (crit);
+\draw[arr] (gap) -- node[right]{no} (addr);
+\draw[arr] (addr) -- node[above]{no} (silent);
+\draw[arr] (addr) -- node[right]{yes} (map);
+\draw[arr] (map) -- node[left]{topic only} (touch);
+\draw[arr] (map) -- node[right]{yes} (inuni);
+\draw[arr] (inuni) -- node[right]{yes} (req);
+\draw[arr] (inuni) -- node[above]{no} (oof);
+\end{tikzpicture}
+\caption{Per-cell coding protocol. Each framework~$\times$~requirement
+cell is scored against the requirement's constituent ESRS datapoints;
+gap rows, which have no ESRS datapoints by construction, are scored
+against the demanding frameworks' own criteria; a framework silent on the
+requirement scores~0, and demand that maps only to out-of-universe
+datapoints also scores~0 and is logged separately.}
+\label{fig:cell-coding}
+\end{figure}
+
+% ---------------------------------------------------------------------
+% SHORT NOTE you can paste under Step 1.3 re: method vs results
+% ---------------------------------------------------------------------
+% METHOD vs RESULTS — my recommendation:
+%  * The PROCEDURE (how GRI 13's 26 topics are classified Covered /
+%    Reporting gap / Structural gap; how the gap block is admitted) is
+%    METHOD — keep in 4.3.
+%  * The OUTCOME (which topics turned out to be structural gaps; that AMU
+%    has no GRI home; that gap rows empirically score near-zero on
+%    ESRS/VSME/investor columns and load on certification/regulatory
+%    columns) is a RESULT — move the marked \resflag sentences to the
+%    results chapter, leaving a one-line forward reference here.
 
 \subsection{4.6 Phase 4 - Hotspot analysis and stage
 assignment}\label{phase-4---hotspot-analysis-and-stage-assignment}
