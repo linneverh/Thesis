@@ -17,3 +17,10 @@
 .vscode/
 .DS_Store
 .claude/
+
+.venv/
+*.tmp
+main.pdf
+.venv/
+*.tmp
+main.pdf
