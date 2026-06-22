@@ -696,20 +696,47 @@ phases:
 cohort}\label{empirical-scope-the-large-reporter-cohort}
 
 The empirical foundation is the disclosure practice of six large
-seafood processing companies that are CSRD-reporting or have
-published sustainability reports of comparable depth: Bolton Group, A.
-Espersen A/S, Mowi ASA, Nomad Foods Limited, Profand Group, and Thai
-Union Group. These six represent the realistic upper bound of seafood
-sector disclosure depth and span both wild-capture and aquaculture
-operations, branded and private-label, listed and unlisted, European
-and non-European headquarters.
+seafood companies that are CSRD-reporting or have published
+sustainability reports of comparable depth (Table~\ref{tab:cohort}).
+These six represent the realistic upper bound of seafood-sector
+disclosure depth and were selected to span the structural divisions of
+the industry: wild-capture and aquaculture; branded and private-label;
+primary producers and pure processors; and European and non-European
+headquarters. The deliberate heterogeneity is the point --- if a common
+set of disclosure topics emerges across business models as different as a
+Norwegian salmon farmer (Mowi), a Thai global tuna brand (Thai Union) and
+a Danish whitefish processor (Espersen), that core is unlikely to be an
+artefact of any single business model.
+
+\begin{table}[ht]
+\centering\footnotesize
+\caption{The large-reporter cohort. Coverage is the share of the 70
+topical ESRS Disclosure Requirements the company reports against.}
+\label{tab:cohort}
+\begin{tabular}{@{}llp{4.4cm}lll@{}}
+\toprule
+Company & HQ & Business model & Report & Standard & DRs (cov.) \\
+\midrule
+Thai Union & Thailand & Wild-capture tuna, global brand & 2024 & GRI (acc.) & 53 (76\%) \\
+Bolton Group & Italy & Wild-capture tuna, branded & 2024 & ESRS & 45 (64\%) \\
+Nomad Foods & UK & Frozen-brand processor & 2025 & GRI & 42 (60\%) \\
+Profand & Spain & Integrated wild + aquaculture & 2025 & GRI & 38 (54\%) \\
+A.~Espersen & Denmark & Whitefish processor & 2025 & ESRS & 34 (49\%) \\
+Mowi & Norway & Salmon aquaculture & 2025 & ESRS & 33 (47\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 The data sources are each company\textquotesingle s most recent publicly
-available sustainability report (2023 or 2024 reporting cycle),
-supplemented where available by their CSRD-aligned ESRS-index
-appendices. The unit of empirical analysis is the ESRS Disclosure
-Requirement (DR); each report was coded for whether the company reports
-against each of the 70 ESRS topical DRs (E1--E5, S1--S4, G1).
+available sustainability report (2024 or 2025 reporting cycle),
+supplemented where available by their CSRD-aligned ESRS-index appendices.
+The cohort mixes reporting years and standards --- three firms report
+under ESRS, three map a GRI report onto the ESRS structure, and report
+years span 2024--2025 --- which limits strict comparability and is
+revisited in the robustness checks and limitations below. The unit of
+empirical analysis is the ESRS Disclosure Requirement (DR); each report
+was coded by hand for whether the company reports against each of the 70
+ESRS topical DRs (E1--E5, S1--S4, G1).
 
 \subsection{4.3 Phase 1 - Universe
 construction}\label{phase-1---universe-construction}
@@ -731,6 +758,84 @@ constructed in four steps.
 % =====================================================================
 
 \newcommand{\resflag}{\textbf{\textcolor{red}{[$\to$ RESULTS?]}}}
+
+\textbf{Steps 1.1--1.3 Cohort-frequency derivation.} The starting universe
+is the full set of 70 topical ESRS Disclosure Requirements. Each of the
+six cohort reports was coded for whether it discloses against each DR,
+producing a binary DR\,$\times$\,company coverage matrix. The
+\emph{reporting frequency} of a DR --- the number of cohort companies that
+report it --- is the inclusion signal, and its distribution is itself
+informative: of the 62 DRs reported by at least one firm, 13 are reported
+by all six and 26 by at least five, against a long tail of 24 reported by
+only one or two firms (Figure~\ref{fig:p1-frequency}). A two-tier
+inclusion rule follows. \emph{Tier~1} admits a DR on cohort consensus,
+defined as reporting by at least five of the six companies ($n-1$),
+yielding 26 DRs. \emph{Tier~2} admits, at topic level, sector-relevant
+topics that fall below the Tier-1 cut but are material to seafood ---
+biodiversity (E4) and consumer health and food safety (S4).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.74\linewidth]{p1_frequency.pdf}
+\caption{Reporting frequency across the six-company cohort: how many
+firms report each ESRS Disclosure Requirement. The shaded region marks
+the Tier-1 cut ($\geq$5 of 6).}
+\label{fig:p1-frequency}
+\end{figure}
+
+\textbf{Materiality caveat.} This procedure measures \emph{reporting
+convention} among large, mostly CSRD-scoped reporters, not materiality for
+a small processor. A frequently-reported DR is one the SME is likely to be
+\emph{asked about} as the convention cascades down the value chain --- a
+demand-relevance proxy --- rather than a topic asserted to be material for
+any individual firm. Materiality is tested separately, against firms, in
+the validation interviews (Section~4.7).
+
+\textbf{Robustness of the cohort signal.} Three checks indicate the
+shortlist is not an artefact of the sample. First, \emph{threshold
+sensitivity}: the shortlist contracts monotonically from 56 DRs at
+$\geq$2 reporters to 26 at $\geq$5 and 13 at $\geq$6, so the $n-1$ rule
+sits on a smooth gradient rather than a cliff edge. Second,
+\emph{cohort-size invariance}: re-deriving the shortlist on the five
+European firms alone --- dropping the non-EU Thai Union, at the equivalent
+$\geq$4-of-5 cut --- returns the \emph{identical} 26-DR set, a complete
+overlap, so the result does not depend on which firms are included. Third,
+\emph{temporal stability}: for the three firms with two reporting years,
+approximately 95\% of 2024 DRs are retained in 2025
+(Figure~\ref{fig:p1-evolution}); the small net contraction falls on
+advanced, forward-looking disclosures (anticipated financial effects,
+biodiversity transition plans, non-employee and consumer disclosures),
+consistent with the 2025 Omnibus simplification easing the reporting
+burden. The backbone is thus stable across sample size, business model and
+time. A complementary check on business model finds 19 of the 26 Tier-1
+DRs reported across all four model groups (wild, aquaculture, integrated,
+processor), the remainder concentrated in primary producers (waste,
+diversity) or processors (climate transition) --- a difference of
+emphasis rather than of core.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.86\linewidth]{p1_year_evolution.pdf}
+\caption{Year-over-year reporting for the three firms with both 2024 and
+2025 reports. Left: the reported-DR count is near-flat. Right: most DRs
+are retained; the few dropped in 2025 are advanced, forward-looking
+disclosures.}
+\label{fig:p1-evolution}
+\end{figure}
+
+\textbf{The non-EU comparator.} Thai Union, the single non-European firm
+and the only one reporting under GRI ``in accordance'' rather than ESRS,
+is the broadest reporter (53 of 70 DRs, 76\%). Its profile differs in a
+structured way: it reports \emph{more} widely on biodiversity (E4),
+affected communities (S3) and pollution (E2) than the European average,
+consistent with the international NGO and market scrutiny a global tuna
+major faces, while the European firms report \emph{deeper} on the
+regulated workforce-detail requirements that ESRS S1 mandates and Thai
+Union omits (adequate wages, social protection, work-life balance). That
+the consensus core nonetheless survives this EU/non-EU divide --- only one
+DR is reported uniquely by Thai Union --- strengthens rather than weakens
+the universe: the high-frequency topics are common ground across reporting
+regimes, not an artefact of EU regulation.
 
 % ---------------------------------------------------------------------
 % AMENDMENT TO STEP 1.4 (replaces the "five topics" paragraph)
@@ -1457,6 +1562,94 @@ defensible position is that the evidence is consistent with the corridor
 mechanism, that firms report having experienced it, and that the
 instruments on a corridor demonstrably share inputs, rather than that a
 causal relationship has been established beyond doubt.
+
+% =====================================================================
+\section{Results: the cross-framework demand landscape}
+\label{results-demand-landscape}
+% =====================================================================
+
+This section reports the structure of the populated Phase~3 matrix for
+the modelled sub-threshold seafood-processing SME (50--250 employees,
+not a tuna processor), read in two ways: as a description of the demand
+\emph{environment} the firm faces, and as the firm-specific
+\emph{priorities} the diagnostic returns.
+
+\subsection{Composition of the demand environment}
+
+The scored matrix comprises 30 instruments across 31 columns (the VSME
+standard is split into its Basic and Comprehensive modules). Their
+distribution across the four stakeholder channels is uneven
+(Figure~\ref{fig:r-actor-tier}): the environment is dominated by
+regulators (12 instruments) and customers (11), which together account
+for 23 of the 31 columns (74\%), while investors are the thinnest channel
+(3) and industry/NGO initiatives the remainder (5). The necessity tiers
+fall 12/7/8/4 across Tiers~1--4, so the regulatory legal-licence layer is
+the single largest block. Four instruments are firm-profile
+\emph{opt-ins} --- the F-gas Regulation, the Whistleblowing and Pay
+Transparency Directives, and ISSF --- which belong to the scoring universe
+but switch on only when the firm meets their trigger.
+
+The matrix is sparse by construction: of the 992 instrument$\times$topic
+cells, 181 (18\%) carry a demand, and these split almost evenly between
+\emph{binding} requirements (92 cells scoring~2) and \emph{touched}
+references (89 cells scoring~1). The demand environment is therefore not a
+dense web in which every framework touches every topic, but a structured
+field in which a minority of concentrated, mostly regulator- and
+customer-borne demands define the landscape.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.78\linewidth]{r_actor_tier.pdf}
+\caption{Composition of the scored demand environment: the 31 instrument
+columns by stakeholder channel and necessity tier. Regulators and
+customers dominate; investors are the thinnest channel.}
+\label{fig:r-actor-tier}
+\end{figure}
+
+\subsection{First action points by production system}
+
+Because several seafood instruments and topics are
+production-system-specific, the diagnostic returns a different
+\emph{build-first} (Stage~1) set depending on whether the firm is
+wild-capture, aquaculture, or both (Figure~\ref{fig:r-stage-system}). For
+the standard modelled profile the Stage-1 set is nine topics for a
+mixed-sourcing firm, eight for an aquaculture-only firm, and five for a
+wild-capture-only firm.
+
+The \emph{overlap} is a universal core of four topics that are build-first
+under every production system: energy (E1-5), greenhouse-gas emissions
+(E1-6), biodiversity and ecosystems (E4), and supply-chain traceability.
+These are the no-regret priorities for any European seafood processor ---
+demanded broadly, across stakeholder channels, irrespective of business
+model.
+
+The \emph{differences} are structured rather than arbitrary. Four further
+topics --- water (E3-4), waste (E5-5), occupational health and safety
+(S1-14) and value-chain workers (S2-1) --- are Stage~1 for mixed and
+aquaculture firms but slip to Stage~2 for a wild-capture firm. This is a
+volume effect, not a change in importance: the matrix carries three
+aquaculture certifications (ASC, BAP, GLOBALG.A.P.) against two wild
+certifications (MSC, Friend of the Sea), so a wild-only firm loses the
+certification demand that lifts these shared topics over the breadth
+threshold, even though their cross-stakeholder convergence is unchanged
+and several retain a regulatory floor (OSH, the Forced Labour Regulation,
+PPWR). The remaining divergence is in the sector-gap rows: wild-stock
+status is build-relevant only to wild and mixed firms, while feed and
+animal-health/antimicrobial use apply only to aquaculture and mixed firms.
+The personalisation therefore refines \emph{which} of a shared backbone an
+individual firm should prioritise, rather than producing wholly different
+agendas for different firms.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.56\linewidth]{r_stage_system.pdf}
+\caption{First action points by production system. Each topic's stage
+(1~=~build first, 2~=~next, 3~=~monitor) under a wild-only, mixed and
+aquaculture-only profile; ``--'' marks a topic not applicable to that
+system. The four topics that are Stage~1 across all systems form the
+universal core.}
+\label{fig:r-stage-system}
+\end{figure}
 
 \section{5. Expected outputs and chapter
 structure}\label{expected-outputs-and-chapter-structure}
