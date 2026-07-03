@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seafood SME — Sustainability Priority Navigator</title>
+<style>
+:root{--navy:#1F4E79;--green:#2E8B57;--amber:#C8861E;--grey:#6b7280;--bg:#f4f6f9;--card:#fff;--line:#e3e8ef}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#1f2937}
+header{background:var(--navy);color:#fff;padding:18px 28px}header h1{margin:0;font-size:19px;font-weight:700}header p{margin:4px 0 0;font-size:13px;opacity:.85}
+.wrap{max-width:1000px;margin:0 auto;padding:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+h2{font-size:16px;color:var(--navy);margin:0 0 14px}
+label.fld{display:block;font-size:13px;font-weight:600;margin:14px 0 6px;color:#374151}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{flex:1;min-width:90px;padding:10px;border:1.5px solid var(--line);background:#fff;border-radius:9px;cursor:pointer;font-size:13px;font-weight:600;color:#374151;transition:.12s}
+.seg button.on{border-color:var(--navy);background:var(--navy);color:#fff}
+.row{display:flex;gap:18px;flex-wrap:wrap}.row>div{flex:1;min-width:200px}
+input[type=number]{width:100%;padding:10px;border:1.5px solid var(--line);border-radius:9px;font-size:14px}
+.go{margin-top:20px;width:100%;padding:13px;background:var(--green);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer}
+.go:hover{filter:brightness(1.05)}
+.prof{font-size:13px;color:var(--grey);margin-bottom:4px}
+.topic{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;border:1px solid var(--line);border-radius:10px;margin-bottom:9px;cursor:pointer;transition:.12s;background:#fff}
+.topic:hover{border-color:var(--navy);transform:translateX(2px)}
+.topic .nm{font-weight:600;font-size:14.5px}
+.topic .meta{font-size:11.5px;color:var(--grey);margin-top:2px}
+.core{background:#eaf4ec;border-color:#bfe0c8}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:6px}
+.tag.core{background:var(--green);color:#fff}.tag.s2{background:#f3e3c4;color:#7a5b16}
+.arrow{color:var(--navy);font-size:18px}
+.chan{margin:14px 0}.chan h4{margin:0 0 7px;font-size:13px;color:var(--navy);text-transform:uppercase;letter-spacing:.4px}
+.fw{display:flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid var(--line);border-radius:8px;margin-bottom:6px;font-size:13.5px}
+.b2{background:var(--navy)}.b1{background:#9aa6b2}
+.badge{color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;min-width:54px;text-align:center}
+.legal{margin-left:auto;font-size:10.5px;font-weight:700;color:#b45309;background:#fef3c7;padding:2px 8px;border-radius:20px}
+.enab{background:#f0f4f8;border:1px dashed #c3cfdb;border-radius:8px;padding:9px 12px;margin-bottom:6px;font-size:13px}
+.enab b{color:var(--navy)} .enab span{color:var(--grey);font-size:11.5px}
+.back{background:none;border:none;color:var(--navy);font-weight:600;cursor:pointer;font-size:13.5px;padding:0;margin-bottom:12px}
+.hidden{display:none}.muted{color:var(--grey);font-size:12.5px}
+
+.lead{font-size:14.5px;line-height:1.55;color:#374151}
+.steps{display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.step{display:flex;gap:13px;align-items:flex-start;padding:13px 15px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.step .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step.now{border-color:var(--green);background:#eef6f0}.step.now .n{background:var(--green)}
+.step .t{font-weight:700;font-size:14px;margin-bottom:2px}.step .d{font-size:12.5px;color:var(--grey)}
+.step .pill{font-size:10px;font-weight:700;color:#fff;background:var(--green);padding:2px 8px;border-radius:20px;margin-left:8px}
+.step .pill.soon{background:#9aa6b2}
+.how{background:#f0f4f8;border-radius:10px;padding:14px 16px;margin:16px 0;font-size:13px}
+.how b{color:var(--navy)}
+.disc{font-size:12px;color:#b45309;background:#fef3c7;border-radius:8px;padding:10px 13px;margin-top:14px}
+footer{max-width:1000px;margin:0 auto;padding:8px 24px 30px;font-size:11.5px;color:var(--grey)}
+
+.topic.st1{border-left:6px solid var(--green)}
+.topic.st2{border-left:6px solid var(--amber)}
+.topic .conv{display:inline-flex;gap:3px;margin-left:8px;vertical-align:middle}
+.topic .dot{width:9px;height:9px;border-radius:50%;background:#d1d5db}
+.dot.reg{background:#1F4E79}.dot.cust{background:#7E57C2}.dot.inv{background:#E0922B}.dot.ngo{background:#2E8B57}
+.chan{margin:16px 0;border-left:5px solid #ccc;padding-left:12px}
+.chan.reg{border-color:#1F4E79}.chan.cust{border-color:#7E57C2}.chan.inv{border-color:#E0922B}.chan.ngo{border-color:#2E8B57}
+.chan.reg h4{color:#1F4E79}.chan.cust h4{color:#7E57C2}.chan.inv h4{color:#E0922B}.chan.ngo h4{color:#2E8B57}
+.legendbar{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--grey);margin:4px 0 14px}
+.legendbar span{display:flex;align-items:center;gap:5px}.legendbar i{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+.payoff{display:flex;align-items:center;gap:14px;background:#eef6f0;border:1px solid #bfe0c8;border-radius:10px;padding:14px 16px;margin:10px 0 18px}
+.payoff .big{font-size:30px;font-weight:800;color:var(--green);line-height:1;white-space:nowrap}
+.payoff .txt{font-size:13px;color:#374151;line-height:1.5}
+.subh{font-size:13.5px;color:var(--navy);margin:22px 0 4px;font-weight:700}
+.cvxlegend{font-size:11.5px;color:var(--grey);line-height:1.55;margin:2px 0 10px}
+.cvx{width:100%;border-collapse:separate;border-spacing:0 5px}
+.cvx th{font-size:10px;color:var(--grey);font-weight:700;text-transform:uppercase;letter-spacing:.3px;text-align:center;padding:0 2px 5px;vertical-align:bottom}
+.cvx th.lblh{text-align:left}
+.cvx td.lbl{font-size:12.5px;font-weight:600;padding:3px 8px 3px 0;cursor:pointer}
+.cvx td.lbl:hover{color:var(--navy)}
+.cvx tr.s1 td.lbl{border-left:5px solid var(--green);padding-left:9px}
+.cvx tr.s2 td.lbl{border-left:5px solid var(--amber);padding-left:9px}
+.cvx td.cc{text-align:center;width:46px}
+.cvx td.cvn{text-align:center;font-weight:800;font-size:12.5px;color:#374151;width:40px}
+.cvx td.cnt{text-align:right;font-size:11.5px;color:var(--grey);font-weight:600;white-space:nowrap;width:52px}
+.cell{height:22px;width:34px;border-radius:5px;background:#eef1f5;display:inline-block;vertical-align:middle}
+.cvxsub td{padding-top:8px;font-size:11px}
+.askedit{border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:0 0 16px;background:#fbfcfd}
+.askedit>summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--navy);list-style:revert}
+.askgrp{margin:10px 0 2px}
+.askgrp h5{margin:8px 0 5px;font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:var(--grey)}
+.askitem{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;margin:0 14px 7px 0;cursor:pointer}
+.askitem input{cursor:pointer}
+.asknote{font-size:11.5px;color:var(--grey);margin-top:8px;line-height:1.5}
+</style></head><body>
+<header><h1>Seafood SME — Sustainability Priority Navigator</h1><p>Demo · which sustainability topics to build first, who demands each, and how to deliver it</p></header>
+<div class="wrap">
+
+<div id="v0" class="card">
+<h2>Where to begin with sustainability — as a seafood-processing SME</h2>
+<p class="lead">European seafood processors face a fragmented wall of sustainability demands — regulators, retail customers, certifiers, investors and NGOs, each asking for different things through different channels. The hard question is not <em>whether</em> to act, but <em>where to start</em> so that a single capability investment satisfies as many of those demands as possible.</p>
+<p class="lead"><b>This tool answers exactly that question.</b> It is one part of a wider toolkit — here is where it sits:</p>
+<div class="steps">
+  <div class="step now"><div class="n">1</div><div><div class="t">This tool — Identify &amp; prioritise <span class="pill">you are here</span></div><div class="d">Which topics to build first for your firm, who demands each (law vs market), and the enabling instruments to deliver them.</div></div></div>
+  <div class="step"><div class="n">2</div><div><div class="t">Comply <span class="pill soon">other tools</span></div><div class="d">What you must do by law, in full — handled by a compliance / legal review. This tool assumes legal compliance as a baseline; it ranks strategic priority, not legal necessity.</div></div></div>
+  <div class="step"><div class="n">3</div><div><div class="t">Mature <span class="pill soon">future layer</span></div><div class="d">How far you have come on each topic and how to deepen it — a per-topic maturity assessment (policy → process → metrics → targets), inspired by buyer programmes such as Philips&rsquo; Beyond Auditing.</div></div></div>
+  <div class="step"><div class="n">4</div><div><div class="t">Assess materiality <span class="pill soon">other tools</span></div><div class="d">Your own impacts on people and planet (inside-out) — a double-materiality assessment complements this demand-side view.</div></div></div>
+</div>
+<div class="how"><b>How to use it.</b> &nbsp;1 · Enter your company profile. &nbsp;2 · Tick which demands actually apply to you — your certifications, customers and investors. &nbsp;3 · See your <em>build-first</em> priority topics and the share of your demands they cover. &nbsp;4 · Click any topic to see who demands it and the enabling instruments that help you build it.
+<div style="margin-top:11px;font-size:12px;color:var(--grey);line-height:1.55"><b>What powers this.</b> The <em>staging</em> — which topics are build-first — reflects the <b>sector-wide demand landscape</b> and does not change with your selection. The <em>coverage&nbsp;%</em> is personalised to the demands you tick. Both are derived from a cross-framework coverage matrix that maps 30+ regulatory, customer, investor and industry instruments onto ESRS topics on a binding/touched scale, with every score justified against a cited source (Phase&nbsp;3 coverage matrix).</div></div>
+<div class="disc">⚠ The ranking shows <b>strategic priority</b> across stakeholders — it is <b>not</b> a legal-compliance checklist. Applicable law applies regardless of where a topic lands. Use this as a starting point, not a complete plan.</div>
+<button class="go" onclick="show('v1')">Start — enter my profile →</button>
+</div>
+
+<div id="v1" class="card hidden">
+<h2>1 · Your company profile</h2>
+<label class="fld">Production system</label>
+<div class="seg" id="sys"><button data-v="both" class="on">Both (wild + farmed)</button><button data-v="wild">Wild-capture only</button><button data-v="aqua">Aquaculture only</button></div>
+<div class="row">
+<div><label class="fld">Processes tuna?</label><div class="seg" id="tuna"><button data-v="no" class="on">No</button><button data-v="yes">Yes</button></div></div>
+<div><label class="fld">Uses HFC refrigerant?</label><div class="seg" id="refr"><button data-v="yes" class="on">Yes</button><button data-v="no">No</button></div></div>
+</div>
+<label class="fld">Number of employees</label><input type="number" id="emp" value="100" min="1">
+<button class="go" onclick="run()">See my build-first priorities →</button>
+<button class="back" style="margin-top:10px" onclick="show('v0')">← About this tool</button>
+</div>
+
+<div id="v2" class="card hidden">
+<h2>2 · Your build-first priorities</h2>
+<div class="prof" id="profline"></div>
+<div class="payoff" id="payoff"></div>
+<details class="askedit" id="askedit"><summary>Which demands actually apply to you? — tick your certifications, customers &amp; investors to personalise</summary><div id="asklist"></div></details>
+<div id="cvxwrap"></div>
+<h3 class="subh">Topic by topic</h3>
+<p class="muted" id="explain"></p>
+<div class="legendbar"><span><i style="background:#2E8B57"></i>Stage 1 — build first</span><span><i style="background:#C8861E"></i>Stage 2 — next</span>&nbsp;&nbsp;<span><i style="background:#1F4E79;border-radius:50%"></i>Regulator</span><span><i style="background:#7E57C2;border-radius:50%"></i>Customer</span><span><i style="background:#E0922B;border-radius:50%"></i>Investor</span><span><i style="background:#2E8B57;border-radius:50%"></i>Industry/NGO</span></div>
+<div id="stage1"></div>
+<details style="margin-top:14px"><summary class="muted" style="cursor:pointer">Show next-priority (Stage 2) topics</summary><div id="stage2" style="margin-top:10px"></div></details>
+<button class="go" style="background:var(--navy);margin-top:18px" onclick="show('v1')">← Change profile</button>
+</div>
+
+<div id="v3" class="card hidden">
+<button class="back" onclick="show('v2')">← Back to priorities</button>
+<h2 id="t3"></h2>
+<p class="muted">These are the frameworks in your demand environment that cover this topic. Pick the one(s) you would align with — building once can satisfy several.</p>
+<div id="whodemands"></div>
+<h2 style="margin-top:22px">How to deliver it — enabling instruments</h2>
+<p class="muted">Layer-2 enablers (methods, management systems, data infrastructure) that help you actually build this topic.</p>
+<div id="enablers"></div>
+</div>
+
+</div>
+<footer>Seafood SME Sustainability Priority Navigator · demo / proof-of-concept · prioritisation compass, not a compliance or maturity tool</footer>
+<script>
+const D={"topics": [{"id": "E1-3", "sys": "Both", "label": "Climate transition actions (E1-3)"}, {"id": "E1-4", "sys": "Both", "label": "GHG reduction targets (E1-4)"}, {"id": "E1-5", "sys": "Both", "label": "Energy use & mix (E1-5)"}, {"id": "E1-6", "sys": "Both", "label": "GHG emissions (E1-6)"}, {"id": "E3-1", "sys": "Both", "label": "Water policy (E3-1)"}, {"id": "E3-2", "sys": "Both", "label": "Water actions (E3-2)"}, {"id": "E3-3", "sys": "Both", "label": "Water targets (E3-3)"}, {"id": "E3-4", "sys": "Both", "label": "Water consumption (E3-4)"}, {"id": "E5-2", "sys": "Both", "label": "Resource inflows (E5-2)"}, {"id": "E5-4", "sys": "Both", "label": "Resource outflows (E5-4)"}, {"id": "E5-5", "sys": "Both", "label": "Waste (E5-5)"}, {"id": "G1-1", "sys": "Both", "label": "Business-conduct policy (G1-1)"}, {"id": "G1-3", "sys": "Both", "label": "Anti-corruption (G1-3)"}, {"id": "G1-4", "sys": "Both", "label": "Corruption incidents (G1-4)"}, {"id": "G1-5", "sys": "Both", "label": "Political influence (G1-5)"}, {"id": "S1-1", "sys": "Both", "label": "Own-workforce policy (S1-1)"}, {"id": "S1-14", "sys": "Both", "label": "Health & safety (S1-14)"}, {"id": "S1-17", "sys": "Both", "label": "Human-rights incidents (S1-17)"}, {"id": "S1-2", "sys": "Both", "label": "Worker engagement (S1-2)"}, {"id": "S1-3", "sys": "Both", "label": "Grievance channels (S1-3)"}, {"id": "S1-4", "sys": "Both", "label": "Action on workforce (S1-4)"}, {"id": "S1-6", "sys": "Both", "label": "Workforce profile (S1-6)"}, {"id": "S1-9", "sys": "Both", "label": "Diversity (S1-9)"}, {"id": "S2-1", "sys": "Both", "label": "Value-chain workers – policy (S2-1)"}, {"id": "S2-2", "sys": "Both", "label": "Value-chain – engagement (S2-2)"}, {"id": "S2-3", "sys": "Both", "label": "Value-chain – remediation (S2-3)"}, {"id": "Biodiversity & ecosystems (E4)", "sys": "Both", "label": "Biodiversity & ecosystems (E4)"}, {"id": "Consumers & end-users (S4)", "sys": "Both", "label": "Consumers & food safety (S4)"}, {"id": "Supply-chain traceability (chain of custody)", "sys": "Both", "label": "Supply-chain traceability"}, {"id": "Wild-stock status / sustainable wild sourcing", "sys": "Wild", "label": "Wild-stock sourcing"}, {"id": "Feed & marine ingredients sourcing", "sys": "Aqua", "label": "Feed & marine ingredients"}, {"id": "Animal health & welfare (incl. antimicrobial use)", "sys": "Aqua", "label": "Animal health & AMU"}], "instr": [{"name": "Fisheries Control Regulation (2023/2842)", "src": "Regulator", "tier": "Tier 1", "sys": "Wild", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 1, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "IUU Regulation (1005/2008)", "src": "Regulator", "tier": "Tier 1", "sys": "Wild", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 1, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "CMO marketing standards (1379/2013)", "src": "Regulator", "tier": "Tier 1", "sys": "Both", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 1, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 1, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "PPWR (2025/40)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 2, "E5-4": 2, "E5-5": 2, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "OSH Framework Directive (89/391/EEC)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 2, "S1-17": 0, "S1-2": 1, "S1-3": 0, "S1-4": 1, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "Working Time Directive (2003/88/EC)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "Forced Labour Regulation (2024/3015)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 1, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 2, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "EUDR (2023/1115)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 2, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 1, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 1, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "EmpCo Directive (2024/825)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 1, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "F-gas Regulation (2024/573)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "refr", "scores": {"E1-3": 1, "E1-4": 0, "E1-5": 0, "E1-6": 2, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "Whistleblowing Directive (2019/1937)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "emp50", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 2, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 2, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 1, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "Pay Transparency Directive (2023/970)", "src": "Regulator", "tier": "Tier 1", "sys": "Agnostic", "cond": "emp150", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "MSC", "src": "Customer", "tier": "Tier 2", "sys": "Wild", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 1, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 2, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 2, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "ASC", "src": "Customer", "tier": "Tier 2", "sys": "Aqua", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 2, "E3-2": 0, "E3-3": 0, "E3-4": 2, "E5-2": 0, "E5-4": 0, "E5-5": 1, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 2, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 2, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 2, "Animal health & welfare (incl. antimicrobial use)": 2}}, {"name": "GSA BAP", "src": "Customer", "tier": "Tier 2", "sys": "Aqua", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 1, "E3-2": 0, "E3-3": 0, "E3-4": 2, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 2, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 1, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 1, "Consumers & end-users (S4)": 2, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 2, "Animal health & welfare (incl. antimicrobial use)": 2}}, {"name": "GLOBALG.A.P. Aquaculture", "src": "Customer", "tier": "Tier 2", "sys": "Aqua", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 1, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 1, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 1, "Consumers & end-users (S4)": 2, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 1, "Animal health & welfare (incl. antimicrobial use)": 2}}, {"name": "Friend of the Sea", "src": "Customer", "tier": "Tier 2", "sys": "Both", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 1, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 2, "Feed & marine ingredients sourcing": 1, "Animal health & welfare (incl. antimicrobial use)": 1}}, {"name": "SAQ from Sedex (follow by SMETA)", "src": "Customer", "tier": "Tier 2", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 1, "E1-6": 1, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 1, "E5-2": 0, "E5-4": 0, "E5-5": 1, "G1-1": 1, "G1-3": 1, "G1-4": 0, "G1-5": 0, "S1-1": 2, "S1-14": 2, "S1-17": 1, "S1-2": 1, "S1-3": 1, "S1-4": 1, "S1-6": 1, "S1-9": 1, "S2-1": 1, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "EcoVadis", "src": "Customer", "tier": "Tier 2", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 1, "E1-6": 1, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 1, "E5-2": 0, "E5-4": 0, "E5-5": 1, "G1-1": 1, "G1-3": 1, "G1-4": 0, "G1-5": 0, "S1-1": 1, "S1-14": 1, "S1-17": 1, "S1-2": 1, "S1-3": 0, "S1-4": 0, "S1-6": 1, "S1-9": 1, "S2-1": 1, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "CSDDD (2024/1760)", "src": "Customer", "tier": "Tier 3", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 1, "E3-2": 1, "E3-3": 1, "E3-4": 1, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 1, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 2, "S1-14": 1, "S1-17": 1, "S1-2": 2, "S1-3": 2, "S1-4": 2, "S1-6": 0, "S1-9": 0, "S2-1": 2, "S2-2": 2, "S2-3": 2, "Biodiversity & ecosystems (E4)": 2, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 1, "Wild-stock status / sustainable wild sourcing": 1, "Feed & marine ingredients sourcing": 1, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "CDP", "src": "Customer", "tier": "Tier 3", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 1, "E1-4": 1, "E1-5": 2, "E1-6": 2, "E3-1": 1, "E3-2": 0, "E3-3": 2, "E3-4": 2, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 1, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "VSME-Basic", "src": "Customer", "tier": "Tier 3", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 2, "E1-6": 2, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 2, "E5-2": 1, "E5-4": 1, "E5-5": 2, "G1-1": 0, "G1-3": 0, "G1-4": 2, "G1-5": 0, "S1-1": 0, "S1-14": 2, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 2, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 1, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "VSME-Comprehensive", "src": "Customer", "tier": "Tier 3", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 1, "E1-4": 2, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 2, "S1-14": 0, "S1-17": 2, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 1, "S2-1": 1, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "SFDR (2019/2088)", "src": "Investor", "tier": "Tier 3", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 2, "E1-6": 2, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 2, "G1-1": 2, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 2, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 2, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 2, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "IFRS S1/S2 (ISSB)", "src": "Investor", "tier": "Tier 3", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 2, "E1-4": 2, "E1-5": 1, "E1-6": 2, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "TNFD", "src": "Investor", "tier": "Tier 4", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 2, "E5-2": 0, "E5-4": 0, "E5-5": 1, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 2, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 1, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "GDST", "src": "Industry / NGO", "tier": "Tier 3", "sys": "Both", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 1, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "GRI Standards (incl. GRI 13)", "src": "Industry / NGO", "tier": "Tier 3", "sys": "Both", "cond": "", "scores": {"E1-3": 1, "E1-4": 1, "E1-5": 2, "E1-6": 2, "E3-1": 1, "E3-2": 0, "E3-3": 0, "E3-4": 2, "E5-2": 1, "E5-4": 1, "E5-5": 2, "G1-1": 1, "G1-3": 2, "G1-4": 2, "G1-5": 2, "S1-1": 1, "S1-14": 2, "S1-17": 2, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 2, "S1-9": 2, "S2-1": 2, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 2, "Consumers & end-users (S4)": 2, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 2, "Feed & marine ingredients sourcing": 2, "Animal health & welfare (incl. antimicrobial use)": 2}}, {"name": "ISSF", "src": "Industry / NGO", "tier": "Tier 4", "sys": "Wild", "cond": "tuna", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 0, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 2, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 2, "Wild-stock status / sustainable wild sourcing": 2, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "SBTi", "src": "Industry / NGO", "tier": "Tier 4", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 1, "E1-4": 2, "E1-5": 0, "E1-6": 1, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 0, "G1-3": 0, "G1-4": 0, "G1-5": 0, "S1-1": 0, "S1-14": 0, "S1-17": 0, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 0, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}, {"name": "UN Global Compact", "src": "Industry / NGO", "tier": "Tier 4", "sys": "Agnostic", "cond": "", "scores": {"E1-3": 0, "E1-4": 0, "E1-5": 1, "E1-6": 0, "E3-1": 0, "E3-2": 0, "E3-3": 0, "E3-4": 0, "E5-2": 0, "E5-4": 0, "E5-5": 0, "G1-1": 1, "G1-3": 1, "G1-4": 0, "G1-5": 0, "S1-1": 1, "S1-14": 0, "S1-17": 1, "S1-2": 0, "S1-3": 0, "S1-4": 0, "S1-6": 0, "S1-9": 0, "S2-1": 1, "S2-2": 0, "S2-3": 0, "Biodiversity & ecosystems (E4)": 0, "Consumers & end-users (S4)": 0, "Supply-chain traceability (chain of custody)": 0, "Wild-stock status / sustainable wild sourcing": 0, "Feed & marine ingredients sourcing": 0, "Animal health & welfare (incl. antimicrobial use)": 0}}], "enablers": [{"name": "GHG Protocol", "group": "Measurement & accounting", "serves": "serves →  ESRS E1 / SBTi / CDP", "pre": ["E1"]}, {"name": "ISO 14064", "group": "Measurement & accounting", "serves": "serves →  ESRS E1 / CDP", "pre": ["E1"]}, {"name": "LCA methodologies", "group": "Measurement & accounting", "serves": "serves →  PEF / EmpCo claims / EcoVadis", "pre": ["S4"]}, {"name": "PEF / PEFCR", "group": "Measurement & accounting", "serves": "serves →  EmpCo environmental claims", "pre": ["S4"]}, {"name": "ISAE 3000", "group": "Assurance", "serves": "serves →  CSRD limited assurance / VSME", "pre": []}, {"name": "AA1000", "group": "Assurance", "serves": "serves →  Stakeholder-based assurance", "pre": []}, {"name": "ISO 14001", "group": "Management systems", "serves": "serves →  ESRS E-series / EcoVadis", "pre": ["E2", "E4", "E3", "E1", "E5"]}, {"name": "ISO 45001", "group": "Management systems", "serves": "serves →  ESRS S1 / SMETA", "pre": ["S1"]}, {"name": "ISO 50001", "group": "Management systems", "serves": "serves →  ESRS E1 (energy)", "pre": ["E1"]}, {"name": "Supplier portals / data-exchange platforms", "group": "Data infrastructure", "serves": "serves →  Value-chain data for CSRD / CDP / EcoVadis", "pre": ["TRACE", "S2"]}], "thresh": {"conv": 3, "breadth": 12}};
+const SEL={sys:'both',tuna:'no',refr:'yes'};
+const DEFAULT_ON=new Set(['SAQ from Sedex (follow by SMETA)','EcoVadis','CSDDD (2024/1760)','VSME-Basic','GRI Standards (incl. GRI 13)']);
+const SELF={}; D.instr.forEach(i=>{if(i.src!=='Regulator')SELF[i.name]=DEFAULT_ON.has(i.name);});
+document.querySelectorAll('.seg').forEach(g=>g.addEventListener('click',e=>{if(e.target.dataset.v){[...g.children].forEach(b=>b.classList.remove('on'));e.target.classList.add('on');SEL[g.id]=e.target.dataset.v;}}));
+function show(id){['v0','v1','v2','v3'].forEach(v=>document.getElementById(v).classList.toggle('hidden',v!==id));window.scrollTo(0,0);}
+const SRC=['Regulator','Customer','Investor','Industry / NGO'];
+function profileOK(it,emp){
+  if(it.cond==='refr'&&SEL.refr!=='yes')return false;
+  if(it.cond==='emp50'&&emp<50)return false;
+  if(it.cond==='emp150'&&emp<150)return false;
+  if(it.cond==='tuna'&&SEL.tuna!=='yes')return false;
+  const s=(it.sys||'').toLowerCase();
+  if(s==='wild'||s==='aqua'){return SEL.sys==='both'||s===SEL.sys;}
+  return true;
+}
+function on(it,emp){ return profileOK(it,emp); } // staging + matrix = full landscape (stable)
+function selected(it,emp){ return profileOK(it,emp) && (it.src==='Regulator' || !!SELF[it.name]); } // what actually asks THIS firm
+function compute(){
+  const emp=+document.getElementById('emp').value||0;
+  const res={};
+  D.topics.forEach(t=>{
+    const tsy=(t.sys||'Both').toLowerCase();
+    if((tsy==='wild'||tsy==='aqua')&&!(SEL.sys==='both'||tsy===SEL.sys)){res[t.id]={stage:'na'};return;}
+    let br=0,ch=new Set(),fw=[];
+    D.instr.forEach(it=>{const v=it.scores[t.id]||0; if(v>0&&on(it,emp)){br+=v;ch.add(it.src);fw.push({name:it.name,src:it.src,score:v});}});
+    const cv=ch.size;
+    let stage=cv===0?'—':(cv>=D.thresh.conv&&br>=D.thresh.breadth?'1':(cv>=3?'2':'3'));
+    res[t.id]={stage,br,cv,fw,allsys:tsy==='both'};
+  });
+  return res;
+}
+let RES={};
+function run(){
+  RES=compute();
+  const labelFor=id=>(D.topics.find(t=>t.id===id)||{}).label||id;
+  const emp=+document.getElementById('emp').value||0;
+  document.getElementById('profline').textContent=`Profile: ${SEL.sys==='both'?'wild + farmed':SEL.sys} · tuna: ${SEL.tuna} · HFC: ${SEL.refr} · ${emp} employees`;
+  // universal core = stage1 in all 3 systems
+  const s1=D.topics.filter(t=>RES[t.id].stage==='1');
+  document.getElementById('explain').textContent=`${s1.length} topics are "build first": demanded across ≥3 stakeholder channels AND high volume. Click a topic to see who demands it and how to deliver it.`;
+  // ---- payoff headline + convergence matrix ----
+  const appl=D.topics.filter(t=>RES[t.id].stage!=='na');
+  let tot=0,s1w=0; const allF=new Set(),s1F=new Set();
+  appl.forEach(t=>{const r=RES[t.id];let selBr=0;const names=[];
+    D.instr.forEach(it=>{const v=it.scores[t.id]||0;if(v>0&&selected(it,emp)){selBr+=v;names.push(it.name);}});
+    tot+=selBr;names.forEach(n=>allF.add(n));
+    if(r.stage==='1'){s1w+=selBr;names.forEach(n=>s1F.add(n));}});
+  const pct=tot?Math.round(100*s1w/tot):0;
+  document.getElementById('payoff').innerHTML=`<div class="big">${pct}%</div><div class="txt">Instead of answering each demand separately, building your <b>${s1.length} build-first topic${s1.length===1?'':'s'}</b> lets you respond to about <b>${pct}%</b> of everything that asks you — <b>${s1F.size} of the ${allF.size} demands that apply to you</b> — from one set of data.<br><span class="muted">Regulatory demands are always included; certifications and voluntary schemes count only if you select them below.</span></div>`;
+  renderAsk();
+  const CH=[['Regulator','Regulators','#1F4E79'],['Customer','Customers','#7E57C2'],['Investor','Investors','#E0922B'],['Industry / NGO','Industry/NGO','#2E8B57']];
+  const byConv=(a,b)=>(RES[b.id].cv-RES[a.id].cv)||(RES[b.id].br-RES[a.id].br);
+  const rowsFor=list=>list.map(t=>{const r=RES[t.id];const idx=D.topics.indexOf(t);
+    const cells=CH.map(c=>{const scoresH=r.fw.filter(f=>f.src===c[0]).map(f=>f.score);const m=scoresH.length?Math.max(...scoresH):0;
+      const st=m===0?'':`background:${c[2]};opacity:${m===2?1:.45}`;
+      return `<td class="cc"><span class="cell" style="${st}" title="${c[1]} — ${m===2?'binding':m===1?'touched':'not demanded'}"></span></td>`;}).join('');
+    return `<tr class="s${r.stage}"><td class="lbl" onclick="detail(${idx})">${(t.label||t.id)}</td>${cells}<td class="cvn">${r.cv}/4</td><td class="cnt">${r.fw.length} fw</td></tr>`;}).join('');
+  const head=`<tr><th class="lblh">Topic</th>${CH.map(c=>`<th>${c[1]}</th>`).join('')}<th>Channels</th><th>Frameworks</th></tr>`;
+  const s1s=[...s1].sort(byConv);
+  const s2s=appl.filter(t=>RES[t.id].stage==='2').sort(byConv);
+  document.getElementById('cvxwrap').innerHTML=`<div class="cvxlegend">This is the demand <b>landscape</b> a firm like you faces. Each row is a topic; each column a type of stakeholder that demands it — <b>dark&nbsp;= binding</b>, <b>light&nbsp;= touched</b>, empty&nbsp;= not demanded. Topics lighting up across all four columns are where <b>building once satisfies everyone</b> — your build-first set. Tick what actually applies to you above to personalise the % at the top.</div><table class="cvx">${head}${rowsFor(s1s)}${s2s.length?`<tr class="cvxsub"><td colspan="7" class="muted">Next priority (Stage 2)</td></tr>`+rowsFor(s2s):''}</table>`;
+  const SC={'Regulator':'reg','Customer':'cust','Investor':'inv','Industry / NGO':'ngo'};
+  const card=(t,cls)=>{const r=RES[t.id];const core=r.allsys&&r.stage==='1';const idx=D.topics.indexOf(t);
+    const chans=[...new Set(r.fw.map(f=>f.src))];
+    const dots=['Regulator','Customer','Investor','Industry / NGO'].map(s=>`<span class="dot ${chans.includes(s)?SC[s]:''}" title="${s}"></span>`).join('');
+    return `<div class="topic st${r.stage} ${core?'core':''}" onclick="detail(${idx})"><div><div class="nm">${labelFor(t.id)}${core?'<span class="tag core">universal core</span>':''}${cls==='s2'?'<span class="tag s2">next</span>':''}</div><div class="meta">demanded by ${r.cv} of 4 channels <span class="conv">${dots}</span> · ${r.fw.length} frameworks</div></div><span class="arrow">›</span></div>`;};
+  const order=a=>a.sort((x,y)=>RES[y.id].br-RES[x.id].br);
+  document.getElementById('stage1').innerHTML=order(s1).map(t=>card(t,'')).join('')||'<p class="muted">No Stage-1 topics for this profile.</p>';
+  const s2=order(D.topics.filter(t=>RES[t.id].stage==='2'));
+  document.getElementById('stage2').innerHTML=s2.map(t=>card(t,'s2')).join('');
+  show('v2');
+}
+function renderAsk(){
+  const emp=+document.getElementById('emp').value||0;
+  const groups=[['Customer','Customers & certifications'],['Investor','Investors'],['Industry / NGO','Industry & voluntary']];
+  let html='';
+  groups.forEach(([src,title])=>{
+    const items=D.instr.filter(it=>it.src===src&&profileOK(it,emp));
+    if(!items.length)return;
+    html+=`<div class="askgrp"><h5>${title}</h5>`;
+    items.forEach(it=>{const i=D.instr.indexOf(it);
+      html+=`<label class="askitem"><input type="checkbox" ${SELF[it.name]?'checked':''} onchange="ask(${i},this.checked)"> ${it.name}</label>`;});
+    html+='</div>';
+  });
+  const regs=D.instr.filter(it=>it.src==='Regulator'&&profileOK(it,emp)).map(it=>it.name);
+  html+=`<div class="asknote"><b>Applied automatically (legal floor — not optional):</b> ${regs.join(', ')||'—'}</div>`;
+  document.getElementById('asklist').innerHTML=html;
+}
+function ask(i,checked){ SELF[D.instr[i].name]=checked; run(); }
+function detail(idx){
+  const t=D.topics[idx]; const id=t.id; const r=RES[id];
+  document.getElementById('t3').textContent=(t.label||id);
+  const byc={}; SRC.forEach(s=>byc[s]=[]);
+  r.fw.forEach(f=>{(byc[f.src]||(byc[f.src]=[])).push(f);});
+  let html='';
+  SRC.forEach(s=>{ if(!byc[s]||!byc[s].length)return;
+    const legal=s==='Regulator';
+    const sc={'Regulator':'reg','Customer':'cust','Investor':'inv','Industry / NGO':'ngo'}[s]||'';
+    html+=`<div class="chan ${sc}"><h4>${s}${legal?' · legal floor':''}</h4>`;
+    byc[s].forEach(f=>{html+=`<div class="fw"><span class="badge ${f.score===2?'b2':'b1'}">${f.score===2?'binding':'touched'}</span> ${f.name}${legal?'<span class="legal">required by law</span>':''}</div>`;});
+    html+='</div>';
+  });
+  document.getElementById('whodemands').innerHTML=html||'<p class="muted">No frameworks demand this for your profile.</p>';
+  // enablers: match by topic prefix
+  const pre=id.replace(/[^A-Za-z0-9].*$/,'').slice(0,2).toUpperCase();
+  const trace=/traceab/i.test(id);
+  const en=D.enablers.filter(e=>e.pre.includes(pre)||(trace&&e.pre.includes('TRACE')));
+  document.getElementById('enablers').innerHTML=(en.length?en:D.enablers.filter(e=>e.group==='Assurance')).map(e=>`<div class="enab"><b>${e.name}</b> — ${e.group}<br><span>${e.serves}</span></div>`).join('')||'<p class="muted">General reporting/assurance enablers apply.</p>';
+  show('v3');
+}
+</script></body></html>
