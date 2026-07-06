@@ -57,6 +57,14 @@ footer{max-width:1000px;margin:0 auto;padding:8px 24px 30px;font-size:11.5px;col
 .chan.reg h4{color:#1F4E79}.chan.cust h4{color:#7E57C2}.chan.inv h4{color:#E0922B}.chan.ngo h4{color:#2E8B57}
 .legendbar{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--grey);margin:4px 0 14px}
 .legendbar span{display:flex;align-items:center;gap:5px}.legendbar i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.dpblk{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fff}
+.dphd{font-weight:700;font-size:14px;color:var(--navy)}
+.dpser{font-weight:500;font-size:11.5px;color:var(--grey);margin-left:8px}
+.dpnote{font-size:12px;color:#7a5b16;background:#fbf1de;border-radius:6px;padding:6px 9px;margin:7px 0}
+.dplist{margin:8px 0 2px;padding-left:0;list-style:none}
+.dplist li{font-size:12.5px;padding:3px 0;border-bottom:1px solid #f0f2f5}
+.dptag{display:inline-block;font-size:9.5px;font-weight:700;color:#fff;border-radius:4px;padding:1px 5px;margin-right:6px}
+.dptag.vsme{background:#2E8B57}.dptag.gdst{background:#1F4E79}
 
 .payoff{display:flex;align-items:center;gap:14px;background:#eef6f0;border:1px solid #bfe0c8;border-radius:10px;padding:14px 16px;margin:10px 0 18px}
 .payoff .big{font-size:30px;font-weight:800;color:var(--green);line-height:1;white-space:nowrap}
@@ -126,7 +134,15 @@ footer{max-width:1000px;margin:0 auto;padding:8px 24px 30px;font-size:11.5px;col
 <div class="legendbar"><span><i style="background:#2E8B57"></i>Stage 1 — build first</span><span><i style="background:#C8861E"></i>Stage 2 — next</span>&nbsp;&nbsp;<span><i style="background:#1F4E79;border-radius:50%"></i>Regulator</span><span><i style="background:#7E57C2;border-radius:50%"></i>Customer</span><span><i style="background:#E0922B;border-radius:50%"></i>Investor</span><span><i style="background:#2E8B57;border-radius:50%"></i>Industry/NGO</span></div>
 <div id="stage1"></div>
 <details style="margin-top:14px"><summary class="muted" style="cursor:pointer">Show next-priority (Stage 2) topics</summary><div id="stage2" style="margin-top:10px"></div></details>
-<button class="go" style="background:var(--navy);margin-top:18px" onclick="show('v1')">← Change profile</button>
+<button class="go" onclick="showDP()" style="margin-top:18px">Show my datapoint report →</button>
+<button class="go" style="background:var(--navy);margin-top:10px" onclick="show('v1')">← Change profile</button>
+</div>
+
+<div id="v4" class="card hidden">
+<button class="back" onclick="show('v2')">← Back to priorities</button>
+<h2>Your build-first datapoints</h2>
+<p class="muted">For each build-first theme, the datapoints to start with (VSME proportionate set, or GDST Key Data Elements for traceability). Each theme notes how many of your demands it serves — collect once, answer many.</p>
+<div id="dpreport"></div>
 </div>
 
 <div id="v3" class="card hidden">
@@ -146,8 +162,31 @@ const D={"topics": [{"id": "E1-3", "sys": "Both", "label": "Climate transition a
 const SEL={sys:'both',tuna:'no',refr:'yes'};
 const DEFAULT_ON=new Set(['SAQ from Sedex (follow by SMETA)','EcoVadis','CSDDD (2024/1760)','VSME-Basic','GRI Standards (incl. GRI 13)']);
 const SELF={}; D.instr.forEach(i=>{if(i.src!=='Regulator')SELF[i.name]=DEFAULT_ON.has(i.name);});
+const DP={"E1-5":[{"n":"Total energy consumption — electricity (renewable)","s":"VSME"},{"n":"Total energy consumption — electricity (non-renewable)","s":"VSME"},{"n":"Total energy consumption — fuels","s":"VSME"},{"n":"Total energy consumption","s":"VSME"}],"E1-6":[{"n":"Scope 1 GHG emissions","s":"VSME"},{"n":"Scope 2 GHG emissions (location-based)","s":"VSME"},{"n":"GHG intensity","s":"VSME"},{"n":"Scope 3 GHG emissions (supplement to B3)","s":"VSME"}],"E2-4":[{"n":"Pollutant emissions","s":"VSME"}],"E4-5":[{"n":"Sites near biodiversity-sensitive areas","s":"VSME"},{"n":"Total land use","s":"VSME"},{"n":"Nature-oriented area on-site","s":"VSME"}],"E3-4":[{"n":"Total water withdrawal","s":"VSME"},{"n":"Water withdrawal in high water-stress areas","s":"VSME"},{"n":"Water consumption","s":"VSME"}],"E5-5":[{"n":"Total waste — non-hazardous","s":"VSME"},{"n":"Total waste — hazardous","s":"VSME"},{"n":"Waste diverted to recycling or reuse","s":"VSME"}],"S1-6":[{"n":"Employees by contract type","s":"VSME"},{"n":"Employees by gender","s":"VSME"},{"n":"Employee turnover rate","s":"VSME"}],"S1-14":[{"n":"Number and rate of work-related accidents","s":"VSME"},{"n":"Fatalities from work-related injuries","s":"VSME"}],"E1-4":[{"n":"GHG reduction target — Scope 1/2/3","s":"VSME"},{"n":"Main actions to achieve GHG targets","s":"VSME"}],"S1-1":[{"n":"Code of conduct / human-rights policy — existence","s":"VSME"},{"n":"HR policy covers child/forced labour, trafficking","s":"VSME"},{"n":"HR policy covers discrimination, accident prevention","s":"VSME"}],"S1-17":[{"n":"Confirmed incidents — child/forced labour","s":"VSME"},{"n":"Confirmed incidents — discrimination / other","s":"VSME"},{"n":"Actions taken to address incidents","s":"VSME"}],"G1-1":[{"n":"Revenues from controversial sectors (weapons/tobacco/fossil)","s":"VSME"},{"n":"Exclusion from EU reference benchmarks (YES/NO)","s":"VSME"}],"Supply-chain traceability (chain of custody)":[{"n":"Item / SKU / GTIN","s":"GDST"},{"n":"Linking KDE (lot)","s":"GDST"},{"n":"Weight / Quantity","s":"GDST"},{"n":"Species","s":"GDST"},{"n":"Product Origin","s":"GDST"},{"n":"Vessel / Farm identification","s":"GDST"},{"n":"Chain-of-Custody Certification (MSC/ASC/BAP)","s":"GDST"},{"n":"Product Form","s":"GDST"},{"n":"Expiry / Production date","s":"GDST"}]};
 document.querySelectorAll('.seg').forEach(g=>g.addEventListener('click',e=>{if(e.target.dataset.v){[...g.children].forEach(b=>b.classList.remove('on'));e.target.classList.add('on');SEL[g.id]=e.target.dataset.v;}}));
-function show(id){['v0','v1','v2','v3'].forEach(v=>document.getElementById(v).classList.toggle('hidden',v!==id));window.scrollTo(0,0);}
+function show(id){['v0','v1','v2','v3','v4'].forEach(v=>document.getElementById(v).classList.toggle('hidden',v!==id));window.scrollTo(0,0);}
+function showDP(){ renderDP(); show('v4'); }
+const DP_COLLAPSE={'Wild-stock status / sustainable wild sourcing':1,'Feed & marine ingredients sourcing':1,'Animal health & welfare (incl. antimicrobial use)':1};
+const DP_ALIAS={'Biodiversity & ecosystems (E4)':'E4-5'};
+function renderDP(){
+  const s1=D.topics.filter(t=>RES[t.id] && RES[t.id].stage==='1');
+  const labelFor=id=>(D.topics.find(t=>t.id===id)||{}).label||id;
+  let html='';
+  s1.forEach(t=>{
+    const r=RES[t.id]; const trace=/traceab/i.test(t.id);
+    if(DP_COLLAPSE[t.id]){
+      html+=`<div class="dpblk"><div class="dphd">${labelFor(t.id)}<span class="dpser">value-chain — sourcing</span></div><div class="dpnote">Evidenced through your Traceability datapoints (species, origin, chain-of-custody certification) — no separate data to build.</div></div>`;
+      return;
+    }
+    const dps=DP[DP_ALIAS[t.id]||t.id]||[];
+    html+=`<div class="dpblk"><div class="dphd">${labelFor(t.id)}<span class="dpser">serves ${r.cv} of 4 channels · ${r.fw.length} frameworks</span></div>`;
+    if(trace) html+=`<div class="dpnote">These GDST Key Data Elements also evidence your wild-stock, feed and animal-health sourcing — one data set, four topics.</div>`;
+    if(dps.length){ html+='<ul class="dplist">'+dps.map(d=>`<li><span class="dptag ${d.s.toLowerCase()}">${d.s}</span> ${d.n}</li>`).join('')+'</ul>'; }
+    else html+='<div class="dpnote">Start from the mandatory ESRS datapoints for this topic — see the full datapoint sheet.</div>';
+    html+='</div>';
+  });
+  document.getElementById('dpreport').innerHTML=html||'<p class="muted">No build-first themes for this profile.</p>';
+}
 const SRC=['Regulator','Customer','Investor','Industry / NGO'];
 function profileOK(it,emp){
   if(it.cond==='refr'&&SEL.refr!=='yes')return false;
