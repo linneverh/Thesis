@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>The seafood sustainability disclosure ecosystem</title>
+<style>
+:root{--reg:#B45309;--regt:#FBF4EA;--regb:#C8861E;
+--cust:#1F4E79;--custt:#EDF2F8;--custb:#2E6DA4;
+--inv:#276B41;--invt:#E9F4EE;--invb:#2E8B57;
+--ngo:#4B5563;--ngot:#F0F1F3;--ngob:#6B7280;
+--line:#dfe4ea;--ink:#1f2937;--grey:#6b7280}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.fig{width:1180px;margin:0 auto;padding:22px 24px 26px}
+h1{font-size:19px;margin:0 0 3px}
+.sub{font-size:12px;color:var(--grey);margin:0 0 16px}
+/* grid: label column + 6 supply-chain columns */
+.grid{display:grid;grid-template-columns:150px repeat(6,1fr);gap:8px}
+.stagehdr{display:contents}
+.stage{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:9px;padding:8px 9px;background:#f7f9fb}
+.stage.focal{border:2px solid var(--regb);background:#fdf6ea}
+.stage svg{width:22px;height:22px;flex:none;color:var(--grey)}
+.stage.focal svg{color:var(--regb)}
+.stage .txt{min-width:0}
+.stage .t{font-size:11px;font-weight:800;letter-spacing:.2px}
+.stage .d{font-size:9px;color:var(--grey);margin-top:2px}
+.spacer{}
+.lane{display:contents}
+.lanelabel{align-self:stretch;display:flex;flex-direction:column;justify-content:center;border-radius:9px;padding:8px 10px;color:#fff;font-weight:800;font-size:12px;line-height:1.2}
+.lanelabel .s{font-weight:500;font-size:9.5px;opacity:.9;margin-top:2px}
+.cell{padding:2px 0}
+.laneband{border-radius:9px;padding:6px 8px}
+/* chips */
+.chip{display:flex;align-items:center;gap:6px;border:1.4px solid var(--line);border-radius:7px;padding:4px 7px;margin:5px 0;font-size:10px;background:#fff;line-height:1.2}
+.chip.indirect,.chip.context{border-style:dashed}
+.chip.context{opacity:.72}
+.chip .loc{font-size:10px;width:12px;text-align:center;flex:none}
+.chip .nm{flex:1}
+.chip .tb{flex:none;font-size:8.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 5px}
+/* tier0 */
+.tier0{margin-top:14px;border:1.5px dashed var(--regb);border-radius:10px;padding:11px 14px;background:var(--regt)}
+.tier0 h3{margin:0 0 4px;font-size:11.5px;color:var(--reg);letter-spacing:.3px}
+.tier0 p{margin:0;font-size:10px;color:#4b5563;line-height:1.55}
+/* legends */
+.legends{display:flex;flex-wrap:wrap;gap:26px;margin-top:16px;font-size:10px;color:#374151}
+.legends h4{margin:0 0 5px;font-size:9.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--grey)}
+.lg{display:flex;align-items:center;gap:6px;margin:3px 0}
+.sw{width:22px;height:12px;border-radius:3px;display:inline-block}
+.cascade{grid-column:2 / 8;font-size:9px;color:var(--grey);text-align:center;border-top:1px dashed var(--line);margin-top:2px;padding-top:2px}
+</style></head><body>
+<div class="fig">
+  <h1>The seafood sustainability disclosure ecosystem</h1>
+  <p class="sub">Where each reporting requirement bites along the supply chain (horizontal) and who drives it (lane &amp; colour). Marker = obligation locus · badge = necessity tier.</p>
+  <div class="grid" id="grid"></div>
+
+  <div class="tier0">
+    <h3>TIER 0 · FOOD-INTEGRITY FOUNDATION</h3>
+    <p><b>Precondition of operating</b> — in scope of the firm, held outside the disclosure analysis. &nbsp;<b>Reg-driven food law:</b> General Food Law 178/2002 · Hygiene 852/2004 · 853/2004 · FIC 1169/2011 · Food-contact 1935/2004 · Micro 2073/2005 · Contaminants 1881/2006 · Pesticides 396/2005 · REACH · Official Controls 2017/625. &nbsp;<b>Customer-required certs:</b> IFS Food · BRCGS · FSSC 22000. &nbsp;<b>Benchmark:</b> GFSI.</p>
+  </div>
+
+  <div class="legends">
+    <div><h4>Who asks (lane / colour)</h4>
+      <div class="lg"><span class="sw" style="background:var(--regt);border:1.5px solid var(--regb)"></span> Regulator (EU law)</div>
+      <div class="lg"><span class="sw" style="background:var(--custt);border:1.5px solid var(--custb)"></span> Customer (retail / B2B)</div>
+      <div class="lg"><span class="sw" style="background:var(--invt);border:1.5px solid var(--invb)"></span> Investor / finance</div>
+      <div class="lg"><span class="sw" style="background:var(--ngot);border:1.5px solid var(--ngob)"></span> Industry / NGO</div>
+    </div>
+    <div><h4>Obligation locus (marker)</h4>
+      <div class="lg"><span class="loc">●</span> direct — processor is the bound / certified / reporting party</div>
+      <div class="lg"><span class="loc">○</span> indirect — reaches processor via value chain / own disclosure</div>
+      <div class="lg"><span class="loc">—</span> context — binds a Member State / other actor, not the processor</div>
+    </div>
+    <div><h4>Necessity tier (badge)</h4>
+      <div class="lg"><b>T1</b>&nbsp; legal licence to operate</div>
+      <div class="lg"><b>T2</b>&nbsp; market licence</div>
+      <div class="lg"><b>T3</b>&nbsp; competitive expectation</div>
+      <div class="lg"><b>T4</b>&nbsp; strategic differentiation</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// =====================================================================
+// EDIT HERE. Each instrument: {name, lane, col, tier, locus}
+//   lane : reg | cust | inv | ngo
+//   col  : inputs | wild | aqua | processor | retail | consumer
+//   tier : 1 | 2 | 3 | 4
+//   locus: direct | indirect | context
+// The diagram redraws from this array — add/move/retier by editing it.
+// NOTE: obligation-locus values are a first pass; adjust to taste.
+// =====================================================================
+const STAGES=[
+ ['inputs','INPUTS','feed · marine ingredients'],
+ ['wild','WILD CAPTURE','vessel / fishery'],
+ ['aqua','AQUACULTURE','farm'],
+ ['processor','PROCESSOR (the SME)','focal firm · 50–250 · B2B'],
+ ['retail','RETAIL / B2B BUYER','transmits demand'],
+ ['consumer','CONSUMER','EU market']];
+const LANES=[
+ ['reg','REGULATOR','EU law'],
+ ['cust','CUSTOMER','retail / B2B buyers'],
+ ['inv','INVESTOR / FINANCE','banks · capital · indices'],
+ ['ngo','INDUSTRY / NGO','voluntary coalitions & standards']];
+const INSTR=[
+ // ---- REGULATOR ----
+ {name:'EUDR 2023/1115 (feed/packaging)',lane:'reg',col:'inputs',tier:1,locus:'indirect'},
+ {name:'Marine Strategy Fwk Dir 2008/56',lane:'reg',col:'inputs',tier:1,locus:'context'},
+ {name:'Common Fisheries Policy 1380/2013',lane:'reg',col:'wild',tier:1,locus:'context'},
+ {name:'EMFAF 2021/1139',lane:'reg',col:'wild',tier:1,locus:'context'},
+ {name:'Fisheries Control Reg 2023/2842',lane:'reg',col:'wild',tier:1,locus:'direct'},
+ {name:'IUU Regulation 1005/2008',lane:'reg',col:'wild',tier:1,locus:'direct'},
+ {name:'RFMO catch rules',lane:'reg',col:'wild',tier:1,locus:'context'},
+ {name:'Fisheries-labour Dir 2017/159',lane:'reg',col:'wild',tier:2,locus:'indirect'},
+ {name:'CMO marketing stds 1379/2013',lane:'reg',col:'processor',tier:1,locus:'direct'},
+ {name:'Forced Labour Reg 2024/3015',lane:'reg',col:'processor',tier:1,locus:'direct'},
+ {name:'OSH Framework Dir 89/391',lane:'reg',col:'processor',tier:1,locus:'direct'},
+ {name:'PPWR 2025/40 (packaging)',lane:'reg',col:'processor',tier:1,locus:'direct'},
+ {name:'Urban Waste Water Dir 2024/3019',lane:'reg',col:'retail',tier:1,locus:'context'},
+ {name:'Waste Framework / EPR 2008/98',lane:'reg',col:'retail',tier:1,locus:'indirect'},
+ {name:'Water Framework Dir 2000/60',lane:'reg',col:'retail',tier:1,locus:'context'},
+ {name:'Working Time Dir 2003/88',lane:'reg',col:'retail',tier:1,locus:'direct'},
+ {name:'EmpCo Dir 2024/825 (green claims)',lane:'reg',col:'consumer',tier:1,locus:'direct'},
+ // ---- CUSTOMER ----
+ {name:'MSC Fisheries Standard',lane:'cust',col:'wild',tier:2,locus:'indirect'},
+ {name:'Friend of the Sea',lane:'cust',col:'wild',tier:2,locus:'indirect'},
+ {name:'ASC Farm Standard',lane:'cust',col:'aqua',tier:2,locus:'indirect'},
+ {name:'BAP',lane:'cust',col:'aqua',tier:2,locus:'indirect'},
+ {name:'GLOBALG.A.P. Aquaculture',lane:'cust',col:'aqua',tier:2,locus:'direct'},
+ {name:'MSC/ASC Chain of Custody',lane:'cust',col:'processor',tier:2,locus:'direct'},
+ {name:'EcoVadis',lane:'cust',col:'processor',tier:2,locus:'direct'},
+ {name:'Sedex / SMETA (social audit)',lane:'cust',col:'processor',tier:2,locus:'direct'},
+ // ---- INVESTOR / FINANCE ----
+ {name:'CDP',lane:'inv',col:'processor',tier:3,locus:'indirect'},
+ {name:'CSDDD 2024/1760',lane:'inv',col:'processor',tier:3,locus:'direct'},
+ {name:'CSRD / ESRS (value-chain cascade)',lane:'inv',col:'processor',tier:3,locus:'indirect'},
+ {name:'EU Taxonomy 2020/852',lane:'inv',col:'processor',tier:3,locus:'indirect'},
+ {name:'IFRS S1/S2 (ISSB)',lane:'inv',col:'processor',tier:3,locus:'indirect'},
+ {name:'SFDR 2019/2088',lane:'inv',col:'retail',tier:3,locus:'indirect'},
+ {name:'VSME (EFRAG voluntary SME)',lane:'inv',col:'retail',tier:3,locus:'direct'},
+ {name:'Coller FAIRR Index',lane:'inv',col:'retail',tier:3,locus:'indirect'},
+ {name:'Dow Jones Sustainability Index',lane:'inv',col:'retail',tier:4,locus:'indirect'},
+ {name:'TNFD',lane:'inv',col:'retail',tier:4,locus:'direct'},
+ // ---- INDUSTRY / NGO ----
+ {name:'FIPs / FisheryProgress',lane:'ngo',col:'wild',tier:3,locus:'direct'},
+ {name:'GDST (traceability data std)',lane:'ngo',col:'wild',tier:3,locus:'direct'},
+ {name:'ISSF (tuna)',lane:'ngo',col:'wild',tier:4,locus:'direct'},
+ {name:'GRI (incl. GRI 13)',lane:'ngo',col:'processor',tier:3,locus:'direct'},
+ {name:'GSSI (cert benchmark)',lane:'ngo',col:'processor',tier:3,locus:'indirect'},
+ {name:'Move to Minus 15 (cold chain)',lane:'ngo',col:'processor',tier:4,locus:'direct'},
+ {name:'SBTi',lane:'ngo',col:'processor',tier:4,locus:'direct'},
+ {name:'SeaBOS',lane:'ngo',col:'retail',tier:4,locus:'direct'},
+ {name:'UN Global Compact',lane:'ngo',col:'retail',tier:4,locus:'direct'},
+ {name:'UN SDGs',lane:'ngo',col:'retail',tier:4,locus:'context'}];
+
+const ICON={
+ inputs:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-1-7-5-7-10 4 0 7 3 7 7"/><path d="M12 21c4-1 7-5 7-10-4 0-7 3-7 7"/><path d="M12 21v-8"/></svg>',
+ wild:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18l-2.5 4.5h-13z"/><path d="M12 4v9"/><path d="M12 5.5l6 3-6 1.5"/></svg>',
+ aqua:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3.5-5 10.5-5 14 0-3.5 5-10.5 5-14 0z"/><path d="M17 12l4-3v6z"/><circle cx="8" cy="11" r="1" fill="currentColor" stroke="none"/></svg>',
+ processor:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20V11l5 3V11l5 3V11l5 3v6z"/><path d="M3 20h18"/><path d="M6 8V5"/></svg>',
+ retail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.2 11h10.3l1.8-7.5H6"/><circle cx="9.5" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>',
+ consumer:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="13" r="5"/><path d="M4 5v5c0 1 .8 1.6 1.6 1.6M5.6 5v6.6M4 5"/><path d="M4 5v6"/></svg>'};
+const LOC={direct:'●',indirect:'○',context:'—'};
+const COLS=STAGES.map(s=>s[0]);
+const g=document.getElementById('grid');
+// stage header row
+g.innerHTML+='<div class="spacer"></div>';
+STAGES.forEach(s=>{g.innerHTML+=`<div class="stage${s[0]==='processor'?' focal':''}">${ICON[s[0]]||''}<div class="txt"><div class="t">${s[1]}</div><div class="d">${s[2]}</div></div></div>`;});
+// lanes
+LANES.forEach(L=>{
+  const key=L[0];
+  let row=`<div class="lanelabel" style="background:var(--${key})">${L[1]}<span class="s">${L[2]}</span></div>`;
+  COLS.forEach(c=>{
+    const items=INSTR.filter(i=>i.lane===key&&i.col===c);
+    let cell='<div class="cell laneband" style="background:var(--'+key+'t)">';
+    items.forEach(i=>{
+      cell+=`<div class="chip ${i.locus}" style="border-color:var(--${key}b)"><span class="loc" style="color:var(--${key})">${LOC[i.locus]}</span><span class="nm">${i.name}</span><span class="tb" style="background:var(--${key}b)">T${i.tier}</span></div>`;
+    });
+    cell+='</div>';
+    row+=cell;
+  });
+  g.innerHTML+=row;
+});
+</script>
+</body></html>
