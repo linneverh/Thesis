@@ -96,6 +96,10 @@ footer{max-width:1000px;margin:0 auto;padding:8px 24px 30px;font-size:11.5px;col
 .payoff .txt{font-size:13px;color:#374151;line-height:1.5}
 .subh{font-size:13.5px;color:var(--navy);margin:22px 0 4px;font-weight:700}
 .cvxlegend{font-size:11.5px;color:var(--grey);line-height:1.55;margin:2px 0 10px}
+.cvxkey{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid #e6e9ee}
+.cvxkey span{display:flex;align-items:center;gap:7px}
+.cvxkey i.sw{width:28px;height:17px;border-radius:4px;background:#334155;display:inline-block;flex:none}
+.cvxkey i.sw0{background:#eef1f5;box-shadow:inset 0 0 0 1px #dfe3e9}
 .cvx{width:100%;border-collapse:separate;border-spacing:0 5px}
 .cvx th{font-size:10px;color:var(--grey);font-weight:700;text-transform:uppercase;letter-spacing:.3px;text-align:center;padding:0 2px 5px;vertical-align:bottom}
 .cvx th.lblh{text-align:left}
@@ -258,9 +262,9 @@ function run(){
       return `<td class="cc"><span class="cell" style="${st}" title="${c[1]} — ${m===2?'binding':m===1?'touched':'not demanded'}"></span></td>`;}).join('');
     return `<tr class="s${r.stage}"><td class="lbl" onclick="detail(${idx})">${(t.label||t.id)}</td>${cells}<td class="cvn">${r.cv}/4</td><td class="cnt">${r.fw.length} fw</td></tr>`;}).join('');
   const head=`<tr><th class="lblh">Topic</th>${CH.map(c=>`<th>${c[1]}</th>`).join('')}<th>Channels</th><th>Frameworks</th></tr>`;
-  const s1s=[...s1].sort(byConv);
-  const s2s=appl.filter(t=>RES[t.id].stage==='2').sort(byConv);
-  document.getElementById('cvxwrap').innerHTML=`<div class="cvxlegend">This is the demand <b>landscape</b> a firm like you faces. Each row is a topic; each column a type of stakeholder that demands it — <b>dark&nbsp;= binding</b>, <b>light&nbsp;= touched</b>, empty&nbsp;= not demanded. Topics lighting up across all four columns are where <b>building once satisfies everyone</b> — your build-first set.</div><table class="cvx">${head}${rowsFor(s1s)}${s2s.length?`<tr class="cvxsub"><td colspan="7" class="muted">Next priority (Stage 2)</td></tr>`+rowsFor(s2s):''}</table>`;
+  const s1s=[...s1].filter(t=>!DP_COLLAPSE[t.id]).sort(byConv);
+  const s2s=appl.filter(t=>RES[t.id].stage==='2'&&!DP_COLLAPSE[t.id]).sort(byConv);
+  document.getElementById('cvxwrap').innerHTML=`<div class="cvxlegend">This is the demand <b>landscape</b> a firm like you faces. Each row is a topic; each column a type of stakeholder that demands it. Topics lighting up across all four columns are where <b>building once satisfies everyone</b> — your build-first set.<div class="cvxkey"><span><i class="sw" style="opacity:1"></i><b>Dark</b>&nbsp;= binding — you must report it</span><span><i class="sw" style="opacity:.45"></i><b>Light</b>&nbsp;= touched — asked for, but softer</span><span><i class="sw sw0"></i>Empty&nbsp;= not demanded</span></div></div><table class="cvx">${head}${rowsFor(s1s)}${s2s.length?`<tr class="cvxsub"><td colspan="7" class="muted">Next priority (Stage 2)</td></tr>`+rowsFor(s2s):''}</table>`;
   const dpCount=id=>DP_COLLAPSE[id]?0:(DPX[DP_ALIAS[id]||id]||[]).length;
   const card=(t)=>{const idx=D.topics.indexOf(t);const n=dpCount(t.id);const trace=/traceab/i.test(t.id);
     return `<div class="ttile" onclick="detail(${idx})"><div class="ticon">${iconFor(t.id)}</div><div class="tnm2">${t.label||t.id}</div>${n?`<div class="tchip">${n} datapoints</div>`:'<div class="tchip alt">see sheet</div>'}${trace?'<div class="tcov">+ sourcing</div>':''}</div>`;};
