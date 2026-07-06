@@ -81,6 +81,15 @@ footer{max-width:1000px;margin:0 auto;padding:8px 24px 30px;font-size:11.5px;col
 .dpn{font-weight:700;font-size:13.5px;color:#1f2937}
 .dpe{font-size:12.5px;color:var(--grey);line-height:1.5;margin:3px 0 6px}
 .dpsrc{font-size:11px;color:#6b7280}
+#stage1,#stage2{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin-top:6px}
+.ttile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;border:1px solid var(--line);border-radius:12px;padding:15px 8px;background:#fff;cursor:pointer;transition:.12s}
+.ttile:hover{border-color:var(--green);transform:translateY(-1px)}
+.ttile .ticon{color:var(--navy)}
+.ttile .ticon svg{width:24px;height:24px;display:block}
+.tnm2{font-weight:600;font-size:12.5px;color:#1f2937;line-height:1.2}
+.tchip{font-size:10px;font-weight:700;color:#fff;background:var(--green);border-radius:20px;padding:2px 9px}
+.tchip.alt{background:#9aa6b2}
+.tcov{font-size:9.5px;color:#7a5b16}
 
 .payoff{display:flex;align-items:center;gap:14px;background:#eef6f0;border:1px solid #bfe0c8;border-radius:10px;padding:14px 16px;margin:10px 0 18px}
 .payoff .big{font-size:30px;font-weight:800;color:var(--green);line-height:1;white-space:nowrap}
@@ -150,7 +159,6 @@ footer{max-width:1000px;margin:0 auto;padding:8px 24px 30px;font-size:11.5px;col
 <p class="muted" style="margin:14px 0 4px">Your priority themes — click one to see who's asking and exactly what data to collect.</p>
 <div id="stage1"></div>
 <details style="margin-top:12px"><summary class="muted" style="cursor:pointer">Show next-priority themes (build after)</summary><div id="stage2" style="margin-top:10px"></div></details>
-<details class="adv"><summary>Personalise — which demands actually apply to you?</summary><div id="asklist" style="margin-top:8px"></div></details>
 <details class="adv"><summary>See the full demand map (advanced)</summary><div style="margin-top:8px"><div class="legendbar"><span><i style="background:#2E8B57"></i>Build first</span><span><i style="background:#C8861E"></i>Next</span>&nbsp;<span><i style="background:#1F4E79;border-radius:50%"></i>Regulator</span><span><i style="background:#7E57C2;border-radius:50%"></i>Customer</span><span><i style="background:#E0922B;border-radius:50%"></i>Investor</span><span><i style="background:#2E8B57;border-radius:50%"></i>Industry/NGO</span></div><div id="cvxwrap"></div></div></details>
 <button class="go" style="background:var(--navy);margin-top:18px" onclick="show('v1')">← Change profile</button>
 </div>
@@ -214,6 +222,21 @@ function compute(){
   });
   return res;
 }
+const ICON={
+bolt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M13 3 L5 14 h6 l-1 7 9-11 h-6 z"/></svg>',
+cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18 a4 4 0 010-8 5 5 0 019.5 1.5 A3.5 3.5 0 0117 18z"/></svg>',
+droplet:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 C7 9 6 12 6 15 a6 6 0 0012 0 c0-3-1-6-6-12z"/></svg>',
+trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M10 7V5h4v2M7 7l1 13h8l1-13"/></svg>',
+people:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 20 a5.5 5.5 0 0111 0"/><circle cx="17.5" cy="9" r="2.2"/><path d="M15.5 14.3 a4.5 4.5 0 015 5.7"/></svg>',
+scale:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M6 20h12M4 8h16M4 8l-2 5a3 3 0 006 0zM20 8l-2 5a3 3 0 006 0z"/></svg>',
+route:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8 6h6a3 3 0 010 6H10a3 3 0 000 6h6"/></svg>',
+leaf:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 20 C4 10 11 5 20 5 C20 14 14 20 4 20z"/><path d="M5.5 18.5 C9 14 14 11 18 10"/></svg>'};
+function iconFor(id){
+if(/traceab/i.test(id))return ICON.route;
+if(id==='E1-5')return ICON.bolt;
+const p=id.slice(0,2);
+return ({E1:ICON.cloud,E2:ICON.cloud,E3:ICON.droplet,E4:ICON.leaf,E5:ICON.trash,S1:ICON.people,S2:ICON.people,G1:ICON.scale})[p]||ICON.leaf;
+}
 let RES={};
 function run(){
   RES=compute();
@@ -221,16 +244,12 @@ function run(){
   const emp=+document.getElementById('emp').value||0;
   document.getElementById('profline').textContent=`Profile: ${SEL.sys==='both'?'wild + farmed':SEL.sys} · tuna: ${SEL.tuna} · HFC: ${SEL.refr} · ${emp} employees`;
   const s1=D.topics.filter(t=>RES[t.id].stage==='1');
-  // ---- payoff headline + convergence matrix ----
+  // ---- payoff: transparent framework count over the landscape ----
   const appl=D.topics.filter(t=>RES[t.id].stage!=='na');
-  let tot=0,s1w=0; const allF=new Set(),s1F=new Set();
-  appl.forEach(t=>{const r=RES[t.id];let selBr=0;const names=[];
-    D.instr.forEach(it=>{const v=it.scores[t.id]||0;if(v>0&&selected(it,emp)){selBr+=v;names.push(it.name);}});
-    tot+=selBr;names.forEach(n=>allF.add(n));
-    if(r.stage==='1'){s1w+=selBr;names.forEach(n=>s1F.add(n));}});
-  const pct=tot?Math.round(100*s1w/tot):0;
-  document.getElementById('payoff').innerHTML=`<div class="big">${pct}%</div><div class="txt">Get these <b>${s1.length} theme${s1.length===1?'':'s'}</b> right and you cover about <b>${pct}%</b> of the sustainability demand you face — <b>${s1F.size} of the ${allF.size} frameworks</b> that apply to you — from one dataset. Build the data once, keep your licence to operate, and save the effort of answering each demand separately.<br><span class="muted">The % weights each demand by how binding it is — a legal requirement counts double a voluntary ask.</span></div>`;
-  renderAsk();
+  const allF=new Set(),s1F=new Set();
+  appl.forEach(t=>{RES[t.id].fw.forEach(f=>allF.add(f.name));if(RES[t.id].stage==='1')RES[t.id].fw.forEach(f=>s1F.add(f.name));});
+  const nThemes=s1.filter(t=>!DP_COLLAPSE[t.id]).length;
+  document.getElementById('payoff').innerHTML=`<div class="txt">Build these <b>${nThemes} themes</b> and you answer <b>${s1F.size} of the ${allF.size} frameworks</b> active in your sector — one dataset instead of ${allF.size} separate responses. That keeps your legal licence to operate and saves re-answering the broad, overlapping market demands.<br><span class="muted">Counted plainly: distinct frameworks that ask about any of your build-first themes, out of every framework active in your sector. No weighting.</span></div>`;
   const CH=[['Regulator','Regulators','#1F4E79'],['Customer','Customers','#7E57C2'],['Investor','Investors','#E0922B'],['Industry / NGO','Industry/NGO','#2E8B57']];
   const byConv=(a,b)=>(RES[b.id].cv-RES[a.id].cv)||(RES[b.id].br-RES[a.id].br);
   const rowsFor=list=>list.map(t=>{const r=RES[t.id];const idx=D.topics.indexOf(t);
@@ -241,15 +260,10 @@ function run(){
   const head=`<tr><th class="lblh">Topic</th>${CH.map(c=>`<th>${c[1]}</th>`).join('')}<th>Channels</th><th>Frameworks</th></tr>`;
   const s1s=[...s1].sort(byConv);
   const s2s=appl.filter(t=>RES[t.id].stage==='2').sort(byConv);
-  document.getElementById('cvxwrap').innerHTML=`<div class="cvxlegend">This is the demand <b>landscape</b> a firm like you faces. Each row is a topic; each column a type of stakeholder that demands it — <b>dark&nbsp;= binding</b>, <b>light&nbsp;= touched</b>, empty&nbsp;= not demanded. Topics lighting up across all four columns are where <b>building once satisfies everyone</b> — your build-first set. Tick what actually applies to you above to personalise the % at the top.</div><table class="cvx">${head}${rowsFor(s1s)}${s2s.length?`<tr class="cvxsub"><td colspan="7" class="muted">Next priority (Stage 2)</td></tr>`+rowsFor(s2s):''}</table>`;
-  const CHW={'Regulator':'law','Customer':'customers & certifiers','Investor':'investors & banks','Industry / NGO':'industry groups'};
+  document.getElementById('cvxwrap').innerHTML=`<div class="cvxlegend">This is the demand <b>landscape</b> a firm like you faces. Each row is a topic; each column a type of stakeholder that demands it — <b>dark&nbsp;= binding</b>, <b>light&nbsp;= touched</b>, empty&nbsp;= not demanded. Topics lighting up across all four columns are where <b>building once satisfies everyone</b> — your build-first set.</div><table class="cvx">${head}${rowsFor(s1s)}${s2s.length?`<tr class="cvxsub"><td colspan="7" class="muted">Next priority (Stage 2)</td></tr>`+rowsFor(s2s):''}</table>`;
   const dpCount=id=>DP_COLLAPSE[id]?0:(DPX[DP_ALIAS[id]||id]||[]).length;
-  const card=(t)=>{const r=RES[t.id];const idx=D.topics.indexOf(t);const trace=/traceab/i.test(t.id);
-    const who=[...new Set(r.fw.map(f=>f.src))].map(s=>CHW[s]).join(', ')||'—';
-    const n=dpCount(t.id);
-    const chip=n?`<span class="startchip">start: ${n} datapoints</span>`:`<span class="startchip alt">ESRS datapoints</span>`;
-    const covers=trace?`<div class="covers">also covers your wild-stock, feed &amp; animal-health sourcing</div>`:'';
-    return `<div class="tcard" onclick="detail(${idx})"><div class="tmain"><div class="tnm">${t.label||t.id}</div><div class="twho">Asked by: ${who}</div>${covers}</div><div class="tright">${chip}<span class="arrow">›</span></div></div>`;};
+  const card=(t)=>{const idx=D.topics.indexOf(t);const n=dpCount(t.id);const trace=/traceab/i.test(t.id);
+    return `<div class="ttile" onclick="detail(${idx})"><div class="ticon">${iconFor(t.id)}</div><div class="tnm2">${t.label||t.id}</div>${n?`<div class="tchip">${n} datapoints</div>`:'<div class="tchip alt">see sheet</div>'}${trace?'<div class="tcov">+ sourcing</div>':''}</div>`;};
   const order=a=>a.sort((x,y)=>RES[y.id].br-RES[x.id].br);
   const s1c=order(s1.filter(t=>!DP_COLLAPSE[t.id]));
   document.getElementById('stage1').innerHTML=s1c.map(card).join('')||'<p class="muted">No build-first themes for this profile.</p>';
