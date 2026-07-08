@@ -1,0 +1,466 @@
+% =====================================================================
+% ANGLE 3 --- CROSS-FRAMEWORK DEMAND MAPPING: WHERE TO BUILD FIRST
+% Self-contained modular chapter, drafted from the authoritative main.tex
+% methodology (§4.5 Phase 3, §4.6 Phase 4, §4.7 Phase 5, §4.8 validation)
+% and the Results section (composition + first action points).
+% Numbers reconciled to the current dataset (v8 Excel / tool):
+%   rows = 32 topics; cols = 31 (30 scored instruments, VSME split);
+%   992 cells, 181 filled (18%): 92 binding, 89 touched;
+%   source 12/11/3/5; tiers 12/7/8/4 (VSME=Customer).
+% NOTE: §4.5 still says "37 instruments / 29 scored / 30 columns" -- OUTDATED;
+%   this chapter uses the reconciled 30 scored / 31 columns.
+% Figures: fig:cell-coding (TikZ, needs tikz+libs in preamble --- already in main),
+%   topic_distribution.pdf, r_actor_tier.pdf, r_stage_system.pdf.
+% %CL = notes for you.
+% =====================================================================
+
+\section{7. Cross-framework demand mapping: where to build
+first}\label{angle3-crossmapping}
+
+%LI: already in this piece - put in the so-what - why is this chapter relevant?
+
+The first two angles supply the two dimensions of a single instrument. Angle~1
+(Chapter~5) fixed the \emph{columns} --- the instruments that make up the
+disclosure ecosystem and how binding each is. Angle~2 (Chapter~6) fixed the
+\emph{rows} --- the disclosure topics the sector's leading firms actually report,
+narrowed to a cohort-evidenced universe. This chapter crosses the two. It scores,
+topic by topic and instrument by instrument, \emph{who demands what}, and reads
+the resulting matrix for the question the whole thesis exists to answer: given a
+fragmented wall of overlapping demands, which topics, if built first, satisfy the
+most of them. Section~7.1 sets out the convergence logic that makes this a
+tractable question; Sections~7.2--7.3 build and stage the demand matrix;
+Sections~7.4--7.6 report what it shows; and Sections~7.7--7.8 turn the finding
+into a datapoint layer, a diagnostic tool, and a worked case.
+
+\subsection{7.1 The convergence logic}\label{cm-theory}
+
+The move from a wall of demands to a short build-first list rests on one idea:
+that the demands, though issued by different actors in different vocabularies,
+draw on a much smaller set of underlying capabilities, so that a single
+capability can answer many demands at once. Two established literatures make this
+precise. The first is the \emph{resource-based view} of the firm and the
+dynamic-capabilities tradition (Barney, 1991; Teece, 2007), which treat the
+ability to produce and reuse structured data as an organisational capability that,
+once built, is redeployable across uses at low marginal cost. The second is
+\emph{stakeholder-salience} theory (Mitchell, Agle \& Wood, 1997): a firm facing
+many legitimate claimants cannot serve each separately and must triage, and the
+rational triage is toward the topics on which the most salient claimants converge.
+
+Convergence is therefore the organising construct. Where a topic is demanded by a
+regulator, an investor framework and an industry standard alike, capability built for that topic is not spent once but several
+times over --- the compound return that distinguishes a proactive posture from a
+reactive one (Chapter~1). A topic demanded through only one channel yields a
+narrower return. The analytical task of this chapter is thus to \emph{measure}
+convergence across the fragmented landscape and to identify the topics where it is
+highest --- the hotspots at which building once satisfies many.
+
+\subsection{7.2 The demand matrix}\label{cm-matrix}
+
+The central construct is a coverage matrix whose \textbf{rows} are the
+disclosure topics of the cohort-derived universe (Chapter~6) and whose
+\textbf{columns} are the instruments of the ecosystem (Chapter~5). The matrix
+codes the \emph{full} scored landscape --- 30 instruments spanning the four
+stakeholder channels, across 31 columns (the VSME is split into its Basic and
+Comprehensive modules) --- so that convergence is measured across the demand
+environment the firm actually faces, not a hand-picked subset. Each column
+inherits from Angle~1 its stakeholder source, its obligation locus (direct,
+indirect, context) and an independence weight (below); columns a given firm's
+profile renders inapplicable --- a tuna-only or refrigerant-only instrument --- are
+switched off and excluded from that firm's sums.
+%LI: refrain from numbers here because we take numbers from chapter 5 and 6 but still have to expand, alter them to get to right numbers! 
+%LI add before you explain how entire matrix is scored how we narrowed down from 49 frameworks in chapter 5 to 31 chapters and from 26 topics to 32 (or right number) topics (GRI 13 benchmark and inclusion E4 and Sx (this is documented in main i believe!))
+
+\textbf{The coverage scale.} Each cell is coded on a three-level scale defined ex
+ante:
+\begin{itemize}
+\item \textbf{0 --- not covered:} the instrument does not address the topic, or its
+demand maps only to datapoints outside the row universe (the out-of-frame rule
+below).
+\item \textbf{1 --- touched:} the instrument references the topic but imposes no
+binding requirement on any of its datapoints.
+\item \textbf{2 --- required:} the instrument explicitly and bindingly requires
+the entity to achieve, address, comply with, certify, report on or disclose at
+least one datapoint belonging to the topic.
+\end{itemize}
+Binding \emph{conformity} counts equally with binding \emph{disclosure}: a
+mandatory recycled-content target (PPWR), an accident-prevention duty (OSH) or a
+market-access prohibition on forced-labour products scores~2 even where no report
+is filed, because it bindingly addresses the datapoint substance. The score
+measures the \emph{strength} of demand and is deliberately independent of
+obligation locus: an instrument that reaches the processor indirectly --- CSDDD,
+cascaded down from large customers --- can still score~2 where it bindingly
+imposes a topic's datapoint substance. Locus is recorded as a separate attribute
+and never raises or lowers the cell score.
+
+\textbf{Datapoint-grounded coding.} A score is assigned against the
+\emph{constituent datapoints} of a requirement, not against the title of its
+disclosure requirement. Each of the 28 cohort-evidenced rows is decomposed into
+its official EFRAG datapoints using the ESRS datapoint master (Commission
+Delegated Regulation (EU) 2023/2772): the 26 DR-level rows resolve to 356
+datapoints and the two topic-level rows (E4, S4) to a further 152. An instrument
+scores~2 where its indicators demand at least one of a requirement's datapoints,
+1 where it references the topic but demands none of them, and~0 where it is
+silent. This converts the loose question ``does instrument~$f$ address topic~$r$?''
+into the concrete, reproducible ``does~$f$ demand any datapoint of~$r$?'', and it
+surfaces corrections --- whistleblowing demand resolving to the governance row
+that actually carries whistleblowing datapoints rather than an adjacent
+anti-corruption row --- that, once logged, are findings about coding rather than
+matters of method.
+
+\textbf{Self-assessment versus binding demand.} The score turns on whether the
+instrument imposes the datapoint's substance, not on who reports it. An instrument
+resting on \emph{voluntary self-assessment} --- where the entity self-describes
+against the instrument's own open questions, with no externally defined
+performance threshold and no standardised binding disclosure --- evidences that the
+topic is in scope (score~1) but does not impose the datapoint (so does not reach
+2). This caps open-question ratings and questionnaires (EcoVadis, the Sedex SAQ)
+at~1. A~2 requires one of three things: an enforced conformity bar the entity must
+meet (a SMETA audit whose non-conformities must be remediated to retain the
+buyer); reporting against a standardised, datapoint-defined disclosure standard,
+whether voluntary (GRI, CDP, TNFD) or mandatory (the ESRS); or a binding legal
+obligation imposing the datapoint's substance. The distinction is between an
+\emph{open-question} rating, where the entity self-describes against loose prompts
+(capped at~1), and a \emph{defined-datapoint} standard, where the datapoints to be
+reported are fixed (which can reach~2). Standardised disclosure standards score~2
+even though they too are self-reported, because their datapoints are defined, not
+self-framed. A related distinction separates a \emph{rating} from a
+\emph{standard}: a rating is admitted only where the firm must itself supply data
+into it (EcoVadis, scored at~1 because the processor completes it), whereas purely
+external ratings built from public data (MSCI, Sustainalytics, the Dow~Jones
+Sustainability Index) impose no own obligation and are not scored --- a rating
+consumes disclosures rather than defining them.
+% CL: §4.5 cited (Adams & Abhayawansa, 2022) here for the rating-vs-standard point; left uncited pending a verified source (you flagged that paper earlier).
+
+\textbf{Sector-material rows.} For the four seafood-specific gap rows
+(traceability, wild-stock status, feed and marine ingredients, animal health and
+welfare) no ESRS datapoint exists by construction; these are scored against the
+criteria of the demanding instruments themselves --- MSC Principle~1 stock-status
+reference points for wild-stock, the GDST key data elements for traceability, and
+ASC antibiotic and survival criteria for animal health and welfare. A pinned rule
+prevents double-counting on the wild-stock/E4 boundary: stock-status and
+legal-sourcing demand (MSC Principle~1, the IUU catch-certificate regime,
+FisheryProgress) codes to the wild-stock row, whereas generic biodiversity and
+ecosystem-impact demand (ESRS~E4, GRI~101, TNFD, MSC Principle~2 on bycatch and
+habitat) codes to E4; a single instrument may legitimately score on both rows
+through different provisions.
+
+\textbf{Certification coding via chain of custody.} A processor holds only the
+\emph{Chain-of-Custody} (CoC) certification of a scheme (MSC, ASC, GLOBALG.A.P.,
+BAP, Friend of the Sea); it is not itself assessed against the upstream Fisheries
+or Farm Standard. But the binding precondition for holding the CoC is that it
+source product certified to that upstream standard. Each topic is therefore scored
+against what the scheme bindingly requires, at the depth it requires it: a core
+criterion (MSC~P1 stock status, ASC feed-conversion and effluent limits,
+GFSI-recognised food safety) scores~2, a lighter good-practice mention~1. What the
+processor holds --- the CoC, and for BAP's plant standard its own plant --- is
+\emph{direct}; the upstream stock, ecosystem, feed and welfare performance it
+sources is \emph{indirect}.
+
+\textbf{Out-of-frame demand.} Some indicator-level demand maps cleanly onto an
+ESRS datapoint that lies \emph{outside} the cohort-defined universe: the Pay
+Transparency Directive's gender pay-gap requirement maps to S1-16, the Working
+Time Directive to S1-11/S1-15, none of which cleared the $\geq$5/6 consensus and
+so have no row. Such demand scores~0 against the in-universe rows and is
+\emph{not} reassigned to the nearest available row (which would misattribute and
+inflate it); instead it is recorded in a separate out-of-frame register
+(instrument~$\rightarrow$ demanded DR~$\rightarrow$ reason). A framework's
+contribution to the matrix is thus the \emph{intersection} of its demand with the
+cohort-evidenced universe, not the union of everything it asks. That mandatory
+labour-standards disclosure and the voluntary reporting universe occupy partly
+disjoint spaces is itself a finding for the discussion.
+
+\textbf{Methodology providers versus disclosure askers.} Instruments that supply
+methods but do not themselves pressure an entity to report --- the GHG Protocol,
+ISO~14001 --- are held in an enabling layer and excluded from the demand sums,
+distinct from the disclosure askers (CDP, SBTi, MSC) that require an entity to
+submit or certify information. Every non-zero cell is documented in a
+justification log with a one-line rationale, a citation to the source clause or
+indicator, and the identifier(s) of the ESRS datapoint(s) the demand maps to ---
+the audit trail that protects the coding against challenge. Figure~\ref{fig:cell-coding}
+sets out the decision applied to each cell.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance = 9mm and 14mm, font = \small,
+  box/.style   = {rectangle, rounded corners, draw, align=center, text width=46mm, inner sep=4pt},
+  dec/.style   = {diamond, aspect=2, draw, align=center, inner sep=1pt, text width=34mm},
+  term/.style  = {rectangle, draw, fill=black!6, align=center, text width=30mm, inner sep=4pt},
+  arr/.style   = {-{Stealth[length=2mm]}}
+]
+\node[box] (start) {Cell: framework $f$ $\times$ requirement $r$};
+\node[dec, below=of start] (gap) {Is $r$ a sector-material gap row?};
+\node[term, right=24mm of gap] (crit) {Score 0/1/2 against demanding-framework criteria};
+\node[dec, below=14mm of gap] (addr) {Does $f$ address topic $r$ at all?};
+\node[term, right=24mm of addr] (silent) {Score \textbf{0}\\(silent)};
+\node[dec, below=14mm of addr] (map) {Does $f$ demand a datapoint of $r$?};
+\node[term, left=18mm of map] (touch) {Score \textbf{1}\\(topic referenced, no datapoint required)};
+\node[dec, below=14mm of map] (inuni) {Is that datapoint in the universe?};
+\node[term, below=of inuni] (req) {Score \textbf{2}\\(required datapoint hit)};
+\node[term, right=18mm of inuni] (oof) {Score \textbf{0}\\+ out-of-frame register};
+\draw[arr] (start) -- (gap);
+\draw[arr] (gap) -- node[above]{yes} (crit);
+\draw[arr] (gap) -- node[right]{no} (addr);
+\draw[arr] (addr) -- node[above]{no} (silent);
+\draw[arr] (addr) -- node[right]{yes} (map);
+\draw[arr] (map) -- node[left]{topic only} (touch);
+\draw[arr] (map) -- node[right]{yes} (inuni);
+\draw[arr] (inuni) -- node[right]{yes} (req);
+\draw[arr] (inuni) -- node[above]{no} (oof);
+\end{tikzpicture}
+\caption{Per-cell coding protocol. Each instrument~$\times$~requirement cell is
+scored against the requirement's constituent ESRS datapoints; gap rows, which have
+no ESRS datapoints by construction, are scored against the demanding
+instruments' own criteria; an instrument silent on the requirement scores~0, and
+demand mapping only to out-of-universe datapoints also scores~0 and is logged
+separately.}
+\label{fig:cell-coding}
+\end{figure}
+
+\subsection{7.3 Hotspot measures and stage
+assignment}\label{cm-staging}
+
+With the matrix populated, the columns are collapsed into the four
+stakeholder-driver channels (regulator, customer, investor, industry/NGO), and two
+complementary measures are computed for every topic:
+\begin{itemize}
+\item \textbf{Breadth ($\Sigma$)} --- the sum of the topic's coverage scores across
+all active instruments, so a binding requirement (2) counts double a touch (1). It
+measures the \emph{volume} of demand.
+\item \textbf{Convergence (0--4)} --- the number of the four stakeholder channels
+in which at least one instrument demands the topic. Because it counts
+\emph{channels}, not instruments, it is robust by construction to within-channel
+repetition (five overlapping certifications collapse to a single customer signal)
+and captures cross-stakeholder consensus rather than sheer volume.
+\end{itemize}
+Convergence is the primary signal and breadth the secondary one: convergence is
+the dedup-robust measure of how widely the fragmented landscape agrees on a topic,
+while breadth --- which overlapping instruments can inflate --- discriminates
+between topics of equal convergence.
+
+Topics are then triaged into three stages on the two measures jointly:
+\begin{itemize}
+\item \textbf{Stage~1 --- build first:} convergence $\geq 3$ \emph{and} breadth
+$\geq 12$. Demanded across at least three of the four channels \emph{and} in the
+top quartile of demand volume --- the no-regret core, where capability built for
+one channel serves several.
+\item \textbf{Stage~2 --- next:} convergence $\geq 3$ but breadth below the
+quartile cut. Broad consensus, less intense demand; build after the core.
+\item \textbf{Stage~3 --- monitor:} convergence $\leq 2$. Demanded through only one
+or two channels; required for compliance where in scope, but not yet drawing broad
+demand.
+\end{itemize}
+Both thresholds are anchored in the empirical distribution rather than set
+arbitrarily (Figure~\ref{fig:topic-distribution}). The convergence cut of three is
+the simple majority of the four channels. The breadth cut of twelve is the
+\emph{third quartile} of the breadth distribution across the 32 topics, so the
+Stage-1 volume gate selects the top quartile and recalibrates automatically if the
+scores change. In the modelled firm no topic below convergence three reaches the
+breadth cut, so the two criteria identify one coherent Stage-1 set rather than two
+competing ones.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{topic_distribution.pdf}
+\caption{Distribution of cross-framework demand across the 32 topics for the
+modelled firm. (A)~Breadth $\Sigma$ (volume of demand); the Stage-1 cut is the
+third quartile, Q3~$=12$. (B)~Convergence --- the number of the four stakeholder
+channels demanding each topic. (C)~The two-axis staging map: Stage~1 (\emph{build
+first}) requires both broad consensus (convergence $\geq 3$) and high volume
+(breadth $\geq 12$); the shaded region is the Stage-1 set.}
+\label{fig:topic-distribution}
+\end{figure}
+
+\subsection{7.4 The composition of the demand
+environment}\label{cm-composition}
+
+The populated matrix is read first as a description of the demand
+\emph{environment} the modelled sub-threshold SME (50--250 employees, non-tuna)
+faces. Its 31 scored columns are distributed unevenly across the four channels
+(Figure~\ref{fig:r-actor-tier}): the environment is dominated by regulators (12
+columns) and customers (11), which together account for 23 of the 31 columns
+(74\%), while investors are the thinnest channel (3) and industry/NGO initiatives
+the remainder (5). The necessity tiers fall 12/7/8/4 across Tiers~1--4, so the
+regulatory legal-licence layer is the single largest block.
+
+The matrix is sparse by construction: of the 992 instrument$\times$topic cells,
+181 (18\%) carry a demand, split almost evenly between \emph{binding} requirements
+(92 cells scoring~2) and \emph{touched} references (89 cells scoring~1). The demand
+environment is therefore not a dense web in which every framework touches every
+topic, but a structured field in which a minority of concentrated, mostly
+regulator- and customer-borne demands define the landscape.
+
+One structural pattern is worth noting for the discussion. Source and necessity
+tier are coded on independent criteria, yet the two axes correlate: the
+instruments at Tier~4 (strategic differentiation) cluster almost entirely in the
+industry/NGO channel (SBTi, the UN Global Compact, voluntary coalitions), while
+the binding licence-to-operate tiers are dominated by the regulator channel.
+Strategic, proactively-adopted initiatives tend to be NGO- or coalition-run rather
+than regulator-mandated or capital-demanded --- an early reading of where in the
+landscape demand is obligatory versus elective.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.78\linewidth]{r_actor_tier.pdf}
+\caption{Composition of the scored demand environment: the 31 instrument columns
+by stakeholder channel and necessity tier. Regulators and customers dominate;
+investors are the thinnest channel.}
+\label{fig:r-actor-tier}
+\end{figure}
+
+\subsection{7.5 Narrow law, broad cascade}\label{cm-narrow-broad}
+
+A second pattern concerns not \emph{who} demands but how \emph{broadly} each
+instrument demands, and it reframes the SME's problem. Individual regulations are
+narrow: each of the twelve regulatory instruments touches on average only two
+topics, and none more than three --- the Packaging and Packaging Waste Regulation
+covers waste and packaging, the occupational-health directive covers health and
+safety, the F-gas Regulation covers emissions. Breadth --- and therefore the
+overlap that creates the SME's burden --- comes overwhelmingly from the market and
+voluntary side: customer instruments demand on average nine topics each (the CSDDD
+eighteen), and industry and NGO reporting frameworks almost eight (GRI alone
+twenty-five).
+
+The wall of overlapping demand is therefore not the product of the SME being
+directly over-regulated. It is the product of a few \emph{broad} horizontal
+instruments --- CSRD, CSDDD, SFDR --- that apply to the firm's large customers and
+financiers and \emph{cascade} down the value chain as supplier questionnaires,
+together with the voluntary certification and rating landscape. Direct regulation
+on the processor is targeted and lean; the breadth is transmitted, not imposed.
+This carries a policy corollary, developed in the discussion: because the burden
+originates in the downward cascade of large-firm regulation rather than in narrow
+direct rules, it is the coordination or capping of that cascade --- precisely the
+aim of the VSME and the Omnibus value-chain provisions --- that would most reduce
+it.
+
+\subsection{7.6 The build-first set by production
+system}\label{cm-build-first}
+
+Because several seafood instruments and topics are production-system-specific, the
+diagnostic returns a different Stage-1 (build-first) set depending on whether the
+firm is wild-capture, aquaculture, or both (Figure~\ref{fig:r-stage-system}). For
+the standard modelled profile the Stage-1 set is nine topics for a mixed-sourcing
+firm, eight for an aquaculture-only firm, and five for a wild-capture-only firm.
+
+The \emph{overlap} is a universal core of four topics that are build-first under
+every production system: energy (E1-5), greenhouse-gas emissions (E1-6),
+biodiversity and ecosystems (E4), and supply-chain traceability. These are the
+no-regret priorities for any European seafood processor --- demanded broadly,
+across stakeholder channels, irrespective of business model.
+
+The \emph{differences} are structured rather than arbitrary. Four further topics
+--- water (E3-4), waste (E5-5), occupational health and safety (S1-14) and
+value-chain workers (S2-1) --- are Stage~1 for mixed and aquaculture firms but slip
+to Stage~2 for a wild-capture firm. This is a volume effect, not a change in
+importance: the matrix carries three aquaculture certifications (ASC, BAP,
+GLOBALG.A.P.) against two wild certifications (MSC, Friend of the Sea), so a
+wild-only firm loses the certification demand that lifts these shared topics over
+the breadth threshold, even though their cross-stakeholder convergence is unchanged
+and several retain a regulatory floor (OSH, the Forced Labour Regulation, PPWR).
+The remaining divergence is in the sector-gap rows: wild-stock status is
+build-relevant only to wild and mixed firms, while feed and animal
+health/antimicrobial use apply only to aquaculture and mixed firms. The
+personalisation therefore refines \emph{which} of a shared backbone an individual
+firm should prioritise, rather than producing wholly different agendas for
+different firms.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.56\linewidth]{r_stage_system.pdf}
+\caption{First action points by production system. Each topic's stage
+(1~=~build first, 2~=~next, 3~=~monitor) under a wild-only, mixed and
+aquaculture-only profile; ``--'' marks a topic not applicable to that system. The
+four topics that are Stage~1 across all systems form the universal core.}
+\label{fig:r-stage-system}
+\end{figure}
+
+\subsection{7.7 From themes to datapoints, and the diagnostic
+tool}\label{cm-datapoints-tool}
+
+\textbf{The build-first data layer.} The staging returns priority \emph{themes};
+a firm still needs to know which \emph{datapoints} to collect for each. A
+datapoint layer translates every priority theme into the specific data the firm
+must produce, assembled from five sources. The ESRS topical requirements decompose
+into their constituent datapoints (the ESRS datapoint catalogue under Commission
+Delegated Regulation (EU) 2023/2772). For each theme the \emph{proportionate}
+subset --- the realistic starting point for a smaller firm --- is identified
+through the VSME-to-ESRS crosswalk, so datapoints inside the VSME Basic or
+Comprehensive modules are marked ``start-here'' and the remainder as depth to add
+when a specific demand requires it. The four seafood-specific themes with no ESRS
+requirement (wild-stock, feed, animal health/antimicrobial use, traceability) are
+sourced instead from the GRI~13 sector standard. Each theme is paired with the
+enabling method that produces its data (the GHG Protocol for emissions, GDST for
+traceability), drawn from the enabling layer; and each datapoint carries the count
+of stakeholder demands it serves, taken from the matrix, which makes the reuse
+explicit --- a single datapoint typically satisfies several frameworks at once.
+Because both the ESRS and the VSME are under active Omnibus revision, the layer is
+a dated snapshot documented with its sources.
+
+\textbf{The diagnostic tool.} The tool operationalises the staging logic for an
+individual SME through two inputs and two outputs.
+\emph{Input~1 --- reporting-posture self-assessment:} a short structured
+self-assessment (5--8 items) positioning the firm on the reactive-to-proactive
+spectrum (formal sustainability strategy; a dedicated function or role; whether
+reporting is externally or internally initiated; voluntary commitments such as
+SBTi-aligned targets; whether disclosure data is reusable across requests).
+\emph{Input~2 --- stakeholder-pressure mapping:} the firm identifies which
+stakeholders are actively requesting information (which retail customers and
+questionnaire formats, which certifications are required for placement, any
+investor or beyond-baseline regulatory pressure), reflecting its actual external
+demand environment.
+\emph{Output~1 --- prioritised topics:} the subset of Stage-1 topics whose
+demanding frameworks align with the firm's identified pressures --- where
+capability investment delivers maximum response coverage.
+\emph{Output~2 --- staged roadmap:} a recommended sequencing of capability
+investment across Stage~1 $\rightarrow$ Stage~2 $\rightarrow$ Stage~3, scaled to
+the firm's posture and resourcing. Positioning on the reactive-to-proactive
+spectrum is left to the self-assessment on the basis that the posture is a
+behavioural rather than a measurable categorical state, and the firm is best
+placed to characterise its own orientation.
+
+\subsection{7.8 Worked case and validation}\label{cm-worked-case}
+
+\textbf{Worked case.} The framework is applied to a worked case constructed from
+the public disclosures of a representative European mid-sized seafood-processing
+SME (50--250 employees, primarily a B2B supplier to large EU retailers). The case
+uses only material the firm has itself published --- its sustainability report,
+certification listings, and customer and product information --- so the application
+is fully reproducible and depends on no privileged access. The firm's profile is
+characterised from public sources; the diagnostic is run on that profile; and its
+output is examined for correspondence to the firm's observable position: whether
+it locates the firm's posture plausibly and whether the topics it flags as
+build-first are consistent with the demands the firm is visibly subject to. The
+case is intentionally singular and \emph{formative rather than confirmatory} --- a
+usability demonstration of the diagnostic, not a test of the underlying empirical
+claims --- and no generalisation beyond it is claimed; practitioner validation with
+the firm itself is left to future work.
+
+\textbf{Validation of the mapping and the mechanism.} The demand mapping and the
+capability-sharing claim it rests on are substantiated in a deliberately
+document-based way, so that credibility derives from convergent, independently
+inspectable evidence rather than any single informant. The \emph{descriptive}
+claim --- that the ecosystem can be organised exhaustively and unambiguously by the
+necessity, domain and source axes --- is tested in Angle~1 through the completeness
+of the classification and its expert review by sustainability leads at the cohort
+firms (member checking; Lincoln \& Guba, 1985). The \emph{explanatory} claim ---
+that capabilities are shared across requirements, so that investment compelled by a
+lower-tier requirement subsidises higher-tier disclosure --- is substantiated here
+through an \emph{input-overlap analysis}: for each shared capability, the data and
+process inputs required by the instruments that draw on it are read directly from
+their published specifications. That MSC chain-of-custody, the GDST standard and
+ESRS value-chain disclosure all draw on a common body of lot-level traceability
+data is document-verifiable evidence that the capability is genuinely shared, not
+self-reported. The defensible position is that the evidence is \emph{consistent
+with} the capability-sharing mechanism --- the instruments demonstrably share
+inputs --- rather than that a causal relationship is proven; retrospective
+practitioner testimony on whether capability built for a mandatory requirement
+reduced the marginal effort of later disclosures is the natural next stage of
+validation, and is left to future work.
+
+\medskip
+What this angle delivers is the thesis's central practical output: not a map of who
+asks (Angle~1) or of what mature firms report (Angle~2), but a ranked, personalised
+answer to \emph{where a resource-limited firm should build first} --- a compact
+Stage-1 core, a datapoint layer beneath it, and a diagnostic that tailors both to a
+firm's own situation. The implications for seafood SMEs and for EU disclosure
+policy are drawn out in the discussion that follows.
