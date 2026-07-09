@@ -782,6 +782,7 @@ phases:
   diagnostic tool.
 \end{itemize}
 
+\iffalse %% ===== HIDDEN: 4.2--4.7 phase methods (now carried in the angle chapters) =====
 \subsection{4.2 Empirical scope: the large-reporter
 cohort}\label{empirical-scope-the-large-reporter-cohort}
 
@@ -1615,6 +1616,8 @@ cross-framework demand pattern, and no generalisation beyond the case is
 claimed. Practitioner validation of the diagnosis with the firm itself is
 identified as the natural next step and left to future work.
 
+\fi %% ===== end hidden 4.2--4.7 =====
+
 \subsection{4.8 Framework validation
 strategy}\label{framework-validation-strategy}
 
@@ -1728,6 +1731,14 @@ left to future work.
 % Cohort analysis chapter (RQ1) — inserted from cohort_analysis_DRAFT.tex
 % =====================================================================
 
+%% ===================================================================
+%% MODULAR ANGLE CHAPTERS (wired in)
+%% ===================================================================
+\input{angle1_ecosystem.tex}
+\input{angle2_cohort.tex}
+\input{angle3_crossmapping.tex}
+
+\iffalse %% ===== HIDDEN: old monolithic cohort chapter + Results (superseded by the angle chapters) =====
 \section{The seafood disclosure frontier: evidence from six large
 reporters}\label{cohort-analysis}
 
@@ -2102,6 +2113,8 @@ universal core.}
 \label{fig:r-stage-system}
 \end{figure}
 
+\fi %% ===== end hidden old cohort + Results =====
+
 \iffalse % ===== RUBEN: proposal scaffolding (chapter-structure table) — hidden from the built PDF but kept in source. Delete this block when you no longer need it. =====
 \section{5. Expected outputs and chapter
 structure}\label{expected-outputs-and-chapter-structure}
@@ -2159,6 +2172,7 @@ Audit table \\
 
 \fi % ===== end hidden proposal scaffolding =====
 
+\iffalse %% ===== HIDDEN: old §6 scope notes (fold limitations into Discussion, Ch8) =====
 \section{6. Scope notes and known
 limitations}\label{scope-notes-and-known-limitations}
 
@@ -2415,6 +2429,13 @@ you to \emph{capability-driven proactive}, because your reporting
 infrastructure would be designed to serve multiple stakeholder demands
 simultaneously rather than rebuilt per request.
 \clearpage
+\fi %% ===== end hidden old §6 =====
+
+\section{8. Discussion and conclusion}\label{discussion}
+
+%% CL: Ch8 (Discussion + policy + Conclusion) still to be written --- placeholder so numbering is correct.
+\emph{[Discussion and conclusion to be written.]}
+
 \input{references.tex}
 
 \appendix
