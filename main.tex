@@ -2306,9 +2306,67 @@ instrument marked scored, baseline, context or excluded, with the admission-gate
 reason --- underlying the columns of the demand matrix (Chapter~7).
 
 \section{Cross-framework coverage matrix and justification log}\label{app:matrix}
-\emph{[To be inserted.]} The complete coded instrument\,$\times$\,topic matrix and
+The complete coded instrument\,$\times$\,topic matrix and
 the per-cell justification log (rationale, source clause, and mapped ESRS
-datapoint) for every non-zero cell (Chapter~7).
+datapoint) for every non-zero cell (Chapter~7) are held in
+\emph{Phase3\_Coverage\_Matrix\_v17.xlsx} (sheets ``Coverage matrix'' and
+``Justifications log''). Figure~\ref{fig:cell-coding} sets out the coding
+protocol applied to every cell, and Figure~\ref{fig:coverage-matrix-screenshot}
+reproduces a representative excerpt of the matrix itself --- the first 30 of
+its 311 topic/datapoint rows against 15 of the 31 scored instrument columns
+(Tier~1--2 instruments; the sheet continues with Tiers~3--4 and the
+convergence/stage summary columns to the right) --- to show the scale and
+shape of the raw scoring; the full matrix is available in the source
+workbook.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance = 9mm and 14mm, font = \small,
+  box/.style   = {rectangle, rounded corners, draw, align=center, text width=46mm, inner sep=4pt},
+  dec/.style   = {diamond, aspect=2, draw, align=center, inner sep=1pt, text width=34mm},
+  term/.style  = {rectangle, draw, fill=black!6, align=center, text width=30mm, inner sep=4pt},
+  arr/.style   = {-{Stealth[length=2mm]}}
+]
+\node[box] (start) {Cell: framework $f$ $\times$ requirement $r$};
+\node[dec, below=of start] (gap) {Is $r$ a sector-material gap row?};
+\node[term, right=24mm of gap] (crit) {Score 0/1/2 against demanding-framework criteria};
+\node[dec, below=14mm of gap] (addr) {Does $f$ address topic $r$ at all?};
+\node[term, right=24mm of addr] (silent) {Score \textbf{0}\\(silent)};
+\node[dec, below=14mm of addr] (map) {Does $f$ demand a datapoint of $r$?};
+\node[term, left=18mm of map] (touch) {Score \textbf{1}\\(topic referenced, no datapoint required)};
+\node[dec, below=14mm of map] (inuni) {Is that datapoint in the universe?};
+\node[term, below=of inuni] (req) {Score \textbf{2}\\(required datapoint hit)};
+\node[term, right=18mm of inuni] (oof) {Score \textbf{0}\\+ out-of-frame register};
+\draw[arr] (start) -- (gap);
+\draw[arr] (gap) -- node[above]{yes} (crit);
+\draw[arr] (gap) -- node[right]{no} (addr);
+\draw[arr] (addr) -- node[above]{no} (silent);
+\draw[arr] (addr) -- node[right]{yes} (map);
+\draw[arr] (map) -- node[left]{topic only} (touch);
+\draw[arr] (map) -- node[right]{yes} (inuni);
+\draw[arr] (inuni) -- node[right]{yes} (req);
+\draw[arr] (inuni) -- node[above]{no} (oof);
+\end{tikzpicture}
+\caption{Per-cell coding protocol. Each instrument~$\times$~requirement cell is
+scored against the requirement's constituent ESRS datapoints; gap rows, which have
+no ESRS datapoints by construction, are scored against the demanding
+instruments' own criteria; an instrument silent on the requirement scores~0, and
+demand mapping only to out-of-universe datapoints also scores~0 and is logged
+separately.}
+\label{fig:cell-coding}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{phase3/appendix_figures/coverage_matrix_screenshot.pdf}
+\caption{Representative excerpt of the coverage matrix (\emph{Phase3\_Coverage\_Matrix\_v17.xlsx},
+sheet ``Coverage matrix''): topic/datapoint rows against scored-instrument
+columns, coloured by score (0/1/2). Shows the first 30 of 311 rows and 15 of
+the 31 scored instrument columns (Tier~1--2); the full matrix is in the
+source workbook.}
+\label{fig:coverage-matrix-screenshot}
+\end{figure}
 
 \section{ESRS to VSME crosswalk}\label{app:crosswalk}
 \emph{[To be inserted.]} The datapoint-level crosswalk from the ESRS topical

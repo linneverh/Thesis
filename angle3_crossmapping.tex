@@ -36,8 +36,11 @@ fragmented wall of overlapping demands, which topics, if built first, satisfy th
 most of them. Section~7.1 sets out the convergence logic that makes this a
 tractable question; Sections~7.2--7.4 build, score and stage the demand matrix;
 Sections~7.5--7.7 report what it shows; and Sections~7.8--7.9 turn the finding
-into a datapoint layer, a diagnostic tool, and a worked case.
-%LI: insert a reworked version or screenshot from excell from phase 3 - otherwise to 'random' 
+into a datapoint layer, a diagnostic tool, and a worked case. A representative
+excerpt of the underlying coverage matrix is reproduced in
+Appendix~\ref{app:matrix} (Figure~\ref{fig:coverage-matrix-screenshot}) so the
+scale and shape of the raw scoring are visible alongside the summary figures
+below.
 
 \subsection{7.1 The convergence logic}\label{cm-theory}
 
@@ -245,46 +248,8 @@ submit or certify information. Every non-zero cell is documented in a
 justification log with a one-line rationale, a citation to the source clause or
 indicator, and the identifier(s) of the ESRS datapoint(s) the demand maps to ---
 the audit trail that protects the coding against challenge; the complete coded
-matrix and its justification log are provided in Appendix~\ref{app:matrix}.
-Figure~\ref{fig:cell-coding} sets out the decision applied to each cell.
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[
-  node distance = 9mm and 14mm, font = \small,
-  box/.style   = {rectangle, rounded corners, draw, align=center, text width=46mm, inner sep=4pt},
-  dec/.style   = {diamond, aspect=2, draw, align=center, inner sep=1pt, text width=34mm},
-  term/.style  = {rectangle, draw, fill=black!6, align=center, text width=30mm, inner sep=4pt},
-  arr/.style   = {-{Stealth[length=2mm]}}
-]
-\node[box] (start) {Cell: framework $f$ $\times$ requirement $r$};
-\node[dec, below=of start] (gap) {Is $r$ a sector-material gap row?};
-\node[term, right=24mm of gap] (crit) {Score 0/1/2 against demanding-framework criteria};
-\node[dec, below=14mm of gap] (addr) {Does $f$ address topic $r$ at all?};
-\node[term, right=24mm of addr] (silent) {Score \textbf{0}\\(silent)};
-\node[dec, below=14mm of addr] (map) {Does $f$ demand a datapoint of $r$?};
-\node[term, left=18mm of map] (touch) {Score \textbf{1}\\(topic referenced, no datapoint required)};
-\node[dec, below=14mm of map] (inuni) {Is that datapoint in the universe?};
-\node[term, below=of inuni] (req) {Score \textbf{2}\\(required datapoint hit)};
-\node[term, right=18mm of inuni] (oof) {Score \textbf{0}\\+ out-of-frame register};
-\draw[arr] (start) -- (gap);
-\draw[arr] (gap) -- node[above]{yes} (crit);
-\draw[arr] (gap) -- node[right]{no} (addr);
-\draw[arr] (addr) -- node[above]{no} (silent);
-\draw[arr] (addr) -- node[right]{yes} (map);
-\draw[arr] (map) -- node[left]{topic only} (touch);
-\draw[arr] (map) -- node[right]{yes} (inuni);
-\draw[arr] (inuni) -- node[right]{yes} (req);
-\draw[arr] (inuni) -- node[above]{no} (oof);
-\end{tikzpicture}
-\caption{Per-cell coding protocol. Each instrument~$\times$~requirement cell is
-scored against the requirement's constituent ESRS datapoints; gap rows, which have
-no ESRS datapoints by construction, are scored against the demanding
-instruments' own criteria; an instrument silent on the requirement scores~0, and
-demand mapping only to out-of-universe datapoints also scores~0 and is logged
-separately.}
-\label{fig:cell-coding}
-\end{figure}
+matrix and its justification log, together with the per-cell coding protocol
+(Figure~\ref{fig:cell-coding}), are provided in Appendix~\ref{app:matrix}.
 
 \subsection{7.4 Hotspot measures and stage
 assignment}\label{cm-staging}
