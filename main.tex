@@ -37,6 +37,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{longtable,booktabs,array}
+\usepackage{tabularx}
 \usepackage{pdflscape}
 \newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
@@ -1574,6 +1575,13 @@ left to future work.
 
 \fi %% ===== end hidden old 4.2--4.8 =====
 
+% Defensive reset: the hidden block above contains \caption calls inside
+% \iffalse that appear to still step the table/figure counters (a known
+% fragile edge case with large \iffalse regions). Reset both to 0 here so
+% the first REAL table/figure in the angle chapters below is numbered 1.
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
 %% ===================================================================
 %% MODULAR ANGLE CHAPTERS (wired in)
 %% ===================================================================
@@ -2282,7 +2290,16 @@ simultaneously rather than rebuilt per request.
 \input{references.tex}
 
 \appendix
-\section{Ecosystem Glossary}\label{app:glossary}
+\clearpage
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+\emph{Everything from this point on is supplementary material: reference
+tables and workbook excerpts that support the chapters above but are not
+required to follow the argument. Appendices are ordered by where they are
+first referenced --- Appendix~A from Chapter~5, Appendices~B--E from
+Chapter~7.}
+
+\section{Appendix A --- Ecosystem Glossary}\label{app:glossary}
 \input{annex.tex}
 
 % =====================================================================
@@ -2294,30 +2311,26 @@ simultaneously rather than rebuilt per request.
 %   app:crosswalk<- ESRS->VSME crosswalk (datapoint layer workbook)
 % =====================================================================
 
-\section{GRI 13 to ESRS coverage classification}\label{app:gri13}
+\section{Appendix B --- GRI 13 to ESRS coverage classification}\label{app:gri13}
 \emph{[To be inserted.]} Each GRI~13 (Agriculture, Aquaculture and Fishing) topic
 classified against the ESRS as covered, partially covered, or a structural gap; the
 four structural gaps become the sector-material rows of the demand matrix
 (Chapter~7).
 
-\section{Instrument scope classification}\label{app:scope}
+\section{Appendix C --- Instrument scope classification}\label{app:scope}
 \emph{[To be inserted.]} The full instrument-by-instrument classification --- each
 instrument marked scored, baseline, context or excluded, with the admission-gate
 reason --- underlying the columns of the demand matrix (Chapter~7).
 
-\section{Cross-framework coverage matrix and justification log}\label{app:matrix}
+\section{Appendix D --- Cross-framework coverage matrix and justification log}\label{app:matrix}
 The complete coded instrument\,$\times$\,topic matrix and
 the per-cell justification log (rationale, source clause, and mapped ESRS
 datapoint) for every non-zero cell (Chapter~7) are held in
 \emph{Phase3\_Coverage\_Matrix\_v17.xlsx} (sheets ``Coverage matrix'' and
-``Justifications log''). Figure~\ref{fig:cell-coding} sets out the coding
-protocol applied to every cell, and Figure~\ref{fig:coverage-matrix-screenshot}
-reproduces a representative excerpt of the matrix itself --- the first 30 of
-its 311 topic/datapoint rows against 15 of the 31 scored instrument columns
-(Tier~1--2 instruments; the sheet continues with Tiers~3--4 and the
-convergence/stage summary columns to the right) --- to show the scale and
-shape of the raw scoring; the full matrix is available in the source
-workbook.
+``Justifications log''). Figure~\ref{fig:cell-coding} below sets out the
+coding protocol applied to every cell; a representative excerpt of the
+matrix itself is shown in Chapter~7 (Figure~\ref{fig:coverage-matrix-screenshot}),
+and the full matrix is available in the source workbook.
 
 \begin{figure}[htbp]
 \centering
@@ -2359,7 +2372,7 @@ separately.}
 
 
 
-\section{ESRS to VSME crosswalk}\label{app:crosswalk}
+\section{Appendix E --- ESRS to VSME crosswalk}\label{app:crosswalk}
 \emph{[To be inserted.]} The datapoint-level crosswalk from the ESRS topical
 requirements to the VSME Basic and Comprehensive modules, marking the
 ``start-here'' proportionate subset used in the build-first data layer (Chapter~7).
