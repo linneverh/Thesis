@@ -448,22 +448,35 @@ tool}\label{cm-datapoints-tool}
 \textbf{The build-first data layer.} The staging returns priority \emph{themes};
 a firm still needs to know which \emph{datapoints} to collect for each. A
 datapoint layer translates every priority theme into the specific data the firm
-must produce, assembled from five sources. The ESRS topical requirements decompose
-into their constituent datapoints (the ESRS datapoint catalogue under Commission
-Delegated Regulation (EU) 2023/2772). For each theme the \emph{proportionate}
-subset --- the realistic starting point for a smaller firm --- is identified
-through the VSME-to-ESRS crosswalk, so datapoints inside the VSME Basic or
-Comprehensive modules are marked ``start-here'' and the remainder as depth to add
-when a specific demand requires it. The four seafood-specific themes with no ESRS
-requirement (wild-stock, feed, animal health/antimicrobial use, traceability) are
-sourced instead from the GRI~13 sector standard. Each theme is paired with the
-enabling method that produces its data (the GHG Protocol for emissions, GDST for
-traceability), drawn from the enabling layer; and each datapoint carries the count
-of stakeholder demands it serves, taken from the matrix, which makes the reuse
-explicit --- a single datapoint typically satisfies several frameworks at once.
-Because both the ESRS and the VSME are under active Omnibus revision, the layer is
-a dated snapshot documented with its sources. The full ESRS-to-VSME crosswalk that
-marks the ``start-here'' proportionate subset is given in \nameref{app:crosswalk}.
+must produce. The ESRS topical requirements decompose into their constituent
+datapoints (the ESRS datapoint catalogue under Commission Delegated Regulation
+(EU) 2023/2772): the 26 DR-level Stage rows resolve to 356 official datapoints
+and the two topic-level rows (E4, S4) to a further 152. For each theme the
+\emph{proportionate} subset --- the realistic starting point for a smaller
+firm --- is identified through the VSME-to-ESRS crosswalk (\nameref{app:crosswalk}),
+which maps every VSME Basic and Comprehensive module datapoint to the ESRS
+disclosure requirement it is thematically closest to and flags whether it is
+realistically self-reportable without external verification. %CL: worth being
+precise here -- the crosswalk operates at disclosure-requirement level, not
+official-datapoint level (no ESRS datapoint is itself tagged ``start-here'';
+rather, a VSME datapoint mapped onto a theme's DR shows that a lighter,
+self-assessable version of that DR exists). Checked against the nine-topic
+Stage-1 set, five of the seven ESRS-anchored topics have solid VSME coverage
+(energy, GHG emissions, water, waste, health and safety); biodiversity has only
+partial coverage; and value-chain workers (S2-1) has none at all, confirming at
+datapoint resolution the gap already flagged in \nameref{app:esrs-mapping}. The
+four seafood-specific themes with no ESRS requirement (wild-stock, feed, animal
+health/antimicrobial use, traceability) are sourced instead from the GRI~13
+sector standard, and correctly have no VSME entry either. Two themes are
+illustrated here with the enabling method that produces their data (the GHG
+Protocol for emissions, GDST for traceability); %CL: this pairing is not yet
+built out into a systematic table covering every Stage-1 topic -- flagging as
+outstanding rather than overclaiming coverage. Each \emph{topic} (not
+datapoint) carries the count of stakeholder demands it serves, taken from the
+matrix (\nameref{cm-staging}), which makes the reuse explicit --- a single
+topic typically satisfies several frameworks at once. Because both the ESRS
+and the VSME are under active Omnibus revision, the layer is a dated snapshot
+documented with its sources.
 
 \textbf{The diagnostic tool.} The staging logic is operationalised as a working
 prototype for an individual SME. In its current build the tool takes two things the

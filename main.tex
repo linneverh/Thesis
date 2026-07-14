@@ -2621,6 +2621,37 @@ once it takes effect. %CL: please add a properly dated Zotero entry for
 % existing generic ``European Commission, 2026'' citation predates this
 % specific adoption.
 
+% %CL: new paragraph, added per your question about whether VSME is actually
+% wanted by its intended users. Two notes: (1) the article you linked
+% (EFRAG, ``EFRAG finds limited interest in a voluntary template for SMEs
+% and startups on the European Single Access Point,'' 3 April 2026) is about
+% a different, unrelated EFRAG initiative -- a voluntary company/financial
+% information template on ESAP aimed at IPO and M\&A screening -- and the
+% article itself states in a footnote that ``this initiative is not related
+% to the VSME Digital Template.'' It isn't evidence about VSME and I haven't
+% used it below. (2) The actually-relevant EFRAG source is the VSME Market
+% Acceptance Survey Report (EFRAG, December 2025), which finds the opposite:
+% developing, positive acceptance, with financial institutions and investors
+% expecting the VSME to satisfy a substantial share of what they currently
+% request from SMEs directly. That is what the paragraph below draws on --
+% please sanity-check the framing and cut it if it doesn't earn its place
+% this close to submission.
+Fourth, the case this thesis makes for building VSME-aligned capability rests
+on an assumption worth testing against independent evidence: that customers,
+banks and investors will actually treat a VSME-based disclosure as
+sufficient, rather than continuing to ask for more. EFRAG's own market
+acceptance survey of preparers and users (EFRAG, 2025) gives this some
+support: it finds developing, positive acceptance of the VSME, with
+financial institutions and investors expecting its modules to satisfy a
+substantial share of the requests they currently address directly to SMEs.
+The finding is preliminary and self-reported to the standard-setter that
+designed the VSME, so it should be read as encouraging rather than
+conclusive --- but it points the same way as this thesis's own
+narrow-law/broad-cascade finding above: the demand a resource-limited firm
+faces is transmitted through a small number of large channels (customers,
+financiers) that a proportionate, standardised disclosure can plausibly
+satisfy, rather than an open-ended list every actor insists on customising.
+
 %CL: this section is the most opinion-bearing part of the chapter and the one
 % where I've been most careful to stay descriptive (what the data shows)
 % rather than prescriptive (what policy should do) beyond what the evidence
@@ -2822,9 +2853,173 @@ separately.}
 
 \section*{Appendix E --- ESRS to VSME crosswalk}\label{app:crosswalk}
 \addcontentsline{toc}{subsection}{Appendix E --- ESRS to VSME crosswalk}
-\emph{[To be inserted.]} The datapoint-level crosswalk from the ESRS topical
-requirements to the VSME Basic and Comprehensive modules, marking the
-``start-here'' proportionate subset used in the build-first data layer (Chapter~7).
+
+% %CL: built from your VSME_Basic_and_Comprehensive.xlsx. Please sanity-check
+% the ``Start-here feasibility'' column in particular -- I've relabelled your
+% original ``Self-assessed'' column (Yes/No/Indirect/Not Topical/Exclude by
+% design (IRO)) on the reading that it flags whether a datapoint is realistic
+% for an SME to self-report without external verification or a materiality
+% process -- confirm that's what it meant. I also dropped one row-level note
+% that looked like a typo (B10-2's secondary note read "E1-16" where the DR
+% column already correctly says S1-16 -- gender pay gap is social, not
+% environmental; I've gone with S1-16 throughout).
+
+This appendix maps every datapoint in the VSME Basic module (B1--B11) and
+Comprehensive module (C1--C9) to the ESRS disclosure requirement it is
+thematically closest to, and flags whether that datapoint is realistic for
+an SME to self-report as a low-effort ``start-here'' item (as opposed to one
+that needs external verification or a materiality/IRO process the
+lightweight diagnostic does not perform). It is the crosswalk referenced
+from \nameref{cm-datapoints-tool}.
+
+\textbf{Sources and limitation.} No official EFRAG VSME-to-ESRS crosswalk
+existed at the time of writing. Three source types are combined, and the
+Mapping basis column below states which applies to each row: topic-level
+mapping from CSR Tools' published VSME-ESRS guide (CSR Tools, 2024), which
+maps each VSME disclosure to an ESRS topical standard (e.g. B3
+$\rightarrow$ E1) but not to a specific disclosure requirement; the
+author's own thematic extension of that topic-level mapping down to
+individual ESRS disclosure requirements (e.g. B3-6 $\rightarrow$ E1-6),
+based on reading the VSME requirement text against the ESRS DR
+descriptions in Commission Delegated Regulation (EU) 2023/2772; and, for a
+minority of rows, author mapping directly from the VSME standard text with
+no CSR Tools topic precedent. \textbf{This crosswalk operates at
+disclosure-requirement level, not datapoint level}: a VSME datapoint mapped
+to (say) E1-6 shows that the two disclosures address the same topic, not
+that the VSME datapoint is equivalent in scope or depth to the full set of
+official ESRS datapoints under E1-6 (\nameref{app:esrs-mapping} gives that
+DR-to-datapoint depth separately for the 2023-to-2026 ESRS revision). A
+check of EFRAG's July 2026 Knowledge Hub and the June 2026 VSME XBRL
+taxonomy release did not surface a published official crosswalk that would
+supersede this one; if EFRAG issues one before submission, this appendix
+should be reconciled against it.
+
+\textbf{Cross-check against the build-first set.} Of the seven
+ESRS-anchored topics in the thesis's Stage-1 build-first set
+(\nameref{cm-build-first}), five have direct, mostly self-reportable VSME
+coverage: energy (E1-5, via B3-1--B3-5), GHG emissions (E1-6, via
+B3-6--B3-8), water consumption (E3-4, via B6-1--B6-3), waste (E5-5, via
+B7-2--B7-4, partly ``indirect''), and health and safety (S1-14, via
+B9-1--B9-2). Biodiversity (E4) has VSME coverage only through the site-count
+datapoint (B5-1); the remaining B5 land-use datapoints are voluntary and
+carry no self-assessment flag in the source standard. \textbf{Value-chain
+workers (S2-1) has no VSME datapoint at all} --- confirming, at
+datapoint-resolution, the gap already flagged at topic level in
+\nameref{app:esrs-mapping}: VSME has no dedicated value-chain-workers
+module. The two sector-specific gap topics (wild-stock status,
+supply-chain traceability) correctly have no VSME entry either, since they
+sit outside the ESRS taxonomy VSME was built against.
+
+\begin{landscape}
+\begin{longtable}{@{}p{2.1cm}p{1.6cm}p{6.2cm}p{1.6cm}p{4cm}p{3.2cm}@{}}
+\caption{VSME Basic and Comprehensive module datapoints mapped to ESRS
+disclosure requirements, with start-here feasibility. Source: EFRAG (2024)
+VSME Standard; CSR Tools (2024) topic-level mapping; author's DR-level
+extension (see Sources note above).}
+\label{tab:vsme-crosswalk}\\
+\toprule
+\textbf{Module} & \textbf{VSME ID} & \textbf{VSME datapoint} & \textbf{ESRS DR} & \textbf{Mapping basis} & \textbf{Start-here feasibility} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Module} & \textbf{VSME ID} & \textbf{VSME datapoint} & \textbf{ESRS DR} & \textbf{Mapping basis} & \textbf{Start-here feasibility} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Basic & B1-a & Module selected & --- & --- & No topical ESRS DR \\
+Basic & B1-b & Omitted disclosures & --- & --- & No topical ESRS DR \\
+Basic & B1-c & Reporting basis & --- & --- & No topical ESRS DR \\
+Basic & B1-d & List of subsidiaries (if consolidated) & --- & --- & No topical ESRS DR \\
+Basic & B1-e-i & Legal form & --- & --- & No topical ESRS DR \\
+Basic & B1-e-ii & NACE sector classification & --- & --- & No topical ESRS DR \\
+Basic & B1-e-iii & Balance sheet size & --- & --- & No topical ESRS DR \\
+Basic & B1-e-iv & Turnover & --- & --- & No topical ESRS DR \\
+Basic & B1-e-v & Number of employees & --- & --- & Yes \\
+Basic & B1-e-vi & Country of primary operations & --- & --- & No topical ESRS DR \\
+Basic & B1-e-vii & Geolocation of sites & --- & --- & No topical ESRS DR \\
+Basic & B1-f & Sustainability certifications (if any) & --- & --- & No \\
+Basic & B2-a & Sustainability practices & --- & CSR Tools (topic only) & Yes \\
+Basic & B2-b & Sustainability policies & --- & CSR Tools (topic only) & Yes \\
+Basic & B2-c & Future sustainability initiatives & --- & CSR Tools (topic only) & Yes \\
+Basic & B2-d & Targets & --- & CSR Tools (topic only) & Yes \\
+Basic & B3-1 & Total energy consumption --- electricity (renewable) & E1-5 & Author (thematic) & Yes \\
+Basic & B3-2 & Total energy consumption --- electricity (non-renewable) & E1-5 & Author (thematic) & Yes \\
+Basic & B3-3 & Total energy consumption --- fuels (renewable) & E1-5 & Author (thematic) & Yes \\
+Basic & B3-4 & Total energy consumption --- fuels (non-renewable) & E1-5 & Author (thematic) & Yes \\
+Basic & B3-5 & Total energy consumption (total) & E1-5 & Author (thematic) & Yes \\
+Basic & B3-6 & Scope 1 GHG emissions & E1-6 & Author (thematic) & Yes \\
+Basic & B3-7 & Scope 2 GHG emissions (location-based) & E1-6 & Author (thematic) & Yes \\
+Basic & B3-8 & GHG intensity (GHG / turnover) & E1-6 & Author (thematic) & Yes \\
+Basic & B4-1 & Pollutant emissions to air, water and soil & E2-4 & CSR Tools (topic) + author (DR) & No \\
+Basic & B5-1 & Sites near biodiversity-sensitive areas (count) & E4-5 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B5-2 & Sites near biodiversity-sensitive areas (area, ha) & E4-5 & CSR Tools (topic) + author (DR) & --- \\
+Basic & B5-3 & Total land use (ha) & E4-5 & CSR Tools (topic) + author (DR) & --- \\
+Basic & B5-4 & Total sealed area (ha) & E4-5 & CSR Tools (topic) + author (DR) & --- \\
+Basic & B5-5 & Nature-oriented area on-site (ha) & E4-5 & CSR Tools (topic) + author (DR) & --- \\
+Basic & B5-6 & Nature-oriented area off-site (ha) & E4-5 & CSR Tools (topic) + author (DR) & --- \\
+Basic & B6-1 & Total water withdrawal (m³) & E3-4 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B6-2 & Water withdrawal in high water-stress areas (m³) & E3-4 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B6-3 & Water consumption (m³) & E3-4 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B7-1 & Circular economy principles (YES/NO + description) & E5-2 & CSR Tools (topic only) & Yes \\
+Basic & B7-2 & Total waste --- non-hazardous (tonnes) & E5-5 & CSR Tools (topic) + author (DR) & Indirect \\
+Basic & B7-3 & Total waste --- hazardous (tonnes) & E5-5 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B7-4 & Waste diverted to recycling or reuse (tonnes) & E5-5 & CSR Tools (topic) + author (DR) & Indirect \\
+Basic & B7-5 & Annual material mass-flow (tonnes) & E5-4 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B8-1 & Employees by contract type (permanent/temporary) & S1-6 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B8-2 & Employees by gender & S1-6 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B8-3 & Employees by country & S1-6 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B8-4 & Employee turnover rate (\%) & S1-6 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B9-1 & Number and rate of work-related accidents & S1-14 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B9-2 & Fatalities from work-related injuries and ill health & S1-14 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B10-1 & Pay above minimum wage (YES/NO per country) & S1-10 & CSR Tools (topic) + author (DR) & No \\
+Basic & B10-2 & Gender pay gap (\%) & S1-16 & CSR Tools (topic) + author (DR) & No \\
+Basic & B10-3 & Collective bargaining coverage (\%) & S1-8 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B10-4 & Average training hours per employee (by gender) & S1-13 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B11-1 & Number of convictions for corruption/bribery & G1-4 & CSR Tools (topic) + author (DR) & Yes \\
+Basic & B11-2 & Total fines for corruption/bribery (EUR) & G1-4 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C1-a & Description of products and services & --- & CSR Tools (topic only) & --- \\
+Comprehensive & C1-b & Description of markets & --- & CSR Tools (topic only) & --- \\
+Comprehensive & C1-c & Description of main business relationships & --- & CSR Tools (topic only) & --- \\
+Comprehensive & C1-d & Sustainability-related strategy elements & --- & CSR Tools (topic only) & --- \\
+Comprehensive & C2-1 & Description of sustainability practices and policies (extended) & --- & CSR Tools (topic only) & --- \\
+Comprehensive & B3-Scope3 & Scope 3 GHG emissions (supplement to B3) & E1-6 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C3-1 & GHG reduction target --- Scope 1 & E1-4 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C3-2 & GHG reduction target --- Scope 2 & E1-4 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C3-3 & GHG reduction target --- Scope 3 & E1-4 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C3-4 & Main actions to achieve GHG targets & E1-4 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C3-5 & Climate transition plan & E1-1 & CSR Tools (topic) + author (DR) & No \\
+Comprehensive & C3-6 & No transition plan --- timeline & E1-1 & CSR Tools (topic) + author (DR) & No \\
+Comprehensive & C4-1 & Description of climate hazards and transition events & E1-9 & CSR Tools (topic) + author (DR) & Excluded (needs IRO/materiality) \\
+Comprehensive & C4-2 & Exposure and sensitivity assessment & E1-9 & CSR Tools (topic) + author (DR) & Excluded (needs IRO/materiality) \\
+Comprehensive & C4-3 & Time horizons of climate risks & E1-9 & CSR Tools (topic) + author (DR) & Excluded (needs IRO/materiality) \\
+Comprehensive & C4-4 & Climate adaptation actions & E1-9 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C4-5 & Potential adverse effects of climate risks & E1-9 & CSR Tools (topic) + author (DR) & Excluded (needs IRO/materiality) \\
+Comprehensive & C5-1 & Female-to-male ratio at management level & S1-9 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C5-2 & Self-employed and temporary agency workers & S1-7 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C6-1 & Code of conduct or human rights policy --- existence (YES/NO) & S1-1 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C6-2a & HR policy covers --- child labour (YES/NO) & S1-1 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C6-2b & HR policy covers --- forced labour (YES/NO) & S1-1 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C6-2c & HR policy covers --- human trafficking (YES/NO) & S1-1 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C6-2d & HR policy covers --- discrimination (YES/NO) & S1-1 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C6-2e & HR policy covers --- accident prevention (YES/NO) & S1-1 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C6-2f & HR policy covers --- other topics (YES/NO + specify) & S1-1 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C6-3 & Complaints-handling mechanism --- own workforce (YES/NO) & S1-3 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C7-1a & Confirmed own workforce incidents --- child labour (YES/NO) & S1-17 & CSR Tools (topic) + author (DR) & Indirect \\
+Comprehensive & C7-1b & Confirmed own workforce incidents --- forced labour (YES/NO) & S1-17 & CSR Tools (topic) + author (DR) & Indirect \\
+Comprehensive & C7-1c & Confirmed own workforce incidents --- human trafficking (YES/NO) & S1-17 & CSR Tools (topic) + author (DR) & Indirect \\
+Comprehensive & C7-1d & Confirmed own workforce incidents --- discrimination (YES/NO) & S1-17 & CSR Tools (topic) + author (DR) & Indirect \\
+Comprehensive & C7-1e & Confirmed own workforce incidents --- other (YES/NO + specify) & S1-17 & CSR Tools (topic) + author (DR) & Indirect \\
+Comprehensive & C7-2 & Actions taken to address incidents & S1-17 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C7-3 & Value chain / community / consumer incidents (YES/NO + specify) & S1-17 & CSR Tools (topic) + author (DR) & Yes \\
+Comprehensive & C8-1 & Revenues from controversial weapons & G1-1 & CSR Tools (topic) + author (DR) & No \\
+Comprehensive & C8-2 & Revenues from tobacco cultivation and production & G1-1 & CSR Tools (topic) + author (DR) & No \\
+Comprehensive & C8-3 & Revenues from fossil fuels (disaggregated coal/oil/gas) & G1-1 & CSR Tools (topic) + author (DR) & No \\
+Comprehensive & C8-4 & Revenues from chemicals production (pesticides) & G1-1 & CSR Tools (topic) + author (DR) & No \\
+Comprehensive & C8-5 & Exclusion from EU reference benchmarks (YES/NO) & G1-1 & CSR Tools (topic) + author (DR) & No \\
+Comprehensive & C9-1 & Gender diversity ratio in governance body & --- & CSR Tools (topic only) & Yes \\
+\end{longtable}
+\end{landscape}
 
 \section*{Appendix F --- ESRS 2023-to-2026 revision mapping and VSME cross-reference}\label{app:esrs-mapping}
 \addcontentsline{toc}{subsection}{Appendix F --- ESRS 2023-to-2026 revision mapping and VSME cross-reference}
