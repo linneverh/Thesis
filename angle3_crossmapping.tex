@@ -113,11 +113,19 @@ not concern it. %LI: this sector materiality is done at framework level in excel
 requirements, narrowed to the cohort-evidenced core, then \emph{extended} by the
 four seafood-specific gap topics --- the one place where the ESRS blueprint is
 insufficient and the sector standard supplies the rows instead. These four are not
-chosen ad hoc: each GRI~13 (Agriculture, Aquaculture and Fishing) topic was
-classified against the ESRS as \emph{covered}, \emph{partially covered} or a
-\emph{structural gap}, and only the structural gaps --- sector-defining topics with
-no ESRS home at all --- are carried in as rows. The full classification is given in
-\nameref{app:gri13}.
+chosen ad hoc: each of GRI~13's 26 (Agriculture, Aquaculture and Fishing) material
+topics was classified against the ESRS as \emph{Covered}, a \emph{Reporting gap}
+(an ESRS mapping exists but cohort reporting on it falls below the cohort's
+$\geq$5/6 consensus threshold), or a \emph{Structural gap} (no ESRS disclosure
+requirement exists at all). Two of the four sector-material rows --- animal
+health and welfare, and supply-chain traceability --- come from Structural-gap
+topics with no ESRS home whatsoever; the other two --- wild-stock status and
+feed and marine-ingredient sourcing --- are specific sector disclosures nested
+inside the Biodiversity topic (GRI~13.3), which is itself Covered and already
+in the cohort-evidenced universe, so they are sector-material additions for a
+different reason: the topic is covered but these two production-specific
+disclosures within it are not. The full classification, and this 2+2
+breakdown, is given in \nameref{app:gri13}.
 
 \textbf{Columns: from the full ecosystem to the scored instruments.} The columns
 begin from the instruments catalogued in the ecosystem (Chapter~5), which is
@@ -230,17 +238,47 @@ ecosystem-impact demand (ESRS~E4, GRI~101, TNFD, MSC Principle~2 on bycatch and
 habitat) codes to E4; a single instrument may legitimately score on both rows
 through different provisions.
 
-\textbf{Certification coding via chain of custody.} A processor holds only the
-\emph{Chain-of-Custody} (CoC) certification of a scheme (MSC, ASC, GLOBALG.A.P.,
-BAP, Friend of the Sea); it is not itself assessed against the upstream Fisheries
-or Farm Standard. But the binding precondition for holding the CoC is that it
-source product certified to that upstream standard. Each topic is therefore scored
-against what the scheme bindingly requires, at the depth it requires it: a core
-criterion (MSC~P1 stock status, ASC feed-conversion and effluent limits,
-GFSI-recognised food safety) scores~2, a lighter good-practice mention~1. What the
-processor holds --- the CoC, and for BAP's plant standard its own plant --- is
-\emph{direct}; the upstream stock, ecosystem, feed and welfare performance it
-sources is \emph{indirect}.
+\textbf{Does this reach a firm that only processes, not farms or fishes?} A
+pure processor buys already-caught or already-farmed product; it does not
+manage a stock or run a farm. So how much of the wild-stock, feed and
+animal-welfare demand above actually lands on it? All of it, but in two
+different ways, and the matrix tags which is which. \emph{Direct}: the
+processor itself holds a Chain-of-Custody (CoC) certificate (MSC, ASC,
+GLOBALG.A.P., BAP, Friend of the Sea) and keeps its own segregation and lot
+records to prove it --- this is an obligation on the processor itself.
+\emph{Indirect}: to hold that CoC certificate at all, its supply contracts
+must specify sourcing from a stock, farm or feed mill that meets the
+scheme's upstream standard (MSC Principle~1 stock health, ASC's feed and
+antibiotic limits). The processor doesn't manage the upstream operation, but
+it cannot keep its certificate without sourcing from one that does --- so
+the demand is real, just transmitted rather than performed directly. Each
+cell is scored on the same 0/1/2 strength scale either way (a core
+criterion such as MSC~P1 stock status or ASC feed-conversion limits scores~2,
+a lighter good-practice mention~1); direct or indirect only records \emph{how}
+the demand reaches the processor, and --- as stated above --- never changes the score itself.
+
+% %CL: two small follow-ups from today's review. (1) The EUDR cell under
+% feed \& marine-ingredients sourcing is currently tagged direct in
+% Phase3\_Coverage\_Matrix\_v17.xlsx; for a processor buying finished feed
+% rather than importing soy/palm itself, the due-diligence duty sits with
+% the feed supplier, so it should read indirect. This doesn't change the
+% score (locus is descriptive only, per above) so it's a text/tagging fix,
+% not a renumbering -- I've corrected the description here but haven't
+% touched your workbook, since its Obligation tag is set once per
+% instrument column rather than per cell, and retagging the column would
+% also touch the two other rows EUDR scores on (biodiversity, traceability)
+% which I haven't reviewed for the same question. Worth a five-minute check
+% in Excel when you have a moment. (2) Per your call to keep the
+% sector-material row count at four: ASC's conversion-free-sourcing
+% criterion follows the identical certification-precondition logic used
+% above for feed and animal welfare, so it's noted as a scope limitation in
+% Section~8.5 rather than added as a fifth row.
+The one cell worth flagging as indirect rather than direct: EUDR's
+due-diligence duty on feed and marine-ingredients sourcing binds the feed
+manufacturer importing raw soy or palm, not a processor further downstream
+buying finished feed --- so for the modelled sub-threshold processor, this
+demand reaches it only indirectly, through its feed supplier's own
+compliance.
 
 \textbf{Out-of-frame demand.} Some indicator-level demand maps cleanly onto an
 ESRS datapoint that lies \emph{outside} the cohort-defined universe: the Pay
