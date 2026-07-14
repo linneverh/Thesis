@@ -499,6 +499,25 @@ Chapter~5), RQ2 by the cohort scan (Step~2, Chapter~6), and RQ3 by the
 cross-framework demand mapping and the diagnostic tool built on it (Steps~3
 and~4, both in Chapter~7).
 
+% %CL: moved this figure up to sit right alongside the RQs, per your
+% note that it should function as a blueprint the reader meets early and
+% the empirical chapters (5-7) point back to, rather than a chapter-5
+% scene-setter. It's now the thesis's Figure 1 (figure counter reset
+% just before Chapter 5 was bumped from 0 to 1 to account for it, so
+% Chapter 5's own first figure continues at Figure 2 -- nothing else
+% needs to change since every in-text figure reference uses \ref).
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{methodology_diagram_corrected.pdf}
+\caption{The thesis's four-step methodology, answering RQ1--RQ3 above:
+Step~1 scans the disclosure ecosystem (Chapter~5, RQ1), Step~2 scans the
+cohort frontier (Chapter~6, RQ2), and Steps~3 and~4 --- crossing the two
+to find where demand converges, then building the diagnostic tool on
+that finding --- are carried out together in Chapter~7 (RQ3). Chapters
+5--7 each return to this figure as their starting point.}
+\label{fig:methodology-overview}
+\end{figure}
+
 \subsection{2.2 Intended contributions}\label{intended-contributions}
 
 The thesis contributes to three audiences:
@@ -1669,24 +1688,11 @@ left to future work.
 % \iffalse that appear to still step the table/figure counters (a known
 % fragile edge case with large \iffalse regions). Reset both to 0 here so
 % the first REAL table/figure in the angle chapters below is numbered 1.
+% Reset value below accounts for fig:methodology-overview, moved up to
+% Section 2.1 (Research Questions) so it works as a blueprint the reader
+% meets early and the empirical chapters point back to. See %CL note there.
 \setcounter{table}{0}
-\setcounter{figure}{0}
-
-% %CL: new figure, added per your request -- the methodology overview
-% diagram (four steps: scan the ecosystem, scan the peers, cross, build
-% the tool), placed here as a roadmap for the three empirical chapters
-% that follow. Happy to move it into the Introduction or Chapter 4
-% instead if you'd rather it sit there -- flag with %LI if so.
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.82\linewidth]{methodology_diagram_corrected.pdf}
-\caption{The thesis's four-step methodology: Step~1 scans the disclosure
-ecosystem (Chapter~5), Step~2 scans the cohort frontier (Chapter~6), and
-Steps~3 and~4 --- crossing the two to find where demand converges, then
-building the diagnostic tool on that finding --- are carried out together
-in Chapter~7.}
-\label{fig:methodology-overview}
-\end{figure}
+\setcounter{figure}{1}
 
 %% ===================================================================
 %% MODULAR ANGLE CHAPTERS (wired in)
