@@ -2831,21 +2831,29 @@ Chapter~7.}
 % a citation; please confirm the correct GRI source cell before this goes
 % final.
 
-\textbf{Scope note: GRI 13 is written for growers and catchers, not
-processors.} GRI describes GRI~13's own purpose as increasing comparability
-``for any organization... involved in crop cultivation, animal production,
-aquaculture, or fishing'' (GSSB, 2022) --- primary production, not
-processing. In practice this splits GRI~13's content in two. Its
-\emph{Topic Standard disclosures} (the majority, drawn from GRI's generic
-Topic Standards on climate, biodiversity, water, and so on) apply to any
-organization in the sector's value chain, processors included, and these
-are what the ``Covered'' and ``Reporting gap'' classification below rests
-on. Its \emph{Additional sector disclosures} --- a smaller set the standard
-itself restricts to ``organizations in the fishing sector'' or ``the
-aquaculture sector'' --- ask for primary-production data (catch volumes,
-farmed species, stock assessments) that a processor does not generate
-itself. This is exactly why the four sector-material rows in Chapter~7 are
-scored as reaching the processor \emph{indirectly}, as a sourcing or
+\textbf{Scope note: GRI 13's own applicability list does not name
+processing.} GRI~13 states its scope explicitly: ``GRI~13 applies to
+organizations undertaking any of the following: Crop production; Animal
+production; Aquaculture; Fishing'' (GSSB, 2022, p.~6) --- four categories,
+none of them processing. The standard does use the term ``primary
+processing,'' but defines it narrowly as handling done at or immediately
+after the point of capture or harvest, not further processing at a
+separate plant: for fishing, primary processing is defined as ``onboard
+handling of live wild aquatic organisms after capture and through to the
+point of landing'' (GSSB, 2022, p.~12). A seafood processor of the kind
+this thesis studies --- buying already-landed fish and processing it at
+its own separate facility --- sits outside that definition. In practice
+this splits GRI~13's content in two. Its \emph{Topic Standard disclosures}
+(the majority, drawn from GRI's generic Topic Standards on climate,
+biodiversity, water, and so on) are written for any organization with
+material impacts on these topics, processors included, and these are what
+the ``Covered'' and ``Reporting gap'' classification below rests on. Its
+\emph{Additional sector disclosures} --- a smaller set the standard itself
+restricts to ``organizations in the fishing sector'' or ``the aquaculture
+sector'' --- ask for primary-production data (catch volumes, farmed
+species, stock assessments) that a processor does not generate itself.
+This is exactly why the four sector-material rows in Chapter~7 are scored
+as reaching the processor \emph{indirectly}, as a sourcing or
 certification precondition, rather than as data the processor produces
 directly (\nameref{cm-matrix-build}): the scope note above is the reason
 that distinction exists, not an incidental scoring choice. Every topic
@@ -2941,9 +2949,106 @@ signal from Chapter~6.}
 
 \section*{Appendix C --- Instrument scope classification}\label{app:scope}
 \addcontentsline{toc}{subsection}{Appendix C --- Instrument scope classification}
-\emph{[To be inserted.]} The full instrument-by-instrument classification --- each
-instrument marked scored, baseline, context or excluded, with the admission-gate
-reason --- underlying the columns of the demand matrix (Chapter~7).
+
+% %CL: heads-up before you read this one. Appendix A (the Ecosystem Glossary,
+% annex.tex) already carries a Status column (Scored / Baseline / Context /
+% Opt-in / Excluded) plus a one-line "Role in the ecosystem" reason for all
+% 49 instruments -- so a second full 49-row table here would just repeat it.
+% I've instead written Appendix C as the piece Appendix A does NOT already
+% contain: (1) the two admission gates named and defined explicitly (this
+% also resolves the %LI comment on the "two admission gates" line in
+% angle3_crossmapping.tex, which I've pointed here), (2) the 18
+% not-scored-and-not-baseline instruments regrouped by *which* gate and
+% *why*, as a compact cross-check rather than a restatement, and (3) the
+% firm-profile opt-in switch logic (production-system and headcount
+% thresholds) that Chapter 7 refers to but never spells out. If you'd rather
+% this appendix simply be a pointer sentence to Appendix A with no new
+% content, say so and I'll cut it down -- flagging the overlap here so
+% that's your call, not mine.
+
+\textbf{The two admission gates.} Every candidate instrument identified for
+the catalogue (Chapter~5) was screened against two gates before it was
+assigned a status. \emph{Gate 1 --- ESG relevance}: the instrument must bear
+on an environmental, social or governance matter, excluding purely fiscal,
+customs or data-protection law. \emph{Gate 2 --- organisation-level
+obligation}: the instrument must place a binding disclosure, due-diligence,
+certification or market-access requirement on the processor itself, rather
+than merely binding a Member State or another actor, or granting an
+individual entitlement. Gate 1 is applied at candidate-identification stage,
+before an instrument is even added to the catalogue, so no instrument in the
+49-row landscape of Appendix~A is a Gate-1 failure by construction; every
+exclusion recorded in the catalogue is therefore a Gate-2 outcome. Passing
+both gates yields the \emph{scored} status (30 instruments, four of which are
+further gated by firm profile as \emph{opt-in}); the CSRD/ESRS standard
+passes both gates but is held out as the \emph{baseline} the matrix rows are
+defined against, rather than scored as one more demand; the remaining 18
+instruments fail Gate 2 and are marked \emph{context} (7) or \emph{excluded}
+(11).
+
+\textbf{Why the 18 non-scored, non-baseline instruments fail Gate 2.} The
+table below regroups them by the specific reason, complementing rather than
+repeating Appendix~A's per-instrument entries (which carry the full source,
+domain, obligation locus and legal reference for every instrument in the
+catalogue, including these).
+
+\begin{longtable}{@{}p{4.6cm}p{2.8cm}p{7.4cm}@{}}
+\toprule
+\textbf{Instrument} & \textbf{Gate-2 outcome} & \textbf{Reason} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Instrument} & \textbf{Gate-2 outcome} & \textbf{Reason} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Common Fisheries Policy (Reg 1380/2013) & Context & Binds Member States on quota-setting; reaches the processor only through the Fisheries Control and IUU Regulations. \\
+Marine Strategy Framework Directive (Dir 2008/56/EC) & Context & Binds Member States on marine environmental status; no processor-facing obligation. \\
+RFMOs (Regional Fisheries Management Organisations) & Context & Set stock-level catch rules via Member State implementation; reach the processor only through IUU catch documentation. \\
+EMFAF (Reg 2021/1139) & Context & A Member-State-administered funding instrument the processor may access; imposes no compliance or disclosure duty. \\
+Water Framework Directive (Dir 2000/60/EC) & Context & Binds Member States; reaches the processor via national discharge permits, not directly. \\
+Urban Waste Water Treatment Directive (Dir 2024/3019) & Context & Binds Member States/agglomerations; processor wastewater regulated via national permits. \\
+Waste Framework Directive / EPR (Dir 2008/98/EC) & Context & Member-State-transposed EPR duties; now operationally consolidated for the processor under PPWR. \\
+Dolphin Safe & Excluded --- superseded & Largely obsolete labelling scheme for an EU processor; retained in the catalogue for completeness only. \\
+Fisheries labour conditions (Council Dir 2017/159) & Excluded --- wrong bound party & Binds vessel owners, not the processor; the labour content it covers reaches the processor anyway via buyer SMETA audits and ESRS~S2, so scoring it separately would double-count. \\
+RSPO (conditional) & Excluded --- redundant exposure & Certifies palm-oil sourcing; for a seafood processor this is a feed-input exposure already carried by EUDR at Tier~1, so it is not scored as a second instrument on the same exposure unless the processor directly handles palm as an input. \\
+FIPs / FisheryProgress & Excluded --- no own obligation & An engagement platform for sourcing commitments, not a reporting or certification duty; the topics it touches are already scored via MSC, ASC, GDST and the IUU Regulation. \\
+GSSI (Global Sustainable Seafood Initiative) & Excluded --- rates schemes, not the processor & Benchmarks certification schemes and shapes which certs buyers accept; it does not itself demand anything of the processor. \\
+EU Taxonomy (Reg 2020/852) & Excluded --- no eligible activity & The Taxonomy's technical screening criteria define no eligible economic activity for NACE~C10.20 (seafood processing), so it imposes no disclosure trigger on this activity; reaches the processor only indirectly via customer/financier data requests. \\
+SeaBOS (Seafood Business for Ocean Stewardship) & Excluded --- closed membership & A CEO-led keystone-company coalition with no admission path for an SME; aspirational rather than an obligation it could ever hold. \\
+UN Sustainable Development Goals & Excluded --- no reporting obligation & An aspirational reference framework for goal alignment; imposes no corporate reporting requirement or datapoint. \\
+Move to Minus~15 & Excluded --- no reporting obligation & An industry decarbonisation campaign (cold-chain temperature); no reporting requirement attaches to participation. \\
+Coller FAIRR Protein Producer Index & Excluded --- rated, not a member & An investor benchmark the processor is rated by, not one it joins or reports into. \\
+Dow Jones Sustainability Index (S\&P) & Excluded --- rated, not a member & An investor index the processor is rated by, not one it joins or reports into. \\
+\end{longtable}
+
+\textbf{Firm-profile opt-in switches.} Four scored instruments are further
+gated by the profile of the individual firm being modelled, and are switched
+off (excluded from that firm's demand sums, though they remain scored
+columns in the matrix itself) when the condition below is not met.
+
+\begin{longtable}{@{}p{4.2cm}p{3.4cm}p{7.2cm}@{}}
+\toprule
+\textbf{Instrument} & \textbf{Switch dimension} & \textbf{Condition to be switched on} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Instrument} & \textbf{Switch dimension} & \textbf{Condition to be switched on} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+ASC / GSA BAP & Production system & Firm produces or sources farmed (aquaculture) product; a wild-only firm switches both off. \\
+F-gas Regulation (2024/573) & Equipment profile & Firm operates fluorinated-refrigerant refrigeration or freezing equipment; a firm with none switches it off. \\
+Pay Transparency Directive (2023/970) & Headcount & Applies from 150 employees (gender pay-gap reporting); below that threshold the instrument is switched off. \\
+Whistleblowing Directive (2019/1937) & Headcount & Applies from 50 employees; below that threshold the instrument is switched off. \\
+ISSF (Intl Seafood Sustainability Foundation) & Species profile & Firm sources tuna; a non-tuna firm switches it off. \\
+\end{longtable}
+
+The full per-instrument reference --- domain, stakeholder source, obligation
+locus, legal citation and official source URL, for all 49 catalogued
+instruments including those in the tables above --- is given in
+\nameref{app:glossary}.
 
 \section*{Appendix D --- Cross-framework coverage matrix and justification log}\label{app:matrix}
 \addcontentsline{toc}{subsection}{Appendix D --- Cross-framework coverage matrix and justification log}
@@ -2951,47 +3056,63 @@ The complete coded instrument\,$\times$\,topic matrix and
 the per-cell justification log (rationale, source clause, and mapped ESRS
 datapoint) for every non-zero cell (Chapter~7) are held in
 \emph{Phase3\_Coverage\_Matrix\_v17.xlsx} (sheets ``Coverage matrix'' and
-``Justifications log''). Figure~\ref{fig:cell-coding} below sets out the
-coding protocol applied to every cell; a representative excerpt of the
-matrix itself is shown in Chapter~7 (Figure~\ref{fig:coverage-matrix-screenshot}),
-and the full matrix is available in the source workbook.
+``Justifications log''). Figure~\ref{fig:cell-coding-appendix} below sets out
+the decision-tree coding protocol applied to every cell; a representative
+excerpt of the matrix itself is shown in Chapter~7
+(Figure~\ref{fig:coverage-matrix-screenshot}), and the full matrix is
+available in the source workbook.
 
+% %CL: correction to my earlier note to you -- I'd said this figure was
+% duplicated verbatim in both Chapter 7's body and here in Appendix D, and
+% you asked me to keep both but give them separate labels. Turns out that
+% wasn't quite right: the "Chapter 7 copy" I saw sits inside the old
+% \iffalse ... \fi block (main.tex lines 737-1685, marked "HIDDEN: old
+% 4.2-4.8 monolithic methodology -- superseded"), so it was never actually
+% compiled into the thesis -- there was no live duplicate to begin with.
+% This appendix copy is therefore the only one in the actual document. I've
+% still redrawn it smaller/clearer as you asked (straighter top-to-bottom
+% flow, tighter node spacing, no more float-too-large warning) and given it
+% its own label (fig:cell-coding-appendix) rather than reusing the dead
+% block's label, which is what was silently making the old duplicate-label
+% setup "work" by accident. If you want a version of this figure to also
+% appear inline in Chapter 7's live text (angle3_crossmapping.tex), say so
+% and I'll add one there instead of just the appendix pointer.
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[
-  node distance = 9mm and 14mm, font = \small,
-  box/.style   = {rectangle, rounded corners, draw, align=center, text width=46mm, inner sep=4pt},
-  dec/.style   = {diamond, aspect=2, draw, align=center, inner sep=1pt, text width=34mm},
-  term/.style  = {rectangle, draw, fill=black!6, align=center, text width=30mm, inner sep=4pt},
-  arr/.style   = {-{Stealth[length=2mm]}}
+  node distance = 6mm and 9mm, font = \footnotesize,
+  box/.style   = {rectangle, rounded corners, draw, align=center, text width=34mm, inner sep=3pt},
+  dec/.style   = {diamond, aspect=2.2, draw, align=center, inner sep=1pt, text width=26mm},
+  term/.style  = {rectangle, draw, fill=black!6, align=center, text width=22mm, inner sep=3pt},
+  arr/.style   = {-{Stealth[length=1.8mm]}}
 ]
-\node[box] (start) {Cell: framework $f$ $\times$ requirement $r$};
-\node[dec, below=of start] (gap) {Is $r$ a sector-material gap row?};
-\node[term, right=24mm of gap] (crit) {Score 0/1/2 against demanding-framework criteria};
-\node[dec, below=14mm of gap] (addr) {Does $f$ address topic $r$ at all?};
-\node[term, right=24mm of addr] (silent) {Score \textbf{0}\\(silent)};
-\node[dec, below=14mm of addr] (map) {Does $f$ demand a datapoint of $r$?};
-\node[term, left=18mm of map] (touch) {Score \textbf{1}\\(topic referenced, no datapoint required)};
-\node[dec, below=14mm of map] (inuni) {Is that datapoint in the universe?};
-\node[term, below=of inuni] (req) {Score \textbf{2}\\(required datapoint hit)};
-\node[term, right=18mm of inuni] (oof) {Score \textbf{0}\\+ out-of-frame register};
+\node[box] (start) {Cell: instrument $i$ $\times$ requirement $r$};
+\node[dec, below=of start] (gap) {Sector-material gap row?};
+\node[dec, below=of gap] (addr) {$i$ addresses $r$ at all?};
+\node[dec, below=of addr] (map) {$i$ demands a datapoint of $r$?};
+\node[dec, below=of map] (inuni) {Datapoint in the universe?};
+\node[term, below=of inuni] (req) {\textbf{2} --- required datapoint hit};
+\node[term, right=10mm of gap] (crit) {Score 0/1/2 vs.\ demanding instrument's own criteria};
+\node[term, right=10mm of addr] (silent) {\textbf{0} --- silent};
+\node[term, right=10mm of map] (touch) {\textbf{1} --- topic referenced only};
+\node[term, right=10mm of inuni] (oof) {\textbf{0} --- + out-of-frame register};
 \draw[arr] (start) -- (gap);
-\draw[arr] (gap) -- node[above]{yes} (crit);
 \draw[arr] (gap) -- node[right]{no} (addr);
-\draw[arr] (addr) -- node[above]{no} (silent);
+\draw[arr] (gap) -- node[above]{yes} (crit);
 \draw[arr] (addr) -- node[right]{yes} (map);
-\draw[arr] (map) -- node[left]{topic only} (touch);
+\draw[arr] (addr) -- node[above]{no} (silent);
 \draw[arr] (map) -- node[right]{yes} (inuni);
+\draw[arr] (map) -- node[above]{topic only} (touch);
 \draw[arr] (inuni) -- node[right]{yes} (req);
 \draw[arr] (inuni) -- node[above]{no} (oof);
 \end{tikzpicture}
-\caption{Per-cell coding protocol. Each instrument~$\times$~requirement cell is
-scored against the requirement's constituent ESRS datapoints; gap rows, which have
-no ESRS datapoints by construction, are scored against the demanding
-instruments' own criteria; an instrument silent on the requirement scores~0, and
-demand mapping only to out-of-universe datapoints also scores~0 and is logged
-separately.}
-\label{fig:cell-coding}
+\caption{Per-cell coding protocol. Each
+instrument~$\times$~requirement cell is scored against the requirement's
+constituent ESRS datapoints; gap rows, which have no ESRS datapoints by
+construction, are scored against the demanding instrument's own criteria; an
+instrument silent on the requirement scores~0, and demand mapping only to
+out-of-universe datapoints also scores~0 and is logged separately.}
+\label{fig:cell-coding-appendix}
 \end{figure}
 
 
