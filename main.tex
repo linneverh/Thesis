@@ -68,6 +68,9 @@
 
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,shapes.geometric}
+\usepackage{placeins} % \FloatBarrier: stop figures drifting past chapter
+                       % boundaries (added after figures were found floating
+                       % all the way past the bibliography into the appendix)
 
 \author{}
 \date{}
@@ -1669,12 +1672,31 @@ left to future work.
 \setcounter{table}{0}
 \setcounter{figure}{0}
 
+% %CL: new figure, added per your request -- the methodology overview
+% diagram (four steps: scan the ecosystem, scan the peers, cross, build
+% the tool), placed here as a roadmap for the three empirical chapters
+% that follow. Happy to move it into the Introduction or Chapter 4
+% instead if you'd rather it sit there -- flag with %LI if so.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]{methodology_diagram_corrected.pdf}
+\caption{The thesis's four-step methodology: Step~1 scans the disclosure
+ecosystem (Chapter~5), Step~2 scans the cohort frontier (Chapter~6), and
+Steps~3 and~4 --- crossing the two to find where demand converges, then
+building the diagnostic tool on that finding --- are carried out together
+in Chapter~7.}
+\label{fig:methodology-overview}
+\end{figure}
+
 %% ===================================================================
 %% MODULAR ANGLE CHAPTERS (wired in)
 %% ===================================================================
 \input{angle1_ecosystem.tex}
+\FloatBarrier
 \input{angle2_cohort.tex}
+\FloatBarrier
 \input{angle3_crossmapping.tex}
+\FloatBarrier
 
 \iffalse %% ===== HIDDEN: old monolithic cohort chapter + Results (superseded by the angle chapters) =====
 \section{The seafood disclosure frontier: evidence from six large
