@@ -11,7 +11,7 @@
 %   this chapter uses the reconciled 30 scored / 31 columns.
 % Figures: fig:cell-coding (TikZ, needs tikz+libs in preamble --- already in main),
 %   topic_distribution.pdf, r_actor_tier.pdf, r_stage_system.pdf.
-% %CL = notes for you.
+% notes to self, same convention as elsewhere.
 % =====================================================================
 
 \section{7. Cross-framework demand mapping: where to build
@@ -154,9 +154,9 @@ threshold switches off the instruments above it. Instruments switched off are
 excluded from that firm's demand sums. The full instrument-by-instrument
 classification --- scored, baseline, context or excluded, with the reason for each
 --- is provided in \nameref{app:scope}.
-% CL: numbers deliberately left in the source comments, not asserted in prose here, per your note ---
-% CL: the 26+2+4 = 32 rows and the 49 -> 30 scored -> 31 columns are the current reconciled
-% CL: figures from Chapters 5-6; state them here once you have confirmed they are final.
+% numbers deliberately left in the source comments, not asserted in prose here --
+% the 26+2+4 = 32 rows and the 49 -> 30 scored -> 31 columns are the current
+% reconciled figures from Chapters 5-6; state them here once confirmed final.
 
 The demand matrix is therefore a grid of topic rows against instrument columns,
 every cell recording how strongly a given instrument demands a given topic, on the
@@ -285,22 +285,22 @@ criterion such as MSC~P1 stock status or ASC feed-conversion limits scores~2,
 a lighter good-practice mention~1); direct or indirect only records \emph{how}
 the demand reaches the processor, and --- as stated above --- never changes the score itself.
 
-% %CL: two small follow-ups from today's review. (1) The EUDR cell under
-% feed \& marine-ingredients sourcing is currently tagged direct in
+% TWO follow-ups from the last review pass. (1) The EUDR cell under feed \&
+% marine-ingredients sourcing is currently tagged direct in
 % Phase3\_Coverage\_Matrix\_v17.xlsx; for a processor buying finished feed
 % rather than importing soy/palm itself, the due-diligence duty sits with
-% the feed supplier, so it should read indirect. This doesn't change the
-% score (locus is descriptive only, per above) so it's a text/tagging fix,
-% not a renumbering -- I've corrected the description here but haven't
-% touched your workbook, since its Obligation tag is set once per
-% instrument column rather than per cell, and retagging the column would
-% also touch the two other rows EUDR scores on (biodiversity, traceability)
-% which I haven't reviewed for the same question. Worth a five-minute check
-% in Excel when you have a moment. (2) Per your call to keep the
-% sector-material row count at four: ASC's conversion-free-sourcing
-% criterion follows the identical certification-precondition logic used
-% above for feed and animal welfare, so it's noted as a scope limitation in
-% Section~8.5 rather than added as a fifth row.
+% the feed supplier, so it should read indirect. Doesn't change the score
+% (locus is descriptive only, per above) so it's a text/tagging fix, not a
+% renumbering -- corrected the description here but haven't touched the
+% workbook, since its Obligation tag is set once per instrument column
+% rather than per cell, and retagging would also touch the two other rows
+% EUDR scores on (biodiversity, traceability), not reviewed yet for the
+% same question. Five-minute check in Excel when there's a moment.
+% (2) Keeping the sector-material row count at four: ASC's
+% conversion-free-sourcing criterion follows the same
+% certification-precondition logic used above for feed and animal welfare,
+% so it's noted as a scope limitation in Section~8.5 instead of added as a
+% fifth row.
 The one cell worth flagging as indirect rather than direct: EUDR's
 due-diligence duty on feed and marine-ingredients sourcing binds the feed
 manufacturer importing raw soy or palm, not a processor further downstream
@@ -522,22 +522,23 @@ and the two topic-level rows (E4, S4) to a further 152. For each theme the
 firm --- is identified through the VSME-to-ESRS crosswalk (\nameref{app:crosswalk}),
 which maps every VSME Basic and Comprehensive module datapoint to the ESRS
 disclosure requirement it is thematically closest to and flags whether it is
-realistically self-reportable without external verification. %CL: worth being
-precise here -- the crosswalk operates at disclosure-requirement level, not
-official-datapoint level (no ESRS datapoint is itself tagged ``start-here'';
-rather, a VSME datapoint mapped onto a theme's DR shows that a lighter,
-self-assessable version of that DR exists). Checked against the nine-topic
-Stage-1 set, five of the seven ESRS-anchored topics have solid VSME coverage
-(energy, GHG emissions, water, waste, health and safety); biodiversity has only
-partial coverage; and value-chain workers (S2-1) has none at all, confirming at
-datapoint resolution the gap already flagged in \nameref{app:esrs-mapping}. The
-four seafood-specific themes with no ESRS requirement (wild-stock, feed, animal
-health/antimicrobial use, traceability) are sourced instead from the GRI~13
-sector standard, and correctly have no VSME entry either. Two themes are
-illustrated here with the enabling method that produces their data (the GHG
-Protocol for emissions, GDST for traceability); %CL: this pairing is not yet
-built out into a systematic table covering every Stage-1 topic -- flagging as
-outstanding rather than overclaiming coverage. Each \emph{topic} (not
+realistically self-reportable without external verification.
+% worth being precise -- the crosswalk operates at disclosure-requirement
+% level, not official-datapoint level (no ESRS datapoint is itself tagged
+% "start-here"; a VSME datapoint mapped onto a theme's DR shows a lighter,
+% self-assessable version of that DR exists). Checked against the
+% nine-topic Stage-1 set: five of the seven ESRS-anchored topics have
+% solid VSME coverage (energy, GHG emissions, water, waste, health and
+% safety); biodiversity only partial; value-chain workers (S2-1) none at
+% all -- confirms at datapoint resolution the gap already flagged in
+% \nameref{app:esrs-mapping}. The four seafood-specific themes with no ESRS
+% requirement (wild-stock, feed, animal health/antimicrobial use,
+% traceability) are sourced from GRI~13 instead, correctly no VSME entry
+% either. Two themes illustrated here with the enabling method that
+% produces their data (GHG Protocol for emissions, GDST for traceability)
+% -- not yet built into a systematic table covering every Stage-1 topic,
+% flagging as outstanding rather than overclaiming coverage.
+Each \emph{topic} (not
 datapoint) carries the count of stakeholder demands it serves, taken from the
 matrix (\nameref{cm-staging}), which makes the reuse explicit --- a single
 topic typically satisfies several frameworks at once. Because both the ESRS
