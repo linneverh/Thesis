@@ -38,6 +38,7 @@
 \makeatother
 \usepackage{longtable,booktabs,array}
 \usepackage{tabularx}
+\usepackage{float}
 \usepackage{enumitem}
 \usepackage{pdflscape}
 \newcounter{none} % for unnumbered tables
@@ -1440,5 +1441,92 @@ held in \emph{ESRS\_VSME\_revision\_mapping.xlsx} (sheets ``DR\_mapping'' and
 reflects EFRAG's November~2025 drafts and the Commission's 3~July~2026
 adoption; it should be re-checked against the final Official Journal text
 once the Parliament and Council scrutiny period concludes.
+
+% ===== DRAFT: NEW APPENDIX G -- please review before treating as final =====
+% CL: added following your file-by-file check of the ESRS_KPI_Mapping_V7 /
+% GRI_ESRS_v5 workbooks and both notebooks (2026-07-29), then updated the same
+% day once the Profand 2025 GRI index gap was found and fixed (one row, S1-7,
+% restored; Tier 1/2/3 counts below are unaffected by that fix -- verified by
+% a full fresh re-run against the corrected workbook). ESRS_Coverage_FINAL.xlsx
+% regenerated to match and placed in data/ESRS/. Renamed 2026-07-29 per your
+% naming decision: ESRS_KPI_Mapping_V7.xlsx -> V9 (V8 skipped -- it has a known
+% live-formula corruption issue, do not use it) throughout this appendix.
+\section*{Appendix G --- GRI/ESRS cohort coverage analysis and admission rules}\label{app:gri-esrs-coverage}
+\addcontentsline{toc}{subsection}{Appendix G --- GRI/ESRS cohort coverage analysis and admission rules}
+
+This appendix documents the disclosure-requirement-level analysis underlying
+Chapter~6's cohort funnel (Section~\ref{cohort-core}) and gives the admission
+rule by which each of the 70 disclosure requirements (DRs) in the ESRS
+universe was classified.
+
+\textbf{Admission tiers.} Two evidentiary tiers are applied at the same
+threshold ($\geq$5 of the 6 cohort firms) but at different levels of
+aggregation. \emph{Tier 1} admits a DR directly where at least five firms
+report it: 26 DRs qualify, matching the ``reported by at least five'' band in
+Figure~\ref{fig:p1-frequency-r}. \emph{Tier 2} admits a \emph{topic} where
+signal is dispersed across its sub-DRs such that no single sub-DR clears the
+bar alone but at least five firms report \emph{some} DR within the topic;
+two topics qualify this way --- Biodiversity (E4) and Consumer health \&
+food safety (S4). A third, qualitatively different \emph{Tier 3} records
+five sector-material topics that the cohort-consensus test cannot surface at
+all because ESRS has no corresponding DR for them: supply-chain traceability,
+wild-stock status, feed and marine-ingredient sourcing, antimicrobial use, and
+animal welfare. These are anchored instead in the sector-specific GRI~13
+standard and the relevant sector law (IUU Regulation, IHR/GDST, MSC/ASC chain
+of custody), and are included as an explicit structural gap rather than a
+cohort finding.
+
+\textbf{GRI-reported firms as a cross-check.} Five of the six cohort firms'
+year-editions publish a GRI content index rather than a native ESRS index
+(Nomad Foods 2024 and 2025; Profand 2024 and 2025; Thai Union). Their
+disclosures were independently mapped to ESRS through the official EFRAG/GRI
+interoperability crosswalk (GRI and EFRAG, \emph{GRI--ESRS Interoperability
+Index}, November 2024) rather than read directly, giving a second,
+differently-sourced route into the same coverage matrix. The two routes
+converge on the same output schema and are combined without distinction in
+the coverage counts above.
+
+\textbf{Where each part of the analysis is held.} The underlying material is
+split across two workbooks, two notebooks, and one methodology note, each
+covering a specific stage:
+
+\begin{itemize}
+\item \emph{ESRS\_KPI\_Mapping\_V9.xlsx} --- the per-company ESRS mapping
+  database. Sheet \texttt{ESRS\_MASTER} holds the full 70-DR universe;
+  sheets \texttt{Bolton\_Mapping}, \texttt{Mowi\_Mapping},
+  \texttt{Espersen\_Mapping}/\texttt{Espersen2025\_Mapping},
+  \texttt{Nomad\_Mapping}/\texttt{Nomad2025\_Mapping},
+  \texttt{Profand\_Mapping}/\texttt{Profand2025\_Mapping} and
+  \texttt{ThaiUnion\_Mapping} hold each firm-year's reported DRs;
+  \texttt{Mapping\_ALLStacked\_TU\_N25} stacks all six current firm-years into
+  the single table the coverage analysis reads. (Note for future edits to
+  this file: \texttt{Nomad\_Mapping} and \texttt{Profand\_Mapping} contain
+  live external-workbook-link formulas rather than static values --- only
+  edit this file in Excel itself, never re-save it with a script, or those
+  two sheets' visible values are silently lost.)
+\item \emph{ESRS\_Coverage\_Analytics\_v7.ipynb} --- reads
+  \texttt{Mapping\_ALLStacked\_TU\_N25}, builds the coverage matrix, and
+  applies the Tier~1/Tier~2 admission rule above.
+\item \emph{ESRS\_Coverage\_FINAL.xlsx} --- the notebook's output: sheets
+  \texttt{Coverage\_Matrix} (70 DRs $\times$ 6 companies), \texttt{Topic\_Universe}
+  (the 28 Tier~1/2 rows plus the 5 hand-added Tier~3 rows), \texttt{BACKBONE}
+  (the datapoint-level shortlist) and \texttt{Excluded\_DR}.
+\item \emph{GRI\_ESRS\_v5.xlsx} --- the GRI-to-ESRS bridge. Sheet
+  \texttt{Interop\_Index} is the transcribed EFRAG/GRI crosswalk;
+  sheets ending \texttt{\_GRI\_Index} (one per GRI-reporting firm-year) are
+  each firm's own published content index; sheets ending
+  \texttt{\_Topical\_Mapping} are the per-firm result of joining the two.
+\item \emph{GRI\_ESRS\_Mapping\_v4.ipynb} --- performs that join
+  (Lookup\_Key match, topical-DR filter, one-row-per-datapoint expansion) for
+  every GRI-reporting firm-year in its \texttt{COMPANIES} list.
+\item \emph{Mapping\_Methodology.docx} --- the write-up of the join/filter/
+  expand/condense procedure and its inclusion rule, applied identically to
+  every firm regardless of which of the two paths above it took.
+\end{itemize}
+
+Both notebooks are reproducible end to end from the two workbooks above; the
+only manual step is transcribing a newly-added firm's own published index
+into a new \texttt{\_GRI\_Index} or \texttt{\_Mapping} sheet before re-running.
+% ===== END DRAFT: NEW APPENDIX G =====
 
 \end{document}
