@@ -930,8 +930,12 @@ required to follow the argument. Appendices are ordered by where they are
 first referenced --- Appendix~A from Chapter~5, Appendices~B--E from
 Chapter~7.}
 
-\section*{Appendix A --- Ecosystem Glossary}\label{app:glossary}
-\addcontentsline{toc}{subsection}{Appendix A --- Ecosystem Glossary}
+\section*{Appendix A --- Ecosystem Glossary and Instrument Catalogue}\label{app:glossary}
+\addcontentsline{toc}{subsection}{Appendix A --- Ecosystem Glossary and Instrument Catalogue}
+% CL: relabeled (was "Appendix A -- Ecosystem Glossary" while only containing
+% the instrument catalogue table, not a glossary). Now genuinely has both
+% parts: A.1 is the real glossary (wired in from notes/Ecosystem_Glossary_v2.docx),
+% A.2 is the catalogue table that was here before.
 \input{annex.tex}
 
 % =====================================================================
@@ -1529,22 +1533,83 @@ covering a specific stage:
   \texttt{Coverage\_Matrix} (70 DRs $\times$ 6 companies), \texttt{Topic\_Universe}
   (the 28 Tier~1/2 rows plus the 5 hand-added Tier~3 rows), \texttt{BACKBONE}
   (the datapoint-level shortlist) and \texttt{Excluded\_DR}.
-\item \emph{GRI\_ESRS\_v5.xlsx} --- the GRI-to-ESRS bridge. Sheet
+\item \emph{GRI\_ESRS\_v6.xlsx} --- the GRI-to-ESRS bridge (renamed from
+  \emph{v5} once the file was located and re-verified, 2026-07-30). Sheet
   \texttt{Interop\_Index} is the transcribed EFRAG/GRI crosswalk;
   sheets ending \texttt{\_GRI\_Index} (one per GRI-reporting firm-year) are
   each firm's own published content index; sheets ending
-  \texttt{\_Topical\_Mapping} are the per-firm result of joining the two.
-\item \emph{GRI\_ESRS\_Mapping\_v4.ipynb} --- performs that join
+  \texttt{\_Topical\_Mapping} are the per-firm result of joining the two
+  (full row-level detail: GRI standard/number, description, location in
+  report, mapped ESRS topic/standard/DR, paragraph reference, notes,
+  coverage). A further-condensed layer of sheets --- named
+  \texttt{\emph{Firm}\_Mapping} for some firms and \texttt{Mapping\_\emph{Firm}}
+  for others (an inconsistent naming convention worth standardising) --- holds
+  just Company/Topic/DR/Datapoint/Page/Comments; this is the format
+  \texttt{ESRS\_KPI\_Mapping\_V9.xlsx}'s own per-company sheets expect, and
+  what its \texttt{Nomad\_Mapping}/\texttt{Profand\_Mapping} live
+  external-workbook-link formulas point back to. This file did not previously
+  have a README sheet; one has now been added as the first sheet.
+\item \emph{GRI\_ESRS\_Mapping\_v4.ipynb} --- performs the join
   (Lookup\_Key match, topical-DR filter, one-row-per-datapoint expansion) for
-  every GRI-reporting firm-year in its \texttt{COMPANIES} list.
+  every GRI-reporting firm-year in its \texttt{COMPANIES} list. Its own header
+  previously referenced the bridge file as \emph{v5} and named a separate
+  output file (\texttt{GRI\_ESRS\_Topical\_Mapping\_AllCompanies.xlsx}) that,
+  in practice, was merged directly into the bridge workbook instead of staying
+  separate --- both now corrected in the notebook's own documentation.
 \item \emph{Mapping\_Methodology.docx} --- the write-up of the join/filter/
   expand/condense procedure and its inclusion rule, applied identically to
-  every firm regardless of which of the two paths above it took.
+  every firm regardless of which of the two paths above it took. % CL: a file
+  % by this name was found in an earlier upload (2026-05-28) but was not
+  % re-supplied in the 2026-07-30 verification batch -- not yet re-confirmed
+  % as the current version, don't treat as verified until you send it again.
 \end{itemize}
 
 Both notebooks are reproducible end to end from the two workbooks above; the
 only manual step is transcribing a newly-added firm's own published index
 into a new \texttt{\_GRI\_Index} or \texttt{\_Mapping} sheet before re-running.
 % ===== END DRAFT: NEW APPENDIX G =====
+
+% ===== DRAFT: NEW APPENDIX H -- please review before treating as final =====
+% CL: added 2026-07-30 following your request for one consolidated table of
+% every underlying file, grouped by phase, with links rather than embedded
+% data. This supplements (does not replace) Appendices A-G, which each still
+% describe their own specific analysis in prose; this is the one-stop file
+% map you asked for. Two open items flagged in the Status column below still
+% need your input: (1) Phase3_Coverage_Matrix_v17.xlsx -- the copy you
+% uploaded 2026-07-30 has a different file hash than the copy already in the
+% project, but every sheet's row count and the README text are identical in
+% what was checked; not a full cell-by-cell diff. (2) Mapping_Methodology.docx
+% -- found in an older upload, not re-confirmed this pass.
+\section*{Appendix H --- Master file index (all phases)}\label{app:file-index}
+\addcontentsline{toc}{subsection}{Appendix H --- Master file index (all phases)}
+
+This appendix consolidates, in one place, every workbook and notebook
+underlying the three empirical phases (Chapter~5 ecosystem scan, Chapter~6
+cohort scan, Chapter~7 cross-mapping and tool), plus the diagnostic tool
+itself. All workbooks below carry a README sheet as their first sheet as of
+the 2026-07-30 verification pass, except where noted.
+
+\begin{landscape}\footnotesize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{p{2.6cm}p{2.9cm}p{1.1cm}p{5.4cm}p{4.3cm}}
+\toprule \textbf{Phase} & \textbf{File} & \textbf{Type} & \textbf{Contents} & \textbf{Status} \\ \midrule \endhead
+\multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 1 --- Chapter 5, the disclosure ecosystem}}\\[1pt]
+Phase 1 & \emph{Necessity\_Domain\_Matrix\_v8.xlsx} & Excel & The 49-instrument necessity/domain catalogue underlying Appendix~A.2, plus a Tier-0 food-integrity foundation band, a Layer-2 enabler list, and a count-reconciliation sheet tying 49 catalogued instruments down to the 30 Phase~3-scored columns. & Verified 2026-07-30; numbers match Ch5/Ch8 prose exactly (49$\to$30, 26 always-scored + 4 opt-in). README already first sheet. \\
+Phase 1 & \emph{necessity\_domain\_matrix.pptx / .pdf} & Slides/PDF & Visual rendering of the necessity/domain matrix (Figure~\ref{fig:necessity-domain}). & Visual companion only, not a data source --- see the Excel above for the underlying rows. \\
+\multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 2 --- Chapter 6, the cohort frontier}}\\[1pt]
+Phase 2 & \emph{ESRS\_KPI\_Mapping\_V9.xlsx} & Excel & Per-company ESRS mapping database (see Appendix~G for full sheet guide). & Corrected (Profand 2025 fix). \textbf{Never resave with a script} --- live external-workbook-link formulas in \texttt{Nomad\_Mapping}/\texttt{Profand\_Mapping}. \\
+Phase 2 & \emph{GRI\_ESRS\_v6.xlsx} & Excel & GRI-to-ESRS bridge for the 5 GRI-reporting firm-years (see Appendix~G). & Verified 2026-07-30; README added (previously had none); naming inconsistency flagged across its \texttt{\_Mapping}/\texttt{Mapping\_} sheets. \\
+Phase 2 & \emph{GRI\_ESRS\_Mapping\_v4.ipynb} & Notebook & Builds the bridge workbook's \texttt{\_Topical\_Mapping} sheets. & Doc header corrected 2026-07-30 (was referencing v5). \\
+Phase 2 & \emph{ESRS\_Coverage\_Analytics\_v7.ipynb} & Notebook & Builds the coverage matrix and applies the Tier~1/2 admission rule. & Doc header corrected 2026-07-30 (was referencing an old V5 database and a stale 5-company preset); config cell itself was already correctly set. Renamed from \texttt{...v7 (1).ipynb} to drop the duplicate-download suffix. \\
+Phase 2 & \emph{ESRS\_Coverage\_FINAL.xlsx} & Excel & The notebook's output (see Appendix~G). & Regenerated 2026-07-29 with the Profand-2025 fix. \\
+Phase 2 & Six firms' sustainability reports & External (web) & Primary source documents. & Linked via URL in references.tex, not held locally. \\
+Phase 2 & \emph{Mapping\_Methodology.docx} & Word doc & Write-up of the join/filter/expand/condense procedure. & Not re-confirmed in the 2026-07-30 batch --- resend to verify. \\
+\multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 3 --- Chapter 7, cross-mapping and the tool}}\\[1pt]
+Phase 3 & \emph{GRI\_13\_Topics\_FINAL.xlsx} & Excel & GRI~13 topic-to-ESRS reconciliation underlying Appendix~B. & Verified 2026-07-30; numbers match Appendix~B/G exactly (28-topic universe, 26+2 Tier~1/2, 5 sector-material). README moved to first sheet. \\
+Phase 3 & \emph{Phase3\_Coverage\_Matrix\_v17.xlsx} & Excel & The full instrument$\times$topic demand matrix underlying Appendix~D (\texttt{Coverage matrix} + \texttt{Justifications log} sheets). & README already first sheet. The copy uploaded 2026-07-30 has a different file hash than the project's existing copy; row counts and README text match in what was spot-checked, but not diffed cell-by-cell --- flagging rather than asserting identical. \\
+Phase 3 & \emph{VSME\_Basic\_and\_Comprehensive.xlsx} & Excel & VSME-to-ESRS crosswalk underlying Appendix~E. & Verified 2026-07-30; matches Appendix~E's description exactly. Added a workbook-level orientation block to its legend sheet and moved it to first position. \\
+Phase 3 & \emph{SME\_Datapoint\_Guide.xlsx} & Excel & Master datapoint$\to$enabling-instrument mapping behind the diagnostic tool (Section~7.8). & Already in the project; sheets \texttt{Datapoint guide}, \texttt{Enabling instruments}, \texttt{Sources \& methodology} --- the last could be renamed \texttt{READ ME} for full consistency, not yet done. \\
+Phase 3 & Diagnostic tool & Web app & The live Seafood SME Priority Navigator. & \url{https://chic-crisp-d272ee.netlify.app/} --- confirmed live 2026-07-30. \\
+\bottomrule\end{longtable}\end{landscape}
+% ===== END DRAFT: NEW APPENDIX H =====
 
 \end{document}
