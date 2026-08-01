@@ -39,7 +39,9 @@
 \usepackage{longtable,booktabs,array}
 \usepackage{tabularx}
 \usepackage{enumitem}
-\usepackage{pdflscape}
+\usepackage{lscape} % plain lscape (not pdflscape): keeps the page number
+                     % upright and normally positioned on landscape pages
+                     % instead of rotating it sideways with the content
 \usepackage{float} % needed for [H] float placement (angle2_cohort.tex cohort table)
 \newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
@@ -72,11 +74,19 @@
 \usepackage{placeins} % \FloatBarrier: stop figures drifting past chapter
                        % boundaries (added after figures were found floating
                        % all the way past the bibliography into the appendix)
+\newcommand{\fb}{\discretionary{}{}{}} % invisible break point for long
+                       % underscore-joined filenames in narrow table columns
 
 \author{}
 \date{}
 
 \begin{document}
+\setlength{\LTleft}{\fill}\setlength{\LTright}{\fill} % center every
+                       % longtable on the page (default is flush-left,
+                       % which left tables sitting off-centre with a big
+                       % gap on the right - notably in the appendices).
+                       % Placed after \begin{document} so longtable's own
+                       % initialisation doesn't clobber it.
 
 \begin{titlepage}
   \centering
@@ -2760,7 +2770,7 @@ Outcome & Passing both gates: \emph{scored} (30 instruments, 4 further gated by 
 \bottomrule
 \end{tabularx}
 
-\begin{longtable}{@{}p{4.6cm}p{2.8cm}p{7.4cm}@{}}
+\begin{longtable}{@{}p{2.7cm}p{2.3cm}p{6.5cm}@{}}
 \toprule
 \textbf{Instrument} & \textbf{Gate-2 outcome} & \textbf{Reason} \\
 \midrule
@@ -2796,7 +2806,7 @@ gated by the profile of the individual firm being modelled, and are switched
 off (excluded from that firm's demand sums, though they remain scored
 columns in the matrix itself) when the condition below is not met.
 
-\begin{longtable}{@{}p{4.2cm}p{3.4cm}p{7.2cm}@{}}
+\begin{longtable}{@{}p{2.7cm}p{2.6cm}p{6.2cm}@{}}
 \toprule
 \textbf{Instrument} & \textbf{Switch dimension} & \textbf{Condition to be switched on} \\
 \midrule
@@ -2931,7 +2941,7 @@ once the Parliament and Council scrutiny period concludes.
 \addcontentsline{toc}{subsection}{Appendix G - GRI/ESRS cohort coverage analysis and admission rules}
 
 This appendix documents the disclosure-requirement-level analysis underlying
-Chapter~6's cohort funnel (Section~\ref{cohort-core}) and gives the admission
+Chapter~6's cohort funnel (\nameref{cohort-core}) and gives the admission
 rule by which each of the 70 disclosure requirements (DRs) in the ESRS
 universe was classified.
 
@@ -2944,10 +2954,10 @@ signal is dispersed across its sub-DRs such that no single sub-DR clears the
 bar alone but at least five firms report \emph{some} DR within the topic;
 two topics qualify this way - Biodiversity (E4) and Consumer health \&
 food safety (S4). A third, qualitatively different \emph{Tier 3} records
-five sector-material topics that the cohort-consensus test cannot surface at
+four sector-material topics that the cohort-consensus test cannot surface at
 all because ESRS has no corresponding DR for them: supply-chain traceability,
-wild-stock status, feed and marine-ingredient sourcing, antimicrobial use, and
-animal welfare. These are anchored instead in the sector-specific GRI~13
+wild-stock status, feed and marine-ingredient sourcing, and animal health and
+welfare (with antimicrobial use folded into the last). These are anchored instead in the sector-specific GRI~13
 standard and the relevant sector law (IUU Regulation, IHR/GDST, MSC/ASC chain
 of custody), and are included as an explicit structural gap rather than a
 cohort finding.
@@ -2970,23 +2980,25 @@ covering a specific stage:
 \item \emph{ESRS\_KPI\_Mapping\_V9.xlsx} - the per-company ESRS mapping
   database. Sheet \texttt{ESRS\_MASTER} holds the full 70-DR universe;
   sheets \texttt{Bolton\_Mapping}, \texttt{Mowi\_Mapping},
-  \texttt{Espersen\_Mapping}/\texttt{Espersen2025\_Mapping},
-  \texttt{Nomad\_Mapping}/\texttt{Nomad2025\_Mapping},
-  \texttt{Profand\_Mapping}/\texttt{Profand2025\_Mapping} and
+  \texttt{Espersen\_Mapping} / \texttt{Espersen2025\_Mapping},
+  \texttt{Nomad\_Mapping} / \texttt{Nomad2025\_Mapping},
+  \texttt{Profand\_Mapping} / \texttt{Profand2025\_Mapping} and
   \texttt{ThaiUnion\_Mapping} hold each firm-year's reported DRs;
   \texttt{Mapping\_ALLStacked\_TU\_N25} stacks all six current firm-years into
-  the single table the coverage analysis reads. (Note for future edits to
-  this file: \texttt{Nomad\_Mapping} and \texttt{Profand\_Mapping} contain
-  live external-workbook-link formulas rather than static values - only
-  edit this file in Excel itself, never re-save it with a script, or those
-  two sheets' visible values are silently lost.)
+  the single table the coverage analysis reads. (\texttt{Nomad\_Mapping} and
+  \texttt{Profand\_Mapping} used to contain live external-workbook-link
+  formulas pointing back to \emph{GRI\_ESRS\_v6.xlsx}; these were converted
+  to static values on 2026-08-01, verified cell-by-cell against the original,
+  so the file is now safe to open or resave normally.)
 \item \emph{ESRS\_Coverage\_Analytics\_v7.ipynb} - reads
   \texttt{Mapping\_ALLStacked\_TU\_N25}, builds the coverage matrix, and
   applies the Tier~1/Tier~2 admission rule above.
-\item \emph{ESRS\_Coverage\_FINAL.xlsx} - the notebook's output: sheets
-  \texttt{Coverage\_Matrix} (70 DRs $\times$ 6 companies), \texttt{Topic\_Universe}
-  (the 28 Tier~1/2 rows plus the 5 hand-added Tier~3 rows), \texttt{BACKBONE}
-  (the datapoint-level shortlist) and \texttt{Excluded\_DR}.
+\item \emph{ESRS\_Coverage\_Results.xlsx} - the notebook's output, consolidated:
+  sheets \texttt{Coverage\_Matrix} (70 DRs $\times$ 6 companies), \texttt{Topic\_Universe}
+  (the 28 Tier~1/2 rows plus the 4 hand-added Tier~3 rows), \texttt{BACKBONE}
+  (the datapoint-level shortlist) and \texttt{Excluded\_DR}, plus a
+  \texttt{Summary}, \texttt{Coverage\_Rate}, per-standard heatmap and
+  \texttt{DR\_Frequency} breakdown computed from them.
 \item \emph{GRI\_ESRS\_v6.xlsx} - the GRI-to-ESRS bridge (renamed from
   \emph{v5} once the file was located and re-verified, 2026-07-30). Sheet
   \texttt{Interop\_Index} is the transcribed EFRAG/GRI crosswalk;
@@ -2995,14 +3007,14 @@ covering a specific stage:
   \texttt{\_Topical\_Mapping} are the per-firm result of joining the two
   (full row-level detail: GRI standard/number, description, location in
   report, mapped ESRS topic/standard/DR, paragraph reference, notes,
-  coverage). A further-condensed layer of sheets - named
-  \texttt{\emph{Firm}\_Mapping} for some firms and \texttt{Mapping\_\emph{Firm}}
-  for others (an inconsistent naming convention worth standardising) - holds
+  coverage). A further-condensed layer of sheets, all following the
+  \texttt{\emph{Firm}\_Mapping} pattern as of 2026-08-01 (previously
+  inconsistent - some were named \texttt{Mapping\_\emph{Firm}}), holds
   just Company/Topic/DR/Datapoint/Page/Comments; this is the format
-  \texttt{ESRS\_KPI\_Mapping\_V9.xlsx}'s own per-company sheets expect, and
-  what its \texttt{Nomad\_Mapping}/\texttt{Profand\_Mapping} live
-  external-workbook-link formulas point back to. This file did not previously
-  have a README sheet; one has now been added as the first sheet.
+  \texttt{ESRS\_KPI\_Mapping\_V9.xlsx}'s own per-company sheets used to pull
+  from via external-workbook-link formulas before those were converted to
+  static values on the same date. This file did not previously have a
+  README sheet; one has now been added as the first sheet.
 \item \emph{GRI\_ESRS\_Mapping\_v4.ipynb} - performs the join
   (Lookup\_Key match, topical-DR filter, one-row-per-datapoint expansion) for
   every GRI-reporting firm-year in its \texttt{COMPANIES} list. Its own header
@@ -3030,23 +3042,23 @@ itself. All workbooks below carry a README sheet as their first sheet as of
 the 2026-07-30 verification pass, except where noted.
 
 \begin{landscape}\footnotesize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{p{2.6cm}p{2.9cm}p{1.1cm}p{5.4cm}p{4.3cm}}
+\begin{longtable}{p{2.5cm}p{3.8cm}p{1.0cm}p{5.2cm}p{3.7cm}}
 \toprule \textbf{Phase} & \textbf{File} & \textbf{Type} & \textbf{Contents} & \textbf{Status} \\ \midrule \endhead
 \multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 1 - Chapter 5, the disclosure ecosystem}}\\[1pt]
-Phase 1 & \emph{Necessity\_Domain\_Matrix\_v8.xlsx} & Excel & The 49-instrument necessity/domain catalogue underlying Appendix~A.2, plus a Tier-0 food-integrity foundation band, a Layer-2 enabler list, and a count-reconciliation sheet tying 49 catalogued instruments down to the 30 Phase~3-scored columns. & Verified 2026-07-30; numbers match Ch5/Ch8 prose exactly (49$\to$30, 26 always-scored + 4 opt-in). README already first sheet. \\
-Phase 1 & \emph{necessity\_domain\_matrix.pptx / .pdf} & Slides/PDF & Visual rendering of the necessity/domain matrix (Figure~\ref{fig:necessity-domain}). & Visual companion only, not a data source - see the Excel above for the underlying rows. \\
+Phase 1 & \emph{Necessity\_\fb Domain\_\fb Matrix\_\fb v8.xlsx} & Excel & The 49-instrument necessity/domain catalogue underlying Appendix~A.2, plus a Tier-0 food-integrity foundation band, a Layer-2 enabler list, and a count-reconciliation sheet tying 49 catalogued instruments down to the 30 Phase~3-scored columns. & Verified 2026-07-30; numbers match Ch5/Ch8 prose exactly (49$\to$30, 26 always-scored + 4 opt-in). README already first sheet. \\
+Phase 1 & \emph{necessity\_\fb domain\_\fb matrix.pptx / .pdf} & Slides/PDF & Visual rendering of the necessity/domain matrix (Figure~\ref{fig:necessity-domain}). & Visual companion only, not a data source - see the Excel above for the underlying rows. \\
 \multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 2 - Chapter 6, the cohort frontier}}\\[1pt]
-Phase 2 & \emph{ESRS\_KPI\_Mapping\_V9.xlsx} & Excel & Per-company ESRS mapping database (see Appendix~G for full sheet guide). & Corrected (Profand 2025 fix). \textbf{Never resave with a script} - live external-workbook-link formulas in \texttt{Nomad\_Mapping}/\texttt{Profand\_Mapping}. \\
-Phase 2 & \emph{GRI\_ESRS\_v6.xlsx} & Excel & GRI-to-ESRS bridge for the 5 GRI-reporting firm-years (see Appendix~G). & Verified 2026-07-30; README added (previously had none); naming inconsistency flagged across its \texttt{\_Mapping}/\texttt{Mapping\_} sheets. \\
-Phase 2 & \emph{GRI\_ESRS\_Mapping\_v4.ipynb} & Notebook & Builds the bridge workbook's \texttt{\_Topical\_Mapping} sheets. & Doc header corrected 2026-07-30 (was referencing v5). \\
-Phase 2 & \emph{ESRS\_Coverage\_Analytics\_v7.ipynb} & Notebook & Builds the coverage matrix and applies the Tier~1/2 admission rule. & Doc header corrected 2026-07-30 (was referencing an old V5 database and a stale 5-company preset); config cell itself was already correctly set. Renamed from \texttt{...v7 (1).ipynb} to drop the duplicate-download suffix. \\
-Phase 2 & \emph{ESRS\_Coverage\_FINAL.xlsx} & Excel & The notebook's output (see Appendix~G). & Regenerated 2026-07-29 with the Profand-2025 fix. \\
+Phase 2 & \emph{ESRS\_\fb KPI\_\fb Mapping\_\fb V9.xlsx} & Excel & Per-company ESRS mapping database (see Appendix~G for full sheet guide). & Corrected (Profand 2025 fix). External-workbook-link formulas in \texttt{Nomad\_Mapping} / \texttt{Profand\_Mapping} converted to static values 2026-08-01 (surgically, cell-by-cell verified against the original with zero value changes elsewhere) - now safe to open or resave normally. \\
+Phase 2 & \emph{GRI\_\fb ESRS\_\fb v6.xlsx} & Excel & GRI-to-ESRS bridge for the 5 GRI-reporting firm-years (see Appendix~G). & Verified 2026-07-30; README added. Naming inconsistency fixed 2026-08-01: all four condensed sheets now follow \texttt{<Firm>\_Mapping}. \\
+Phase 2 & \emph{GRI\_\fb ESRS\_\fb Mapping\_\fb v4.ipynb} & Notebook & Builds the bridge workbook's \texttt{\_Topical\_Mapping} sheets. & Doc header corrected 2026-07-30 (was referencing v5). \\
+Phase 2 & \emph{ESRS\_\fb Coverage\_\fb Analytics\_\fb v7.ipynb} & Notebook & Builds the coverage matrix and applies the Tier~1/2 admission rule. & Doc header corrected 2026-07-30 (was referencing an old V5 database and a stale 5-company preset); config cell itself was already correctly set. Renamed from \texttt{...v7 (1).ipynb} to drop the duplicate-download suffix. \\
+Phase 2 & \emph{ESRS\_\fb Coverage\_\fb Results.xlsx} & Excel & The notebook's output, consolidated with summary/heatmap/frequency analytics (see Appendix~G). & Regenerated 2026-08-01 with the Profand-2025 fix and the animal-health/AMU topic merge. \\
 Phase 2 & Six firms' sustainability reports & External (web) & Primary source documents. & Linked via URL in references.tex, not held locally. \\
 \multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 3 - Chapter 7, cross-mapping and the tool}}\\[1pt]
-Phase 3 & \emph{GRI\_13\_Topics\_FINAL.xlsx} & Excel & GRI~13 topic-to-ESRS reconciliation underlying Appendix~B. & Verified 2026-07-30; numbers match Appendix~B/G exactly (28-topic universe, 26+2 Tier~1/2, 5 sector-material). README moved to first sheet. \\
-Phase 3 & \emph{Phase3\_Coverage\_Matrix\_v17.xlsx} & Excel & The full instrument$\times$topic demand matrix underlying Appendix~D (\texttt{Coverage matrix} + \texttt{Justifications log} sheets). & README already first sheet. The copy uploaded 2026-07-30 has a different file hash than the project's existing copy; row counts and README text match in what was spot-checked, but not diffed cell-by-cell - flagging rather than asserting identical. \\
-Phase 3 & \emph{VSME\_Basic\_and\_Comprehensive.xlsx} & Excel & VSME-to-ESRS crosswalk underlying Appendix~E. & Verified 2026-07-30; matches Appendix~E's description exactly. Added a workbook-level orientation block to its legend sheet and moved it to first position. \\
-Phase 3 & \emph{SME\_Datapoint\_Guide.xlsx} & Excel & Master datapoint$\to$enabling-instrument mapping behind the diagnostic tool (Section~7.8). & Already in the project; sheets \texttt{Datapoint guide}, \texttt{Enabling instruments}, \texttt{Sources \& methodology} - the last could be renamed \texttt{READ ME} for full consistency, not yet done. \\
+Phase 3 & \emph{GRI\_\fb 13\_\fb Topics\_\fb FINAL.xlsx} & Excel & GRI~13 topic-to-ESRS reconciliation underlying Appendix~B. & Verified 2026-07-30; numbers match Appendix~B/G exactly (28-topic universe, 26+2 Tier~1/2, 4 sector-material). README moved to first sheet. \\
+Phase 3 & \emph{Phase3\_\fb Coverage\_\fb Matrix\_\fb v17.xlsx} & Excel & The full instrument$\times$topic demand matrix underlying Appendix~D (\texttt{Coverage matrix} + \texttt{Justifications log} sheets). & README already first sheet. The copy uploaded 2026-07-30 has a different file hash than the project's existing copy; row counts and README text match in what was spot-checked, but not diffed cell-by-cell - flagging rather than asserting identical. \\
+Phase 3 & \emph{VSME\_\fb Basic\_\fb and\_\fb Comprehensive.xlsx} & Excel & VSME-to-ESRS crosswalk underlying Appendix~E. & Verified 2026-07-30; matches Appendix~E's description exactly. Added a workbook-level orientation block to its legend sheet and moved it to first position. \\
+Phase 3 & \emph{SME\_\fb Datapoint\_\fb Guide.xlsx} & Excel & Master datapoint$\to$enabling-instrument mapping behind the diagnostic tool (Section~7.8). & \texttt{Sources \& methodology} renamed \texttt{READ ME} and moved to first sheet 2026-08-01, consistent with the rest of the package. \\
 Phase 3 & Diagnostic tool & Web app & The live Seafood SME Priority Navigator. & \url{https://chic-crisp-d272ee.netlify.app/} - confirmed live 2026-07-30. \\
 \bottomrule\end{longtable}\end{landscape}
 
