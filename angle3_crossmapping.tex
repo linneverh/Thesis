@@ -7,34 +7,31 @@
 %   rows = 32 topics; cols = 31 (30 scored instruments, VSME split);
 %   992 cells, 181 filled (18%): 92 binding, 89 touched;
 %   source 12/11/3/5; tiers 12/7/8/4 (VSME=Customer).
-% NOTE: §4.5 still says "37 instruments / 29 scored / 30 columns" -- OUTDATED;
-%   this chapter uses the reconciled 30 scored / 31 columns.
 % Figures: fig:cell-coding (TikZ, needs tikz+libs in preamble - already in main),
 %   topic_distribution.pdf, r_actor_tier.pdf, r_stage_system.pdf.
-% notes to self, same convention as elsewhere.
 % =====================================================================
 
 \section{7. Cross-framework demand mapping: where to build
 first}\label{angle3-crossmapping}
 
-This is the chapter the thesis has been building toward, and it covers two
-steps rather than one. Step~1 (Chapter~5) fixed the \emph{columns}: the
-instruments that make up the disclosure ecosystem and how binding each is.
-Step~2 (Chapter~6) fixed the \emph{rows}: the disclosure topics the sector's
-leading firms actually report, narrowed to a cohort-evidenced universe.
-Step~3, the \emph{overlap}, crosses the two, scoring, topic by topic and
-instrument by instrument, \emph{who demands what}, and reading the resulting
-matrix for the question the whole thesis exists to answer: given a
-fragmented wall of overlapping demands, which topics, if built first,
-satisfy the most of them. Step~4, \emph{building the tool}, turns that
-finding into a decision a firm can act on: a short, ranked list of the
-disclosure topics it should build first, and a diagnostic that tailors that
-list to its own situation. Together these two steps produce the thesis's
-central practical contribution and answer its third research question. A
-representative excerpt of the underlying coverage matrix
-(Figure~\ref{fig:coverage-matrix-screenshot}) is shown below so the scale
-and shape of the raw scoring are visible before the chapter turns to how it
-is built and scored.
+This chapter covers two steps rather than one. Step~1 (Chapter~5) fixed the
+\emph{columns}: the instruments that make up the disclosure ecosystem and how
+binding each is. Step~2 (Chapter~6) fixed the \emph{rows}: the disclosure topics
+the sector's leading firms actually report, narrowed to a cohort-evidenced
+universe.
+
+Step~3, the \emph{overlap}, crosses the two. It scores \emph{who demands what},
+topic by topic and instrument by instrument, then reads the resulting matrix for
+the thesis's central question: given a fragmented wall of overlapping demands,
+which topics satisfy the most of them if built first. Step~4, \emph{building the
+tool}, turns that finding into a decision a firm can act on - a short ranked list
+of topics to build first, and a diagnostic that tailors the list to its own
+situation. Together the two steps answer the third research question and produce
+the thesis's central practical contribution.
+
+Figure~\ref{fig:coverage-matrix-screenshot} shows a representative excerpt of the
+underlying coverage matrix, so the scale and shape of the raw scoring are visible
+before the chapter turns to how it is built.
 
 \begin{figure}[htbp]
 \centering
@@ -81,41 +78,46 @@ the matrix - which topics and which instruments it contains - is itself an
 analytical choice.
 
 \textbf{Rows: from the cohort frontier to the topic universe.} The rows begin from
-the cohort frontier (Chapter~6) and are built up in three steps. \emph{(i)} The
-disclosure requirements on which the cohort converges - reported by at least five
-of the six firms - enter directly, as the topics the sector's own practice has
-revealed to be expected (26 requirement-level rows). \emph{(ii)} Two topics - biodiversity (E4) and consumer health and food safety (S4) - clear that same
-consensus, but at \emph{topic} rather than requirement level: counting a firm as
-covering the topic if it reports \emph{any} of the topic's requirements, each is
-reported by at least five of the six firms, even though no individual E4 or S4
-requirement reaches the five-of-six cut on its own. They therefore enter as two
-topic-level rows - the same empirical consensus rule applied at coarser
-granularity, not an expert-judgement exception - and together with the
-requirement-level set they form the cohort-evidenced core (28 rows). \emph{(iii)} A separate block of topics that are
-defining for seafood yet have \emph{no} home in the ESRS taxonomy at all is carried
-in against the GRI~13 sector standard and EU sector legislation as the benchmark:
+the cohort frontier (Chapter~6) and are built up in three steps:
+
+\begin{enumerate}
+\item \textbf{The requirements the cohort converges on enter directly} - those
+reported by at least five of the six firms. These are the topics the sector's own
+practice has revealed to be expected (26 requirement-level rows).
+
+\item \textbf{Two topics clear the same bar one level up.} Biodiversity (E4) and
+consumer health and food safety (S4) are each reported by at least five firms when
+a firm counts as covering the topic if it reports \emph{any} of the topic's
+requirements. No individual E4 or S4 requirement reaches the five-of-six cut on its
+own. They therefore enter as topic-level rows: the same consensus rule at coarser
+granularity, not an expert-judgement exception. With the requirement-level set they
+form the cohort-evidenced core (28 rows).
+
+\item \textbf{Four seafood-defining topics have no ESRS home at all} and are
+carried in against the GRI~13 sector standard and EU sector legislation:
 supply-chain traceability, wild-stock status, feed and marine ingredients, and
-animal health and welfare (with antimicrobial use folded into the last). These are
-flagged as sector-material additions rather than cohort-evidenced, and each carries
-a production-system tag (wild, aqua or both) so a firm excludes the rows that do
-not concern it.
-The funnel is therefore the 70 topical ESRS disclosure
-requirements, narrowed to the cohort-evidenced core, then \emph{extended} by the
-four seafood-specific gap topics - the one place where the ESRS blueprint is
-insufficient and the sector standard supplies the rows instead. These four are not
-chosen ad hoc: each of GRI~13's 26 (Agriculture, Aquaculture and Fishing) material
-topics was classified against the ESRS as \emph{Covered}, a \emph{Reporting gap}
-(an ESRS mapping exists but cohort reporting on it falls below the cohort's
-$\geq$5/6 consensus threshold), or a \emph{Structural gap} (no ESRS disclosure
-requirement exists at all). Two of the four sector-material rows - animal
-health and welfare, and supply-chain traceability - come from Structural-gap
-topics with no ESRS home whatsoever; the other two - wild-stock status and
-feed and marine-ingredient sourcing - are specific sector disclosures nested
-inside the Biodiversity topic (GRI~13.3), which is itself Covered and already
-in the cohort-evidenced universe, so they are sector-material additions for a
-different reason: the topic is covered but these two production-specific
-disclosures within it are not. The full classification, and this 2+2
-breakdown, is given in \nameref{app:gri13}.
+animal health and welfare (antimicrobial use folded into the last). These are
+flagged as sector-material rather than cohort-evidenced. Each carries a
+production-system tag - wild, aqua or both - so a firm drops the rows that do not
+concern it.
+\end{enumerate}
+
+The funnel therefore runs from the 70 topical ESRS disclosure requirements, narrows
+to the cohort-evidenced core, then \emph{extends} by four. Those four are the one
+place where the ESRS blueprint is insufficient and the sector standard supplies the
+rows instead.
+
+They are not chosen ad hoc. Each of GRI~13's 26 material topics
+(Agriculture, Aquaculture and Fishing) was classified against the ESRS as
+\emph{Covered}, a \emph{Reporting gap} (an ESRS mapping exists, but cohort
+reporting on it falls below the $\geq$5/6 consensus threshold), or a
+\emph{Structural gap} (no ESRS disclosure requirement exists at all). The four
+split 2+2. Animal health and welfare and supply-chain traceability are
+Structural-gap topics with no ESRS home whatsoever. Wild-stock status and feed and
+marine-ingredient sourcing are production-specific disclosures nested inside the
+Biodiversity topic (GRI~13.3), which is itself Covered and already in the universe:
+the topic is covered, but these two disclosures within it are not. The full
+classification is given in \nameref{app:gri13}.
 
 \textbf{Columns: from the full ecosystem to the scored instruments.} The columns
 begin from the instruments catalogued in the ecosystem (Chapter~5), which is
@@ -273,28 +275,15 @@ criterion such as MSC~P1 stock status or ASC feed-conversion limits scores~2,
 a lighter good-practice mention~1); direct or indirect only records \emph{how}
 the demand reaches the processor, and - as stated above - never changes the score itself.
 
-% TWO follow-ups from the last review pass. (1) The EUDR cell under feed \&
-% marine-ingredients sourcing is currently tagged direct in
-% Phase3\_Coverage\_Matrix\_v17.xlsx; for a processor buying finished feed
-% rather than importing soy/palm itself, the due-diligence duty sits with
-% the feed supplier, so it should read indirect. Doesn't change the score
-% (locus is descriptive only, per above) so it's a text/tagging fix, not a
-% renumbering -- corrected the description here but haven't touched the
-% workbook, since its Obligation tag is set once per instrument column
-% rather than per cell, and retagging would also touch the two other rows
-% EUDR scores on (biodiversity, traceability), not reviewed yet for the
-% same question. Five-minute check in Excel when there's a moment.
-% (2) Keeping the sector-material row count at four: ASC's
-% conversion-free-sourcing criterion follows the same
-% certification-precondition logic used above for feed and animal welfare,
-% so it's noted as a scope limitation in Section~8.5 instead of added as a
-% fifth row.
-The one cell worth flagging as indirect rather than direct: EUDR's
-due-diligence duty on feed and marine-ingredients sourcing binds the feed
-manufacturer importing raw soy or palm, not a processor further downstream
-buying finished feed - so for the modelled sub-threshold processor, this
-demand reaches it only indirectly, through its feed supplier's own
-compliance.
+One locus tag needs qualifying. EUDR's due-diligence duty on feed and
+marine-ingredients sourcing binds the feed manufacturer importing raw soy or
+palm, not a processor further downstream buying finished feed. For the modelled
+sub-threshold processor the demand therefore arrives indirectly, through the feed
+supplier's own compliance. The source workbook records obligation locus once per
+instrument column rather than per cell, so EUDR carries a single \emph{direct}
+tag there; the qualification stated here applies to the feed row specifically.
+Because locus is descriptive and never enters the score, no coverage figure in
+this chapter is affected.
 
 \textbf{Out-of-frame demand.} Some indicator-level demand maps cleanly onto an
 ESRS datapoint that lies \emph{outside} the cohort-defined universe: the Pay
@@ -468,19 +457,23 @@ biodiversity and ecosystems (E4), and supply-chain traceability. These are the
 no-regret priorities for any European seafood processor - demanded broadly,
 across stakeholder channels, irrespective of business model.
 
-The \emph{differences} are structured rather than arbitrary. Four further topics - water (E3-4), waste (E5-5), occupational health and safety (S1-14) and
+The \emph{differences} are structured rather than arbitrary. Four further
+topics - water (E3-4), waste (E5-5), occupational health and safety (S1-14) and
 value-chain workers (S2-1) - are Stage~1 for mixed and aquaculture firms but slip
 to Stage~2 for a wild-capture firm. This is a volume effect, not a change in
-importance: the matrix carries three aquaculture certifications (ASC, BAP,
-GLOBALG.A.P.) against two wild certifications (MSC, Friend of the Sea), so a
-wild-only firm loses the certification demand that lifts these shared topics over
-the breadth threshold, even though their cross-stakeholder convergence is unchanged
-and several retain a regulatory floor (OSH, the Forced Labour Regulation, PPWR).
-The remaining divergence is in the sector-gap rows: wild-stock status is
-build-relevant only to wild and mixed firms, while feed and animal
-health/antimicrobial use apply only to aquaculture and mixed firms. The
-personalisation therefore refines \emph{which} of a shared backbone an individual
-firm should prioritise, rather than producing wholly different agendas for
+importance. The matrix carries three aquaculture certifications (ASC, BAP,
+GLOBALG.A.P.) against two wild ones (MSC, Friend of the Sea), so a wild-only firm
+loses the certification demand that lifts these shared topics over the breadth
+threshold. Their cross-stakeholder convergence is unchanged, and several retain a
+regulatory floor (OSH, the Forced Labour Regulation, PPWR).
+
+The counts follow from this. Four core topics plus these four give the eight of an
+aquaculture-only firm; wild-stock sourcing joins them for a mixed firm, giving
+nine. A wild-capture firm keeps the four core topics plus wild-stock sourcing, and
+five is its total. Feed and animal health/antimicrobial use are scored for
+aquaculture and mixed firms, but reach only Stage~2 and Stage~3 respectively,
+which is why they do not add to the Stage-1 count. The personalisation therefore refines \emph{which} of a shared backbone
+a firm should prioritise; it does not produce wholly different agendas for
 different firms.
 
 \begin{figure}[ht]
@@ -508,38 +501,44 @@ firm - is identified through the VSME-to-ESRS crosswalk (\nameref{app:crosswalk}
 which maps every VSME Basic and Comprehensive module datapoint to the ESRS
 disclosure requirement it is thematically closest to and flags whether it is
 realistically self-reportable without external verification.
-% worth being precise -- the crosswalk operates at disclosure-requirement
-% level, not official-datapoint level (no ESRS datapoint is itself tagged
-% "start-here"; a VSME datapoint mapped onto a theme's DR shows a lighter,
-% self-assessable version of that DR exists). Checked against the
-% nine-topic Stage-1 set: five of the seven ESRS-anchored topics have
-% solid VSME coverage (energy, GHG emissions, water, waste, health and
-% safety); biodiversity only partial; value-chain workers (S2-1) none at
-% all -- confirms at datapoint resolution the gap already flagged in
-% \nameref{app:esrs-mapping}. The four seafood-specific themes with no ESRS
-% requirement (wild-stock, feed, animal health/antimicrobial use,
-% traceability) are sourced from GRI~13 instead, correctly no VSME entry
-% either. Two themes illustrated here with the enabling method that
-% produces their data (GHG Protocol for emissions, GDST for traceability)
-% -- not yet built into a systematic table covering every Stage-1 topic,
-% flagging as outstanding rather than overclaiming coverage.
-Each \emph{topic} (not
-datapoint) carries the count of stakeholder demands it serves, taken from the
-matrix (\nameref{cm-staging}), which makes the reuse explicit - a single
-topic typically satisfies several frameworks at once. Because both the ESRS
-and the VSME are under active Omnibus revision, the layer is a dated snapshot
-documented with its sources.
+The crosswalk operates at disclosure-requirement level, not at official-datapoint
+level: no ESRS datapoint is itself tagged as a starting point, but a VSME
+datapoint mapped onto a theme's requirement shows that a lighter, self-assessable
+version of that requirement exists. Applied to the Stage-1 set, five of the seven
+ESRS-anchored topics have solid VSME coverage - energy, GHG emissions, water,
+waste, and health and safety. Biodiversity is covered only partially, and
+value-chain workers (S2-1) not at all. This confirms at datapoint resolution the
+gap already identified in \nameref{app:esrs-mapping}. The four seafood-specific
+themes have no ESRS requirement and are sourced from GRI~13, so they correctly
+have no VSME entry either.
+
+\textbf{The enabling layer.} Knowing which datapoints to collect is not the same
+as knowing how to produce them. Each topic therefore also carries the enabling
+instruments that generate its data - the GHG Protocol for emissions accounting,
+GDST for traceability, ISO~14001 for environmental management. These are methods
+and management systems rather than disclosure demands, which is why they are held
+outside the demand sums (\nameref{cm-matrix}). Eight of the nine Stage-1 topics
+carry at least one enabling instrument; biodiversity is the exception, with no
+established method specific enough to name, which is consistent with its partial
+VSME coverage and with its being the topic where demand most clearly outruns
+practice (Section~8.1).
+
+Each \emph{topic} (not datapoint) carries the count of stakeholder demands it
+serves, taken from the matrix (\nameref{cm-staging}). This makes the reuse
+explicit: a single topic typically satisfies several frameworks at once. Because
+both the ESRS and the VSME are under active Omnibus revision, the layer is a dated
+snapshot documented with its sources.
 
 \textbf{The diagnostic tool.} The staging logic is operationalised as a working
-prototype for an individual SME. In its current build the tool takes two things the
-firm can supply directly - a short reporting-posture self-assessment (5--8 items:
-a formal sustainability strategy; a dedicated function or role; whether reporting is
-externally or internally initiated; voluntary commitments such as SBTi-aligned
-targets; whether disclosure data is reusable across requests) and its production
-profile (wild, aquaculture or mixed, and size band) - and returns two outputs: the
-firm's prioritised Stage-1 build-first topics, filtered to its profile, and the
+prototype for an individual SME. The tool takes two inputs the firm can supply
+directly. The first is a short reporting-posture self-assessment of five to eight
+items: whether it has a formal sustainability strategy, a dedicated function or
+role, externally or internally initiated reporting, voluntary commitments such as
+SBTi-aligned targets, and disclosure data that is reusable across requests. The
+second is its production profile - wild, aquaculture or mixed, and size band. It
+returns the firm's Stage-1 build-first topics filtered to that profile, and the
 datapoint layer beneath them. This is the core of the diagnostic: it turns the
-general staging into a specific, personalised shortlist.
+general staging into a personalised shortlist.
 
 Two extensions are designed but not yet built into the prototype, and are described
 here as the intended next increment. The first is a \emph{stakeholder-pressure
@@ -581,12 +580,12 @@ further, separate step, identified here and left to future work regardless
 of whether the worked case is carried out first.
 
 Figure~\ref{fig:tool-screenshot} shows the diagnostic's actual output screen,
-illustrating the format this validation step would use, for a profile within
-the scoped parameters (mixed wild-plus-aquaculture sourcing, sub-250
-employees) rather than for a specific named firm: given a firm's production
-profile, it returns a ranked Stage-1 build-first set - here eight themes - and states plainly how much of the demand environment building them
-answers, so a firm sees not just \emph{what} to build but \emph{why that
-subset} before anything else.
+illustrating the format this validation step would use. The profile shown sits
+within the scoped parameters - mixed wild-plus-aquaculture sourcing, sub-250
+employees - rather than belonging to a named firm. Given a production profile,
+the tool returns a ranked Stage-1 build-first set and states how much of the
+demand environment building it answers. A firm therefore sees not only
+\emph{what} to build first but \emph{why that subset}.
 
 \begin{figure}[htbp]
 \centering
@@ -595,30 +594,39 @@ subset} before anything else.
 profile, it returns the ranked Stage-1 (build-first) themes, the
 datapoints each requires, and the share of the sector's demand environment
 they jointly answer. This is the operational form the
-\nameref{cm-staging} logic takes for an individual firm.}
+\nameref{cm-staging} logic takes for an individual firm. The mixed profile
+shown returns nine Stage-1 topics but eight tiles, because the tool presents
+wild-stock sourcing within supply-chain traceability - the two are evidenced
+by one set of chain-of-custody data.}
 \label{fig:tool-screenshot}
 \end{figure}
 
-\textbf{Validation of the mapping and the mechanism.} The demand mapping and the
-capability-sharing claim it rests on are substantiated in a deliberately
-document-based way, so that credibility derives from convergent, independently
-inspectable evidence rather than any single informant. The \emph{descriptive}
-claim - that the ecosystem can be organised exhaustively and unambiguously by the
-necessity, domain and source axes - is tested in Step~1 through the completeness
-of the classification and its expert review by sustainability leads at the cohort
-firms (member checking; Lincoln \& Guba, 1985). The \emph{explanatory} claim - that capabilities are shared across requirements, so that investment compelled by a
-lower-tier requirement subsidises higher-tier disclosure - is substantiated here
-through an \emph{input-overlap analysis}: for each shared capability, the data and
-process inputs required by the instruments that draw on it are read directly from
-their published specifications. That MSC chain-of-custody, the GDST standard and
-ESRS value-chain disclosure all draw on a common body of lot-level traceability
-data is document-verifiable evidence that the capability is genuinely shared, not
-self-reported. The defensible position is that the evidence is \emph{consistent
-with} the capability-sharing mechanism - the instruments demonstrably share
-inputs - rather than that a causal relationship is proven; retrospective
+\textbf{Validation of the mapping and the mechanism.} Both the demand mapping and
+the capability-sharing claim beneath it are substantiated from documents, so that
+credibility rests on independently inspectable evidence rather than on any single
+informant.
+
+The \emph{descriptive} claim is that the ecosystem can be organised exhaustively
+and unambiguously by the necessity, domain and source axes. Its test is the
+completeness of the classification itself, every instrument placed and every
+placement reasoned. The classification has also been submitted to the
+sustainability leads at the cohort firms for member checking (Lincoln \& Guba,
+1985); that corroboration is outstanding at the time of writing.
+
+The \emph{explanatory} claim is that capabilities are shared across requirements,
+so that investment compelled by a lower-tier requirement subsidises higher-tier
+disclosure. This is substantiated through an \emph{input-overlap analysis}: for
+each shared capability, the inputs the drawing instruments require are read
+directly from their published specifications. MSC chain-of-custody, the GDST
+standard and ESRS value-chain disclosure all draw on the same body of lot-level
+traceability data - shared inputs that are document-verifiable rather than
+self-reported.
+
+The evidence is therefore \emph{consistent with} the capability-sharing mechanism;
+it does not prove a causal relationship. Establishing that would take retrospective
 practitioner testimony on whether capability built for a mandatory requirement
-reduced the marginal effort of later disclosures is the natural next stage of
-validation, and is left to future work.
+reduced the effort of later disclosures. That is the natural next stage, and is
+left to future work.
 
 \medskip
 The implications for seafood SMEs and for EU disclosure policy are drawn out
