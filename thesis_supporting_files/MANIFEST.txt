@@ -1,0 +1,38 @@
+Thesis supporting files - manifest
+Matches Appendix H (Master file index, all phases) of the thesis exactly.
+Built 2026-08-01. Every workbook below opens with a README/orientation sheet
+first and no unresolved naming inconsistencies.
+
+Phase1_ecosystem/  (Chapter 5, the disclosure ecosystem)
+  - Necessity_Domain_Matrix_v8.xlsx   the 49-instrument necessity/domain catalogue
+  - necessity_domain_matrix.pptx/.pdf  visual rendering, not a data source
+
+Phase2_cohort/  (Chapter 6, the cohort frontier)
+  - ESRS_KPI_Mapping_V9.xlsx          per-company ESRS mapping database
+      Fixed 2026-08-01: the external-workbook-link formulas that used to live in
+      Nomad_Mapping/Profand_Mapping (pointing at old GRI_ESRS_v3/v4.xlsx files
+      that no longer exist) were converted to static values. Opens cleanly with
+      no "update links" prompt; every cached value verified unchanged cell-by-cell.
+  - GRI_ESRS_v6.xlsx                  GRI-to-ESRS bridge, 5 GRI-reporting firm-years
+      Fixed 2026-08-01: the four condensed per-firm sheets were inconsistently
+      named (Profand_Mapping vs Mapping_Nomad/Mapping_ThaiUnion/Mapping_Nomad2025);
+      all four now follow the same <Firm>_Mapping pattern.
+  - GRI_ESRS_Mapping_v4.ipynb         notebook, builds the bridge workbook
+  - ESRS_Coverage_Analytics_v7.ipynb  notebook, builds the coverage matrix
+  - ESRS_Coverage_Results.xlsx        consolidated results: coverage matrix, topic
+                                       universe, backbone, plus summary/heatmap/
+                                       frequency analytics
+
+Phase3_crossmapping/  (Chapter 7, cross-mapping and the tool)
+  - GRI_13_Topics_FINAL.xlsx          GRI 13 to ESRS reconciliation (Appendix B)
+  - Phase3_Coverage_Matrix_v17.xlsx   full instrument x topic demand matrix (Appendix D)
+  - VSME_Basic_and_Comprehensive.xlsx VSME-to-ESRS crosswalk (Appendix E)
+  - SME_Datapoint_Guide.xlsx          master datapoint -> enabling-instrument mapping
+                                       behind the diagnostic tool
+      Fixed 2026-08-01: the "Sources & methodology" sheet was renamed READ ME and
+      moved to first position, matching the rest of the package.
+
+Not included (deliberately): phase1/Phase1_cohort_universe.xlsx - not referenced
+anywhere in the thesis or in Appendix H; appears to be a stale leftover.
+
+Diagnostic tool (not a file, web app): https://chic-crisp-d272ee.netlify.app/
