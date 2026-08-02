@@ -9,35 +9,37 @@
 
 Send `ESRS_KPI_Mapping_V9.xlsx` (the notebook's input) only if someone asks to re-run it.
 
-Chapter 6 = **page 26 of the PDF** (printed footer says 25). Chapter 7 = page 38 (printed 37). Verified against the current build.
+**Title is now:** *Build Once, Answer Many: Where Disclosure Demand Converges for European Seafood-Processing SMEs*
+
+**Chapter numbering changed** — the cohort chapter is now **Chapter 5**, on **page 28**. The cross-framework chapter is now **Chapter 6**, page 40. Verified against the current build.
 
 ---
 
 ## Version 1 — Bolton, Profand, Espersen, Nomad Foods
 
-**Subject:** Thesis draft for review — Chapter 6, feedback by 14 August
+**Subject:** Thesis draft for review — Chapter 5, feedback by 14 August
 
 Dear all,
 
 Thank you again for your input earlier this year — it's genuinely helped shape my Master's thesis at EPFL, which looks at how European seafood-processing SMEs can move from approaching sustainability reactively to doing so proactively. I approached this by i) mapping the sustainability requirements landscape, ii) analysing what leading processors already report, and iii) identifying where demand from regulators, customers, investors and industry bodies converges on the same topics.
 
-Please find the full draft attached, along with the two files behind the Chapter 6 analysis: the results matrix (`ESRS_Coverage_Results.xlsx`, which opens on a README sheet explaining each tab) and the Python notebook that builds it (`ESRS_Coverage_Analytics_v7.ipynb`), in case you'd like to check the sourcing directly. Please note this is a final draft, so there may still be a few unfinished items here and there — nothing that should affect your read of Chapter 6, but flagging it so nothing looks out of place. As this is unpublished academic work, I'd be grateful if you could treat the draft as confidential for now and not share it further before I submit.
+Please find the full draft attached, along with the two files behind the Chapter 5 analysis: the results matrix (`ESRS_Coverage_Results.xlsx`, which opens on a README sheet explaining each tab) and the Python notebook that builds it (`ESRS_Coverage_Analytics_v7.ipynb`), in case you'd like to check the sourcing directly. Please note this is a final draft, so there may still be a few unfinished items here and there — nothing that should affect your read of Chapter 5, but flagging it so nothing looks out of place. As this is unpublished academic work, I'd be grateful if you could treat the draft as confidential for now and not share it further before I submit.
 
 A quick practical note: the draft is a PDF rather than a Word document because it's typeset in LaTeX. Converting it to .docx breaks the figure and table placement, the cross-references and the citation formatting, so the PDF is the only version that reads as intended. Commenting directly in the PDF works well though — Adobe Acrobat, Preview on Mac, or most browsers let you highlight and add notes — and a plain email reply is equally welcome.
 
-Your company is part of the six-firm cohort analysed in **Chapter 6 (page 26)**, which looks at some of the sector's most advanced reporters and what they currently disclose. I'd be very grateful if you could review that chapter and let me know:
+Your company is part of the six-firm cohort analysed in **Chapter 5 (page 28)**, which looks at some of the sector's most advanced reporters and what they currently disclose. I'd be very grateful if you could review that chapter and let me know:
 
 * whether the analysis of your firm's disclosures looks accurate to you,
 * any feedback on the findings more broadly, and
 * whether you'd like to be named in the acknowledgements for your help — entirely optional.
 
-Chapter 6 is the part where your input matters most, so please don't feel any obligation to go further. That said, you're very welcome to read the whole thing if it's of interest — Chapter 7 in particular may be relevant to your supply base, as it identifies where the demands from different stakeholders overlap and which topics deliver the widest coverage for the least effort.
+Chapter 5 is the part where your input matters most, so please don't feel any obligation to go further. That said, you're very welcome to read the whole thing if it's of interest — Chapter 6 in particular may be relevant to your supply base, as it identifies where the demands from different stakeholders overlap and which topics deliver the widest coverage for the least effort.
 
-On that last point, one optional extra: I've built a small web-based diagnostic tool that turns the Chapter 7 analysis into something a smaller supplier could actually use — it takes a company profile and returns which topics to build first, who demands each, and the exact datapoints to collect. If you have five minutes and any interest, I'd value a sanity-check on whether the logic holds up in practice:
+On that last point, one optional extra: I've built a small web-based diagnostic tool that turns the Chapter 6 analysis into something a smaller supplier could actually use — it takes a company profile and returns which topics to build first, who demands each, and the exact datapoints to collect. If you have five minutes and any interest, I'd value a sanity-check on whether the logic holds up in practice:
 
 > [TOOL LINK — see note below before sending]
 
-I know this lands in the middle of the holiday season, and the turnaround is tight: I'd need any feedback by **14 August** to incorporate it before the final submission on 24 August. Whatever's easiest for you works for me — a quick reply, comments directly on the PDF, or a short call. Even a quick read of Chapter 6 and a few lines back would mean a lot to me.
+I know this lands in the middle of the holiday season, and the turnaround is tight: I'd need any feedback by **14 August** to incorporate it before the final submission on 24 August. Whatever's easiest for you works for me — a quick reply, comments directly on the PDF, or a short call. Even a quick read of Chapter 5 and a few lines back would mean a lot to me.
 
 Thank you again, sincerely, for the time and effort you've already put into this — it hasn't gone unnoticed, and I'm very grateful. Please don't hesitate to reach out with any questions.
 
@@ -54,9 +56,9 @@ Dear [Name],
 
 My name is Linne Verhoeven, and I'm finishing a Master's thesis at EPFL on how European seafood-processing SMEs can move from approaching sustainability reactively to doing so proactively. I reached out earlier this year regarding this research, and wanted to follow up now that the full draft is ready.
 
-I approached this by i) mapping the sustainability requirements landscape facing the sector, ii) analysing what leading processors already report in practice, and iii) identifying where demand from regulators, customers, investors and industry bodies converges on the same topics. Your company's publicly available sustainability reporting is included as part of a six-firm cohort analysed in **Chapter 6 (page 26)**, which looks at some of the sector's most advanced reporters and what they currently disclose.
+I approached this by i) mapping the sustainability requirements landscape facing the sector, ii) analysing what leading processors already report in practice, and iii) identifying where demand from regulators, customers, investors and industry bodies converges on the same topics. Your company's publicly available sustainability reporting is included as part of a six-firm cohort analysed in **Chapter 5 (page 28)**, which looks at some of the sector's most advanced reporters and what they currently disclose.
 
-Please find the full draft attached, along with the two files behind the Chapter 6 analysis: the results matrix (`ESRS_Coverage_Results.xlsx`, which opens on a README sheet explaining each tab) and the Python notebook that builds it (`ESRS_Coverage_Analytics_v7.ipynb`), in case you'd like to check the sourcing directly. Please note this is a final draft, so there may still be a few unfinished items here and there — nothing that should affect your read of Chapter 6, but flagging it so nothing looks out of place. As this is unpublished academic work, I'd be grateful if you could treat the draft as confidential for now and not share it further before I submit.
+Please find the full draft attached, along with the two files behind the Chapter 5 analysis: the results matrix (`ESRS_Coverage_Results.xlsx`, which opens on a README sheet explaining each tab) and the Python notebook that builds it (`ESRS_Coverage_Analytics_v7.ipynb`), in case you'd like to check the sourcing directly. Please note this is a final draft, so there may still be a few unfinished items here and there — nothing that should affect your read of Chapter 5, but flagging it so nothing looks out of place. As this is unpublished academic work, I'd be grateful if you could treat the draft as confidential for now and not share it further before I submit.
 
 A quick practical note: the draft is a PDF rather than a Word document because it's typeset in LaTeX. Converting it to .docx breaks the figure and table placement, the cross-references and the citation formatting, so the PDF is the only version that reads as intended. Commenting directly in the PDF works well though — Adobe Acrobat, Preview on Mac, or most browsers let you highlight and add notes — and a plain email reply is equally welcome.
 
@@ -66,13 +68,13 @@ I'd be very grateful if you (or a colleague better placed to comment) could take
 * any feedback on the findings more broadly, and
 * whether you'd like to be credited in the acknowledgements — entirely optional.
 
-Chapter 6 is the part where your input matters most, so please don't feel any obligation to go further. That said, you're very welcome to read the whole thing if it's of interest — Chapter 7 in particular may be relevant to your supply base, as it identifies where the demands from different stakeholders overlap and which topics deliver the widest coverage for the least effort.
+Chapter 5 is the part where your input matters most, so please don't feel any obligation to go further. That said, you're very welcome to read the whole thing if it's of interest — Chapter 6 in particular may be relevant to your supply base, as it identifies where the demands from different stakeholders overlap and which topics deliver the widest coverage for the least effort.
 
-On that last point, one optional extra: I've built a small web-based diagnostic tool that turns the Chapter 7 analysis into something a smaller supplier could actually use — it takes a company profile and returns which topics to build first, who demands each, and the exact datapoints to collect. If you have five minutes and any interest, I'd value a sanity-check on whether the logic holds up in practice:
+On that last point, one optional extra: I've built a small web-based diagnostic tool that turns the Chapter 6 analysis into something a smaller supplier could actually use — it takes a company profile and returns which topics to build first, who demands each, and the exact datapoints to collect. If you have five minutes and any interest, I'd value a sanity-check on whether the logic holds up in practice:
 
 > [TOOL LINK — see note below before sending]
 
-I'm aware this arrives in the middle of the holiday season, and the timeline is tight: I'd need any feedback by **14 August** to incorporate it before the final submission on 24 August. Whatever's easiest for you works for me — a quick reply, comments directly on the PDF, or a short call. Even a short read of Chapter 6 would be genuinely helpful, and I'd be very thankful for any time you're able to spare.
+I'm aware this arrives in the middle of the holiday season, and the timeline is tight: I'd need any feedback by **14 August** to incorporate it before the final submission on 24 August. Whatever's easiest for you works for me — a quick reply, comments directly on the PDF, or a short call. Even a short read of Chapter 5 would be genuinely helpful, and I'd be very thankful for any time you're able to spare.
 
 Thank you sincerely in advance — please don't hesitate to reach out with any questions.
 
@@ -84,7 +86,7 @@ MSc student, EPFL
 
 ## Version 3 — the two SMEs (optional, my recommendation: yes, send it)
 
-Different ask entirely. The cohort firms are validating whether you described *them* correctly. The SMEs are the people the thesis is actually *for* — they can tell you whether the output is usable, which is the one claim Chapter 8 makes that nothing in your data currently tests. That's worth having on record before submission. Keep it short and make Chapter 7 and the tool the ask, not Chapter 6.
+Different ask entirely. The cohort firms are validating whether you described *them* correctly. The SMEs are the people the thesis is actually *for* — they can tell you whether the output is usable, which is the one claim Chapter 7 makes that nothing in your data currently tests. That's worth having on record before submission. Keep it short and make Chapter 6 and the tool the ask, not Chapter 5.
 
 **Subject:** The seafood sustainability tool we discussed — draft ready, would value your view
 
@@ -96,7 +98,7 @@ The thesis asks where a seafood-processing SME should start when facing a fragme
 
 Two parts may be directly useful to you:
 
-* **Chapter 7 (page 38)** identifies which topics deliver the widest coverage for the least effort, by production system.
+* **Chapter 6 (page 40)** identifies which topics deliver the widest coverage for the least effort, by production system.
 * **A web-based diagnostic tool** that turns this into something practical: enter your company profile, and it returns your build-first topics, who demands each one, the exact datapoints to collect, and how to start collecting them — downloadable as a spreadsheet to take into a meeting.
 
 > [TOOL LINK — see note below before sending]

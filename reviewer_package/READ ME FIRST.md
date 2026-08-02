@@ -1,9 +1,9 @@
-# Chapter 6 analysis — supporting files
+# Chapter 5 analysis — supporting files
 
-Companion files to *Navigating the Sustainability Disclosure Ecosystem: A diagnostic framework for European seafood processing SMEs* (EPFL, 2026).
-Chapter 6 begins on **page 26** of the PDF.
+Companion files to *Build Once, Answer Many: Where Disclosure Demand Converges for European Seafood-Processing SMEs* (EPFL, 2026).
+The cohort chapter is now **Chapter 5**, beginning on **page 28** of the PDF.
 
-Everything in Chapter 6 comes from these three files. They chain together in one direction:
+Everything in Chapter 5 comes from these three files. They chain together in one direction:
 
 ```
 ESRS_KPI_Mapping_V9.xlsx      →   ESRS_Coverage_Analytics_v7.ipynb   →   ESRS_Coverage_Results.xlsx
@@ -37,7 +37,7 @@ Reads the workbook above and builds the coverage matrix, the per-standard heatma
 
 Opens on a `README` sheet describing all 11 tabs. This is the file the thesis text and Appendix G cite.
 
-Headline coverage rates, as they appear in Table 1 of Chapter 6:
+Headline coverage rates, as they appear in Table 1 of Chapter 5:
 
 | Company | DRs reported (of 70) | Coverage |
 |---|---|---|
