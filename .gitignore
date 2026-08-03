@@ -21,6 +21,10 @@
 .venv/
 *.tmp
 main.pdf
-.venv/
-*.tmp
-main.pdf
+
+.build/
+node_modules/
+ATTACHMENTS/
+reviewer_package/
+supervisor_package/
+*.zip
