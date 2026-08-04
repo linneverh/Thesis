@@ -7,11 +7,11 @@
 3. `ESRS_Coverage_Analytics_v7.ipynb` — the notebook that builds the coverage matrix
 4. `READ ME FIRST.md` — one page explaining how the three chain together
 
-Send `ESRS_KPI_Mapping_V9.xlsx` (the notebook's input) only if someone asks to re-run it.
+Send `ESRS_KPI_Mapping_V10.xlsx` (the notebook's input) only if someone asks to re-run it.
 
 **Title is now:** *Build Once, Answer Many: Where Disclosure Demand Converges for European Seafood-Processing SMEs*
 
-**Chapter numbering changed** — the cohort chapter is now **Chapter 5**, on **page 28**. The cross-framework chapter is now **Chapter 6**, page 40. Verified against the current build.
+**Chapter numbering changed** — the cohort chapter is now **Chapter 5**, on **page 27**. The cross-framework chapter is now **Chapter 6**, page 42. Verified against the current build.
 
 ---
 
@@ -27,7 +27,7 @@ Please find the full draft attached, along with the two files behind the Chapter
 
 A quick practical note: the draft is a PDF rather than a Word document because it's typeset in LaTeX. Converting it to .docx breaks the figure and table placement, the cross-references and the citation formatting, so the PDF is the only version that reads as intended. Commenting directly in the PDF works well though — Adobe Acrobat, Preview on Mac, or most browsers let you highlight and add notes — and a plain email reply is equally welcome.
 
-Your company is part of the six-firm cohort analysed in **Chapter 5 (page 28)**, which looks at some of the sector's most advanced reporters and what they currently disclose. I'd be very grateful if you could review that chapter and let me know:
+Your company is part of the six-firm cohort analysed in **Chapter 5 (page 27)**, which looks at some of the sector's most advanced reporters and what they currently disclose. I'd be very grateful if you could review that chapter and let me know:
 
 * whether the analysis of your firm's disclosures looks accurate to you,
 * any feedback on the findings more broadly, and
@@ -56,7 +56,7 @@ Dear [Name],
 
 My name is Linne Verhoeven, and I'm finishing a Master's thesis at EPFL on how European seafood-processing SMEs can move from approaching sustainability reactively to doing so proactively. I reached out earlier this year regarding this research, and wanted to follow up now that the full draft is ready.
 
-I approached this by i) mapping the sustainability requirements landscape facing the sector, ii) analysing what leading processors already report in practice, and iii) identifying where demand from regulators, customers, investors and industry bodies converges on the same topics. Your company's publicly available sustainability reporting is included as part of a six-firm cohort analysed in **Chapter 5 (page 28)**, which looks at some of the sector's most advanced reporters and what they currently disclose.
+I approached this by i) mapping the sustainability requirements landscape facing the sector, ii) analysing what leading processors already report in practice, and iii) identifying where demand from regulators, customers, investors and industry bodies converges on the same topics. Your company's publicly available sustainability reporting is included as part of a six-firm cohort analysed in **Chapter 5 (page 27)**, which looks at some of the sector's most advanced reporters and what they currently disclose.
 
 Please find the full draft attached, along with the two files behind the Chapter 5 analysis: the results matrix (`ESRS_Coverage_Results.xlsx`, which opens on a README sheet explaining each tab) and the Python notebook that builds it (`ESRS_Coverage_Analytics_v7.ipynb`), in case you'd like to check the sourcing directly. Please note this is a final draft, so there may still be a few unfinished items here and there — nothing that should affect your read of Chapter 5, but flagging it so nothing looks out of place. As this is unpublished academic work, I'd be grateful if you could treat the draft as confidential for now and not share it further before I submit.
 
@@ -98,7 +98,7 @@ The thesis asks where a seafood-processing SME should start when facing a fragme
 
 Two parts may be directly useful to you:
 
-* **Chapter 6 (page 40)** identifies which topics deliver the widest coverage for the least effort, by production system.
+* **Chapter 6 (page 42)** identifies which topics deliver the widest coverage for the least effort, by production system.
 * **A web-based diagnostic tool** that turns this into something practical: enter your company profile, and it returns your build-first topics, who demands each one, the exact datapoints to collect, and how to start collecting them — downloadable as a spreadsheet to take into a meeting.
 
 > [TOOL LINK — see note below before sending]
@@ -131,12 +131,12 @@ Only paste the link into the emails after that check passes.
 | File | First sheet |
 |---|---|
 | `Necessity_Domain_Matrix_v8.xlsx` | Notes & key decisions |
-| `ESRS_KPI_Mapping_V9.xlsx` | INSTRUCTIONS |
+| `ESRS_KPI_Mapping_V10.xlsx` | INSTRUCTIONS |
 | `VSME_Basic_and_Comprehensive.xlsx` | Legend & Methodology |
 | `Phase1_cohort_universe.xlsx` | *(none — straight into data)* |
 
 Three of those do have an orienting sheet first, just not called README; `Phase1_cohort_universe.xlsx` has nothing. My claim was wrong and I should have checked rather than reported it as done. The two files you're sending are both clean.
 
-**3. The notebook reads a workbook you're not attaching.** `ESRS_Coverage_Analytics_v7.ipynb` pulls from `ESRS_KPI_Mapping_V9.xlsx`, so a reviewer can read it and see every chart and result — all outputs are saved in the file — but can't re-run it end to end without that workbook. The email says the files are available on request, which covers this. Send V9 too if anyone asks to reproduce it.
+**3. The notebook reads a workbook you're not attaching.** `ESRS_Coverage_Analytics_v7.ipynb` pulls from `ESRS_KPI_Mapping_V10.xlsx`, so a reviewer can read it and see every chart and result — all outputs are saved in the file — but can't re-run it end to end without that workbook. The email says the files are available on request, which covers this. Send V9 too if anyone asks to reproduce it.
 
 **4. Cosmetic, ignorable:** the notebook has two cells both labelled "Cell 14". Not worth fixing before Friday.

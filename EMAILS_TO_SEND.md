@@ -2,7 +2,7 @@
 
 **Before you send:** paste the tool link into emails 2, 3 and 4 (redeploy the tool first — the live site is behind today's fixes), and fill the `[Name]` fields.
 
-Chapter 5 = page 28. Chapter 6 = page 40.
+Chapter 5 = page 27. Chapter 6 = page 42.
 
 ---
 
@@ -50,7 +50,7 @@ Please find the full draft attached, along with the files behind the Chapter 5 a
 
 A quick practical note: the draft is a PDF rather than a Word document because it's typeset in LaTeX. Converting it to .docx breaks the figure and table placement, the cross-references and the citation formatting, so the PDF is the only version that reads as intended. Commenting directly in the PDF works well though — Adobe Acrobat, Preview on Mac, or most browsers let you highlight and add notes — and a plain email reply is equally welcome.
 
-Your company is part of the six-firm cohort analysed in **Chapter 5 (page 28)**, which looks at some of the sector's most advanced reporters and what they currently disclose. I'd be very grateful if you could review that chapter and let me know:
+Your company is part of the six-firm cohort analysed in **Chapter 5 (page 27)**, which looks at some of the sector's most advanced reporters and what they currently disclose. I'd be very grateful if you could review that chapter and let me know:
 
 * whether the analysis of your firm's disclosures looks accurate to you,
 * any feedback on the findings more broadly, and
@@ -81,7 +81,7 @@ Dear [Name],
 
 My name is Linne Verhoeven, and I'm finishing a Master's thesis at EPFL on how European seafood-processing SMEs can move from approaching sustainability reactively to doing so proactively. I reached out earlier this year regarding this research, and wanted to follow up now that the full draft is ready.
 
-I approached this by i) mapping the sustainability requirements landscape facing the sector, ii) analysing what leading processors already report in practice, and iii) identifying where demand from regulators, customers, investors and industry bodies converges on the same topics. Your company's publicly available sustainability reporting is included as part of a six-firm cohort analysed in **Chapter 5 (page 28)**, which looks at some of the sector's most advanced reporters and what they currently disclose.
+I approached this by i) mapping the sustainability requirements landscape facing the sector, ii) analysing what leading processors already report in practice, and iii) identifying where demand from regulators, customers, investors and industry bodies converges on the same topics. Your company's publicly available sustainability reporting is included as part of a six-firm cohort analysed in **Chapter 5 (page 27)**, which looks at some of the sector's most advanced reporters and what they currently disclose.
 
 Please find the full draft attached, along with the files behind the Chapter 5 analysis: the results matrix (`ESRS_Coverage_Results.xlsx`, which opens on a README sheet explaining each tab) and the Python notebook that builds it (`ESRS_Coverage_Analytics_v7.ipynb`), in case you'd like to check the sourcing directly. Please note this is a final draft, so there may still be a few unfinished items here and there — nothing that should affect your read of Chapter 5, but flagging it so nothing looks out of place. As this is unpublished academic work, I'd be grateful if you could treat the draft as confidential for now and not share it further before I submit.
 
@@ -123,7 +123,7 @@ The thesis asks where a seafood-processing SME should start when facing a fragme
 
 Two parts may be directly useful to you:
 
-* **Chapter 6 (page 40)** identifies which topics deliver the widest coverage for the least effort, by production system.
+* **Chapter 6 (page 42)** identifies which topics deliver the widest coverage for the least effort, by production system.
 * **A web-based diagnostic tool** that turns this into something practical: enter your company profile, and it returns your build-first topics, who demands each one, the exact datapoints to collect, and how to start collecting them — downloadable as a spreadsheet to take into a meeting.
 
 > **[TOOL LINK]**

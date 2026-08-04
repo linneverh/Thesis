@@ -4,8 +4,8 @@
 % methodology (§4.5 Phase 3, §4.6 Phase 4, §4.7 Phase 5, §4.8 validation)
 % and the Results section (composition + first action points).
 % Numbers reconciled to the current dataset (v8 Excel / tool):
-%   rows = 32 topics; cols = 31 (30 scored instruments, VSME split);
-%   992 cells, 181 filled (18%): 92 binding, 89 touched;
+%   rows = 33 topics; cols = 31 (30 scored instruments, VSME split);
+%   1023 cells, 188 filled (18%);
 %   source 12/11/3/5; tiers 12/7/8/4 (VSME=Customer).
 % Figures: fig:cell-coding (TikZ, needs tikz+libs in preamble - already in main),
 %   topic_distribution.pdf, r_actor_tier.pdf, r_stage_system.pdf.
@@ -38,9 +38,9 @@ before the chapter turns to how it is built.
 \includegraphics[width=\linewidth]{phase3/appendix_figures/coverage_matrix_screenshot.pdf}
 \caption[Representative excerpt of the coverage matrix]{Representative excerpt
 of the coverage matrix (\emph{Phase3\_\allowbreak Coverage\_\allowbreak
-Matrix\_\allowbreak v17.xlsx}, sheet ``Coverage matrix''): topic/datapoint rows
-against scored-instrument columns, coloured by score (0/1/2). Shows the first 30
-of 311 rows and 15 of the 31 scored instrument columns (Tier~1--2); the full
+Matrix\_\allowbreak v18.xlsx}, sheet ``Coverage matrix''): topic rows
+against scored-instrument columns, coloured by score (0/1/2). Shows all 33 topic
+rows and the first 15 of the 31 scored instrument columns (Tier~1--2); the full
 matrix is in the source workbook.}
 \label{fig:coverage-matrix-screenshot}
 \end{figure}
@@ -148,7 +148,7 @@ threshold switches off the instruments above it. Instruments switched off are
 excluded from that firm's demand sums. The full instrument-by-instrument
 classification - scored, baseline, context or excluded, with the reason for each - is provided in \nameref{app:scope}.
 % numbers deliberately left in the source comments, not asserted in prose here --
-% the 26+2+4 = 32 rows and the 49 -> 30 scored -> 31 columns are the current
+% the 28+1+4 = 33 rows and the 49 -> 30 scored -> 31 columns are the current
 % reconciled figures from Chapters 4-6; state them here once confirmed final.
 
 The demand matrix is therefore a grid of topic rows against instrument columns,
@@ -186,7 +186,7 @@ transmitted rather than imposed.
 
 \textbf{Datapoint-grounded coding.} A score is assigned against the
 \emph{constituent datapoints} of a requirement, not against the title of its
-disclosure requirement. Each of the 28 cohort-evidenced rows is decomposed into
+disclosure requirement. Each of the 29 cohort-evidenced rows is decomposed into
 its official EFRAG datapoints using the ESRS datapoint master (Commission
 Delegated Regulation (EU) 2023/2772): the 26 DR-level rows resolve to 356
 datapoints and the two topic-level rows (E4, S4) to a further 152. An instrument
@@ -365,7 +365,7 @@ demand.
 Both thresholds are anchored in the empirical distribution rather than set
 arbitrarily (Figure~\ref{fig:topic-distribution}). The convergence cut of three is
 the simple majority of the four channels. The breadth cut of twelve is the
-\emph{third quartile} of the breadth distribution across the 32 topics, so the
+\emph{third quartile} of the breadth distribution across the 33 topics, so the
 Stage-1 volume gate selects the top quartile and recalibrates automatically if the
 scores change. In the modelled firm no topic below convergence three reaches the
 breadth cut, so the two criteria identify one coherent Stage-1 set rather than two
@@ -374,7 +374,7 @@ competing ones.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{topic_distribution.pdf}
-\caption{Distribution of cross-framework demand across the 32 topics for the
+\caption{Distribution of cross-framework demand across the 33 topics for the
 modelled firm. (A)~Breadth $\Sigma$ (volume of demand); the Stage-1 cut is the
 third quartile, Q3~$=12$. (B)~Convergence - the number of the four stakeholder
 channels demanding each topic. (C)~The two-axis staging map: Stage~1 (\emph{build
@@ -396,8 +396,8 @@ columns) and customers (11), which together account for 23 of the 31 columns
 the remainder (5). The necessity tiers fall 12/7/8/4 across Tiers~1--4, so the
 regulatory legal-licence layer is the single largest block.
 
-The matrix is sparse by construction: of the 992 instrument$\times$topic cells,
-181 (18\%) carry a demand, split almost evenly between \emph{binding} requirements
+The matrix is sparse by construction: of the 1{,}023 instrument$\times$topic cells,
+188 (18\%) carry a demand, split almost evenly between \emph{binding} requirements
 (92 cells scoring~2) and \emph{touched} references (89 cells scoring~1). The demand
 environment is therefore not a dense web in which every framework touches every
 topic, but a structured field in which a minority of concentrated, mostly
@@ -450,7 +450,7 @@ instruments that generate the cascade - CSRD and its ESRS - are also, ultimately
 the most \emph{comprehensive} statement of what will be asked: a firm fully aligned
 to the ESRS would, for the general-sustainability topics, already hold almost
 everything a customer or financier could cascade down to it. Full ESRS alignment is
-therefore the sensible end-state. But it is a large ask for a resource-limited firm,
+therefore the sensible end-state. But it is a large ask for a resource-constrained firm,
 and in the interim the demand actually placed on SMEs is being deliberately capped - by the VSME and by the Omnibus value-chain provisions - to a proportionate
 subset. The pragmatic path this chapter identifies sits between the two: rather than
 attempt full alignment at once or simply wait for the caps to settle, a firm builds
@@ -477,6 +477,21 @@ every production system: energy (E1-5), greenhouse-gas emissions (E1-6),
 biodiversity and ecosystems (E4), and supply-chain traceability. These are the
 no-regret priorities for any European seafood processor - demanded broadly,
 across stakeholder channels, irrespective of business model.
+
+Traceability is also the cheapest of the four to build, which is why it heads the
+sequence rather than merely appearing in it. Most European processors already
+hold BRCGS or IFS certification, and both require full traceability and chain of
+custody as a condition of the certificate (BRCGS, 2022, clause~3.9; IFS
+Management GmbH, 2023, requirement~4.18). The underlying records therefore
+largely exist before any sustainability requirement is raised; what is usually
+missing is not the data but its organisation for external reporting. Meeting the
+MSC or ASC chain-of-custody requirement on top of an existing BRC or IFS system
+is correspondingly less burdensome than its position in the demand matrix might
+suggest. This is the build-once case in its clearest form: the topic with the
+broadest demand across the ecosystem is also among the least costly to
+supply.\footnote{This point was raised by a reviewer with sector experience and
+is reflected here; see also the traceability systems reported by the cohort in
+Table~\ref{tab:sector-material-evidence}.}
 
 The \emph{differences} are structured rather than arbitrary. Four further
 topics - water (E3-4), waste (E5-5), occupational health and safety (S1-14) and
