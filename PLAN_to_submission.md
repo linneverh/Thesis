@@ -29,6 +29,27 @@ State at end of 4 August. **97 pages, zero LaTeX errors, zero undefined referenc
 
 Both are reference-list only; the argument text is finished.
 
+## Stale number found and fixed (5 August)
+
+**§4.5 said the matrix has "32 disclosure topics" and "29 actively scored across 30
+columns". Both were stale.** Verified directly against `Phase3_Coverage_Matrix_v18.xlsx`:
+
+- **33 topic rows** = 29 numbered DRs + 4 GAP rows (G1–G4). My first parse missed the
+  GAP rows because their tier cell reads `GAP` rather than `T1`/`T2` — worth knowing if
+  you ever re-run that check.
+- **31 scored columns** = 30 instruments, VSME split into Basic and Comprehensive
+- CSRD/ESRS carried as the excluded baseline in column 36
+- **33 × 31 = 1,023 cells, 188 demand (18.4%)** — matches Chapter 6 exactly
+
+Corrected to 33 and 30/31. The "37 instruments" figure now reconciles cleanly:
+30 scored + 4 Gate-2 failures + 3 switched-off benchmarks. **ISSF moved out of the
+"remaining" group** because it is a scored column (opt-in, switched off for the
+non-tuna firm) rather than an uncatalogued instrument — that sentence is flagged in
+the source for you to sanity-check.
+
+**Still open in §4.5:** Section 4.4 says "a priority subset of approximately twelve
+frameworks", which contradicts this paragraph. Flagged in the source, not resolved.
+
 ## Workbook audit (evening of 4 August)
 
 All eight workbooks open cleanly and the chain reproduces the thesis end to end:
@@ -58,6 +79,7 @@ machine. Close it before anything else writes to it.
   - In Zotero: fix the **Battisti & Perry** author order (currently exports as "Perry, Martin" alone), remove three duplicate pairs (Afolabi, STECF, Tugliani), and check the umlaut encoding (Cöster comes through as "Cster")
   - I can merge the new entries into `references.tex` without touching the rest — one minute, just say when
 - [ ] **Send the Antonio reply** (`reply_antonio.md`, ready).
+- [ ] **Reply to Oliver** — explain 43 → 53 (he has the pre-rebuild draft), confirm E1-9 credited and Nomad now flat year on year, ask the one narrow due-diligence question (does Nomad report GHG removals E1-7, or biodiversity-strategy resilience E4-1, in either year?), and chase the approval to name Nomad. He asked directly what he should check — answer that.
 - [ ] **Read Chapters 1–3 and the conclusion**, as you planned.
 - [ ] **`git add -A && git commit && git push`** — nothing has been committed through any of today's work.
 
@@ -69,6 +91,34 @@ machine. Close it before anything else writes to it.
 ---
 
 # Wednesday 6 August
+
+### Oliver round 2 — Chapter 4 (`oliver_round2_triage.md`, 23 comments)
+
+- [x] **Factual corrections applied** *(done 5 Aug — builds clean, 97 pp, 0 errors)*
+  - SMETA and EcoVadis no longer called certifications — §4.1 Tier 2 now reads "certification, social audit or buyer assessment (MSC and ASC certification, SMETA audits, EcoVadis ratings)"; §4.1 domain axis now "social audits and buyer assessments"; same fix in the tool's S2 hint text
+  - Dow Jones Sustainability Index → **Dow Jones Best-in-Class Indices** in all four places (main.tex ×3, annex.tex ×1), with the February 2025 rename noted on first mention and in the annex. *Verified against S&P Global — renamed effective 10 Feb 2025, so Oliver is right.*
+  - "retailer certifications" → "retailer-demanded certifications" (§4.1 caveat)
+  - "well-resourced firms" → "larger corporates" (§4.1 caveat)
+  - EU Taxonomy added to the glossary
+- [ ] **Spell out Regulation and Directive in Figure 2** — not done; the labels live in the figure source, not the .tex
+- [ ] **Table 2 (p.46)** — add a basis-of-claim column; the sourcing percentages are not comparable
+- [ ] **#10 (p.25)** — the "biased statement" framing on regulators and customers
+- [ ] **#8** "well-resourced" → "larger corporates"; **#1** don't tell the reader what the chapter omits; **#21** rewrite the imprecise sentence
+- [ ] **Check Parlevliet & van der Plas** — does it publish a structured sustainability report? If yes, that is a genuine omission
+- [ ] **ISSF tier placement (#20)** — his stepping-stone argument vs your Tier 4
+- [ ] Small: Figure 2 light grey (#15), RSPO vs RTRS/ProTerra/FSC/PEFC (#16), EU Taxonomy glossary (#18), why 30 instruments (#11), tidy p.85 (#23)
+
+### Oliver round 3 — Chapter 5 (`oliver_round3_triage.md`)
+
+- [ ] **Credit E1-9 for Nomad 2025** on his TCFD evidence → Nomad flat at 53 both years, and the year-on-year finding he objects to dissolves
+- [ ] **§5.7 — the invariance claim must change.** Leave-one-out testing shows the near-universal set is invariant only when Thai Union is dropped; removing any other firm changes it by 3–13 requirements. The 13-requirement core, by contrast, survives every leave-one-out *and* all fifteen leave-two-out combinations. Replace the claim with the core result.
+- [ ] **§5.3** — describe over-crediting as well as under-crediting; E1-7 is the example
+- [x] **`p1_year_evolution.pdf` regenerated with a zero-based y-axis** *(done 5 Aug)* — notebook cell 25 patched so a re-run reproduces it. Also fixed a stale narration line in that cell: it still listed E4-1, S1-7 and S4-1 as dropped, which the bridge rebuild had already resolved. Actual drops are now only Espersen −S1-4/−S2-4, Nomad −E1-9, Profand unchanged.
+- [ ] **Replace `p1_cohort_invariance.pdf`** — two same-size bars differing only in axis
+- [ ] **§5.1** — answer the homogeneity objection rather than deflect it
+- [ ] **§5.6/5.7** — note that non-reporting may reflect an immateriality assessment
+
+### Then
 
 - [ ] **Review the 13 demand scores in matrix v18** — amber cells, justification log rows 187–199. This is the last piece of new analysis in the whole rebuild that you have not personally checked, and it sets Chapter 6's demand density.
 - [ ] Read Chapters 4 and 5 end to end, now that both have changed substantially.
