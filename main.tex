@@ -1136,7 +1136,7 @@ firm's demand sums. A small number of instruments are retained in the
 catalogue for ecosystem completeness but carry no scorable demand on the
 SME and are excluded from the demand sums: investor benchmarks that rate
 only large listed firms (the Coller~FAIRR Protein Producer Index, the
-Dow~Jones Sustainability Index), a keystone-company coalition the SME
+Dow~Jones Best-in-Class Indices), a keystone-company coalition the SME
 cannot join (SeaBOS), and a scheme-benchmarking body that imposes no
 direct obligation on the processor (GSSI).
 
@@ -1173,8 +1173,7 @@ rather than collapsed.
 The central analytical construct is a coverage matrix whose rows are the
 33 disclosure topics of the final universe (Section~3.3) and whose
 columns are the ecosystem of frameworks, standards, certifications and
-initiatives catalogued in Phase~2. Rather than the provisional
-twelve-framework subset, the matrix codes the \emph{full} Phase~2
+initiatives catalogued in Phase~2. The matrix codes the \emph{full} Phase~2
 landscape -- 37 instruments spanning the four stakeholder
 drivers (regulator, customer, investor, industry/NGO), of which 30 are
 actively scored across 31 columns (VSME split into Basic and
@@ -1193,10 +1192,15 @@ but switched off for the non-tuna firm modelled here
 % 37 now reconciles exactly: 30 scored + 4 Gate-2 fails + 3 benchmarks.
 % ISSF moved out of the "remaining" group because it IS a column
 % (OPT-IN, off for this profile) — please sanity-check that sentence.
-% STILL OPEN: Section 4.4 says "a priority subset of approximately twelve
-% frameworks", which contradicts this paragraph. Decide which to keep.
+% Sec 4.4 / twelve-framework contradiction: RESOLVED 6 Aug — that sentence
+% is no longer in 4.4, so the dangling "rather than the provisional
+% twelve-framework subset" clause was removed here too.
 -- so that convergence is measured across the demand environment the SME
-actually faces. Each column carries, as attributes inherited from
+actually faces. Scoring the full set rather than a shortlist is what makes the
+convergence measure meaningful: a topic's demand density is only interpretable
+if the denominator is every instrument that could have asked for it, and
+pre-selecting a dozen frameworks would build the expected answer into the
+sample. Each column carries, as attributes inherited from
 Phase~2, its primary stakeholder driver and its obligation locus (direct,
 indirect, context), and an independence weight used in the
 dependency-adjusted aggregation of Phase~4 (Section~3.6); columns that a
@@ -1291,7 +1295,7 @@ where the firm must itself supply data into it: a customer-required
 self-assessment such as EcoVadis is therefore scored (at 1, touched),
 because the processor actively completes it, whereas purely external
 ratings constructed from public data - MSCI, Sustainalytics, the Dow
-Jones Sustainability Index - impose no own organisation-level obligation
+Jones Best-in-Class Indices - impose no own organisation-level obligation
 and are not scored. Because a rating is built to score and compare firms
 rather than to define what they must disclose (Adams \& Abhayawansa,
 2022), it is not treated as a standard: it consumes disclosures rather
@@ -2941,7 +2945,7 @@ Urban Waste Water Treatment Directive (Dir 2024/3019) & Context & Binds Member S
 Waste Framework Directive / EPR (Dir 2008/98/EC) & Context & Member-State-transposed EPR duties; now operationally consolidated for the processor under PPWR. \\
 Dolphin Safe & Excluded - superseded & Largely obsolete labelling scheme for an EU processor; retained in the catalogue for completeness only. \\
 Fisheries labour conditions (Council Dir 2017/159) & Excluded - wrong bound party & Binds vessel owners, not the processor; the labour content it covers reaches the processor anyway via buyer SMETA audits and ESRS~S2, so scoring it separately would double-count. \\
-RSPO (conditional) & Excluded - redundant exposure & Certifies palm-oil sourcing; for a seafood processor this is a feed-input exposure already carried by EUDR at Tier~1, so it is not scored as a second instrument on the same exposure unless the processor directly handles palm as an input. \\
+RSPO (conditional) & Excluded - redundant exposure & Certifies palm-oil sourcing; for a seafood processor this is a feed-input exposure already carried by EUDR at Tier~1, so it is not scored as a second instrument on the same exposure unless the processor directly handles palm as an input. The soy schemes (RTRS, ProTerra) and the timber and fibre schemes (FSC, PEFC) are excluded on the same reasoning; RSPO is catalogued rather than these because palm is the commodity most often present in a processor's own inputs, through oils and coatings. \\
 FIPs / FisheryProgress & Excluded - no own obligation & An engagement platform for sourcing commitments, not a reporting or certification duty; the topics it touches are already scored via MSC, ASC, GDST and the IUU Regulation. \\
 GSSI (Global Sustainable Seafood Initiative) & Excluded - rates schemes, not the processor & Benchmarks certification schemes and shapes which certs buyers accept; it does not itself demand anything of the processor. \\
 EU Taxonomy (Reg 2020/852) & Excluded - no eligible activity & The Taxonomy's technical screening criteria define no eligible economic activity for NACE~C10.20 (seafood processing), so it imposes no disclosure trigger on this activity; reaches the processor only indirectly via customer/financier data requests. \\
@@ -3185,6 +3189,52 @@ Both notebooks are reproducible end to end from the two workbooks above; the
 only manual step is transcribing a newly-added firm's own published index
 into a new \texttt{\_GRI\_Index} or \texttt{\_Mapping} sheet before re-running.
 
+\section*{Appendix I - Year-over-year reporting in the cohort}\label{app:yoy}
+\addcontentsline{toc}{subsection}{Appendix I - Year-over-year reporting in the cohort}
+
+Three of the six cohort firms - Nomad Foods, Profand and Espersen - published a
+structured report in both 2024 and 2025, allowing a like-for-like comparison.
+Reported coverage was flat or fell very slightly: Nomad Foods from 53 to 52
+requirements, Profand unchanged at 43, and Espersen from 36 to 34, driven by a
+handful of requirements dropped and none added (Figure~\ref{fig:p1-year}).
+
+These are changes in what the indexes carry, and not necessarily changes in what
+the firms disclose. Nomad Foods' single decline illustrates the distinction.
+E1-9 was reached in 2024 through GRI 201-2, indexed to the firm's TCFD
+statement; the 2025 index no longer carries that disclosure, yet the TCFD
+statement itself is still published and linked from the 2025 report. The firm
+confirms that its own position on the requirement did not change between the two
+years. The measurement limitation set out in Section~\ref{cohort-method}
+therefore applies to the year-over-year reading at least as strongly as to the
+levels, and arguably more so: a change in coverage can be produced by a change
+in indexing practice alone.
+
+Two further cautions apply. Only firms publishing in both years can be examined,
+so the comparison covers half the cohort and is silent on the other half; the
+three firms not examined are not thereby shown to be stable. And with three
+firms over two years, no weight can be placed on the result beyond its
+direction. It is reported because that direction runs against the common
+assumption of ever-expanding disclosure, and because a comparable movement
+appears at scale. The first large-scale longitudinal study of double-materiality
+outcomes under the CSRD, covering 241 large listed EU companies, finds
+materiality rates declining moderately between FY2024 and FY2025, concentrated in
+the environmental standards other than climate (Nahrstedt, 2026). That study
+measures which topics firms judge \emph{material} rather than how much they
+disclose, so it is a parallel indicator and not a direct comparison; the two
+nonetheless move the same way. The discussion returns to this under the Omnibus
+simplification.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{phase1/p1_year_evolution.pdf}
+\caption{Year-over-year reporting for the three firms with both a 2024 and
+a 2025 report. Panel~A: total requirements reported, on a zero-based axis.
+Panel~B: requirements retained, added and dropped in 2025 - change is
+dominated by retention, with a small net reduction.}
+\label{fig:p1-year}
+\end{figure}
+
+\clearpage
 \section*{Appendix H - Master file index (all phases)}\label{app:file-index}
 \addcontentsline{toc}{subsection}{Appendix H - Master file index (all phases)}
 

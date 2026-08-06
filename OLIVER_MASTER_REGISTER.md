@@ -1,6 +1,36 @@
 # Oliver Spring — master comment register
 
-Every comment across all three rounds, with status and owner. Updated 5 August.
+Every comment across all three rounds, with status and owner. Updated 6 August.
+
+---
+
+# ⭐ YOUR LIST — what only you can do
+
+Build is clean: **102 pages, 0 errors, 0 undefined references.**
+
+**Every Oliver comment through Chapter 5 is now handled except one (#23, p.85) and the items below that need you.** Decisions 1–3 and the three voice items are done and in the build.
+
+## ⚠️ Two stale numbers caught in §5.8 — please sanity-check the fix
+
+The chapter's concluding summary still carried **pre-rebuild** figures: it said the deepest reporter reached **53** requirements and the median firm **57%** of the screened set. Verified against the workbook: the universe is 70, the deepest reporter is **60**, and the median is 44, or **63%**. Both corrected. The old values are exactly what the pre-rebuild bridge produced, which is how they survived.
+
+## Checks only you can run
+
+7. **Parlevliet & van der Plas** — does it publish a structured sustainability report? My searches found none, only World Benchmarking Alliance assessments built from third-party sources. Check their site before you tell Oliver.
+8. **The missing comment #7.** My round-2 extract runs 1–6 and 8–23. Check the PDF.
+9. **Seafood Europe membership (#3, #4)** — he suggests asking Kata whether any big player isn't a member.
+
+## To send
+
+10. **Nomad naming approval**, the **narrow DD question** (does Nomad report E1-7 GHG removals or E4-1 biodiversity resilience in either year?), and **what happened to GRI 201-2** between the 2024 and 2025 indexes.
+11. **Tool redeploy → then send Oliver the link** (his round-1 #9, still open).
+
+## Housekeeping
+
+12. **Bibliography** — STECF, BRCGS, IFS. Don't paste `bibl.rtf` over `references.tex`; it drops 26 entries.
+13. **git commit** — still uncommitted.
+
+---
 
 **Legend:** ✅ done · 🔧 mine, ready to do on your word · 👤 yours (judgement or voice) · ❓ needs Oliver
 
