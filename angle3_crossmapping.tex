@@ -59,6 +59,16 @@ once built, is redeployable across uses at low marginal cost. The second is
 \emph{stakeholder-salience} theory (Mitchell, Agle \& Wood, 1997): a firm facing
 many legitimate claimants cannot serve each separately and must triage, and the
 rational triage is toward the topics on which the most salient claimants converge.
+Salience in that account is the combination of three attributes - the
+\emph{power} to impose consequences, the \emph{legitimacy} of the claim, and its
+\emph{urgency} - and the tiering of Chapter~4 is essentially an empirical reading
+of the first two: a Tier~1 legal obligation carries power and legitimacy
+together, a Tier~4 voluntary commitment neither. To these three the SME case adds
+a fourth constraint that Mitchell's framework treats as given, namely the
+\emph{resources} available to answer any claim at all. Triage for a
+resource-constrained firm is therefore not only a question of which claimants
+matter most, but of how few distinct capabilities the answer can be built from -
+which is what the convergence measure below is designed to capture.
 
 Convergence is therefore the organising construct. Where a topic is demanded by a
 regulator, an investor framework and an industry standard alike, capability built for that topic is not spent once but several
@@ -72,13 +82,15 @@ highest - the hotspots at which building once satisfies many.
 \subsection{6.2 Assembling the matrix: rows and
 columns}\label{cm-matrix-build}
 
-The matrix inherits its two dimensions from the previous steps, but neither is
-carried over unchanged. Each is adjusted by a documented operation, so that the
-rows capture the topics that genuinely matter for a seafood processor and the
-columns capture only the instruments that actually place a demand on it. It is
-worth setting out these operations before any cell is scored, because the shape of
-the matrix - which topics and which instruments it contains - is itself an
-analytical choice.
+The matrix has rows and columns, and neither comes straight from the previous
+chapters. The rows start from the topics the cohort actually reports
+(Chapter~5), which are then trimmed to those the sector agrees on and extended
+with four topics the ESRS has no row for. The columns start from the instruments
+catalogued in Chapter~4, which are then cut back to those that genuinely ask the
+processor for something. Both changes are set out here, before any cell is
+scored, because what goes into the matrix decides what it can show: a row for a
+topic nobody is asked about, or a column for an instrument that demands nothing,
+would distort every count taken from it.
 
 \textbf{Rows: from the cohort frontier to the topic universe.} The rows begin from
 the cohort frontier (Chapter~5) and are built up in three steps:
@@ -86,15 +98,21 @@ the cohort frontier (Chapter~5) and are built up in three steps:
 \begin{enumerate}
 \item \textbf{The requirements the cohort converges on enter directly} - those
 reported by at least five of the six firms. These are the topics the sector's own
-practice has revealed to be expected (26 requirement-level rows).
+practice has revealed to be expected (28 requirement-level rows). The set includes
+the climate transition plan (E1-1), which reaches the cut only after the direct
+screening of report bodies described in Section~\ref{cohort-method}, because no
+GRI disclosure maps to it.
 
-\item \textbf{Two topics clear the same bar one level up.} Biodiversity (E4) and
-consumer health and food safety (S4) are each reported by at least five firms when
-a firm counts as covering the topic if it reports \emph{any} of the topic's
-requirements. No individual E4 or S4 requirement reaches the five-of-six cut on its
-own. They therefore enter as topic-level rows: the same consensus rule at coarser
-granularity, not an expert-judgement exception. With the requirement-level set they
-form the cohort-evidenced core (28 rows).
+\item \textbf{One topic clears the same bar one level up.} Biodiversity (E4) is
+reported by at least five firms when a firm counts as covering the topic if it
+reports \emph{any} of the topic's requirements, but no individual E4 requirement
+reaches the five-of-six cut on its own - the best-reported reach four. E4
+therefore enters as a topic-level row: the same consensus rule at coarser
+granularity, not an expert-judgement exception. Consumers and end-users (S4) was
+admitted the same way in an earlier version of this analysis; after the bridge
+rebuild two of its requirements, S4-1 and S4-3, clear the cut individually, so S4
+is now represented at requirement level and needs no topic-level rescue. With the
+requirement-level set it forms the cohort-evidenced core (29 rows).
 
 \item \textbf{Four seafood-defining topics have no ESRS home at all} and are
 carried in against the GRI~13 sector standard and EU sector legislation:
@@ -108,48 +126,75 @@ concern it.
 The funnel therefore runs from the 70 topical ESRS disclosure requirements, narrows
 to the cohort-evidenced core, then \emph{extends} by four. Those four are the one
 place where the ESRS blueprint is insufficient and the sector standard supplies the
-rows instead.
+rows instead. Stated as a sequence, with each figure used once:
+
+\begin{enumerate}\itemsep2pt
+\item \textbf{70} topical ESRS disclosure requirements form the starting universe
+(Chapter~5).
+\item \textbf{28} of those are reported by at least five of the six firms at
+requirement level, and enter directly. E1-1 is among them, reached through the
+body screening of Section~\ref{cohort-method} rather than through the bridge.
+\item \textbf{+1} topic-level row, biodiversity (E4), where the topic clears the
+consensus cut but no single requirement within it does - giving \textbf{29}
+cohort-evidenced rows.
+\item \textbf{+4} sector-material rows carried in from GRI~13 and EU sector law,
+for which no ESRS requirement exists: supply-chain traceability, wild-stock
+status, feed and marine ingredients, and animal health and welfare.
+\item \textbf{33} rows in total, scored against \textbf{31} instrument columns -
+30 instruments, with the VSME split into its Basic and Comprehensive modules -
+giving the \textbf{1{,}023} cells of the matrix.
+\end{enumerate}
 
 They are not chosen ad hoc. Each of GRI~13's 26 material topics
 (Agriculture, Aquaculture and Fishing) was classified against the ESRS as
-\emph{Covered}, a \emph{Reporting gap} (an ESRS mapping exists, but cohort
+\emph{covered}, a \emph{reporting gap} (an ESRS mapping exists, but cohort
 reporting on it falls below the $\geq$5/6 consensus threshold), or a
-\emph{Structural gap} (no ESRS disclosure requirement exists at all). The four
-split 2+2. Animal health and welfare and supply-chain traceability are
-Structural-gap topics with no ESRS home whatsoever. Wild-stock status and feed and
-marine-ingredient sourcing are production-specific disclosures nested inside the
-Biodiversity topic (GRI~13.3), which is itself Covered and already in the universe:
-the topic is covered, but these two disclosures within it are not. The full
+\emph{structural gap} (no ESRS disclosure requirement exists at all).
+
+The four divide evenly between two of those categories. Animal health and welfare
+and supply-chain traceability are structural gaps: the ESRS has no requirement
+covering either, so nothing in the standard asks for them at all. Wild-stock
+status and feed and marine-ingredient sourcing are different. Both are
+production-specific disclosures nested inside biodiversity (GRI~13.3), which is
+itself covered and already in the universe. The broad subject is therefore
+present, but these two specific disclosures within it are not. The full
 classification is given in \nameref{app:gri13}.
 
 \textbf{Columns: from the full ecosystem to the scored instruments.} The columns
-begin from the instruments catalogued in the ecosystem (Chapter~4), which is
-deliberately the whole field - including instruments that do not, in the end,
-place a scorable demand on the processor. The scored set is the subset that does.
-Set aside are the \emph{context} instruments that bind Member States rather than
-the firm; the \emph{excluded} instruments that fail the second of the two
-admission gates screened for at catalogue stage (ESG relevance, then
-organisation-level obligation - defined and applied instrument by instrument
-in \nameref{app:scope}); and
-the CSRD/ESRS standard, which is held out as the \emph{baseline} reference the
-rows are defined against rather than scored as one more demand. Of the remaining
-scored instruments, one - the VSME - is split into its Basic and Comprehensive
-modules, the only instrument with two officially-defined, nested reporting tiers,
-adding one column over its single instrument. Each scored column inherits from
-Step~1 its stakeholder source and its obligation locus (direct, indirect or
-context). Some columns are switched off for a given firm because its profile puts
+begin from the instruments catalogued in the ecosystem (Chapter~4). That
+catalogue is deliberately the whole field, so it includes instruments that place
+no scorable demand on the processor in the end. The scored set is the subset that
+does.
+
+Three groups are set aside. The \emph{context} instruments bind Member States
+rather than the firm. The \emph{excluded} instruments fail the second of the two
+admission gates screened at catalogue stage - ESG relevance first, then
+organisation-level obligation - which are defined and applied instrument by
+instrument in \nameref{app:scope}. The CSRD/ESRS standard is held out separately
+as the \emph{baseline} reference against which the rows are defined, rather than
+scored as one more demand.
+
+That leaves \textbf{30} scored instruments. Only one of them, the VSME, is split
+into two columns, for its Basic and Comprehensive modules, because it is the only
+instrument with two officially defined and nested reporting tiers - which is why
+30 instruments occupy 31 columns. Each scored column inherits its stakeholder
+source and its obligation locus (direct, indirect or context) from Step~1. Some columns are switched off for a given firm because its profile puts
 the instrument out of scope, and two kinds of switch apply. The first is the
 production system: a wild-only firm switches off the aquaculture certifications
-(ASC, BAP), and a firm with no fluorinated refrigerant switches off the F-gas
-Regulation. The second is size: within the SME band several obligations turn on
+(ASC, BAP). The F-gas switch is separate from production system and turns on
+equipment rather than sourcing: it is switched \emph{on} for the modelled firm,
+since refrigeration is near-universal in seafood processing, and exists only for
+the minority of sites that have already converted entirely to natural
+refrigerants such as ammonia or CO\textsubscript{2} and hold no fluorinated gas.
+The second switch is size: within the SME band several obligations turn on
 headcount - the Pay Transparency Directive's gender pay-gap reporting applies from
 150 employees and the whistleblowing obligation from 50 - so a firm below a
-threshold switches off the instruments above it. Instruments switched off are
-excluded from that firm's demand sums. The full instrument-by-instrument
-classification - scored, baseline, context or excluded, with the reason for each - is provided in \nameref{app:scope}.
-% numbers deliberately left in the source comments, not asserted in prose here --
-% the 28+1+4 = 33 rows and the 49 -> 30 scored -> 31 columns are the current
-% reconciled figures from Chapters 4-6; state them here once confirmed final.
+threshold switches off the instruments above it. A switched-off instrument is
+excluded from that firm's demand sums, though a customer may of course still ask
+for the same content contractually, in which case the demand reaches the firm
+through the customer channel rather than the legal one. The full
+instrument-by-instrument classification - scored, baseline, context or excluded,
+with the reason for each - is provided in \nameref{app:scope}.
 
 The demand matrix is therefore a grid of topic rows against instrument columns,
 every cell recording how strongly a given instrument demands a given topic, on the
@@ -171,13 +216,16 @@ the entity to achieve, address, comply with, certify, report on or disclose at
 least one datapoint belonging to the topic.
 \end{itemize}
 Binding \emph{conformity} counts equally with binding \emph{disclosure}: a
-mandatory recycled-content target (PPWR), an accident-prevention duty (OSH) or a
-market-access prohibition on forced-labour products scores~2 even where no report
-is filed, because it bindingly addresses the datapoint substance. The score
+mandatory recycled-content target (e.g.\ the PPWR), an accident-prevention duty
+(e.g.\ the OSH Framework Directive) or a market-access prohibition on
+forced-labour products (e.g.\ the Forced Labour Regulation) scores~2 even where
+no report is filed, because it bindingly addresses the datapoint substance. The score
 measures \emph{how strongly} an instrument demands a topic; it says nothing about
-\emph{how} that demand reaches the firm, which is a separate question. A demand that
-arrives indirectly - CSDDD, which binds the firm's large customers and reaches the
-processor as a cascaded supplier requirement - is still scored on its strength: if
+\emph{how} that demand reaches the firm, which is a different question. A demand that
+arrives indirectly - CSDDD, which for the sub-threshold processor modelled here
+binds its large customers and reaches it as a cascaded supplier requirement,
+though it would bind a larger processor directly - is still scored on its
+strength: if
 it bindingly imposes a topic's datapoints it scores~2, exactly as a directly binding
 rule would. Whether the route is direct or indirect is recorded separately, as the
 obligation locus, and never raises or lowers the score. Keeping the two apart stops
@@ -192,24 +240,25 @@ Delegated Regulation (EU) 2023/2772): the 26 DR-level rows resolve to 356
 datapoints and the two topic-level rows (E4, S4) to a further 152. An instrument
 scores~2 where its indicators demand at least one of a requirement's datapoints,
 1 where it references the topic but demands none of them, and~0 where it is
-silent. This converts the loose question ``does instrument~$f$ address topic~$r$?''
-into the concrete, reproducible ``does~$f$ demand any datapoint of~$r$?'', and it
-surfaces corrections - whistleblowing demand resolving to the governance row
-that actually carries whistleblowing datapoints rather than an adjacent
-anti-corruption row - that, once logged, are findings about coding rather than
-matters of method.
+silent. This replaces the broad question of whether instrument~$f$ addresses
+topic~$r$ with the concrete and reproducible one of whether~$f$ demands at least
+one datapoint of~$r$. It also surfaces corrections. Whistleblowing demand, for
+instance, resolves to the governance row that actually carries the whistleblowing
+datapoints rather than to an adjacent anti-corruption row. Once such corrections
+are logged they are findings about the coding process rather than matters of
+method.
 
-\textbf{When does self-reporting count as a binding demand?} Many instruments are
-self-reported, which raises a scoring question with real consequences: does
-completing a supplier questionnaire place the same demand on a topic as reporting
-against a defined standard? Treating the two alike would inflate the matrix, so a
+\textbf{When self-reporting counts as a binding demand.} Many instruments are
+self-reported, which raises a scoring question with real consequences: whether
+completing a supplier questionnaire places the same demand on a topic as reporting
+against a defined standard. Treating the two alike would inflate the matrix, so a
 single rule separates them - and what matters is not \emph{who} reports but whether
 the \emph{datapoints are fixed in advance}:
 \begin{itemize}
 \item An \emph{open-question self-assessment}, where the firm describes itself
-against loose prompts with no defined datapoints and no external threshold (EcoVadis,
-the Sedex SAQ), shows the topic is in scope but pins down no specific data. It
-scores~\textbf{1}.
+against broad prompts with no defined datapoints and no external threshold
+(e.g.\ EcoVadis, the Sedex SAQ), shows the topic is relevant to the firm but
+pins down no specific data. It scores~\textbf{1}.
 \item A \emph{defined-datapoint standard}, where the datapoints to report are fixed
 ahead of time - voluntary (GRI, CDP, TNFD) or mandatory (the ESRS) - imposes the
 datapoint even though it too is self-reported. It scores~\textbf{2}.
@@ -230,11 +279,25 @@ criteria of the demanding instruments themselves - MSC Principle~1 stock-status
 reference points for wild-stock, the GDST key data elements for traceability, and
 ASC antibiotic and survival criteria for animal health and welfare. A pinned rule
 prevents double-counting on the wild-stock/E4 boundary: stock-status and
-legal-sourcing demand (MSC Principle~1, the IUU catch-certificate regime,
-FisheryProgress) codes to the wild-stock row, whereas generic biodiversity and
+legal-sourcing demand (MSC Principle~1, the IUU catch-certificate regime) codes
+to the wild-stock row, whereas generic biodiversity and
 ecosystem-impact demand (ESRS~E4, GRI~101, TNFD, MSC Principle~2 on bycatch and
 habitat) codes to E4; a single instrument may legitimately score on both rows
 through different provisions.
+
+These four rows are not equivalent kinds of measure, and the distinction matters
+for how their scores should be read. Wild-stock status is an \emph{outcome}: it
+asks whether the stock a firm buys from is healthy, and answering it requires
+stock assessment science and reference points the processor does not generate
+itself. Supply-chain traceability is an \emph{assurance mechanism}: it
+establishes that a product came from where it is claimed to have come from, and
+says nothing on its own about whether that source is sustainable. A firm can
+operate complete traceability on a stock that is severely overfished. The high
+demand score traceability carries in this matrix therefore records how many
+instruments require it, not that meeting it evidences a sustainability outcome.
+The two rows are kept separate for exactly this reason, and the build-first
+ranking that follows should be read as a map of what the environment
+\emph{asks for} rather than of what most improves the state of the resource.
 
 \textbf{Are wild-stock status and traceability actually live practice, not
 just a GRI category?} Neither has an ESRS DR, so neither was captured by the
@@ -292,8 +355,26 @@ GLOBALG.A.P., BAP, Friend of the Sea) and keeps its own segregation and lot
 records to prove it - this is an obligation on the processor itself.
 \emph{Indirect}: to hold that CoC certificate at all, its supply contracts
 must specify sourcing from a stock, farm or feed mill that meets the
-scheme's upstream standard (MSC Principle~1 stock health, ASC's feed and
-antibiotic limits). The processor doesn't manage the upstream operation, but
+scheme's upstream standard - for instance MSC Principle~1 on stock health, or
+ASC's feed and antibiotic limits. These are illustrative rather than exhaustive:
+both schemes are full standards, and a supplier is certified against the whole
+of one, not against a single principle. MSC covers stock status, environmental
+impact and management system across its three principles, and ASC likewise
+extends well beyond feed; no buyer accepts conformity with one principle alone.
+The examples are named here only because they are the clauses through which the
+upstream demand reaches the \emph{processor}.
+
+This transmission also runs in the other direction, which qualifies the common
+assumption that a processor is simply a demand-taker. A purchasing policy that
+specifies certified sourcing exerts real pressure upstream, and a large enough
+book of such policies can move a fishery: the Argentine hake fishery
+(\emph{Merluccius hubbsi}) has moved toward MSC assessment in response to buyers
+declining uncertified product (O.~Spring, Group Sustainability Manager, Nomad
+Foods, personal communication, August 2026). The effect is weaker for a single sub-threshold SME than for a
+large buyer, but it is not absent, and it is one route by which a small
+processor's disclosure capability converts into influence rather than only cost.
+
+The processor doesn't manage the upstream operation, but
 it cannot keep its certificate without sourcing from one that does - so
 the demand is real, just transmitted rather than performed directly. Each
 cell is scored on the same 0/1/2 strength scale either way (a core
@@ -320,17 +401,41 @@ so have no row. Such demand scores~0 against the in-universe rows and is
 inflate it); instead it is recorded in a separate out-of-frame register
 (instrument~$\rightarrow$ demanded DR~$\rightarrow$ reason). A framework's
 contribution to the matrix is thus the \emph{intersection} of its demand with the
-cohort-evidenced universe, not the union of everything it asks. That mandatory
-labour-standards disclosure and the voluntary reporting universe occupy partly
-disjoint spaces is itself a finding for the discussion.
+cohort-evidenced universe, not the union of everything it asks.
+
+This produces a finding in its own right rather than a mere bookkeeping note.
+\textbf{Mandatory labour-standards disclosure and the voluntary reporting
+universe occupy partly disjoint spaces.} EU labour law requires disclosures -
+adequate wages, work-life balance, working-time protections - that the sector's
+own leading reporters largely do not make, because those requirements never
+clear the consensus threshold that defines the topic universe. The demand is
+legally binding and the reporting practice has not followed it. For a firm, this
+means the build-first set derived here does not discharge its labour-law
+obligations, which have to be met whether or not peers report against them; for
+policy, it marks a place where mandatory demand and voluntary convergence have
+not met, and where the assumption that market practice will carry legal
+requirements does not hold.
 
 \textbf{Methodology providers versus disclosure askers.} Instruments that supply
-methods but do not themselves pressure an entity to report - the GHG Protocol,
-ISO~14001 - are held in an enabling layer and excluded from the demand sums,
-distinct from the disclosure askers (CDP, SBTi, MSC) that require an entity to
-submit or certify information. Every non-zero cell is documented in a
-justification log with a one-line rationale, a citation to the source clause or
-indicator, and the identifier(s) of the ESRS datapoint(s) the demand maps to - the audit trail that protects the coding against challenge; the complete coded
+methods but do not themselves pressure an entity to report - e.g.\ the GHG
+Protocol or the ISO standards such as ISO~14001 - are held in an enabling layer
+and excluded from the demand sums, distinct from the disclosure askers (e.g.\
+CDP, SBTi, MSC) that require an entity to submit or certify information. The
+same treatment applies to the food-safety schemes: BRCGS and IFS require chain
+of custody and full traceability, and so materially help a processor meet the
+traceability row, but they are certification programmes a buyer requires rather
+than disclosure demands in their own right, and are therefore carried as
+enablers rather than scored columns. Scored cells are documented in a
+justification log giving a one-line rationale, a citation to the source clause or
+indicator, and the identifier(s) of the ESRS datapoint(s) the demand maps to -
+the audit trail that protects the coding against challenge. The log covers 120 of
+the 188 scored cells. The 68 without an individual entry are concentrated in a
+small number of instruments whose scoring logic is uniform across topics - the
+Sedex self-assessment questionnaire accounts for 15 of them, GSA BAP for 8 - where
+the rationale is given once at instrument level in the coding protocol rather than
+repeated per cell. The gap is therefore one of documentation granularity rather
+than of unrecorded judgement, but it is stated here so the audit trail is not
+claimed to be more complete than it is. The complete coded
 matrix and its justification log, together with the per-cell coding protocol,
 are provided in \nameref{app:matrix} (Figure~\ref{fig:cell-coding-appendix}). A
 representative excerpt of the scored matrix itself is shown in
@@ -388,7 +493,12 @@ modelled firm. (A)~Breadth $\Sigma$ (volume of demand); the Stage-1 cut is the
 third quartile, Q3~$=12$. (B)~Convergence - the number of the four stakeholder
 channels demanding each topic. (C)~The two-axis staging map: Stage~1 (\emph{build
 first}) requires both broad consensus (convergence $\geq 3$) and high volume
-(breadth $\geq 12$); the shaded region is the Stage-1 set.}
+(breadth $\geq 12$); the shaded region is the Stage-1 set. All 33 topics are
+plotted in panel~C, but only the nine Stage-1 topics and the nearest few below
+the cut are labelled, to keep the panel legible; the remaining points are
+unlabelled rather than absent. E1-1, the climate transition plan added to the
+universe by the bridge rebuild, plots at breadth~8 and convergence~3 and so
+falls below the volume gate.}
 \label{fig:topic-distribution}
 \end{figure}
 

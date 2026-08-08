@@ -210,7 +210,7 @@ footer{max-width:1000px;margin:0 auto;padding:22px 24px 40px;font-size:11px;colo
 </div>
 <h2 class="bigh2">Build these first</h2>
 <div class="prof profc" id="profline">Profile: wild + farmed · tuna: no · HFC: yes · 100 employees</div>
-<div class="payoff" id="payoff"><div class="txt"><b>Build 8 themes, cover 26 of 28 frameworks.</b> One dataset instead of 28 separate answers — and your legal licence to operate is included.<br><span class="muted">Count = frameworks that ask about at least one of your build-first themes, out of every framework in your sector's landscape.</span></div></div>
+<div class="payoff" id="payoff"><div class="txt"><b>Build 8 themes, cover 26 of 28 frameworks.</b> One dataset instead of 28 separate answers — and your legal licence to operate is included.<br><span class="muted">Count = frameworks that ask about at least one of your build-first themes, out of every framework that asks you for anything at all. Frameworks that place no demand on your profile are not counted in either figure.</span></div></div>
 <div class="cohortbox" id="cohortsummary"></div>
 <button class="dlbtn" onclick="downloadPlan()">&darr; Download my priority list + datapoint guide (.xlsx)</button>
 <p class="seclbl">Your priority themes — click one to see who's asking and exactly what data to collect.</p>
@@ -321,7 +321,7 @@ function run(){
   const allF=new Set(),s1F=new Set();
   appl.forEach(t=>{RES[t.id].fw.forEach(f=>allF.add(f.name));if(RES[t.id].stage==='1')RES[t.id].fw.forEach(f=>s1F.add(f.name));});
   const nThemes=s1.filter(t=>!DP_COLLAPSE[t.id]).length;
-  document.getElementById('payoff').innerHTML=`<div class="txt"><b>Build ${nThemes} themes, cover ${s1F.size} of ${allF.size} frameworks.</b> One dataset instead of ${allF.size} separate answers — and your legal licence to operate is included.<br><span class="muted">Count = frameworks that ask about at least one of your build-first themes, out of every framework in your sector's landscape.</span></div>`;
+  document.getElementById('payoff').innerHTML=`<div class="txt"><b>Build ${nThemes} themes, cover ${s1F.size} of ${allF.size} frameworks.</b> One dataset instead of ${allF.size} separate answers — and your legal licence to operate is included.<br><span class="muted">Count = frameworks that ask about at least one of your build-first themes, out of every framework that asks you for anything at all. Frameworks that place no demand on your profile are not counted in either figure.</span></div>`;
   // ---- cohort benchmark: tie build-first set back to Chapter 5's six-firm cohort ----
   const s1nc=s1.filter(t=>!DP_COLLAPSE[t.id]);
   const withCohort=s1nc.filter(t=>{const k=DP_ALIAS[t.id]||t.id; return COHORT_N[k]!==undefined;});

@@ -1,3 +1,51 @@
+# WHERE THINGS STAND — 7 August (17 days out)
+
+**Build: 102 pages, 0 errors, 0 undefined references, 0 broken citations, worst overfull box 17pt.**
+Every numeric claim verified against the workbooks. All reviewer packages rebuilt.
+
+---
+
+## A. Oliver's comments — what's left is yours
+
+Everything in the text is done. These six need you, and four of them are just a check.
+
+| # | Item | Time |
+|---|---|---|
+| 1 | **Read my three inserts** — the §5.1 homogeneity answer, the ISSF paragraph in §4.1, and the rewritten comment-#10 passage. These are in your voice's territory, so read them before anyone else does. | 20 min |
+| 2 | **Sanity-check four number fixes** — §5.8 (60 not 53; 63% not 57%), §5.4 (one in seven, not one in four), and the justification-log claim now saying 120 of 188. | 10 min |
+| 3 | **Comment #23** — tell me what's on his p.85 and I'll fix it. Your pagination has moved 10 pages since his copy, so I can't locate it. | 2 min |
+| 4 | **Comment #7** — my extract runs 1–6 and 8–23. Check whether a #7 exists. | 5 min |
+| 5 | **Parlevliet & van der Plas** — do they publish a structured report? My searches found none, only third-party benchmark entries. Check their site before you tell him. | 10 min |
+| 6 | **Seafood Europe (#3, #4)** — ask Kata whether any big player isn't a member. | 5 min to send |
+
+**Then send Oliver one email:** the 43-vs-53 explanation, the naming approval, the narrow due-diligence question (does Nomad report GHG removals E1-7, or biodiversity resilience E4-1, in either year?), and what happened to GRI 201-2 between the two indexes. Draft exists in `reply_oliver_nomad_data.md`.
+
+**Three things can't close tomorrow regardless** — his naming approval, Nomad's answer on E1-7/E4-1, and Kata. Send the asks early; that's what unblocks them.
+
+---
+
+## B. Finishing the thesis — everything else
+
+**Load-bearing, do first**
+
+- [ ] **Review the 13 demand scores in matrix v18** (amber cells, justification log rows 187–199). The last piece of new analysis nobody has personally checked, and it sets Chapter 6's demand density.
+- [ ] **Bibliography.** Add STECF, BRCGS (2022), IFS Management GmbH (2023) by hand. In Zotero: fix the Battisti & Perry author order, remove three duplicate pairs (Afolabi, STECF, Tugliani), fix the Cöster umlaut. **Do not paste `bibl.rtf` over `references.tex`** — it drops 26 entries including Barney, Teece, Mitchell and all six cohort reports.
+- [ ] **Tool redeploy**, then **re-shoot Figure 14** from the live site, then **send Oliver the link** (his round-1 #9).
+- [ ] **git commit.** Last commit was 21 hours ago; everything since is uncommitted.
+
+**Reading passes**
+
+- [ ] Chapters 1–3 and the conclusion — you planned this and haven't done it.
+- [ ] Chapters 4–7 end to end. All four have changed substantially this week.
+
+**Before submission**
+
+- [ ] Formatting pass against EPFL's requirements.
+- [ ] Title confirmation, if EPFL fixes it in advance.
+- [ ] Optional: second-coder check on a coding sample, which would close the inter-rater limitation named in §7.6.
+
+---
+
 # Plan to 24 August
 
 State at end of 4 August. **97 pages, zero LaTeX errors, zero undefined references, zero broken citations, zero overfull boxes above 20pt, no placeholders, no stale numbers.**

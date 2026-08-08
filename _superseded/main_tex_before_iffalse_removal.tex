@@ -1,0 +1,3270 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{lscape} % plain lscape (not pdflscape): keeps the page number
+                     % upright and normally positioned on landscape pages
+                     % instead of rotating it sideways with the content
+\usepackage{float} % needed for [H] float placement (angle2_cohort.tex cohort table)
+\usepackage{needspace} % keep the four-step sentence with its figure
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{}
+\IfFileExists{xltabular.sty}{\usepackage{xltabular}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric}
+\usepackage{placeins} % \FloatBarrier: stop figures drifting past chapter
+                       % boundaries (added after figures were found floating
+                       % all the way past the bibliography into the appendix)
+\newcommand{\fb}{\discretionary{}{}{}} % invisible break point for long
+                       % underscore-joined filenames in narrow table columns
+
+\author{}
+\date{}
+
+\begin{document}
+\setlength{\LTleft}{\fill}\setlength{\LTright}{\fill} % center every
+                       % longtable on the page (default is flush-left,
+                       % which left tables sitting off-centre with a big
+                       % gap on the right - notably in the appendices).
+                       % Placed after \begin{document} so longtable's own
+                       % initialisation doesn't clobber it.
+
+\begin{titlepage}
+  \centering
+  \vspace*{4cm}
+
+  {\LARGE\textbf{Build Once, Answer Many}\par}
+  \vspace{1cm}
+  {\large\emph{Where disclosure demand converges for European seafood-processing SMEs}\par}
+  \vspace{0.5cm}
+  {\large\emph{A diagnostic framework to transform compliance obligations into strategic advantage}\par}
+  \vspace{2cm}
+  {\large\textbf{Master's Thesis}\par}
+  \vspace{1.5cm}
+  {\large Linne Verhoeven\par}
+  \vspace{0.8cm}
+  {\large Supervised by Professor Jean-Philippe Bonardi\par}
+  \vspace{0.4cm}
+  {\large In collaboration with Seafood Europe\par}
+  \vspace{1.2cm}
+  {\large August 2026\par}
+\end{titlepage}
+
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+{\Large\textbf{Acknowledgements}}
+\end{center}
+\vspace{1cm}
+\noindent
+I would like to thank my supervisor, Professor Jean-Philippe Bonardi, for his
+guidance throughout this thesis.
+
+I am grateful to the sustainability leads at Thai Union, Bolton Group, Nomad
+Foods, Profand, A.~Espersen and Mowi, who gave their time to this research and
+to whom the cohort coding underlying Chapter~5 has been submitted for review,
+and to the industry contacts at Seafood Europe who discussed the instrument
+landscape in Chapter~4 with me. I owe a particular debt to Antonio \'Alvarez, Director of Sustainability at
+Profand, whose detailed review of Chapter~5 identified the indexing effect now
+documented in Section~5.3. Any remaining errors are my own.
+
+\clearpage
+
+\begin{abstract}
+\noindent
+European SMEs face a fragmented wall of sustainability-disclosure demands.
+Regulators, retail customers, certifiers, investors and NGOs each request
+seemingly different information through different channels, and for a firm
+with limited resources the rational response is reactive: answer the loudest
+demand, defer the rest, and build nothing that would serve more than the
+request in front of it. Yet beneath these superficially different requests
+lies a far smaller set of recurring \emph{themes} and the \emph{datapoints}
+that produce them. This thesis argues that a resource-constrained firm which
+identifies the few themes on which demand converges - and learns to
+generate their underlying datapoints once - can satisfy most of what it is
+asked from a single effort, shifting from reactive compliance to proactive
+strategy.
+
+
+Taking European seafood processing as a case, the thesis demonstrates this in
+four steps. Step~1 maps the sector's disclosure \emph{ecosystem}: 49 catalogued
+regulatory, customer, investor and industry instruments, of which 30 place a
+scorable demand on the firm. Step~2 establishes what mature firms actually
+report, using six large processors from among the sector's most advanced reporters. Even
+the deepest covers only 60 of 70 relevant ESRS disclosure requirements, and all
+six converge on a 13-requirement core regardless of how differently they source
+their fish.
+
+Step~3 crosses the two, and is where the central finding appears. Scoring every
+topic against every instrument yields 1{,}023 combinations, of which just 18 per cent
+carry any demand at all. That sparse demand is heavily concentrated: a small set
+of topics already answers most of what the ecosystem asks. What presents itself
+as dozens of separate requests is, underneath, a handful of shared ones.
+
+Step~4 turns this into a diagnostic. Topics are staged by how strongly and how
+widely they are demanded, producing a four-topic core every seafood processor
+should build first - energy, greenhouse-gas emissions, biodiversity and
+supply-chain traceability - extending to nine topics for a mixed-sourcing firm,
+eight for aquaculture and five for wild-capture. For the modelled firm, those
+build-first topics answer a demand raised by 26 of the 30 frameworks active in
+its environment, from one dataset. The findings give seafood SMEs a sequenced
+prioritisation framework and provide empirical input to the EU
+sustainability-simplification debate.
+\end{abstract}
+
+\tableofcontents
+\clearpage
+\listoffigures
+\listoftables
+\clearpage
+
+\section*{List of Abbreviations}
+\addcontentsline{toc}{section}{List of Abbreviations}
+\begin{description}[leftmargin=2.6cm,style=nextline]
+\setlength{\itemsep}{2pt}
+\item[ASC] Aquaculture Stewardship Council
+\item[BAP] Best Aquaculture Practices
+\item[CDP] Carbon Disclosure Project
+\item[CSDDD] Corporate Sustainability Due Diligence Directive
+\item[CSR] Corporate Social Responsibility
+\item[CSRD] Corporate Sustainability Reporting Directive
+\item[DR] Disclosure Requirement (ESRS)
+\item[EC] European Commission
+\item[EFRAG] European Financial Reporting Advisory Group
+\item[ESG] Environmental, Social and Governance
+\item[ESRS] European Sustainability Reporting Standards
+\item[EU] European Union
+\item[EUDR] EU Deforestation Regulation
+\item[EU Taxonomy] EU classification system for environmentally sustainable
+economic activities (Regulation (EU) 2020/852)
+\item[EPR] Extended Producer Responsibility
+\item[F-gas] Fluorinated Greenhouse Gas (EU F-gas Regulation)
+\item[GDST] Global Dialogue on Seafood Traceability
+\item[GHG] Greenhouse Gas
+\item[GLOBALG.A.P.] Global Good Agricultural Practice
+\item[GRI] Global Reporting Initiative
+\item[GSSI] Global Sustainable Seafood Initiative
+\item[IFRS S1/S2] IFRS Sustainability Disclosure Standards 1 and 2 (ISSB)
+\item[ISSB] International Sustainability Standards Board
+\item[ISO] International Organization for Standardization
+\item[ISSF] International Seafood Sustainability Foundation
+\item[IUU] Illegal, Unreported and Unregulated (fishing)
+\item[MSC] Marine Stewardship Council
+\item[NGO] Non-Governmental Organisation
+\item[OSH] Occupational Safety and Health
+\item[PPWR] Packaging and Packaging Waste Regulation
+\item[RSPO] Roundtable on Sustainable Palm Oil
+\item[SASB] Sustainability Accounting Standards Board
+\item[SBTi] Science Based Targets initiative
+\item[SFDR] Sustainable Finance Disclosure Regulation
+\item[SME] Small and Medium-sized Enterprise
+\item[SMETA] Sedex Members Ethical Trade Audit
+\item[STECF] Scientific, Technical and Economic Committee for Fisheries
+\item[TNFD] Taskforce on Nature-related Financial Disclosures
+\item[UN] United Nations
+\item[VSME] Voluntary Sustainability Reporting Standard for SMEs
+\end{description}
+\clearpage
+
+\iffalse % ===== RUBEN: previous Introduction — replaced by \input{introduction.tex} (rewrite). Kept in source; delete when happy. =====
+\section{1. Introduction}\label{introduction}
+
+\subsection{1.1 Sustainability as
+strategy}\label{sustainability-as-strategy}
+
+Companies are increasingly faced with sustainability demands originating
+from regulatory, market, and societal stakeholders. The way firms
+respond to these demands varies along a continuum of sustainability
+maturity, between two ideal-typical postures (Russo \& Fouts, 1997;
+Sharma \& Vredenburg, 1998).
+
+A reactive approach implies that the firm meets the bare minimum of
+stakeholder demands by acting only when external pressure arises.
+Sustainable practices are not specifically developed and remain
+peripheral to the business model. Firms with a reactive posture comply
+with the minimum sustainability prerequisites required to operate but
+are unlikely to benefit from performance gains associated with deeper
+sustainability integration. A proactive approach, in contrast, implies
+voluntary engagement that exceeds the legal minimum, contributing to
+environmental and social development as well as long-term economic
+performance. Empirical evidence from CSR research in small and
+medium-sized enterprises (SMEs) suggests that proactive economic-related
+CSR generates positive direct effects on financial performance over the
+long term (Torugsa et al., 2013).
+
+The barrier to proactive engagement, particularly for
+resource-constrained firms, is not lack of intent but external-input
+overload. Fragmented and complex sustainability governance pushes SMEs
+toward reactive compliance behaviour rather than strategic integration
+(Chan et al., 2022). Where multiple stakeholders demand different
+information through different channels, the practical effect on SMEs
+with limited compliance capacity is paralysis or minimum-viable
+response.
+
+This pattern is not confined to small firms. At the level of the European
+economy as a whole, recent analysis finds that government and enterprise
+broadly agree on the \emph{objectives} of the sustainability transition;
+the persistent gap lies instead in the proliferation of instruments and in
+regulatory complexity, with one practitioner alignment index placing
+government--enterprise convergence at only around half
+(The European House~--~Ambrosetti, 2026).% TODO verify exact STAGE Index figure (~51\%, 2026)
+The bottleneck of the transition is therefore increasingly one of
+fragmentation and tool overload rather than of contested goals - a
+macro-level pattern that bears most heavily on the actors least equipped
+to absorb it, and which motivates a focus, in the remainder of this
+thesis, on resource-constrained firms in a structurally fragmented
+sector.
+
+\subsection{1.2 SME sustainability
+constraints}\label{sme-sustainability-constraints}
+
+SMEs face a well-documented set of constraints that shape their
+sustainability strategy choices. These include: limited financial and
+managerial resources; lack of dedicated internal expertise in
+environmental and social reporting; weak data systems and IT
+infrastructure; high dependence on a small number of B2B customers; and
+uncertainty regarding the evolving regulatory landscape (Battisti \&
+Perry, 2011).
+
+In practice these constraints mean that an SME confronted by multiple,
+overlapping sustainability requirements cannot simply expand its
+compliance function proportionally. Each new disclosure request from a
+customer, certifier, investor, or regulator imposes a fixed overhead
+disproportionate to the firm\textquotesingle s size. The resulting
+incentive is to treat sustainability disclosure as transactional
+compliance, answering questionnaires as they arrive, rather than as a
+strategic investment in capabilities that could serve multiple demands
+simultaneously (Interview).
+
+This pressure is not only felt by suppliers; it is increasingly
+acknowledged by the large buyers who generate it. Philips, for instance,
+describes its supplier-sustainability programme as a deliberate move
+\emph{beyond auditing}, prompted by the observation that
+\textquotesingle rapidly changing customer demands\textquotesingle{}
+produce \textquotesingle a wide variety of codes of conduct\ldots creating
+challenges such as audit fatigue, operational disruption and a lack of
+structural improvement due to a \textquotesingle quick
+fix\textquotesingle{} mentality\textquotesingle{} (Philips, 2025). Its
+proposed remedy is a controlled, partly open-source approach in which a
+supplier\textquotesingle s improvement is recognised by a broader group of
+customers, so that the firm can concentrate its effort rather than answer
+each buyer separately. That remedy, however, is articulated and resourced
+from the \emph{buyer\textquotesingle s} side. From the
+\emph{supplier\textquotesingle s} side - and especially that of a small
+processor without a dedicated sustainability function - the equivalent
+leverage depends on first being able to see \emph{which} of the many
+competing demands converge, so that a single capability investment serves
+several at once. Providing that supplier-side view is the problem this
+thesis addresses.
+
+\subsection{1.3 Fragmented governance in the seafood
+sector}\label{fragmented-governance-in-the-seafood-sector}
+
+Seafood is the most highly traded food product globally, with per capita
+consumption increasing more rapidly than other animal proteins (Barclay
+\& Miller, 2018). The sector is structurally complex, involving global
+sourcing networks, multiple processing stages, and exposure to a wide
+range of sustainability risks including marine
+ecosystem impacts, antimicrobial use, forced labour in fishing fleets,
+and food safety incidents (Barclay \& Miller, 2018). In addition, at the EU level, the sector is overwhelmingly composed of small-scale enterprises: micro-
+enterprises ($\leq$10 employees) account for around two-thirds of all firms, while small
+enterprises (11--49 employees) represent most of the remaining share. Medium-sized
+enterprises (50--249 employees) and large enterprises ($\geq$250 employees) make
+up only a small fraction (STECF, 2025).
+
+European seafood processors, like many industries, face this complexity from a position of
+compounded pressure. In addition to horizontal European legislation
+addressing waste and packaging (Regulation (EU) 2025/40), sustainability
+claims (the proposed Empowering Consumers Directive, Directive (EU)
+2024/825), and corporate sustainability disclosure (CSRD/ESRS, CSDDD),
+the sector is subject to a dense overlay of sector-specific regulation:
+the EU Common Fisheries Policy (Regulation (EU) No~1380/2013), the IUU
+Regulation (Council Regulation 1005/2008), the recast Control Regulation
+(2023/2842), the EU Deforestation Regulation (2023/1115, relevant for
+aquaculture feed sourcing), and the Farm to Fork Strategy under the
+European Green Deal.
+
+Layered on top of this regulatory architecture is a fragmented landscape
+of voluntary instruments: certifications (MSC for wild-capture, ASC and
+BAP for aquaculture, GLOBALG.A.P.), food safety standards (IFS Food,
+BRCGS, FSSC 22000, benchmarked by GFSI), supply-chain transparency
+platforms (Sedex/SMETA, EcoVadis), investor frameworks (CDP, SBTi, TCFD,
+IFRS S2, the Coller FAIRR Protein Producer Index), industry initiatives
+(GSSI, GDST, Move to Minus 15, ISSF for tuna), and management-system
+standards (ISO 14001, 45001, 50001). Governance is structurally
+fragmented, with no single coordinating actor and overlapping but
+non-identical demands from each (Bush \& Oosterveer, 2019).
+
+The empirical implication, surfaced in early scoping interviews for this
+research, is that European seafood SMEs receive sustainability data
+requests from multiple actors who individually demand reasonable
+information but collectively impose an unsustainable response burden.
+The SME response, predictably, is reactive: comply with the loudest
+demand, defer the rest, do not invest in capability that would serve
+more demands than the one in front of them.
+
+\subsection{1.4 The sustainability reporting
+landscape}\label{the-sustainability-reporting-landscape}
+
+The European Union has positioned corporate sustainability reporting as
+a key lever for the European Green Deal, intending to improve the
+availability, comparability, and reliability of sustainability
+information available to investors, regulators, and value-chain partners
+(European Commission, 2019). Disclosure is conceptualised not only as a
+transparency mechanism but as a tool that shapes economic behaviour by
+directing capital toward sustainable activities.
+
+The Corporate Sustainability Reporting Directive (CSRD; Directive (EU)
+2022/2464) operationalises this ambition. CSRD is implemented through
+the European Sustainability Reporting Standards (ESRS; Commission
+Delegated Regulation (EU) 2023/2772), which define mandatory disclosure
+requirements across twelve cross-cutting and topical standards covering
+environmental, social, and governance dimensions. ESRS introduces the
+double materiality principle, requiring undertakings to report both on
+how sustainability matters affect their financial performance and on the
+firm\textquotesingle s own impacts on the economy, environment, and
+people (EFRAG, 2021).
+
+CSRD scope is restricted to large undertakings and listed entities
+meeting specified employee, turnover, and balance-sheet thresholds.
+Under the Omnibus simplification proposals (European Commission, 2025),
+the scope of CSRD has been further restricted, with smaller
+previously-in-scope firms now exempted. The majority of European seafood
+processing companies fall below CSRD thresholds and are therefore not
+directly subject to ESRS reporting obligations.
+
+To address the disclosure needs of out-of-scope SMEs, EFRAG has
+developed the Voluntary Sustainability Reporting Standard for SMEs
+(VSME), comprising a basic and a comprehensive module. VSME is designed
+to be proportionate to SME constraints, reducing the disclosure load
+from approximately 1,000 ESRS datapoints to approximately 100. Adoption
+is voluntary, but the framework is intended to provide a recognised
+reference set that satisfies the most common information requests SMEs
+receive from value-chain partners and financial institutions.
+
+In practice, however, two structural gaps are observable. First, the
+leap from no sustainability reporting at all to even the basic VSME
+module remains significant for many SMEs (interview). Second, the gap
+between VSME and full ESRS is substantially larger and is precisely the
+territory in which non-CSRD seafood SMEs operate when responding to
+ad-hoc customer questionnaires, certification audits, and investor
+requests. The sustainability reporting frame, in other words, does not
+cover the operational reality of European seafood SMEs in the post-CSRD
+environment.
+
+Beyond the CSRD--ESRS--VSME reporting frame lies a wider and functionally
+heterogeneous landscape. The instruments an SME actually encounters are
+not variants of one thing; they discharge different functions for
+different audiences. \emph{Standards} define what should be disclosed
+(ESRS, GRI, IFRS~S1/S2); \emph{frameworks} provide structuring principles
+rather than a disclosure set (the EU Taxonomy's activity classification,
+science-based-target methodologies); \emph{ratings} score and rank firms
+for comparison by capital markets (MSCI, Sustainalytics, EcoVadis); and
+\emph{coordinating initiatives and treaties} align collective action
+rather than impose firm-level duties (the UN Global Compact, the SDGs).
+Viewed instrument by instrument the field reads as redundant proliferation - the \textquotesingle alphabet soup\textquotesingle{} of standards,
+frameworks and ratings that has prompted sustained calls for harmonisation
+(Adams \& Abhayawansa, 2022; Christensen, Hail \& Leuz, 2021) - but the
+heterogeneity is functional, not merely duplicative: the instruments
+persist because they answer different questions for different audiences. A
+rating, built to score and compare a firm from the outside, is a different
+object from a standard, which obliges the firm to disclose defined
+datapoints; a framework that structures target-setting is different again
+from a treaty that coordinates action between states. This functional
+heterogeneity is the analytical
+premise of the thesis: because the instruments do different jobs for
+different audiences, the points at which they nonetheless converge on the
+same underlying topic are informative - they mark demands that are
+robust across the fragmentation rather than artefacts of any single
+instrument.
+
+\subsection{1.5 Research gap and the diagnostic-tool
+argument}\label{research-gap-and-the-diagnostic-tool-argument}
+
+Existing literature addresses several aspects of this problem in
+isolation. Sustainability reporting maturity models describe staged
+organizational evolution in reporting practice (Baumgartner et al.,
+2010; Cöster et al., 2020). Studies of CSRD implementation costs
+document the burden faced by in-scope firms (EFRAG, 2025).
+Stakeholder-pressure literature explains why firms respond to particular
+demands (Mitchell, Agle \& Wood, 1997; Suchman, 1995).
+Institutional-isomorphism theory provides a lens on why disclosure
+conventions converge despite formal voluntariness (DiMaggio \& Powell,
+1983). The seafood-specific literature documents the fragmented
+private-governance landscape (Bush et al., 2017; Tlusty, 2012;
+Vandergeest, 2018).
+
+What is missing is an integrated empirical analysis that (i) maps the
+actual cross-framework disclosure demand facing European seafood SMEs,
+(ii) identifies where multiple stakeholders converge versus where they
+diverge, and (iii) translates that empirical pattern into a diagnostic
+tool that lets an SME self-position on the reactive-to-proactive
+spectrum and identify which capability investments would most
+efficiently expand its sustainability response.
+
+This thesis addresses that gap. The empirical material is drawn from the
+disclosure practice of six large seafood processors that are
+CSRD-reporting; this cohort defines the realistic upper bound of
+seafood-sector disclosure depth. Cross-referenced against the broader
+stakeholder ecosystem of regulators, customers, investors, and industry
+initiatives, the analysis identifies disclosure topics that face
+concentrated cross-stakeholder demand. These hotspots define the
+high-leverage capability investments for SMEs: topics where building
+reporting capability once satisfies many demands simultaneously,
+enabling the SME to shift from reactive question-by-question response to
+proactive capability-driven engagement.
+\fi % ===== end previous Introduction =====
+
+\input{introduction.tex}
+
+\section{2. Literature review and conceptual framework}\label{conceptual-framework}
+
+This chapter situates the thesis in existing work and then builds the conceptual
+frame the rest of the analysis uses. Section~2.1 reviews the relevant literature
+and identifies the gap it addresses. Sections~2.2--2.4 then assemble the frame in
+three moves, each introducing a theoretical lens only where that lens does
+explanatory work for the argument: the reactive--proactive spectrum the thesis
+seeks to move firms along (3.2); why resource-constrained firms become stuck on its
+reactive side (3.3); and why building a few shared capabilities is the way off it
+(3.4). The necessity gradient that orders the demands themselves is developed
+where it is first used, in Chapter~4.
+
+\input{ch3_litreview_draft.tex}
+
+\subsection{2.2 The reactive--proactive sustainability
+spectrum}\label{the-reactive-proactive-sustainability-spectrum}
+
+The reactive--proactive distinction (Sharma \& Vredenburg, 1998; Torugsa et al.,
+2013) provides the thesis's central organising frame. It is the spectrum along
+which a firm's sustainability posture sits, and the shift from its reactive to its
+proactive end is the change the thesis ultimately seeks to enable. The two postures
+differ along several dimensions:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2564}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3718}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3718}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Dimension}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Reactive posture}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Proactive posture}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Trigger for action} & External demand (questionnaire, audit,
+regulatory deadline) & Strategic anticipation; voluntary commitments \\
+\textbf{Disclosure approach} & Transactional, question-by-question;
+minimum viable & Capability-driven, integrated; goes beyond legal
+minimum \\
+\textbf{Data infrastructure} & Ad-hoc, manual, rebuilt per request &
+Systematic, automated, reusable across demands \\
+\textbf{Strategic positioning} & Compliance cost center & Competitive
+differentiation; risk-adjusted financial benefit \\
+\textbf{Stakeholder relationship} & Defensive; minimum communication &
+Proactive engagement; trust-building \\
+\end{longtable}
+}
+
+Empirical CSR research also associates the proactive posture with positive
+long-term financial performance (Torugsa et al.). The barrier to adoption among
+resource-constrained SMEs is not rejection of the proactive posture in principle
+but the absence of a tractable path from reactive practice to proactive capability,
+given the fragmented and unpredictable nature of external demand. Why such firms
+remain on the reactive side of the spectrum despite its costs - and why that is a
+rational response rather than a failure of intent - is the question the next
+section takes up.
+
+\subsection{2.3 Why resource-constrained firms stay
+reactive}\label{stakeholder-pressure-and-fragmented-governance}
+
+The reactive posture is best read not as a failure of intent but as the predictable
+response to how sustainability demand is structured. Stakeholder-salience theory
+(Mitchell, Agle \& Wood, 1997) explains how a firm triages competing claims by
+their power, legitimacy and urgency. Where one stakeholder dominates, the firm can
+order its response cleanly. In the seafood sustainability field, however,
+regulators, retail customers, certifiers, investors and NGOs each press legitimate
+but uncoordinated demands through their own channels and on their own timetables.
+With no single claim dominant and no coordination among them, the firm is left
+continually re-triaging whichever demand is most urgent at the moment - and
+continual re-triage, meeting each demand as it lands, \emph{is} the reactive
+posture. Salience theory thus supplies the mechanism behind the reactivity that
+Section~2.2 describes: it is the structure of fragmented demand, not indifference,
+that keeps a small firm firefighting.
+
+The fragmented governance of the seafood sustainability field, regulators,
+brands, retailers, certifiers, NGOs and investors all exercising parallel and
+overlapping demands (Bush \& Oosterveer, 2019; Barclay \& Miller, 2018), is a
+sharp instance of this multi-stakeholder structure. Each demand is individually
+legitimate, yet their cumulative weight outstrips what a resource-constrained firm can
+systematically plan for, so meeting them one at a time becomes the rational
+adaptation this thesis takes as its starting premise.
+
+\subsection{2.4 Why building shared capabilities is the way
+out}\label{the-bridge-cross-stakeholder-demand-convergence}
+
+If fragmentation is what creates the reactive trap, the way out lies in its mirror
+image: beneath the many differently worded demands sits a much smaller body of
+shared data, and the demands converge on it. Two ideas turn that observation into a
+strategy.
+
+The first explains why the convergence is real rather than coincidental.
+Institutional theory (DiMaggio \& Powell, 1983) shows why disclosure conventions
+converge across firms and instruments even where formally voluntary: coercive
+isomorphism (regulatory pressure), mimetic isomorphism (copying perceived leaders)
+and normative isomorphism (the professionalisation of the sustainability function)
+all push independent actors toward the same disclosure choices. When a customer
+certification, an investor questionnaire, an industry framework and a regulation
+all ask for the same topic, that agreement reflects a shared, institutionally
+reinforced expectation rather than chance. This is what makes it meaningful to map
+where demand converges, and to read a topic demanded through many channels as a
+genuine sector-wide priority - the interpretation the cohort's universal core is
+given in Chapter~5. The mimetic mechanism bears particularly on SMEs, whose
+limited managerial resources and dedicated reporting expertise (Battisti \&
+Perry, 2011) leave little capacity to form independent positions on what to
+disclose; following what peers and buyers already treat as standard is the
+lower-cost route.
+
+The second explains why acting on that convergence pays. Where the same topic is
+demanded by a customer, an investor, an industry framework and a regulator at once,
+a firm that builds the capability to report it earns compound returns: one
+investment answers many demands. By \emph{capability} this thesis means something
+concrete - the ability to produce a disclosure theme's underlying datapoints
+reliably and repeatably, as a standing process rather than a one-off assembly. This
+is the resource-based logic of the firm (Barney, 1991) and the dynamic-capabilities
+literature (Teece, 2007): a capability, once built, is fungible across every demand
+that draws on it. Because what one framework asks is so often also asked by another,
+a capability built to satisfy a mandatory requirement already supplies much of what
+the voluntary and value-chain requirements on the same topic need. The marginal
+cost of proactive disclosure is therefore far lower than it appears when each
+demand is costed in isolation: the proactive firm recognises the overlap and builds
+once, whereas the reactive firm rebuilds requirement by requirement and perpetually
+pays the full isolated cost of each.
+
+This is the conceptual bridge from reactive to proactive, and it sets the agenda
+for the four empirical steps. Acting on convergence requires knowing three things,
+then acting on them. First, which instruments demand what, and how bindingly: the
+ecosystem and its necessity gradient, scanned in Chapter~4 (Step~1), where the
+progression from legally enforced to normatively expected obligation is read
+through legitimacy theory (Suchman, 1995). Second, what some of the sector's most
+advanced firms actually report - the realistic frontier, scanned in Chapter~5 (Step~2).
+Third, where demand converges across the two into the topics an individual firm
+should build first (Step~3). Acting on that finding is Step~4, which turns it into
+a diagnostic tool. Steps~3 and~4 are both mapped in Chapter~6.
+
+
+\section{3. Research questions and research design}\label{research-questions-and-contribution}
+
+\subsection{3.1 Research questions}\label{research-questions}
+
+The research is organised around three interconnected questions, one for each of
+the first three of the four empirical steps that follow (Chapters~4--6; the
+third question is answered in two steps carried out in the same chapter - locating convergence, then building the diagnostic on it):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{RQ1 - Descriptive (the ecosystem):} What is the landscape of
+  sustainability-disclosure instruments acting on a European
+  seafood-processing SME, and how does it order when each instrument is
+  classified by how binding it is (its \emph{necessity}) and which
+  stakeholder drives it (its \emph{source})?
+\item
+  \textbf{RQ2 - Empirical (the frontier):} Benchmarked against the ESRS
+  structure, what do some of the sector's most advanced reporters actually
+  disclose - and what does this reveal about the realistic upper bound
+  of seafood disclosure depth and the universal core of topics every
+  mature firm reports?
+\item
+  \textbf{RQ3 - Prescriptive (the convergence):} Across that landscape and
+  that topic set, where does cross-stakeholder demand \emph{converge}, and
+  which disclosure topics - if built first - let a resource-constrained
+  processor satisfy the largest share of the demands it faces, when this
+  prioritisation is operationalised as a diagnostic tool the firm can
+  apply to its own situation?
+\end{enumerate}
+
+Each question is answered by one step: RQ1 by the ecosystem scan (Step~1,
+Chapter~4), RQ2 by the cohort scan (Step~2, Chapter~5), and RQ3 by the
+cross-framework demand mapping and the diagnostic tool built on it (Steps~3
+and~4, both in Chapter~6).
+
+\Needspace*{40\baselineskip}
+The study approaches its question in four steps rather than as a single linear
+pipeline: an ecosystem scan, a cohort scan, the overlap between them, and the
+tool built on that overlap. Figure~\ref{fig:methodology-overview} sets them out.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\linewidth]{methodology_diagram_corrected.pdf}
+\caption{The thesis's four-step methodology, answering RQ1--RQ3 above:
+Step~1 scans the disclosure ecosystem (Chapter~4, RQ1), Step~2 scans the
+cohort frontier (Chapter~5, RQ2), and Steps~3 and~4 - crossing the two
+to find where demand converges, then building the diagnostic tool on
+that finding - are carried out together in Chapter~6 (RQ3). Neither scan is
+actionable on its own: the ecosystem scan returns 49 catalogued instruments and
+the cohort scan 70 disclosure requirements, and it is their intersection rather
+than either list that yields a workable set of priorities. Chapters
+5--7 each return to this figure as their starting point.}
+\label{fig:methodology-overview}
+\end{figure}
+\FloatBarrier
+
+\subsection{3.2 Intended contributions}\label{intended-contributions}
+
+The thesis contributes to three audiences:
+
+\begin{itemize}
+\item
+  \textbf{For seafood SMEs:} a diagnostic framework
+  and a prioritised, sequenced set of build-first disclosure topics -   and the datapoints beneath them - tailored to the firm's own mix of
+  demands, intended as a basis for strategic discussion within the firm
+  rather than a compliance checklist.
+\item
+  \textbf{For EU policy:} empirical input to the ongoing
+  simplification debate (Omnibus, VSME extension, sector standards
+  postponement). The cross-stakeholder hotspot analysis identifies where
+  the regulatory and voluntary disclosure ecosystem is converging and
+  therefore where coordination or capping of demand would deliver
+  disproportionate burden reduction for SMEs. This aligns with the
+  Competitiveness Compass target of cutting administrative burden by
+  $\geq$35\% for SMEs (European Commission, 2025).
+\item
+  \textbf{For academia:} the thesis provides a first systematic mapping of
+  cross-stakeholder disclosure demand at the sector level using a defined
+  coverage scale, extends the sustainability-reporting maturity-model
+  literature by operationalising it as a diagnostic tool, and applies the
+  reactive/proactive CSR distinction to empirical material.
+\end{itemize}
+
+\subsection{3.3 Research design}\label{methodology}
+
+\textbf{Organisation of the thesis, and its reasoning.} The thesis integrates
+its methodology and its results rather than presenting them in separate
+chapters, because the four steps use different data and different methods.
+\emph{Each of the three empirical chapters is therefore self-contained}: Chapters~4, 5 and~6 each open with
+the reasoning behind their step, set out their own data and coding procedure,
+report their own findings, and close by interpreting what those findings do and
+do not establish. Chapter~6 carries two steps rather than one, because
+locating convergence and building the diagnostic on it are drawn from the same
+matrix.
+
+This structure is deliberate. A pooled methodology chapter would have to
+describe three unrelated procedures in the abstract, before the reader knows what
+any of them is for, and a pooled results chapter would then separate each finding
+from the method that produced it. Keeping them together makes each step
+independently auditable.
+
+What remains genuinely shared is presented in the remainder of this section: the
+common measurement framework, the cohort, the data and coding procedures, and the
+validation strategy. Chapter~7 then draws the three sets of findings together, reads them
+against the conceptual framework of Chapter~2, and states the limitations that
+apply across all of them.
+
+\textbf{A common reference frame.} To compare and aggregate demand across a
+fragmented field of instruments, the analysis adopts the European Sustainability
+Reporting Standards (ESRS) as a common coordinate system - the most comprehensive
+and legally anchored topic structure available, its ten topical standards (E1--E5,
+S1--S4, G1) resolving into a defined set of disclosure requirements. Instruments and
+reports written to other frameworks are read onto this structure, so that every
+demand and every disclosure is expressed in one vocabulary. The choice, and its
+limits, are developed where the frame is first used (Chapter~4 for the instrument
+landscape, Chapter~5 for the cohort).
+
+\textbf{Cohort and case selection.} The empirical work centres on six large
+European seafood processors, selected purposively as among the sector's most advanced
+sustainability reporters - not as a representative sample but as an upper-bound
+proxy for what the sector can currently disclose. The selection spans the main
+sourcing models so that the disclosure pattern is not an artefact of a single
+production system; the full rationale and the cohort table are given in Chapter~5.
+
+\textbf{Data and coding.} The analysis rests on two hand-built, hand-coded datasets:
+the cohort firms' most recent sustainability reports, coded at
+disclosure-requirement level against the ESRS structure (Chapter~5); and a catalogue
+of the regulatory, customer, investor and industry instruments active in the sector,
+each coded for the demand it places on each disclosure topic (Chapters~4 and~6).
+Coding was performed manually from primary documents and cross-checked against the
+underlying datapoints; the per-cell coding protocol is set out in Chapter~6.
+
+\textbf{Validation.}\label{framework-validation-strategy} The framework rests on
+three legs that do not depend on outside confirmation. Its construction is grounded
+in the theory of Chapter~2 and in primary regulatory and standard-setting documents.
+Its coding is checked for consistency against defined datapoints and logged
+cell by cell. And it is applied to a worked case (Chapter~6) to show that it
+yields a usable prioritisation.
+
+A fourth leg is external and, at the time of writing, incomplete. The instrument
+classification of Chapter~4 was discussed with industry contacts at Seafood Europe
+during its construction, and the completed classification and cohort coding have
+been submitted to the sustainability leads at the six cohort firms for review. This
+is member checking (Lincoln \& Guba, 1985): a corroborating step, not a formal
+reliability test. Any corrections it returns will be incorporated before final
+submission, and the analysis does not depend on it. Practitioner validation of the
+worked case with a firm itself is left to future work.
+
+
+\iffalse %% ===== HIDDEN: old 4.2--4.8 monolithic methodology (superseded by the slim research design above + the angle chapters) =====
+\subsection{4.2 Empirical scope: the large-reporter
+cohort}\label{empirical-scope-the-large-reporter-cohort}
+
+The empirical foundation is the disclosure practice of six large
+seafood companies that are CSRD-reporting or have published
+sustainability reports of comparable depth (Table~\ref{tab:cohort}).
+These six represent the realistic upper bound of seafood-sector
+disclosure depth and were selected to span the structural divisions of
+the industry: wild-capture and aquaculture; branded and private-label;
+primary producers and pure processors; and European and non-European
+headquarters. The deliberate heterogeneity is the point - if a common
+set of disclosure topics emerges across business models as different as a
+Norwegian salmon farmer (Mowi), a Thai global tuna brand (Thai Union) and
+a Danish whitefish processor (Espersen), that core is unlikely to be an
+artefact of any single business model.
+
+\begin{table}[ht]
+\centering\footnotesize
+\caption{The large-reporter cohort. Coverage is the share of the 70
+topical ESRS Disclosure Requirements the company reports against.}
+\label{tab:cohort}
+\begin{tabular}{@{}llp{4.4cm}lll@{}}
+\toprule
+Company & HQ & Business model & Report & Standard & DRs (cov.) \\
+\midrule
+Thai Union & Thailand & Wild-capture tuna, global brand & 2024 & GRI (acc.) & 53 (76\%) \\
+Bolton Group & Italy & Wild-capture tuna, branded & 2024 & ESRS & 45 (64\%) \\
+Nomad Foods & UK & Frozen-brand processor & 2025 & GRI & 42 (60\%) \\
+Profand & Spain & Integrated wild + aquaculture & 2025 & GRI & 38 (54\%) \\
+A.~Espersen & Denmark & Whitefish processor & 2025 & ESRS & 34 (49\%) \\
+Mowi & Norway & Salmon aquaculture & 2025 & ESRS & 33 (47\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The data sources are each company\textquotesingle s most recent publicly
+available sustainability report (2024 or 2025 reporting cycle),
+supplemented where available by their CSRD-aligned ESRS-index appendices.
+The cohort mixes reporting years and standards - three firms report
+under ESRS, three map a GRI report onto the ESRS structure, and report
+years span 2024--2025 - which limits strict comparability and is
+revisited in the robustness checks and limitations below. The unit of
+empirical analysis is the ESRS Disclosure Requirement (DR); each report
+was coded by hand for whether the company reports against each of the 70
+ESRS topical DRs (E1--E5, S1--S4, G1).
+
+\subsection{4.3 Phase 1 - Universe
+construction}\label{phase-1---universe-construction}
+
+The disclosure-topic universe used in the cross-framework mapping is
+constructed in four steps.
+% =====================================================================
+%  REVISED METHODOLOGY — Phase 1 (amended) + Phase 3 (rewritten)
+%  Drop-in replacement text. Changes vs. your current draft:
+%    (1) Universe is now 32 rows (AMU merged into Animal health & welfare
+%        -> 4 sector-material gap rows, not 5).
+%    (2) Phase 3 codes the FULL Phase 2 landscape (~37 instruments),
+%        not "~12 priority frameworks", and 32 rows, not 43.
+%    (3) NEW: datapoint-grounded scoring protocol.
+%    (4) NEW: out-of-frame demand register.
+%  Editorial flags:  \resflag  marks text that may belong in RESULTS.
+%  Figure needs:  \usepackage{tikz}  \usetikzlibrary{shapes.geometric,arrows.meta,positioning}
+%               + \usepackage{soul} (you already use \hl)
+% =====================================================================
+
+\newcommand{\resflag}{} % RUBEN: editorial flag neutralised during cleanup
+
+\textbf{Steps 1.1--1.3 Cohort-frequency derivation.} The starting universe
+is the full set of 70 topical ESRS Disclosure Requirements. Each of the
+six cohort reports was coded for whether it discloses against each DR,
+producing a binary DR\,$\times$\,company coverage matrix. The
+\emph{reporting frequency} of a DR - the number of cohort companies that
+report it - is the inclusion signal, and its distribution is itself
+informative: of the 62 DRs reported by at least one firm, 13 are reported
+by all six and 26 by at least five, against a long tail of 24 reported by
+only one or two firms (Figure~\ref{fig:p1-frequency}). A two-tier
+inclusion rule follows. \emph{Tier~1} admits a DR on cohort consensus,
+defined as reporting by at least five of the six companies ($n-1$),
+yielding 26 DRs. \emph{Tier~2} admits, at topic level, sector-relevant
+topics that fall below the Tier-1 cut but are material to seafood - biodiversity (E4) and consumer health and food safety (S4).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.74\linewidth]{p1_frequency.pdf}
+\caption{Reporting frequency across the six-company cohort: how many
+firms report each ESRS Disclosure Requirement. The shaded region marks
+the Tier-1 cut ($\geq$5 of 6).}
+\label{fig:p1-frequency}
+\end{figure}
+
+\textbf{Materiality caveat.} This procedure measures \emph{reporting
+convention} among large, mostly CSRD-scoped reporters, not materiality for
+a small processor. A frequently-reported DR is one the SME is likely to be
+\emph{asked about} as the convention cascades down the value chain - a
+demand-relevance proxy - rather than a topic asserted to be material for
+any individual firm. Whether the resulting priorities fit a real
+firm\textquotesingle s situation is examined in the worked case
+application (Section~3.7).
+
+\textbf{Robustness of the cohort signal.} Three checks indicate the
+shortlist is not an artefact of the sample. First, \emph{threshold
+sensitivity}: the shortlist contracts monotonically from 56 DRs at
+$\geq$2 reporters to 26 at $\geq$5 and 13 at $\geq$6, so the $n-1$ rule
+sits on a smooth gradient rather than a cliff edge. Second,
+\emph{cohort-size invariance}: re-deriving the shortlist on the five
+European firms alone - dropping the non-EU Thai Union, at the equivalent
+$\geq$4-of-5 cut - returns the \emph{identical} 26-DR set, a complete
+overlap, so the result does not depend on which firms are included. Third,
+\emph{temporal stability}: for the three firms with two reporting years,
+approximately 95\% of 2024 DRs are retained in 2025
+(Figure~\ref{fig:p1-evolution}); the small net contraction falls on
+advanced, forward-looking disclosures (anticipated financial effects,
+biodiversity transition plans, non-employee and consumer disclosures),
+consistent with the 2025 Omnibus simplification easing the reporting
+burden. The backbone is thus stable across sample size, business model and
+time. A complementary check on business model finds 19 of the 26 Tier-1
+DRs reported across all four model groups (wild, aquaculture, integrated,
+processor), the remainder concentrated in primary producers (waste,
+diversity) or processors (climate transition) - a difference of
+emphasis rather than of core.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.86\linewidth]{p1_year_evolution.pdf}
+\caption{Year-over-year reporting for the three firms with both 2024 and
+2025 reports. Left: the reported-DR count is near-flat. Right: most DRs
+are retained; the few dropped in 2025 are advanced, forward-looking
+disclosures.}
+\label{fig:p1-evolution}
+\end{figure}
+
+\textbf{The non-EU comparator.} Thai Union, the single non-European firm
+and the only one reporting under GRI ``in accordance'' rather than ESRS,
+is the broadest reporter (53 of 70 DRs, 76\%). Its profile differs in a
+structured way: it reports \emph{more} widely on biodiversity (E4),
+affected communities (S3) and pollution (E2) than the European average,
+consistent with the international NGO and market scrutiny a global tuna
+major faces, while the European firms report \emph{deeper} on the
+regulated workforce-detail requirements that ESRS S1 mandates and Thai
+Union omits (adequate wages, social protection, work-life balance). That
+the consensus core nonetheless survives this EU/non-EU divide - only one
+DR is reported uniquely by Thai Union - strengthens rather than weakens
+the universe: the high-frequency topics are common ground across reporting
+regimes, not an artefact of EU regulation.
+
+% ---------------------------------------------------------------------
+% AMENDMENT TO STEP 1.4 (replaces the "five topics" paragraph)
+% ---------------------------------------------------------------------
+\textbf{Step 1.4 Sector-material topics carried into the demand matrix}
+
+The cross-check in Step 1.3 is not left as commentary. The topics that
+are most sector-defining for seafood yet have no clean ESRS (and,
+equally, no VSME) home are carried into Phase 3 as a separate, explicitly
+flagged block of sector-material rows. After consolidation this block
+comprises \emph{four} rows: supply-chain traceability (chain of custody);
+wild-stock status and sustainable wild sourcing; feed and
+marine-ingredient sourcing; and animal health and welfare. Antimicrobial
+use, treated as a fifth candidate in earlier drafting, is folded into the
+animal-health-and-welfare row rather than carried separately, for two
+reasons: it has no home of its own in GRI~13 (it is neither a topic nor a
+disclosure in the standard), and the certification schemes that demand it
+(ASC, BAP) treat antibiotic stewardship as an element of fish-health
+management. Wild-stock status partly overlaps ESRS~E4 and is retained as a
+distinct sourcing-decision row; the coding rule that separates the two is
+pinned in Phase~3 (Section~3.5).
+
+These rows are deliberately \emph{not} derived from cohort consensus --
+the cohort does not report them at scale precisely because the ESRS
+taxonomy does not ask for them. They are admitted on a different, clearly
+labelled basis, and that basis differs by row. Two correspond to named
+GRI~13 topics: traceability to GRI~13.23 (Supply chain traceability) and
+animal health and welfare to GRI~13.11 (Animal health and welfare). The
+other two are not GRI~13 topics but are carried by the
+fishing/aquaculture \emph{sector-specific disclosures} that GRI files
+under biodiversity -- wild-stock under the ``aquatic organisms caught or
+harvested'' disclosure (13.3.11) and feed under the ``aquaculture
+production'' disclosure (13.3.10) -- together with demand from EU sector
+legislation and major non-regulatory frameworks (the IUU and Fisheries
+Control Regulations, MSC/ASC chain of custody, GDST, FisheryProgress).
+Each gap row additionally carries a system tag (\emph{wild},
+\emph{aqua}, or \emph{both}) recording the production system to which it
+applies, so that a wild-capture-only or aquaculture-only firm excludes
+the rows that do not concern it.
+
+Carrying these as a flagged block keeps the cohort-evidenced core and the
+sector-material additions epistemically distinct. In the matrix
+these rows score near-zero across the ESRS/VSME and investor columns and
+concentrate on the seafood-certification and regulatory columns; that
+contrast is an empirical result of the coding, not a premise, and may
+read better in the results chapter.
+
+\textbf{Own-operation versus value-chain scope.} A further distinction
+sharpens the status of these four rows for the focal firm, the
+\emph{processor}. Traceability is an \emph{own-operation} topic: chain of
+custody is enforced within the processing plant itself, and every cohort
+firm reports on it - from a handful of mentions in Espersen\textquotesingle s
+report to more than thirty in Bolton\textquotesingle s - framing it as
+its own capability and compliance obligation. The other three rows are
+\emph{upstream}: wild-stock status is determined at the fishery, and feed
+and animal health at the farm. The cohort reports bear this out. Wild-stock
+is framed as a sourcing decision (\textquotesingle as a major purchaser of
+wild-caught seafood\textquotesingle, Nomad Foods; \textquotesingle
+sustainably sourced\ldots{} MSC certification\textquotesingle, Bolton),
+while feed and animal health are reported as own operations only by the
+vertically integrated salmon farmer, Mowi - which operates its own feed
+mills and records the two topics several hundred times each - and barely
+at all by the pure processors. For a processing SME, therefore, wild-stock,
+feed and animal health are not own-operation topics but \emph{value-chain
+sourcing demands}, discharged through the same traceability capability and
+supplier attestations. They are retained in the universe as genuine demands
+but scoped as value-chain rather than own-operation. This both explains
+their concentration on the certification and regulatory columns of the
+demand matrix and illustrates the capability-sharing logic directly: a
+single traceability investment is what lets the processor answer all four.
+Concretely, that investment is the set of Key Data Elements captured at the
+processing stage under the GDST standard - item, lot, species, product
+origin and, above all, the chain-of-custody certification field, which
+records whether a lot is MSC-, ASC- or BAP-certified and thereby evidences
+the wild-stock, feed and animal-health sourcing claims in one data
+structure. GDST accordingly plays two distinct roles in this thesis: a
+\emph{demand} instrument in the Phase~3 matrix (one of several requiring
+traceability) and, at the datapoint layer, the \emph{enabling standard} that
+supplies the traceability datapoints - the same dual role the GHG Protocol
+plays for climate.
+
+% ---------------------------------------------------------------------
+% AMENDMENT TO "Final universe" (replaces the 33-row list)
+% ---------------------------------------------------------------------
+\textbf{Final universe}
+
+The disclosure-topic universe used as the row dimension of the
+cross-framework demand matrix in Phase~3 comprises \textbf{33 rows}:
+
+$\bullet$ 26 Tier~1 entries -- DR-level cohort consensus ($\geq$5/6);
+
+$\bullet$ 2 Tier~2 entries -- topic-level cohort consensus ($\geq$5/6): E4
+Biodiversity and S4 Consumer health and food safety;
+
+$\bullet$ 4 sector-material entries -- structural-gap seafood topics carried
+in on GRI~13 / sector-legislation grounds, flagged as additions rather
+than cohort-evidenced, and merging antimicrobial use into animal health
+and welfare.
+
+Each entry carries metadata indicating its inclusion tier, its coding
+level (DR or Topic), a confidence flag distinguishing the 28
+cohort-evidenced high-confidence entries from the 4 sector-material
+additions, and -- for the gap rows -- a production-system tag. The full
+funnel is therefore 70 ESRS topical DRs $\to$ 28 high-confidence entries
+(28 DR + 1 topic) $\to$ 33 rows after the four sector-material additions.
+% NOTE: update the Ch.5 expected-outputs table, which still reads
+% "70 DRs -> 36 -> 43"; the current funnel is 70 -> 28 -> 32.
+
+\subsection{4.4 Phase 2 -- Landscape
+mapping}\label{phase-2---landscape-mapping}
+
+Where Phase~1 fixes the \emph{rows} of the demand matrix, Phase~2 fixes
+its \emph{columns}: the instruments that make up the
+sustainability-disclosure ecosystem a European seafood-processing SME
+actually faces. The output is a structured catalogue -- the
+Necessity~$\times$~Domain map -- recording, for every instrument, who demands it and what it's strategic importance is.
+
+\textbf{Organising frame.} Instruments are arrayed on two axes. The
+\emph{necessity} axis ranks each instrument by how imperative it is from
+the SME's perspective, in four tiers: Tier~1, legal licence to operate
+(binding law); Tier~2, market licence to operate (customer-demanded
+certifications and audits without which market access is lost); Tier~3,
+competitive expectation (reporting frameworks peers adopt); and Tier~4,
+strategic differentiation (voluntary leadership initiatives). The
+\emph{domain} axis separates seafood-sector-specific instruments from
+general corporate-sustainability instruments. Two bands sit outside this
+grid: a Tier~0 food-integrity foundation -- the food-safety and food-law
+floor every processor clears before sustainability strategy begins, in
+scope of the firm but out of scope of the disclosure analysis -- and a
+Layer~2 enabling layer of methods, management systems and data
+infrastructure used to satisfy the demands above (the
+``methodology providers versus disclosure askers'' distinction,
+Section~3.5).
+
+\textbf{Inclusion rule.} An instrument is admitted to the Layer~1 grid
+only if it passes two gates, judged on the instrument's own text.
+\emph{Gate~1 (ESG topic):}
+the instrument bears on an environmental, social or governance matter,
+which excludes fiscal, customs and data-protection law. \emph{Gate~2 (own
+binding organisation-level obligation):} the instrument itself imposes on
+the firm a binding organisation-level obligation -- a disclosure,
+due-diligence, certification, management-mechanism or market-access
+requirement -- rather than an individual employee entitlement or an
+obligation that binds only Member States. Gate~2 admits
+process-and-mechanism duties (the OSH Framework Directive, the
+Whistleblowing Directive's internal-reporting-channel requirement) on the
+same footing as reporting duties, while excluding individual-entitlement
+labour law (the Work--Life Balance Directive) and Member-State-binding
+instruments (the Adequate Minimum Wages Directive). A third carve-out
+keeps product- and food-safety conformity in the Tier~0 foundation, even
+though the consumer-health topic re-enters Phase~3 through the frameworks
+that ask about it. The full candidate set -- including instruments
+considered and rejected, with the gate each failed -- is recorded in a
+scope log, so that membership is reproducible rather than a matter of
+recall.
+
+\textbf{Stakeholder source and obligation locus.} Each admitted
+instrument carries two attributes that its Phase~3 column inherits. Its
+\emph{source} records the dominant stakeholder whose demand the processor
+actually answers, determined by the test ``does the instrument legally
+bind the processor?'': where it does, the source is the regulator; where
+it does not, the source is the transmitting stakeholder -- a customer
+audit, a capital-market expectation, or an industry/NGO initiative. For a
+sub-threshold SME selling B2B to large retailers, this rule reassigns
+several instruments whose nominal issuer is a regulator to the customer
+channel through which the SME actually experiences them: CSRD/ESRS,
+CSDDD, CDP and VSME are coded \emph{customer}, because the dominant
+transmitter is the large customer's value-chain data request rather than
+the capital market - VSME exists precisely to answer that request with
+one standard. The \emph{investor} code is reserved for instruments whose
+primary intended user is capital (SFDR and IFRS~S1/S2). The GDST
+traceability standard is left at \emph{industry/NGO}: unlike the MSC/ASC
+certifications it is not yet a standing retailer requirement, so its
+demand is not yet transmitted through the customer channel. The EU Taxonomy is retained only as a project-conditional
+finance context instrument and is not scored as a coverage column,
+because its activity-eligibility gate returns null for the focal
+seafood-processing activity (NACE~C10.20); it is logged in the scope log
+with that reason. The \emph{obligation locus} records separately whether
+the processor is the bound entity (\emph{direct}), is reached through
+another party's duty (\emph{indirect}), or merely operates within a
+regime that binds someone else (\emph{context}).
+
+% DRAFT — finding to migrate to the Discussion / Conclusion once results are written up
+\textbf{Observation (for the discussion).} Source and necessity tier are
+coded on independent criteria, yet the two axes correlate: the
+instruments that sit at Tier~4 (strategic differentiation) cluster almost
+entirely in the \emph{industry/NGO} source channel (SBTi, the UN Global
+Compact, voluntary coalitions), while the binding licence-to-operate
+tiers are dominated by the \emph{regulator} channel. This is a structural
+pattern, not a coding artefact - strategic, proactively-adopted
+initiatives tend to be NGO- or coalition-run rather than
+regulator-mandated or capital-demanded - and it offers an early reading
+of where in the landscape demand is obligatory versus elective. It is
+developed further in the discussion.
+
+\textbf{Independence: the function/audience test.} These two attributes
+also discipline the independence weighting (Section~3.6). Redundancy is
+judged \emph{within} function and audience, not across them. Two
+instruments that perform the same function for the same audience - overlapping certifications, or a standard and its own proportionate module
+(VSME Basic within Comprehensive) - are partial duplicates and receive a
+reduced independence weight. Instruments that perform \emph{different}
+functions (a reporting standard, a market rating, a binding regulation) or
+serve \emph{different} audiences (the four stakeholder drivers) are
+treated as independent even where they touch the same topic, because their
+co-occurrence is genuine cross-fragmentation triangulation rather than
+double counting. This is why the convergence count (Section~3.6) is taken
+over stakeholder-driver \emph{types} rather than raw instrument tallies:
+counting types makes the measure robust to within-audience proliferation
+by construction.
+
+\textbf{Firm-profile conditionality.} Several instruments apply only to
+firms with particular characteristics. These are flagged
+scope-conditional and governed in Phase~3 by firm-profile
+include-switches: the F-gas Regulation applies only where fluorinated
+refrigerants are used; the Pay Transparency Directive only at or above
+150 employees; ISSF only to tuna processors; and RSPO only where palm is
+physically handled as an input. Setting the firm profile activates or
+deactivates these columns and excludes the inapplicable ones from that
+firm's demand sums. A small number of instruments are retained in the
+catalogue for ecosystem completeness but carry no scorable demand on the
+SME and are excluded from the demand sums: investor benchmarks that rate
+only large listed firms (the Coller~FAIRR Protein Producer Index, the
+Dow~Jones Best-in-Class Indices), a keystone-company coalition the SME
+cannot join (SeaBOS), and a scheme-benchmarking body that imposes no
+direct obligation on the processor (GSSI).
+
+\textbf{Output.} The result is the column dimension of the Phase~3
+matrix: the full ecosystem catalogued in this phase -- 37 instruments,
+of which 29 are actively scored across 30 columns (the VSME standard is
+split into its Basic and Comprehensive modules, adding one column over its
+single instrument) -- each tagged with its tier, domain, source,
+obligation locus, an independence weight (Section~3.6) and any
+firm-profile condition. Eight instruments are carried but not scored.
+Four impose no own organisation-level obligation and so fail the Gate~2
+test: the EU Taxonomy, whose activity-eligibility gate returns null for
+the focal seafood-processing activity (NACE~C10.20) and which is retained
+only as a project-conditional finance lens; Fishery Improvement Projects,
+whose reporting binds the project rather than the processor; the UN SDGs,
+an aspirational goal framework with no corporate reporting mechanism; and
+the Move to -15~$^{\circ}$C coalition, a decarbonisation campaign with no
+reporting requirement. Three further are membership or firm benchmarks
+switched off for the modelled SME (Coller FAIRR, the Dow Jones
+Best-in-Class Indices - renamed from the Dow Jones Sustainability Indices in
+February 2025 - and SeaBOS), and ISSF is a tuna-only opt-in, off for
+the non-tuna firm modelled here; the CSRD/ESRS baseline sits alongside as
+the excluded reference standard. The map is intentionally
+\emph{not} mutually exclusive: a single topic reached by several
+instruments remains visible under each, because the cross-framework
+convergence that Phase~3 measures depends on that overlap being preserved
+rather than collapsed.
+
+% =====================================================================
+\subsection{4.5 Phase 3 -- Cross-framework demand mapping}
+\label{phase-3---cross-framework-demand-mapping}
+% =====================================================================
+
+The central analytical construct is a coverage matrix whose rows are the
+33 disclosure topics of the final universe (Section~3.3) and whose
+columns are the ecosystem of frameworks, standards, certifications and
+initiatives catalogued in Phase~2. The matrix codes the \emph{full} Phase~2
+landscape -- 37 instruments spanning the four stakeholder
+drivers (regulator, customer, investor, industry/NGO), of which 30 are
+actively scored across 31 columns (VSME split into Basic and
+Comprehensive); the remaining eight - four context/engagement
+instruments that fail Gate~2 (EU Taxonomy, Fishery Improvement Projects,
+UN SDGs, Move to -15~$^{\circ}$C) and three switched-off membership
+benchmarks (Coller FAIRR, Dow Jones Best-in-Class Indices, SeaBOS) - are
+catalogued but carry no column; the tuna-only ISSF is scored as a column
+but switched off for the non-tuna firm modelled here
+% RUBEN — checked against Phase3_Coverage_Matrix_v18.xlsx, 5 Aug:
+%   33 topic rows  = 29 numbered DRs + 4 GAP rows (G1-G4)
+%   31 scored cols = 30 instruments, VSME split Basic/Comprehensive
+%   + CSRD/ESRS carried as the excluded baseline (col 36)
+%   33 x 31 = 1,023 cells, 188 demand (18.4%) — matches Ch. 6
+% "32 topics" and "29 scored across 30 columns" were stale; corrected.
+% 37 now reconciles exactly: 30 scored + 4 Gate-2 fails + 3 benchmarks.
+% ISSF moved out of the "remaining" group because it IS a column
+% (OPT-IN, off for this profile) — please sanity-check that sentence.
+% Sec 4.4 / twelve-framework contradiction: RESOLVED 6 Aug — that sentence
+% is no longer in 4.4, so the dangling "rather than the provisional
+% twelve-framework subset" clause was removed here too.
+-- so that convergence is measured across the demand environment the SME
+actually faces. Scoring the full set rather than a shortlist is what makes the
+convergence measure meaningful: a topic's demand density is only interpretable
+if the denominator is every instrument that could have asked for it, and
+pre-selecting a dozen frameworks would build the expected answer into the
+sample. Each column carries, as attributes inherited from
+Phase~2, its primary stakeholder driver and its obligation locus (direct,
+indirect, context), and an independence weight used in the
+dependency-adjusted aggregation of Phase~4 (Section~3.6); columns that a
+given firm's profile renders inapplicable (e.g. a tuna-specific or
+refrigerant-specific instrument) are deactivated by firm-profile
+include-switches and excluded from that firm's sums.
+
+\textbf{The coverage scale.} Each cell is coded on a three-level scale,
+defined ex ante:
+
+{\def\LTcaptype{none}
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{\linewidth}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Coverage scale (defined ex ante)}
+
+0 -- Not covered: the framework does not address this topic, or its
+demand maps only to datapoints outside the row universe (see
+out-of-frame rule below).
+
+1 -- Touched: the framework references the topic but imposes no binding
+requirement on any of its datapoints.
+
+2 -- Required: the framework explicitly and bindingly requires the entity
+to \emph{achieve, address, comply with, certify, report on, or disclose}
+at least one datapoint belonging to the topic. Binding \emph{conformity}
+counts equally with binding \emph{disclosure}: a mandatory
+recycled-content target (PPWR), accident-prevention duty (OSH) or
+market-access prohibition on forced-labour products (Forced Labour
+Regulation) scores 2 even where no report is filed, because it bindingly
+addresses the datapoint substance.
+
+The score measures the strength of demand a framework places on the topic
+and is \emph{independent of its obligation locus}: an instrument that
+reaches the processor indirectly - for example CSDDD, which binds the
+SME's large customers who cascade the requirement down the value chain - can still score 2 where it bindingly imposes the topic's datapoint
+substance. Direct, indirect and context
+locus is recorded as a separate attribute and never raises or lowers the
+0/1/2 cell score.
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}}
+
+\textbf{Datapoint-grounded coding.} A score is assigned against the
+\emph{constituent datapoints} of a requirement, not against the title of
+its Disclosure Requirement. For the 29 cohort-evidenced rows, each DR is
+decomposed into its official EFRAG datapoints using the ESRS datapoint
+master (the EFRAG datapoint list, filtered to the same ``keep'' layer
+applied in Phase~1), producing a requirement-to-datapoint linkage; the 26
+DR-level rows resolve to 356 datapoints and the two topic-level rows (E4,
+S4) to a further 152. A framework scores~2 on a requirement where its
+indicators demand at least one of that requirement's datapoints,~1 where
+it references the topic but maps to none of those datapoints as a
+reporting or certification requirement, and~0 where it is silent. This
+discipline makes each judgement concrete and reproducible: it converts
+``does framework $f$ address topic $r$?'' into ``does $f$ demand any
+datapoint of $r$?''. It also surfaces corrections -- for
+example, whistleblowing demand resolves to the governance row that
+actually carries whistleblowing datapoints rather than to an adjacent
+anti-corruption row -- which, if reported, are findings about coding
+rather than method.
+
+\textbf{Self-assessment versus binding demand.} The score turns on whether
+the instrument imposes the datapoint's substance or its binding
+disclosure, not on who reports it. An instrument resting on
+\emph{voluntary self-assessment} - where the entity self-describes its
+practices against the instrument's own open questions, with no
+externally-defined performance threshold and no standardised, binding
+disclosure obligation - evidences that the topic is in scope and so
+scores 1, but does not impose the datapoint and so does not reach 2. This
+caps \emph{open-question} self-assessment ratings and questionnaires
+(e.g.\ EcoVadis, the Sedex SAQ) at 1. A 2 requires one of three things:
+an enforced conformity bar the entity must meet (e.g.\ a SMETA audit on
+labour and health \& safety, where non-conformities must be remediated to
+retain the buyer); reporting against a \emph{standardised,
+datapoint-defined disclosure standard}, whether voluntary (e.g.\ GRI,
+CDP, TNFD) or mandatory (e.g.\ the ESRS); or a binding legal obligation
+that imposes the datapoint's substance. The distinction is between an
+\emph{open-question} rating, where the entity self-describes against the
+instrument's own loose prompts (capped at 1), and a \emph{defined-datapoint}
+standard, where the instrument fixes the datapoints to be reported (which
+can reach 2). Standardised disclosure standards score 2 even though they
+too are self-reported, because the datapoints reported are defined and
+standardised, not self-framed.
+
+A related distinction separates a \emph{rating} from a \emph{standard}. A
+rating scores the firm from the outside and is admitted to the matrix only
+where the firm must itself supply data into it: a customer-required
+self-assessment such as EcoVadis is therefore scored (at 1, touched),
+because the processor actively completes it, whereas purely external
+ratings constructed from public data - MSCI, Sustainalytics, the Dow
+Jones Best-in-Class Indices - impose no own organisation-level obligation
+and are not scored. Because a rating is built to score and compare firms
+rather than to define what they must disclose (Adams \& Abhayawansa,
+2022), it is not treated as a standard: it consumes disclosures rather
+than defining them.
+
+\textbf{Coding levels.} The granularity of each row matches the
+granularity at which cohort evidence supports it (the \texttt{Coding\_Level}
+column). For the two topic-level rows the requirement comprises all
+datapoints across the topic's sub-DRs, and a framework is scored against
+the topic as a whole. For the four sector-material gap rows no ESRS
+datapoint exists by construction; these are scored instead against the
+criteria of the demanding frameworks themselves -- for instance MSC
+Principle~1 stock-status reference points for wild-stock, GDST key data
+elements for traceability, and ASC antibiotic and survival criteria for
+animal health and welfare.
+
+\textbf{The wild-stock / E4 boundary.} Because wild-stock status partly
+overlaps ESRS~E4, a pinned rule prevents double-counting: stock-status
+and legal-sourcing demand (MSC Principle~1, the IUU catch-certificate
+regime, FisheryProgress) codes to the wild-stock row, whereas
+generic biodiversity and ecosystem-impact demand (ESRS~E4, GRI~101,
+TNFD, and MSC Principle~2 on bycatch and habitat) codes to E4. A single
+framework may therefore legitimately score on both rows through different
+provisions.
+
+\textbf{Certification coding via chain of custody.} A seafood processor
+holds only the \emph{Chain-of-Custody} (CoC) certification of a
+sustainability scheme (MSC, ASC, GLOBALG.A.P., GSA~BAP, Friend of the
+Sea); it is not itself assessed against the upstream Fisheries or Farm
+Standard. The binding precondition for holding the CoC, however, is that
+the processor source product certified to that upstream standard. Each
+topic is therefore scored against what the scheme bindingly requires, at
+the depth it requires it: a core criterion (MSC Principle~1 stock status,
+ASC feed-conversion and effluent limits, GFSI-recognised food safety)
+scores~2, while a lighter good-practice mention scores~1. What the
+processor itself holds - the CoC, and for BAP's Seafood Processing
+Plant Standard its own plant - is \emph{direct}; the upstream stock,
+ecosystem, feed and welfare performance it sources is \emph{indirect}.
+This codes every certification on one consistent mechanism: the CoC's
+sourcing precondition transmits the upstream standard's demands to the
+processor, and the obligation locus records whether the processor is the
+certified entity or sources the certified input.
+
+\textbf{Out-of-frame demand.} A framework's indicator-level demand
+sometimes maps cleanly onto an ESRS datapoint that lies \emph{outside}
+the cohort-defined universe. The Pay Transparency Directive's gender
+pay-gap requirement maps to ESRS~S1-16, and the Working Time Directive to
+S1-11/S1-15 -- none of which cleared the $\geq$5/6 consensus and so have no
+row. Such demand is scored~0 against the in-universe rows; it is
+\emph{not} reassigned to the nearest available row, since doing so would
+misattribute the demand and inflate that row. Instead it is recorded in a
+separate out-of-frame demand register (framework $\to$ demanded DR $\to$
+reason out of frame). This preserves the cohort-grounded logic of the
+universe -- a framework's contribution to the matrix is the
+\emph{intersection} of its demand with the cohort-evidenced universe, not
+the union of everything it asks -- while keeping the observation visible.
+That mandatory labour-standards disclosure (pay transparency,
+working time) and the voluntary sustainability-reporting universe occupy
+partly disjoint spaces is itself a finding for the discussion.
+
+\textbf{Methodology providers vs disclosure askers.} The distinction
+between methodology providers (e.g. the GHG Protocol, ISO~14001, which
+supply accounting or process standards but do not themselves pressure an
+entity to report) and disclosure askers (e.g. CDP, SBTi, MSC, which
+require an entity to submit or certify information) is made explicit.
+Methodology-only frameworks are documented in the landscape mapping but
+held in the enabling layer and excluded from the demand sums.
+
+\textbf{Audit trail.} Every non-zero cell is documented in a
+justification log with a one-line rationale, a citation to the source
+framework clause or indicator, \emph{and} the identifier(s) of the ESRS
+datapoint(s) the demand maps to. This per-cell documentation constitutes
+the audit trail and protects the coding against reviewer challenge.
+Figure~\ref{fig:cell-coding} sets out the decision applied to each cell.
+
+% ---------------------------------------------------------------------
+% FIGURE: per-cell coding protocol
+% ---------------------------------------------------------------------
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance = 9mm and 14mm,
+  font = \small,
+  box/.style   = {rectangle, rounded corners, draw, align=center,
+                  text width=46mm, inner sep=4pt},
+  dec/.style   = {diamond, aspect=2, draw, align=center,
+                  inner sep=1pt, text width=34mm},
+  term/.style  = {rectangle, draw, fill=black!6, align=center,
+                  text width=30mm, inner sep=4pt},
+  arr/.style   = {-{Stealth[length=2mm]}}
+]
+\node[box] (start) {Cell: framework $f$ $\times$ requirement $r$};
+\node[dec, below=of start] (gap) {Is $r$ a sector-material gap row?};
+\node[term, right=24mm of gap] (crit) {Score 0/1/2 against demanding-framework criteria};
+\node[dec, below=14mm of gap] (addr) {Does $f$ address topic $r$ at all?};
+\node[term, right=24mm of addr] (silent) {Score \textbf{0}\\(silent)};
+\node[dec, below=14mm of addr] (map) {Does $f$ demand a datapoint of $r$?};
+\node[term, left=18mm of map] (touch) {Score \textbf{1}\\(topic referenced, no datapoint required)};
+\node[dec, below=14mm of map] (inuni) {Is that datapoint in the universe?};
+\node[term, below=of inuni] (req) {Score \textbf{2}\\(required datapoint hit)};
+\node[term, right=18mm of inuni] (oof) {Score \textbf{0}\\+ out-of-frame register};
+
+\draw[arr] (start) -- (gap);
+\draw[arr] (gap) -- node[above]{yes} (crit);
+\draw[arr] (gap) -- node[right]{no} (addr);
+\draw[arr] (addr) -- node[above]{no} (silent);
+\draw[arr] (addr) -- node[right]{yes} (map);
+\draw[arr] (map) -- node[left]{topic only} (touch);
+\draw[arr] (map) -- node[right]{yes} (inuni);
+\draw[arr] (inuni) -- node[right]{yes} (req);
+\draw[arr] (inuni) -- node[above]{no} (oof);
+\end{tikzpicture}
+\caption{Per-cell coding protocol. Each framework~$\times$~requirement
+cell is scored against the requirement's constituent ESRS datapoints;
+gap rows, which have no ESRS datapoints by construction, are scored
+against the demanding frameworks' own criteria; a framework silent on the
+requirement scores~0, and demand that maps only to out-of-universe
+datapoints also scores~0 and is logged separately.}
+\label{fig:cell-coding}
+\end{figure}
+
+% ---------------------------------------------------------------------
+% SHORT NOTE you can paste under Step 1.3 re: method vs results
+% ---------------------------------------------------------------------
+% METHOD vs RESULTS — my recommendation:
+%  * The PROCEDURE (how GRI 13's 26 topics are classified Covered /
+%    Reporting gap / Structural gap; how the gap block is admitted) is
+%    METHOD — keep in 4.3.
+%  * The OUTCOME (which topics turned out to be structural gaps; that AMU
+%    has no GRI home; that gap rows empirically score near-zero on
+%    ESRS/VSME/investor columns and load on certification/regulatory
+%    columns) is a RESULT — move the marked \resflag sentences to the
+%    results chapter, leaving a one-line forward reference here.
+
+\subsection{4.6 Phase 4 - Hotspot analysis and stage
+assignment}\label{phase-4---hotspot-analysis-and-stage-assignment}
+
+Once the demand matrix is populated, several analytical operations are
+performed.
+
+\textbf{Aggregation by stakeholder type.} Each instrument column carries a
+stakeholder-source tag, and the columns are collapsed into the four
+stakeholder-driver channels - regulator, customer, investor and
+industry/NGO - so that, for every topic, the matrix records whether each
+channel demands it.
+
+\textbf{Hotspot scoring.} Two complementary measures are computed per
+topic:
+
+\begin{itemize}
+\item
+  \textbf{Breadth} ($\Sigma$): the sum of the topic's coverage scores
+  across all active instruments, so that a binding requirement (2) counts
+  double a touch (1). It measures the \emph{volume} of demand.
+\item
+  \textbf{Convergence} (0--4): the number of the four stakeholder-driver
+  channels in which at least one instrument demands the topic. Because it
+  counts channels rather than instruments, it is robust by construction to
+  within-channel repetition - five overlapping certifications collapse
+  to a single customer signal - and it captures \emph{cross-stakeholder
+  consensus} rather than sheer volume.
+\end{itemize}
+
+Convergence is the primary signal and breadth the secondary one:
+convergence is the dedup-robust measure of how widely the fragmented
+landscape agrees on a topic, while breadth, which can be inflated by
+overlapping instruments, discriminates between topics of equal
+convergence.
+
+\textbf{Stage assignment.} Topics are triaged into three development
+stages on the two measures jointly:
+
+\begin{itemize}
+\item
+  \textbf{Stage 1 - Build first:} convergence $\geq 3$ \emph{and}
+  breadth $\geq 12$. These topics are demanded across at least three of
+  the four stakeholder channels \emph{and} sit in the top quartile of
+  demand volume - the no-regret core, where capability built for one
+  channel serves several.
+\item
+  \textbf{Stage 2 - Next:} convergence $\geq 3$ but breadth below the
+  quartile cut. Broad consensus is present but the demand is less intense;
+  build after the core.
+\item
+  \textbf{Stage 3 - Monitor:} convergence $\leq 2$. Demanded through
+  only one or two channels; required for compliance where in scope, but
+  not yet drawing broad demand.
+\end{itemize}
+
+The two thresholds are anchored in the empirical distribution rather than
+set arbitrarily (Figure~\ref{fig:topic-distribution}). The convergence cut
+of three is the simple majority of the four channels: a topic demanded by
+three or four channels is robustly demanded across the fragmentation
+rather than an artefact of any single channel. The breadth cut of twelve
+is the \emph{third quartile} (Q3) of the breadth distribution across the
+33 topics, so the Stage-1 volume gate selects the top quartile of demand
+and recalibrates automatically if the underlying scores change. In the
+modelled firm no topic below convergence three reaches the breadth cut, so
+the convergence gate excludes no high-volume topic; the two criteria
+therefore identify a coherent Stage-1 set rather than two competing ones.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{topic_distribution.pdf}
+\caption{Distribution of cross-framework demand across the 33 topics for
+the modelled firm. (A) Breadth $\Sigma$ (volume of demand); the Stage-1
+cut is the third quartile, Q3~$=12$. (B) Convergence - the number of the
+four stakeholder channels demanding each topic. (C) The two-axis staging
+map: Stage~1 (\emph{build first}) requires both broad consensus
+(convergence $\geq 3$) and high volume (breadth $\geq 12$); the shaded
+region is the Stage-1 set.}
+\label{fig:topic-distribution}
+\end{figure}
+
+\textbf{The diagnostic tool}
+
+The diagnostic tool operationalises the stage-of-development logic for
+individual SMEs. It comprises two inputs and two outputs.
+
+\textbf{Input 1 - current reporting posture self-assessment:} a short
+structured self-assessment (5--8 items) positioning the SME on the
+reactive-to-proactive spectrum. Indicative items: presence of formal
+sustainability strategy; presence of a dedicated sustainability function
+or role; whether reporting is initiated externally (reactive) or
+internally (proactive); presence of voluntary commitments (e.g.,
+SBTi-aligned targets); whether disclosure data is reusable across
+multiple stakeholder requests.
+
+\textbf{Input 2 - stakeholder-pressure mapping:} the SME identifies
+which stakeholders are actively requesting sustainability information
+(e.g., specific major retail customers and which questionnaire formats,
+specific certifications required for product placement, any investor
+pressure, any regulatory pressure beyond CSRD baseline). This input
+reflects the SME\textquotesingle s actual external demand environment.
+
+\textbf{Output 1 - prioritised disclosure topics:} the subset of Stage 1
+topics whose demanding frameworks align with the SME\textquotesingle s
+identified stakeholder pressures. These are the topics for which
+capability investment delivers maximum response coverage given the
+SME\textquotesingle s specific situation.
+
+\textbf{Output 2 - staged roadmap:} a recommended sequencing of
+capability investments across Stage 1 $\to$ Stage 2 $\to$ Stage 3, scaled to the
+SME\textquotesingle s current posture and resourcing.
+
+The diagnostic positioning on the reactive-to-proactive spectrum is
+operationalised through the self-assessment in Input 1, on the basis
+that reactive vs proactive is a behavioural rather than a measurable
+categorical state, and that the SME itself is best placed to
+characterise its current orientation.
+
+\textbf{From themes to datapoints: the build-first data layer}
+
+The diagnostic returns priority \emph{themes}; a firm still needs to know
+which \emph{datapoints} to collect for each. A datapoint layer therefore
+translates every priority theme into the specific data the firm must
+produce, assembled from five sources. The ESRS topical disclosure
+requirements decompose into their constituent datapoints (the ESRS datapoint
+catalogue under Commission Delegated Regulation (EU) 2023/2772). For each
+theme the \emph{proportionate} subset - the realistic starting point for a
+smaller firm - is identified through the VSME-to-ESRS crosswalk, so that
+datapoints falling within the VSME Basic or Comprehensive modules are marked
+as the \textquotesingle start-here\textquotesingle{} set and the remainder as
+depth to be added when a specific demand requires it. The four
+seafood-specific themes that have no ESRS disclosure requirement - wild-stock status, feed and marine ingredients, animal health and
+antimicrobial use, and supply-chain traceability - are sourced instead from
+the GRI~13 sector standard. Each theme is paired with the enabling method that
+produces its data (for example the GHG Protocol for emissions, GDST for
+traceability), drawn from the Layer-2 instruments of the framework; and each
+datapoint carries the count of stakeholder demands it serves, taken from the
+Phase~3 matrix, which makes the reuse explicit - a single datapoint
+typically satisfies several frameworks at once. The layer is thus held at two
+grains: a curated start-here set per theme, and the full datapoint
+decomposition behind it. Because both the ESRS and the VSME are under active
+revision through the Omnibus simplification (a revised ESRS is expected in
+2026), the datapoint layer is a dated snapshot, documented with its sources
+accordingly.
+
+\subsection{4.7 Phase 5 - Worked case
+application}\label{phase-5---worked-case-application}
+
+The framework is applied to a worked case constructed from the public
+disclosures of a representative European mid-sized seafood-processing SME
+(50--250 employees, primarily a B2B supplier to large EU retailers). The
+case uses only material the firm has itself published - its
+sustainability report, certification listings, and customer and product
+information - so that the application is fully reproducible and does not
+depend on privileged access. The following sequence is applied:
+
+\begin{itemize}
+\item
+  The firm\textquotesingle s profile is characterised from public
+  sources: size, operations, value-chain position, existing certification
+  portfolio, current sustainability reporting practice, and the customer
+  and investor pressures evident in its disclosures.
+\item
+  The diagnostic tool is run on that profile - the self-assessment and
+  stakeholder-pressure inputs are set from the public evidence.
+\item
+  The tool generates the recommended prioritised topic set and staged
+  roadmap.
+\item
+  The output is examined for correspondence to the firm\textquotesingle s
+  observable position: whether it locates the firm\textquotesingle s
+  posture plausibly and whether the topics it flags as build-first are
+  consistent with the demands the firm is visibly subject to.
+\end{itemize}
+
+The case is intentionally singular and the application is formative rather
+than confirmatory: it is a usability demonstration of the diagnostic, not
+a test of the underlying empirical claims about the cohort or the
+cross-framework demand pattern, and no generalisation beyond the case is
+claimed. Practitioner validation of the diagnosis with the firm itself is
+identified as the natural next step and left to future work.
+
+\subsection{4.8 Framework validation
+strategy}\label{framework-validation-strategy}
+
+The seafood sustainability playing field (Section 3.4) is a conceptual
+framework, and the standards by which such a framework is assessed
+differ from those applied to a hypothesis. A conceptual framework is not
+proven; it is developed through a structured process and substantiated
+through convergent evidence (Jabareen, 2009; Meredith, 1993). The
+framework advances two distinct claims that require different forms of
+substantiation. The descriptive claim is that the seafood sustainability
+disclosure environment can be exhaustively and unambiguously organised
+by the necessity, domain and source axes. The explanatory claim, which
+is the more substantive and the more demanding to substantiate, is that
+capabilities are shared across requirements, such that capability
+investment compelled by a lower-tier mandatory requirement materially
+subsidises higher-tier strategic disclosure. The validation design is
+deliberately document-based: each strategy rests on evidence that is
+independently inspectable in the public record and in the coded dataset,
+so that the framework's credibility derives from the convergence of
+verifiable sources rather than from any single privileged informant.
+Four complementary strategies are employed; no single one is treated as
+conclusive.
+
+\subsubsection{Leg 1 - Theoretical
+grounding}\label{leg-1---theoretical-grounding}
+
+Each axis of the framework is anchored in established theory rather than
+derived ad hoc. The necessity axis draws on legitimacy theory (Suchman,
+1995) and institutional theory (DiMaggio \& Powell, 1983); the source
+overlay on stakeholder-salience theory (Mitchell, Agle \& Wood, 1997);
+the capability-sharing construct on the resource-based view (Barney,
+1991) and the dynamic-capabilities literature (Teece, 2007); and the
+domain axis on materiality and sector-standard literature. Demonstrating
+that every structural component of the framework follows from prior
+theory substantiates its architecture as theoretically coherent.
+
+\subsubsection{Leg 2 - Descriptive completeness and expert
+review}\label{leg-2---descriptive-completeness-and-inter-coder-reliability}
+
+The descriptive claim is tested empirically during Phase 2. Every
+instrument identified in the landscape mapping is classified into
+exactly one necessity-by-domain cell with one primary source
+attribution. The framework is descriptively valid to the extent that
+this classification is exhaustive, in that no instrument requires a
+residual category, and unambiguous, in that instruments genuinely
+spanning cells are few and are documented as such. To guard against the
+classification being idiosyncratic rather than well-founded, it is submitted
+for expert review: the populated framework is shared with sustainability
+leads at the cohort firms, who assess whether instruments are placed in the
+correct necessity tier and domain and whether any material instrument is
+missing. Their feedback, and any revisions made in response to it, are
+documented, so that the classification reflects informed professional
+judgement rather than the analyst\textquotesingle s alone. This constitutes
+member checking, a recognised qualitative-validation technique (Lincoln \&
+Guba, 1985).
+
+\subsubsection{Leg 3 - Substantiation of the capability-sharing
+mechanism}\label{leg-3---substantiation-of-the-capability-sharing-mechanism}
+
+The explanatory claim is substantiated through an input-overlap
+analysis. For each shared capability, the underlying data and process
+inputs required by the instruments that draw on it are coded from their
+published requirements; demonstrating that, for example, MSC
+chain-of-custody, the GDST standard and ESRS value-chain disclosure draw
+on a common body of lot-level traceability data provides objective,
+document-verifiable evidence that the capability is genuinely shared.
+Because the inputs are read directly from each instrument's own
+specification, the analysis is fully replicable and does not depend on
+self-reported experience. The strength of the claim therefore rests on
+the demonstrable sharing of concrete inputs across instruments that draw
+on the same capability.
+
+\subsubsection{Leg 4 - Instrumental validation through worked case
+application}\label{leg-4---instrumental-validation-through-worked-case-application}
+
+Finally, the framework is applied to a worked case constructed from the
+public disclosures of a representative European seafood-processing SME
+(Section 4.7). The diagnostic is run on the firm's publicly documented
+profile and posture, and its output is examined for correspondence to
+the firm's observable position: whether it locates the firm's posture
+plausibly, and whether the capabilities it flags as high-leverage are
+consistent with the firm's evident stakeholder pressures. This follows
+the pattern-matching logic of case-study research (Yin, 2018): the
+framework predicts a pattern and the public evidence is examined for
+correspondence to it. The case is treated as a usability demonstration
+of the diagnostic rather than as confirmatory empirical proof of the
+framework's structure.
+
+Together, these four strategies validate the framework to a degree
+appropriate to the available evidence, and it is important to state the
+limits of this claim precisely. The descriptive claim, that the
+framework organises the observed ecosystem, can be substantiated
+robustly through Legs 1 and 2. The explanatory claim, that mandatory
+compliance subsidises strategic sustainability through shared
+capabilities, is substantiated as plausible through the input-overlap
+evidence of Leg 3 and as useful through the worked application of Leg 4,
+but is not claimed to be causally proven. The defensible position is
+that the evidence is consistent with the capability-sharing mechanism
+and that the instruments drawing on a shared capability demonstrably
+share inputs, rather than that a causal relationship has been
+established beyond doubt. One further form of practitioner corroboration
+would strengthen the explanatory claim: retrospective testimony from the
+cohort firms on whether capability built for a mandatory requirement reduced
+the marginal effort of subsequent disclosures. The expert review of the
+tiers and domains (Leg~2) already engages the same practitioners; this
+remaining testimonial evidence, which speaks specifically to the
+capability-sharing mechanism, is the natural next stage of validation and is
+left to future work.
+
+% =====================================================================
+% Cohort analysis chapter (RQ1) — inserted from cohort_analysis_DRAFT.tex
+% =====================================================================
+
+\fi %% ===== end hidden old 4.2--4.8 =====
+
+% Defensive reset: the hidden block above contains \caption calls inside
+% \iffalse that appear to still step the table/figure counters (a known
+% fragile edge case with large \iffalse regions). Reset both to 0 here so
+% the first REAL table/figure in the angle chapters below is numbered 1.
+% Reset value below accounts for fig:methodology-overview, moved up to
+% Section 2.1 (Research Questions) so it works as a blueprint the reader
+% meets early and the empirical chapters point back to.
+\setcounter{table}{0}
+\setcounter{figure}{1}
+
+%% ===================================================================
+%% MODULAR ANGLE CHAPTERS (wired in)
+%% ===================================================================
+\input{angle1_ecosystem.tex}
+\FloatBarrier
+\input{angle2_cohort.tex}
+\FloatBarrier
+\input{angle3_crossmapping.tex}
+\FloatBarrier
+
+\iffalse %% ===== HIDDEN: old monolithic cohort chapter + Results (superseded by the angle chapters) =====
+\section{The seafood disclosure frontier: evidence from six large
+reporters}\label{cohort-analysis}
+
+This chapter answers RQ1. Its purpose is to establish, empirically and
+from primary documents, what mature European seafood processors actually
+disclose - and therefore the practical \emph{upper bound} of sector
+disclosure depth against which the demands mapped in later chapters, and
+the expectations placed on smaller firms, must be read. The cohort is not
+a picture of typical practice; it is a picture of the frontier.
+
+\subsection{The cohort and case selection}\label{cohort-selection}
+
+Six large seafood processors were selected purposively as the most
+advanced sustainability reporters in the sector rather than as a
+representative sample. The selection deliberately spans the sector's main
+business models, so that the disclosure pattern that emerges cannot be an
+artefact of a single production system: wild-capture tuna (Thai Union,
+Bolton), aquaculture salmon (Mowi), an integrated wild-plus-aquaculture
+operation (Profand), and processing/branded firms (Nomad Foods,
+Espersen). Table~\ref{tab:cohort-r} summarises the cohort.
+
+\begin{table}[ht]
+\centering
+\caption{The six-company cohort. Coverage is reported disclosure
+requirements (DRs) as a share of the 70 seafood-relevant topical DRs
+screened in Section~\ref{cohort-method}.}
+\label{tab:cohort-r} % RUBEN: overlaps tab:cohort in Methodology 4.2 — same cohort table appears in both; decide which home.
+\begin{tabular}{@{}lllcc@{}}
+\toprule
+\textbf{Company} & \textbf{Business model} & \textbf{Reporting basis} &
+\textbf{DRs} & \textbf{Coverage} \\
+\midrule
+Thai Union & Wild-capture (tuna)     & GRI (accordance) & 53 & 76\% \\
+Bolton     & Wild-capture (tuna)     & ESRS             & 45 & 64\% \\
+Nomad Foods& Processing / brand      & GRI              & 42 & 60\% \\
+Profand    & Integrated (wild+aqua)  & GRI              & 38 & 54\% \\
+Espersen   & Processing / brand      & ESRS             & 34 & 49\% \\
+Mowi       & Aquaculture (salmon)    & ESRS             & 33 & 47\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two features of the cohort must be stated plainly, because they bound
+every claim that follows. First, the cohort is a purposive upper-bound
+sample: it establishes what is empirically \emph{feasible} to disclose in
+this sector, not what a typical firm does, and no inference about average
+practice is drawn from it. Second, the six firms do not all report on the
+same basis. Three report under the ESRS (Mowi, Bolton, Espersen) and
+three under the GRI Standards (Nomad Foods, Profand, Thai Union). Coverage
+is therefore measured as \emph{ESRS-aligned coverage in practice} - each
+firm's disclosures, whatever their native framework, mapped onto the ESRS
+topical disclosure requirements - and is explicitly \textbf{not} a
+determination of formal legal ESRS compliance. The measure captures
+whether a firm discloses information addressing a given requirement, not
+whether it does so in a legally conformant manner.
+
+\subsection{The coverage measure and the disclosure
+universe}\label{cohort-method}
+
+The analysis begins from the ESRS topical disclosure requirements. Seventy
+topical DRs were screened as potentially relevant to seafood processing,
+and this screened set of 70 is the denominator for all coverage figures in
+this chapter. Coverage is coded as binary presence or absence at DR level:
+a firm scores~1 on a requirement if its published reporting contains
+disclosure mapping to that requirement, and~0 otherwise. This measures the
+\emph{breadth} of a firm's disclosure, not its depth, quality, or
+assurance status; a firm that touches a requirement in a single sentence
+and one that reports it exhaustively both score~1.
+
+Applying this coding to the cohort produces a natural narrowing. Of the 70
+screened DRs, 62 are reported by at least one firm; the remaining eight are
+reported by none and are examined as a group in
+Section~\ref{cohort-shape}. Of the 62, 26 are reported by at least five of
+the six firms, and 13 by all six. The mapping from mixed ESRS and GRI
+source documents onto the ESRS requirement set involves analyst judgement,
+and the soundness of that coding is checked through the expert review
+reported in Section~\ref{framework-validation-strategy}.
+
+\subsection{The height of the frontier: a coverage
+gradient}\label{cohort-gradient}
+
+Coverage ranges from 33 to 53 of the 70 screened DRs
+(Figure~\ref{fig:p1-heatmap}). Thai Union is the single deepest reporter
+at 53 DRs (76\%), followed by Bolton (45; 64\%) and Nomad Foods (42;
+60\%); the median large reporter covers roughly 40 DRs, around 57\% of the
+screened set. The immediate and consequential observation is that
+\emph{even the frontier is incomplete}: the most advanced reporter in the
+sector leaves around one relevant requirement in four uncovered, and the
+median large reporter closer to two in five. If the sector's most
+resourced firms do not disclose the full set of relevant requirements, the
+realistic ceiling for a resource-constrained SME sits well below
+completeness - a point that reframes the SME question from ``how do we
+report everything?'' to ``which subset matters most?'', which the demand
+mapping in the following chapters answers.
+
+The company-by-standard heatmap also shows that firms specialise: Bolton
+is deepest on own-workforce disclosure (S1, 16 of 17), Espersen is thin on
+S1 (4 of 17) but complete on consumers/end-users (S4, 5 of 5), and Mowi
+reports nothing under affected communities (S3) or consumers (S4). The
+frontier is therefore not only incomplete in height but uneven in shape
+from firm to firm.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{phase1/p1_heatmap.pdf}
+\caption{Coverage heatmap: each cohort firm's reported DRs as a fraction
+of the screened DRs in each of the ten topical standards (cell label
+``reported / in standard''; shading is the percentage). Rows sum to each
+firm's total in Table~\ref{tab:cohort-r}; the standard totals sum to the 70
+screened DRs.}
+\label{fig:p1-heatmap}
+\end{figure}
+
+\subsection{The universal core: what every firm
+reports}\label{cohort-core}
+
+Beneath the gradient lies a stable core. Reading the universe by the
+number of firms reporting each requirement produces a clean funnel: of the
+62 DRs reported by at least one firm, 26 are reported by at least five, and
+13 by \emph{all six} (Figure~\ref{fig:p1-frequency-r}). These 13
+requirements are the sector's empirically revealed table stakes - the
+disclosures every mature reporter makes irrespective of business model.
+They fall into four blocks:
+
+\begin{itemize}
+\item \textbf{Climate (3):} energy consumption and mix (E1-5), gross
+  Scope~1--3 and total GHG emissions (E1-6), and climate targets (E1-4).
+\item \textbf{Water (3):} actions and resources (E3-2), targets (E3-3),
+  and water consumption (E3-4).
+\item \textbf{Governance (2):} business-conduct policies and corporate
+  culture (G1-1), and prevention and detection of corruption and bribery
+  (G1-3).
+\item \textbf{Social (5):} own-workforce policies (S1-1), workforce
+  characteristics (S1-6), health-and-safety metrics (S1-14), and, for
+  value-chain workers, policies (S2-1) and remediation channels (S2-3).
+\end{itemize}
+
+The full narrowing - 70 screened, 62 reported by at least one firm, 26
+by at least five, 13 by all - is itself the chapter's central
+descriptive result: the sector does not disclose uniformly across a broad
+front, but converges tightly onto a compact, cross-cutting backbone.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{phase1/p1_frequency.pdf}
+\caption{Number of cohort firms reporting each DR, over the 62
+requirements reported by at least one firm. The highlighted band (reported
+by five or six firms) contains 26 requirements, of which 13 are reported
+by all six - the universal core.}
+\label{fig:p1-frequency-r} % RUBEN: overlaps fig:p1-frequency in Methodology 4.3 — same figure in both.
+\end{figure}
+
+\subsection{The shape of the frontier: volume, consistency, and blind
+spots}\label{cohort-shape}
+
+Among the 62 reported requirements, disclosure is markedly social-heavy by
+volume: 32 are Social, 25 Environmental, and 5 Governance, with the
+own-workforce standard (S1) alone accounting for 17. This social weighting
+holds within firms as well as across the universe: for every cohort
+member, Social is the largest block of reported DRs and Governance the
+smallest (Figure~\ref{fig:p1-esg}).
+
+Volume, however, is not the same as consensus. Measuring each topic by the
+mean number of firms reporting its requirements reveals where the sector
+genuinely agrees (Figure~\ref{fig:p1-depth}): consistency is highest for
+water (E3, mean 5.75 of 6), governance (G1, 5.2), resource use and waste
+(E5, 4.6) and value-chain workers (S2, 4.4), and lowest for pollution (E2,
+2.0), affected communities (S3, 2.6) and consumers/end-users (S4, 3.0).
+The frontier is thus concentrated on climate, water, governance and
+workforce topics and thins markedly across pollution, community and
+consumer disclosure.
+
+The eight requirements reported by no firm sharpen this picture rather
+than complicate it. Four are the ``anticipated financial effects''
+disclosures - for pollution (E2-6), water (E3-5), biodiversity (E4-6)
+and circular economy (E5-6) - the forward-looking, financially
+quantified requirements that are the most demanding and are phased in under
+the standards. The remaining four are pollution policies (E2-1),
+substances of concern (E2-5), internal carbon pricing (E1-8) and payment
+practices (G1-6). The sector's clearest collective blind spot is therefore
+the financial quantification of environmental impact, followed by
+pollution disclosure - a pattern consistent with the low consistency of
+E2 across the cohort.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{phase1/p1_esg_split.pdf}
+\caption{ESG composition of each firm's reported DRs, in absolute terms
+(panel~A) and as a share of the firm's total (panel~B). Social disclosure
+is the largest block for every firm; Governance the smallest.}
+\label{fig:p1-esg}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{phase1/p1_depth_per_standard.pdf}
+\caption{Reporting depth per topical standard, by company (bars), against
+the number of screened DRs in each standard (red line). The gap between
+the bars and the red line is widest for E2 (pollution) and E4
+(biodiversity), the sector's thinnest topics.}
+\label{fig:p1-depth}
+\end{figure}
+
+\subsection{Robustness across business models and reporting
+year}\label{cohort-robustness}
+
+Because the cohort spans four business models, the core can be tested for
+model dependence. The universal-core requirements are reported across all
+four models - wild-capture, aquaculture, integrated and
+processing/brand - so the backbone is not an artefact of any single
+production system. Business model shapes the \emph{margins} of the
+frontier, not its core: model-specific topics such as feed and animal
+health (aquaculture) or wild-stock status (capture) appear in the long
+tail, while the climate, water, governance and workforce core is shared.
+
+The cohort also mixes 2024 and 2025 reporting years, and the three firms
+for which both years are available show that disclosure is not expanding
+monotonically. Between 2024 and 2025, reported coverage \emph{fell}
+slightly for all three - Nomad Foods from 43 to 42 DRs, Profand from 40
+to 38, and Espersen from 36 to 34 - with the change driven by a handful
+of requirements dropped and very few added
+(Figure~\ref{fig:p1-year}). The main analysis uses each firm's most recent
+report, so these are the figures carried in Table~\ref{tab:cohort-r}. The
+modest contraction is consistent with a reporting environment entering a
+phase of consolidation and simplification rather than continued expansion,
+a theme the discussion returns to in connection with the Omnibus
+proposals.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{phase1/p1_year_evolution.pdf}
+\caption{Year-over-year reporting for the three firms with both a 2024 and
+a 2025 report. Panel~A: total DRs reported, which fell for all three.
+Panel~B: requirements retained, added and dropped in 2025 - change is
+dominated by retention, with a small net reduction.}
+\label{fig:p1-year}
+\end{figure}
+
+\subsection{What the cohort establishes - and what it does
+not}\label{cohort-limits}
+
+The cohort establishes three things. It fixes the height of the sector's
+disclosure frontier at 53 requirements for the deepest reporter and around
+57\% of the screened set for the median large firm; it identifies a
+13-requirement universal core spanning climate, water, governance and
+workforce that constitutes the sector's de facto table stakes; and it
+locates the sector's collective blind spots in the anticipated-financial-
+effect and pollution requirements. Together these calibrate the realistic
+disclosure ambition for a smaller firm and supply the empirical anchor for
+the cross-framework demand mapping that follows.
+
+Its limits are equally definite and are stated so that the findings are
+not read beyond what they support. The cohort is a purposive sample of six
+upper-bound reporters and is not representative of the sector, so no claim
+about typical or average practice is made. Coverage is binary presence at
+DR level and speaks to breadth, not to the depth, quality or assurance of
+disclosure. The mapping from mixed ESRS and GRI source documents onto the
+ESRS requirement set rests on analyst judgement, checked through the expert
+review in Section~\ref{framework-validation-strategy}. And the analysis is a
+2024--2025 snapshot of a rapidly moving reporting landscape. Within these
+bounds, the cohort provides what it was designed to provide: a defensible,
+document-grounded map of the seafood disclosure frontier.
+
+% =====================================================================
+\section{Results: the cross-framework demand landscape}
+\label{results-demand-landscape}
+% =====================================================================
+
+This section reports the structure of the populated Phase~3 matrix for
+the modelled sub-threshold seafood-processing SME (50--250 employees,
+not a tuna processor), read in two ways: as a description of the demand
+\emph{environment} the firm faces, and as the firm-specific
+\emph{priorities} the diagnostic returns.
+
+\subsection{Composition of the demand environment}
+
+The scored matrix comprises 30 instruments across 31 columns (the VSME
+standard is split into its Basic and Comprehensive modules). Their
+distribution across the four stakeholder channels is uneven
+(Figure~\ref{fig:r-actor-tier}): the environment is dominated by
+regulators (12 instruments) and customers (11), which together account
+for 23 of the 31 columns (74\%), while investors are the thinnest channel
+(3) and industry/NGO initiatives the remainder (5). The necessity tiers
+fall 12/7/8/4 across Tiers~1--4, so the regulatory legal-licence layer is
+the single largest block. Four instruments are firm-profile
+\emph{opt-ins} - the F-gas Regulation, the Whistleblowing and Pay
+Transparency Directives, and ISSF - which belong to the scoring universe
+but switch on only when the firm meets their trigger. For the modelled
+firm three of the four are on and ISSF is off, giving 30 active
+instruments.
+
+The matrix is sparse by construction: of the 1{,}023 instrument$\times$topic
+cells, 188 (18\%) carry a demand, and these split almost evenly between
+\emph{binding} requirements (92 cells scoring~2) and \emph{touched}
+references (89 cells scoring~1). The demand environment is therefore not a
+dense web in which every framework touches every topic, but a structured
+field in which a minority of concentrated, mostly regulator- and
+customer-borne demands define the landscape.
+
+A further pattern concerns not \emph{who} demands but how \emph{broadly}
+each instrument demands, and it reframes the problem. Individual
+regulations are narrow: each of the twelve regulatory instruments touches
+on average only two topics, and none more than three - the Packaging and
+Packaging Waste Regulation covers waste and packaging, the
+occupational-health directive covers health and safety, the F-gas
+Regulation covers emissions. Breadth - and therefore the overlap that
+creates the SME\textquotesingle s burden - comes overwhelmingly from the
+market and voluntary side: customer instruments demand on average nine
+topics each (the CSDDD eighteen), and industry and NGO reporting frameworks
+almost eight (GRI alone twenty-five). The wall of overlapping demand is
+therefore not the product of the SME being directly over-regulated. It is
+the product of a few \emph{broad} horizontal instruments - CSRD, CSDDD,
+SFDR - that apply to the firm\textquotesingle s large customers and
+financiers and \emph{cascade} down the value chain as supplier
+questionnaires, together with the voluntary certification and rating
+landscape. Direct regulation on the processor is targeted and lean; the
+breadth is transmitted, not imposed. This carries a policy corollary,
+developed in the discussion: because the burden originates in the downward
+cascade of large-firm regulation rather than in narrow direct rules, it is
+the coordination or capping of that cascade - precisely the aim of the
+VSME and the Omnibus value-chain provisions - that would most reduce it.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.78\linewidth]{r_actor_tier.pdf}
+\caption{Composition of the scored demand environment: the 31 instrument
+columns by stakeholder channel and necessity tier. Regulators and
+customers dominate; investors are the thinnest channel.}
+\label{fig:r-actor-tier}
+\end{figure}
+
+\subsection{First action points by production system}
+
+Because several seafood instruments and topics are
+production-system-specific, the diagnostic returns a different
+\emph{build-first} (Stage~1) set depending on whether the firm is
+wild-capture, aquaculture, or both (Figure~\ref{fig:r-stage-system}). For
+the standard modelled profile the Stage-1 set is nine topics for a
+mixed-sourcing firm, eight for an aquaculture-only firm, and five for a
+wild-capture-only firm.
+
+The \emph{overlap} is a universal core of four topics that are build-first
+under every production system: energy (E1-5), greenhouse-gas emissions
+(E1-6), biodiversity and ecosystems (E4), and supply-chain traceability.
+These are the no-regret priorities for any European seafood processor - demanded broadly, across stakeholder channels, irrespective of business
+model.
+
+The \emph{differences} are structured rather than arbitrary. Four further
+topics - water (E3-4), waste (E5-5), occupational health and safety
+(S1-14) and value-chain workers (S2-1) - are Stage~1 for mixed and
+aquaculture firms but slip to Stage~2 for a wild-capture firm. This is a
+volume effect, not a change in importance: the matrix carries three
+aquaculture certifications (ASC, BAP, GLOBALG.A.P.) against two wild
+certifications (MSC, Friend of the Sea), so a wild-only firm loses the
+certification demand that lifts these shared topics over the breadth
+threshold, even though their cross-stakeholder convergence is unchanged
+and several retain a regulatory floor (OSH, the Forced Labour Regulation,
+PPWR). The remaining divergence is in the sector-gap rows: wild-stock
+status is build-relevant only to wild and mixed firms, while feed and
+animal-health/antimicrobial use apply only to aquaculture and mixed firms.
+The personalisation therefore refines \emph{which} of a shared backbone an
+individual firm should prioritise, rather than producing wholly different
+agendas for different firms.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.56\linewidth]{r_stage_system.pdf}
+\caption{First action points by production system. Each topic's stage
+(1~=~build first, 2~=~next, 3~=~monitor) under a wild-only, mixed and
+aquaculture-only profile; ``--'' marks a topic not applicable to that
+system. The four topics that are Stage~1 across all systems form the
+universal core.}
+\label{fig:r-stage-system}
+\end{figure}
+
+\fi %% ===== end hidden old cohort + Results =====
+
+\iffalse % ===== RUBEN: proposal scaffolding (chapter-structure table) — hidden from the built PDF but kept in source. Delete this block when you no longer need it. =====
+\section{5. Expected outputs and chapter
+structure}\label{expected-outputs-and-chapter-structure}
+
+The thesis produces five concrete artefacts mapping to chapter structure
+as follows.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3205}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3397}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3397}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Chapter}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Central artefact}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Form}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Ch. 1 Introduction + Ch. 2 Conceptual framework & The reactive$\to$proactive
+frame; the cross-stakeholder convergence argument & Prose; reactive vs
+proactive comparison table \\
+Ch. 3 Methodology & The five-phase methodology, the 43-topic universe
+definition, the 0/1/2 coverage scale & Prose; methodology figure showing
+the funnel from 70 DRs $\to$ 36 $\to$ 43 \\
+Ch. 4 Cohort empirical analysis & Descriptive empirics of large-reporter
+disclosure practice & Heatmaps; per-topic and per-company coverage
+charts \\
+Ch. 5 Cross-framework demand mapping & The central heatmap (33 topics $\times$
+37 frameworks); stakeholder aggregation & Master heatmap figure;
+per-stakeholder breakdown charts \\
+Ch. 6 Stages-of-development roadmap + diagnostic tool & Stage 1/2/3
+assignment per topic; the diagnostic tool architecture & Staged roadmap
+figure; diagnostic tool process diagram \\
+Ch. 7 Case study validation & Application and refinement based on 1--2
+SME case studies & Case study narratives with tool output \\
+Ch. 8 Discussion + policy implications & Implications for SME
+sustainability practice; engagement with the EU simplification debate
+(Omnibus, VSME, sector standards) & Prose; brief policy
+recommendations \\
+Appendix & Prioritised KPI shortlist for European seafood SMEs (Stage 1
++ Stage 2 disclosures expanded to representative KPIs) & Structured
+table \\
+Appendix & Full landscape mapping (37 frameworks with metadata) &
+Reference table \\
+Appendix & Full coverage matrix (43 $\times$ 12 with per-cell justifications) &
+Audit table \\
+\end{longtable}
+}
+
+\fi % ===== end hidden proposal scaffolding =====
+
+\iffalse %% ===== HIDDEN: old §6 scope notes (fold limitations into Discussion, Ch8) =====
+\section{6. Scope notes and known
+limitations}\label{scope-notes-and-known-limitations}
+
+\begin{itemize}
+\item
+  \textbf{Empirical scope.} Findings apply to European mid-sized seafood
+  processing SMEs (50--250 employees) primarily supplying large EU
+  retailers under B2B arrangements. Extension to other SME profiles
+  (smaller firms, primary producers, B2C operations) is treated as
+  future work.
+\item
+  \textbf{Cohort representativeness.} The six-company cohort represents
+  an upper bound of sector disclosure depth rather than an average.
+  Inferences about typical practice are not made from this cohort; the
+  cohort is used to establish what is empirically feasible to disclose,
+  not what is typical.
+\item
+  \textbf{Cross-framework coding subjectivity.} Coding of framework
+  coverage on the 0/1/2 scale involves analyst judgement. Mitigation:
+  ex-ante coding rubric, per-cell documentation with source citations,
+  sensitivity analysis on threshold choices.
+\item
+  \textbf{Case study generalisability.} One or two case studies cannot
+  validate the framework empirically across the SME population. The case
+  studies serve as usability tests of the diagnostic tool, not as
+  confirmatory empirical evidence for the framework structure.
+\item
+  \textbf{Static framework snapshot.} The regulatory and voluntary
+  framework landscape is evolving rapidly (Omnibus simplification, VSME
+  refinement, CSDDD phased entry, sector ESRS postponement). Findings
+  reflect the landscape as observed in May 2026.
+\item
+  \textbf{From priority to maturity (recommended extension).} The
+  diagnostic identifies \emph{which} topics an SME should build first but
+  not \emph{how far} the firm has already progressed on each. A natural
+  next development, inspired by the maturity-based supplier programmes that
+  large buyers are adopting - notably Philips\textquotesingle{}
+  \emph{Beyond Auditing} approach, which rates each supplier on a
+  nine-element Plan--Do--Check--Act maturity scale per sustainability
+  aspect (Philips, 2025) - would add a second axis to the tool: a short
+  per-topic maturity self-assessment (policy $\to$ process $\to$ metrics
+  $\to$ targets $\to$ corrective action). This would turn the build-first
+  list into a per-topic \emph{capability-gap} map and connect the
+  demand-side priority output to the Layer-2 enabling instruments that
+  operationalise each topic. It is a buyer-side method re-pointed to serve
+  the supplier, and is left to future work given the present scope.
+\end{itemize}
+
+APPENDIX:
+
+TOOL
+
+\subsubsection{What the SME sees - Step 1: Self-assessment (Input
+1)}\label{what-the-sme-sees---step-1-self-assessment-input-1}
+
+\textbf{Where are you on the reactive $\leftrightarrow$ proactive spectrum? (7 items,
+takes 5 minutes)}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.0198}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.6397}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3405}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{\#}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Question}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{SME\textquotesingle s answer}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Do you have a formal written sustainability strategy approved by
+leadership? & In development \\
+2 & Do you have a dedicated sustainability function or full-time role? &
+Part of another role (50\%) \\
+3 & What primarily initiates your sustainability reporting work? &
+Mostly external requests, some internal \\
+4 & Do you have voluntary external commitments (e.g., SBTi, Net-Zero
+pledge)? & Considering - not yet committed \\
+5 & Is your sustainability data reusable across multiple customer
+requests? & Partially - rebuilt for each major customer \\
+6 & Do you measure and report on metrics that no customer or regulator
+currently requires? & No \\
+7 & Does sustainability factor into your 3-year strategic planning? &
+Limited - mentioned but not central \\
+\end{longtable}
+}
+
+$\to$ \textbf{Score: 9 / 21 - early-stage reactive, transitioning.}
+
+\subsubsection{Step 2: Active stakeholder pressures (Input
+2)}\label{step-2-active-stakeholder-pressures-input-2}
+
+\textbf{Tick all that currently apply. Add detail where prompted.}
+
+\emph{Customer pressures (B2B retailer / buyer requirements):}
+
+\begin{itemize}
+\item
+  $\checkmark$ Sedex/SMETA audit required $\to$ \emph{by Lidl, ICA}
+\item
+  $\checkmark$ EcoVadis assessment requested $\to$ \emph{by Albert Heijn}
+\item
+  $\checkmark$ MSC chain-of-custody $\to$ \emph{all wild-capture products}
+\item
+  $\checkmark$ ASC certification (in progress) $\to$ \emph{for farmed salmon launch}
+\item
+  $\checkmark$ Customer ESG questionnaire (custom format) $\to$ \emph{Lidl annual; ICA
+  biannual}
+\item[$\square$]
+  BRCGS / IFS Food (food safety) - \emph{already certified, taken as
+  given}
+\end{itemize}
+
+\emph{Investor / financial pressures:}
+
+\begin{itemize}
+\item
+  $\checkmark$ Bank sustainability-linked loan covenant $\to$ \emph{small green loan
+  from local bank, requires basic emissions reporting}
+\item[$\square$]
+  CDP submission requested
+\item[$\square$]
+  Equity investor ESG questions
+\end{itemize}
+
+\emph{Regulatory pressures (direct):}
+
+\begin{itemize}
+\item[$\square$]
+  CSRD direct (out of scope)
+\item
+  $\checkmark$ VSME considering for next reporting year
+\item
+  $\checkmark$ EU IUU regulation compliance (catch certificates for sourced wild
+  fish)
+\item
+  $\checkmark$ EU Control Regulation 2023/2842 - digital traceability rollout
+\end{itemize}
+
+\emph{Industry / NGO / Sector:}
+
+\begin{itemize}
+\item[$\square$]
+  GRI reporting
+\item[$\square$]
+  Industry coalition / FAIRR engagement
+\item[$\square$]
+  NGO scrutiny
+\end{itemize}
+
+\subsubsection{Step 3: What the tool does (the
+logic)}\label{step-3-what-the-tool-does-the-logic}
+
+The tool now cross-references:
+
+\begin{itemize}
+\item
+  The SME\textquotesingle s \emph{active frameworks} (from Input 2):
+  Sedex/SMETA, EcoVadis, MSC, ASC, Lidl-questionnaire,
+  ICA-questionnaire, bank-loan-covenant, VSME, IUU, Control Reg
+\item
+  The demand matrix (43 topics $\times$ 12 frameworks): which topics each of
+  those active frameworks asks about
+\item
+  Stage assignments per topic
+\end{itemize}
+
+Filters and ranks the Stage 1 topics by \emph{how many of the
+SME\textquotesingle s active frameworks demand each topic}.
+
+\subsubsection{Step 4: What the SME gets back - Output}\label{step-4-what-the-sme-gets-back-output}
+
+\textbf{Your situation:} \emph{Early-stage reactive (9/21). Active
+demand from 6 customer-driven frameworks, 1 investor-driven, 4
+regulatory.}
+
+\textbf{Output 1 - Your top 10 priority topics (Stage 1, ranked by
+demand alignment with your pressures):}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0629}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3051}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4353}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1967}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\textbf{Rank}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Topic}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\# of your active frameworks demanding this}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Stakeholder types covered}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Scope 1 + 2 GHG emissions & 7 of your 11 (Sedex, EcoVadis, MSC
+chain-of-custody, Lidl Q, VSME, bank-loan, \ldots) & Customer, Investor,
+Regulator \\
+2 & Own workforce H\&S incidents & 6 (Sedex, EcoVadis, Lidl Q, ICA Q,
+ASC, VSME) & Customer, Regulator \\
+3 & Chain-of-custody / product traceability & 6 (MSC, ASC, Lidl Q, IUU,
+Control Reg, ICA Q) & Customer, Regulator \\
+4 & Energy consumption & 5 (EcoVadis, Lidl Q, VSME, bank-loan, ASC) &
+Customer, Investor, Regulator \\
+5 & Water use & 4 (ASC, EcoVadis, Lidl Q, VSME) & Customer, Regulator \\
+6 & Value chain worker policies (forced labour, child labour) & 4
+(Sedex/SMETA, ICA Q, EcoVadis, Lidl Q) & Customer \\
+7 & Anti-corruption policy + incidents & 4 (Sedex, EcoVadis, Lidl Q,
+VSME) & Customer, Regulator \\
+8 & Waste generated by processing & 4 (Lidl Q, EcoVadis, VSME, ASC) &
+Customer, Regulator \\
+9 & Animal welfare (aquaculture-specific) & 3 (ASC, BAP, NGO interest) &
+Customer \\
+10 & Antimicrobial use (aquaculture) & 3 (ASC, BAP, F2F Strategy) &
+Customer, Regulator \\
+\end{longtable}
+}
+
+\textbf{Output 2 - Your staged roadmap (personalised):}
+
+\textbf{Stage 1 - Foundation (start now, 6--12 months):} Build
+capability on topics 1--5. These satisfy $\geq$4 of your active frameworks
+each. Recommended sequence: GHG (1) $\to$ traceability (3) $\to$ energy + water
+(4, 5) $\to$ H\&S (2). Estimated coverage gain: \textasciitilde70\% of your
+current external requests answerable from one data infrastructure.
+
+\textbf{Stage 2 - Expansion (12--24 months, once Stage 1 is
+operational):} Add topics 6--8 plus VSME basic module formalisation.
+This positions you to handle Lidl\textquotesingle s deepening
+sustainability scorecard and EcoVadis level improvements, plus respond
+to additional customer ESG questionnaires without rebuild.
+
+\textbf{Stage 3 - Differentiation (24+ months, proactive moves):}
+Topics 9--10 (animal welfare, antimicrobial use) - currently demanded
+by ASC + sector frameworks but not yet by most retailers. Investing here
+positions Nordic Whitefish as an aquaculture sustainability leader as
+you launch farmed salmon, ahead of likely retailer asks in 2027--28.
+
+\textbf{Positioning note:}
+
+Your self-assessment placed you at 9/21 - \emph{early-stage reactive
+transitioning}. The Stage 1 priorities above, if implemented, would move
+you to \emph{capability-driven proactive}, because your reporting
+infrastructure would be designed to serve multiple stakeholder demands
+simultaneously rather than rebuilt per request.
+\clearpage
+\fi %% ===== end hidden old §6 =====
+
+\section{7. Discussion and conclusion}\label{discussion}
+
+\subsection{7.1 Summary: what the four steps establish
+together}\label{discussion-summary}
+
+The four steps answer one question, not four unrelated ones. Step~1 catalogued 49
+instruments acting on a European seafood-processing SME and found they reach the
+firm through only four stakeholder channels. Step~2 found the sector's six most
+advanced reporters cover between 33 and 60 of the 70 screened ESRS disclosure
+requirements and converge on a 13-requirement core that survives every robustness
+cut applied to it. Step~3 crossed the two: of 1{,}023 instrument-by-topic cells only
+188 (18\%) carry demand at all, and that sparse demand concentrates on a Stage-1
+set of nine topics for a mixed-sourcing firm, which between them touch a topic
+asked about by 26 of the 30 frameworks active in the sector.\footnote{Counting a
+framework whether it legally binds the firm or is a certification the firm may
+choose to pursue.} Step~4 turned that into a diagnostic a firm can apply to its own
+profile (\nameref{cm-datapoints-tool}).
+
+The answer to the organising question follows directly. A resource-constrained
+seafood-processing SME does not face an undifferentiated wall of demand. It faces a
+small, identifiable, cross-cutting core, surrounded by a long tail of narrower
+requirements. What to build first is nameable, and now toolable.
+
+A closer look at where Step~2's and Step~3's two ``cores'' agree, and where
+they do not, sharpens this picture further. Of Step~3's four-topic universal
+Stage-1 core - the topics a firm should build first irrespective of
+production system - two (energy consumption, E1-5, and gross GHG
+emissions, E1-6) sit squarely inside Step~2's 13-requirement reported
+baseline: the sector's mature reporters already treat them as standard
+practice, and the cross-stakeholder demand structure independently confirms
+they are exactly where demand concentrates. The other two, however, are not
+yet part of that reported baseline: biodiversity (E4) only clears Step~2's
+near-universal threshold through the topic-level union rule rather than as a
+core requirement outright, and supply-chain traceability has no ESRS home at
+all and enters Step~3's rows only as a seafood-specific addition
+(Section~6.2). Conversely, water, governance and workforce topics anchor
+Step~2's reported baseline without appearing in Step~3's cross-system
+core. This is not a contradiction between the two steps but a finding in its
+own right. Reporting practice and cross-stakeholder demand agree that climate
+accounting is foundational. They diverge in two directions after that.
+Reporting \emph{lags} demand on biodiversity and traceability, the newer and
+harder-to-operationalise topics. It runs \emph{ahead} of demand on water,
+governance and workforce. The likely reason for the second gap is that those
+topics are anchored by requirements specific to particular sourcing models
+(Section~6.7), which a cross-system view averages away.
+
+\subsection{7.2 Reading the findings through the conceptual
+framework}\label{discussion-theory}
+
+Chapter~2 set out three lenses for reading multi-stakeholder demand. Each now
+returns something the findings sharpen, and in one case something the findings
+complicate.
+
+\textbf{Stakeholder salience: transmission, not just attributes.} Mitchell, Agle
+and Wood (1997) explain how firms triage competing claims by the power, legitimacy
+and urgency a claimant holds. Applied directly to an SME, that account predicts
+the firm attends most to whoever can most immediately damage it. The
+narrow-law/broad-cascade finding (Section~6.6) suggests the mechanism is more
+indirect than that. The instruments generating most of the demand a small
+processor experiences - CSRD, CSDDD, SFDR - are not ones for which the processor
+is a claimant's target at all; they bind its \emph{customers}, and reach the
+processor as transmitted questionnaires. The salient party, in the sense the
+theory intends, is the retailer. But the substance of what is asked is set by a
+regulator with no direct relationship to the processor whatsoever.
+
+Salience, on this evidence, is not only a property of the claimant a firm faces.
+It is a property of the \emph{chain} through which an obligation travels: a
+high-power regulator acting on a high-power customer generates more demand on a
+small supplier than a regulator binding that supplier directly. This is why
+Chapter~4 codes instruments to the channel through which they arrive rather than
+to their nominal issuer, and it is a refinement the seafood case makes visible
+because the sector's SMEs sit almost entirely below the CSRD threshold while
+selling almost entirely to firms above it.
+
+\textbf{Institutional isomorphism: which mechanism?} The 13-requirement universal
+core (Section~5.5) is a convergence result, and DiMaggio and Powell (1983) offer
+three candidate explanations. Coercive isomorphism fits poorly on its own: the six
+firms report under different regimes, three under the ESRS and three under the GRI
+at two different application levels (Section~5.3), so no single mandate compels the
+overlap. That leaves the mimetic and normative mechanisms, which the evidence
+cannot fully separate. What it can show is that the core survives every cut applied
+to it - by threshold, by cohort composition, by EU versus non-EU membership
+(Section~5.7) - which is what one would expect of a settled professional norm and
+less of what one would expect from firms imitating a single visible leader.
+
+The finding that would distinguish the two is not available here and is worth
+naming as such: mimetic pressure predicts a diffusion \emph{sequence}, with later
+adopters following earlier ones topic by topic, whereas a normative account
+predicts firms arriving at the same core independently through shared professional
+and assurance practice. A longer panel than two years would let a future study
+adjudicate this directly.
+
+\textbf{The resource-based view, and where it cuts against the argument.} The
+capability-sharing claim rests on the resource-based view and its
+dynamic-capabilities extension (Barney, 1991; Teece, 2007): structured data, once
+built, is redeployable across many uses at low marginal cost. The redeployability
+half holds, and the input-overlap analysis (Section~6.9) documents it.
+
+Barney's other criteria do not, and this should be stated plainly rather than
+passed over. A capability confers sustained competitive advantage only if it is
+also rare and costly to imitate. Lot-level traceability data is neither. Every
+processor can build it, the enabling instruments that produce it are public
+(Section~6.8), and the sector's leading firms have already built it. On a strict
+reading of Barney, the build-first core is not a source of advantage at all: it is
+the price of remaining in the market.
+
+That is not a defeat for the argument; it changes what the argument claims. The
+return on building the convergent core is not differentiation but \emph{efficiency
+and access} - the same licence to operate and to sell obtained at materially lower
+cost than answering each demand separately, which is the compound return Chapter~2
+describes and Chapter~6 measures. Advantage, if it exists, sits one level up: in
+the organisational capability to identify which data to build and to reuse it
+quickly, which is a dynamic capability in Teece's sense rather than a resource in
+Barney's. The diagnostic developed here is best understood as an attempt to lower
+the cost of acquiring precisely that capability for firms that cannot develop it
+through experience alone.
+
+This is the precise sense in which compliance obligations become strategic
+advantage, and it is worth stating exactly because the phrase invites a stronger
+reading than the evidence supports. The obligations themselves confer nothing:
+every competitor faces them, and every competitor can meet them. What is open to
+advantage is the \emph{manner} of meeting them - once, deliberately, and in a form
+that also serves the next demand. The return is realised as cost avoided and
+access retained rather than as a position rivals cannot occupy, and it accrues to
+the firm that builds the underlying capability earliest rather than to the one
+that holds any particular dataset.
+
+\subsection{7.3 Contribution to seafood-processing
+SMEs}\label{discussion-sme-contribution}
+
+For seafood-processing SMEs, the contribution is the Stage-1 build-first set
+itself and the datapoint layer beneath it (Section~6.8), not as an abstract
+finding but as a concrete starting list: energy and GHG accounting (E1-5,
+E1-6), water (E3-4), biodiversity (E4), supply-chain traceability, and - for
+mixed and aquaculture profiles - waste, occupational health and safety, and
+value-chain-worker policy.
+Building these first is a \emph{sequencing} argument, not a completeness one:
+because even the cohort's best-resourced reporters leave roughly a quarter of
+the screened requirements uncovered (Section~5.4), completeness is the wrong
+target for a smaller firm, and the diagnostic's contribution is to say which
+subset to prioritise rather than to promise a shortcut to full compliance.
+
+The diagnostic tool (Section~6.8) turns this from a static finding into a
+usable instrument: a firm supplies a short self-assessment and its production
+profile, and receives its own filtered Stage-1 set and datapoint layer rather
+than the sector-wide one. This matters because the build-first set is not
+identical across production systems (Section~6.7), and the reason is a
+genuine feature of the current instrument landscape rather than an artefact
+of how the tool is built: the catalogue carries three aquaculture
+certifications (ASC, BAP, GLOBALG.A.P.) against only two for wild-capture
+(MSC, Friend of the Sea). For a shared topic such as water or waste, a
+wild-capture-only firm loses the extra breadth those additional aquaculture
+certifications would have contributed, so the topic's volume score falls
+below the Stage-1 cut even though its \emph{convergence} - how many of the
+four stakeholder channels ask about it - is unchanged. A wild-capture-only
+firm therefore has a narrower Stage-1 set not because the tool treats it
+differently in principle, but because fewer certifications currently exist
+for its sourcing model; a generic, one-size-fits-all list would consequently
+over- or under-state what any individual firm actually needs.
+
+The diagnostic's output format is illustrated in Section~6.9
+(Figure~\ref{fig:tool-screenshot}); a worked case applying it end to end to a
+specific, publicly reconstructable firm and checking its flagged Stage-1
+topics against that firm's actual disclosures is the natural closing
+demonstration for this section, once that case is identified.
+
+\subsection{7.4 Academic contribution}\label{discussion-academic}
+
+The thesis makes four contributions to the literatures reviewed in
+Chapter~2. First, it supplies what that review found missing (Section~2.1,
+``the gap''): a systematic mapping of cross-stakeholder disclosure demand at
+sector level, built on the defined 0/1/2 coverage scale set out in
+Section~6.3 - not covered, touched, or bindingly required - rather than
+an impressionistic count of ``how many frameworks'' apply.
+
+Second, the narrow-law, broad-cascade finding (Section~6.6): direct regulation on
+the processor is targeted and lean, while breadth is transmitted down the value
+chain from a handful of horizontal instruments. To the author's knowledge this has
+not been demonstrated empirically for the sector before, and it reframes the
+burden question - the wall of demand a small firm experiences is substantially a
+cascade effect of large-firm regulation (CSRD, CSDDD, SFDR) rather than direct
+over-regulation of the SME itself. Section~7.2 draws out what this implies for
+stakeholder-salience theory.
+
+Third, the thesis extends the reactive--proactive and maturity literatures
+(Baumgartner \& Ebner, 2010; Sharma \& Vredenburg, 1998; Torugsa, O'Donohue \&
+Hecker, 2013) - which describe the posture and its performance consequences
+but say little about how the external structure of demand enables or blocks
+the transition - with a diagnostic-tool operationalisation: a way of making
+the ``build shared capability'' prescription concrete for a named sector,
+rather than leaving it at the level of strategic recommendation.
+
+Fourth, the cohort analysis (Chapter~5) is itself a methodological
+contribution to the maturity literature: it demonstrates that a sector's
+disclosure frontier and its universal core can be derived directly from
+mature firms' own reporting practice, cross-validated for robustness against
+threshold choice, cohort composition and reporting year (Section~5.7), rather
+than assumed from theory or asserted by expert judgement alone.
+
+\subsection{7.5 Implications for EU disclosure
+policy}\label{discussion-policy}
+
+The findings speak directly to the live Omnibus simplification debate, and
+in one respect more concretely than a debate still in progress: as detailed
+below, the direction this thesis anticipated is now a matter of adopted
+record rather than proposal. Three points stand out.
+
+First, the narrow-law/broad-cascade finding (Section~6.6)
+locates the policy lever precisely: because the SME's burden originates
+overwhelmingly in the downward cascade of large-firm regulation rather than in
+direct sector-specific rules, it is the \emph{coordination and capping} of
+that cascade - the explicit aim of the VSME and the Omnibus value-chain
+provisions - that would reduce SME burden fastest, more than any further
+simplification of direct obligations on the SME itself.
+
+Second, and more speculatively than the other two, the cohort's contracting
+disclosure trend (Section~5.7) is worth flagging as a
+direction to watch rather than a conclusion this thesis can support: coverage
+fell slightly from 2024 to 2025 for the three cohort firms with both years,
+in the same direction as the decline in declared materiality documented
+across 241 large listed EU companies (Nahrstedt, 2026). Three firms over two years cannot establish whether
+this reflects firms reading the Omnibus's relief as a floor or a ceiling - that would need a far larger panel than this thesis's cohort provides - but
+the fact that an independent, much larger sample moves the same way is reason
+enough to flag the question for the re-anchored analysis in Section~7.7
+rather than to answer it here.
+
+Third, the sector's own blind spots and the revision's own priorities turn
+out to point in \emph{opposite} directions, which is a sharper finding than
+either alone. The requirements that phase in slowest under the Omnibus
+timeline - anticipated financial effects and pollution disclosure - are
+exactly the cohort's collective blind spot (Section~5.6); simplification
+is, for now, deferring precisely what the sector was not yet disclosing
+anyway. Biodiversity runs the other way. It is the topic the demand structure
+most clearly flagged as under-reported relative to how widely it is demanded
+(Section~7.1), and the revision tightens it rather than easing it: the standards
+adopted on 3~July 2026 make biodiversity transition plans mandatory where they
+were previously voluntary. Meanwhile the water standard loses roughly 70\% of its
+mandatory datapoints, the deepest cut of any topical area - and water was already
+part of the cohort's reported baseline (Section~5.5). The revision is
+therefore easing what mature practice had already absorbed and tightening what
+this thesis found demand was outpacing practice on. That is consistent with the
+Chapter~6 demand structure rather than a correction of it.
+
+This alignment is no longer only a matter of timeline projection. On 3~July
+2026 the European Commission formally adopted the revised ESRS and a new
+voluntary reporting standard for smaller companies built on the VSME,
+cutting mandatory datapoints by over 60\% and total datapoints by over 70\%
+(European Commission, 2026) - the reduction this thesis anticipated
+throughout (Section~1.5) is therefore no longer a proposal under debate but
+an adopted delegated act, pending only the standard two-to-four-month
+European Parliament and Council scrutiny period before it applies. The
+adopted standard also formalises the value-chain cap referenced in the
+introduction (Section~1.1): CSRD-scoped firms may not require value-chain
+partners to supply more than the voluntary standard covers. This does not
+change any finding in this thesis, whose cohort and demand-matrix analysis
+predate the adoption, but it does mean the policy debate this thesis speaks
+to has moved, in the ten days before submission, from live negotiation to
+implementation - and it strengthens rather than weakens the case for the
+future-work item below: re-anchoring this analysis to the adopted standard
+once it takes effect.
+
+Fourth, the case this thesis makes for building VSME-aligned capability rests
+on an assumption worth testing against independent evidence: that customers,
+banks and investors will actually treat a VSME-based disclosure as
+sufficient, rather than continuing to ask for more. EFRAG's own market
+acceptance survey of preparers and users (EFRAG, 2025) gives this some
+support: it finds developing, positive acceptance of the VSME, with
+financial institutions and investors expecting its modules to satisfy a
+substantial share of the requests they currently address directly to SMEs.
+The finding is preliminary, and self-reported to the standard-setter that
+designed the VSME, so it should be read as encouraging rather than conclusive.
+It nonetheless points the same way as the narrow-law/broad-cascade finding
+above. The demand a resource-constrained firm faces is transmitted through a small
+number of large channels - customers and financiers - which a proportionate,
+standardised disclosure can plausibly satisfy. It is not an open-ended list that
+every actor insists on customising.
+
+\subsection{7.6 Limitations}\label{discussion-limitations}
+
+Each step's own limitations are stated where the relevant claims are made
+(Sections~5.\emph{x}, 6.7, 7.\emph{x}); four apply to the thesis as a whole and
+are drawn together here rather than left scattered.
+
+\textbf{Small, purposive samples throughout.} The cohort (N=6) and the demand
+matrix's instrument catalogue are both purposive constructions - an
+upper-bound proxy and a comprehensiveness claim respectively - not
+statistical samples, so no claim of population-level representativeness is
+made anywhere in the thesis. The robustness checks in the
+Section~5.7 section substitute cross-validation for
+statistical inference; they cannot substitute for it.
+
+\textbf{Analyst judgement in the coding.} The GRI-to-ESRS mapping
+(Section~5.3), the per-cell demand scoring (Section~6.3) and the
+necessity/domain classification (Section~4.1) all rest on a single analyst's
+documented judgement, checked against defined criteria and logged for audit
+but not independently double-coded. The member-checking review submitted to the
+cohort firms (Section~4, Validation) is a corroborating step, not a formal
+inter-rater-reliability test, and at the time of writing it is still outstanding.
+A second-coder check remains future work (Section~7.7). One firm's review has
+since returned and is reflected in Section~5.3.
+
+\textbf{What the framework bridge cannot carry.} Cohort coverage is coded from
+each firm's own framework index, and three of the six firms are indexed under the
+GRI Standards. Two consequences follow, both set out in Section~5.3. A firm whose
+index is selective scores below what its report body contains, which is a
+question of indexing practice. More structurally, 14 of the 70 topical
+disclosure requirements have no counterpart anywhere in the GRI-ESRS
+interoperability index, so no GRI-indexed firm can score them at all; those 14
+can be reported by at most three of the six firms and can never enter the
+universal core or the near-universal set. The effect on the findings is bounded
+and small. None of the 14 could reach six of six even if every GRI-indexed firm
+reported it in full, because each already lacks at least one ESRS-native
+reporter, so the universal core of 13 is exact rather than a floor. Only two,
+E1-1 and S2-5, could in principle reach five of six, placing an upper bound of 28
+on the near-universal set of 26. The limitation is real, and it does distort the
+firm-by-firm coverage comparison, but neither headline result rests on the
+unmeasured cells.
+
+\textbf{The sector-material row set is curated, not exhaustive.} The four
+sector-material rows (\nameref{cm-matrix-build}) were chosen because GRI~13
+asks for genuinely different operational data - species, volumes, stock
+status - that no ESRS or generic GRI disclosure asks for at all. GRI~13
+contains other sector-specific disclosures that were judged, but not
+included, because they refine an already-covered topic rather than open a
+new one: certified-volume reporting under food safety (13.10), and
+nationality/migrant-status breakdowns under non-discrimination (13.15), for
+example, sit inside topics the cohort already reports on. One further
+candidate follows the same logic already used for feed and animal welfare
+above and was a closer call: ASC's conversion-free-sourcing criterion, which
+reaches a processor exactly as feed and welfare demand does, as a
+certification precondition rather than direct operational reporting. It is
+left out of the four rows here for scope, not because the logic doesn't
+apply - extending the sector-material row set on that same
+certification-precondition basis is a natural next check, not a finding
+this thesis is confident closes the question.
+
+\textbf{A 2024--2025 snapshot of a moving target.} The ESRS, the VSME and the
+Omnibus simplification were all under active revision throughout this
+analysis, and the revised ESRS and a new VSME-based voluntary standard were
+formally adopted only in the final weeks before submission (3~July 2026;
+Section~7.5), with the standard two-to-four-month Parliament and Council
+scrutiny period still to run. The coverage figures, the demand-matrix scores
+and the year-over-year comparison in the Section~5.7 section
+are dated to the 2024--2025 window that precedes this adoption and will need
+re-anchoring once the revised standard actually takes effect. Checked against
+EFRAG's draft revised standards, that re-anchoring is a matter of translation
+rather than revision. Every disclosure requirement in the 13-requirement
+universal core (Section~5.5) and in the four-topic Stage-1 core common
+to all production systems (Section~6.7) survives in substance; none was deleted.
+Most simply carry a different DR code. Several standards gained new upfront
+requirements, chiefly on risk identification and resilience, which shifted
+everything after them down by one to three positions - energy consumption moves
+from E1-5 to E1-7, GHG emissions from E1-6 to E1-8. The full old-to-new code
+mapping, cross-referenced against the VSME, is given in
+\nameref{app:esrs-mapping}.
+
+\textbf{One formative, not confirmatory, worked case.} The diagnostic's
+usability is demonstrated on a single public case (Section~6.9); no claim of
+generalisation beyond that case is made, and practitioner validation with a
+firm willing to share non-public information is explicitly left to future
+work.
+
+\subsection{7.7 Future work}\label{discussion-future-work}
+
+Several extensions are flagged at the point they arise in Chapters~4--6;
+gathered here, they form a natural research agenda. \emph{Practitioner
+validation}: running the diagnostic with a firm willing to share internal
+data beyond its public disclosures, to test the worked case's formative
+finding against a confirmatory one (Section~6.9). \emph{Reliability}: a
+second-coder pass on the GRI-ESRS mapping and the demand-matrix scoring, to
+convert the current documented-judgement audit trail into a measured
+inter-rater agreement (Section~5.3 and Section~6.3). \emph{Stakeholder-pressure input}:
+the tool extension, already scoped but not yet built (Section~6.8), that lets
+a firm identify which of its own customers, certifications and investors are
+actively asking, narrowing the generic Stage-1 set to the firm's
+\emph{actual} demand. \emph{A staged roadmap}: automating the
+Stage~1~$\rightarrow$~2~$\rightarrow$~3 sequencing against a firm's posture and
+resourcing, rather than leaving that positioning to the self-assessment alone
+(Section~6.8). \emph{Re-anchoring to the adopted ESRS revision}: repeating the
+cohort and demand-matrix analysis once the standards adopted on 3~July 2026
+(Section~7.5) clear Parliamentary and Council scrutiny and take effect, both
+to test whether the contracting-disclosure trend
+(Section~5.7) persists and to keep the diagnostic's datapoint
+layer current against the roughly 70\%-smaller datapoint set.
+\emph{Sectoral transfer}: testing whether the build-first core identified here
+is seafood-specific or reflects a more general cross-sector pattern, in the
+other resource-constrained manufacturing and agri-food SME contexts the
+introduction argues the approach should transfer to (Section~1.4).
+\emph{From diagnosis to implementation}: this thesis stops at telling a firm
+\emph{which} topics to build first; the natural next step is piloting the
+framework with actual firms to see how a prioritised topic list translates
+into the internal processes, ownership and data infrastructure needed to
+build it, and to learn where firms get stuck turning a build-first list into
+a working data-collection routine. Beyond validating the diagnostic's
+outputs (the practitioner-validation item above), this would test the
+thesis's implicit second claim - that naming the right topics is enough to
+unblock action - which this thesis has not itself tested.
+
+\subsection{7.8 Conclusion}\label{discussion-conclusion}
+
+This thesis set out to answer where, amid a thicket of overlapping
+sustainability demands, a resource-constrained European seafood-processing SME
+should begin. Three linked findings answer it. The disclosure ecosystem
+acting on such a firm is wide but structured, not undifferentiated
+(Chapter~4). The sector's own leading reporters already converge on a
+compact, cross-cutting disclosure core, not an ever-expanding one
+(Chapter~5). And that empirical core is exactly where cross-stakeholder demand
+is most concentrated, so that building it first answers the largest share of
+what the firm is actually asked, operationalised here as a diagnostic an
+individual firm can apply to its own situation (Chapter~6).
+
+\textbf{What is now known that was not.} Three things. First, the demand a small
+processor faces is measurably sparse: 18 per cent of the possible
+instrument-by-topic space carries any demand at all, which is what makes
+prioritisation coherent rather than arbitrary. Second, the burden originates
+overwhelmingly in transmission rather than in direct regulation, so the wall a
+small firm experiences is a cascade from large-firm rules and not
+over-regulation of small firms themselves. Third, the sector's revealed reporting
+baseline and its cross-stakeholder demand structure substantially agree, and where
+they diverge - biodiversity and traceability, where demand runs ahead of practice -
+they identify precisely the topics a forward-looking firm should build before it
+is asked.
+
+\textbf{What remains open.} The diagnostic has not been run with a firm that can
+supply internal data, so the claim that naming the right topics unblocks action
+remains untested (Section~7.7). The coding rests on a single analyst's documented
+judgement, with member checking outstanding at the time of writing. And whether the
+convergent core identified here is a seafood phenomenon or a general feature of
+resource-constrained manufacturing and agri-food sectors is an empirical question
+this thesis frames but does not answer: the \emph{method} transfers by
+construction - any sector with a defined disclosure taxonomy, an identifiable set
+of leading reporters and a catalogue of instruments can be mapped the same way -
+but the \emph{particular} build-first set almost certainly does not.
+
+\textbf{What it means in practice.} For a firm deciding what to do on Monday
+morning, the answer is narrower than the literature's usual advice to become
+strategic about sustainability. Build energy and greenhouse-gas accounting, water,
+biodiversity and supply-chain traceability first, in that order, and build them as
+reusable data rather than as answers to whoever asked last. Those four are demanded
+across every stakeholder channel and under every production system studied here.
+The rest can wait, and knowing what can wait is the scarcer piece of information.
+
+Together these findings turn ``build a reusable sustainability-data capability''
+from a strategic aspiration into a named, sequenced and practically actionable
+starting list - the missing view this thesis set out to supply.
+
+\input{references.tex}
+
+\appendix
+\clearpage
+\section*{Appendices}
+\addcontentsline{toc}{section}{Appendices}
+\emph{Supplementary material supporting the chapters above.}
+
+\section*{Appendix A - Ecosystem Glossary}\label{app:glossary}
+\addcontentsline{toc}{subsection}{Appendix A - Ecosystem Glossary}
+\input{annex.tex}
+
+\section*{Appendix B - GRI 13 to ESRS coverage classification}\label{app:gri13}
+\addcontentsline{toc}{subsection}{Appendix B - GRI 13 to ESRS coverage classification}
+
+\begin{tabularx}{\textwidth}{@{} >{\bfseries}p{3.4cm} X @{}}
+\toprule
+Scope note & GRI~13 names four applicability categories - crop, animal, aquaculture, fishing (GSSB, 2022, p.~6) - not processing. Its \emph{Topic Standard disclosures} (climate, biodiversity, water, etc.) apply to any organization regardless, and are what the classification below rests on; its \emph{Additional sector disclosures} (catch volumes, farmed species, stock assessments) are restricted to primary producers and do not apply to a processor directly. \\
+\midrule
+Categories \& counts & Of 26 material topics: \textbf{Covered} (13, ESRS DR mapping clears the cohort's $\geq$5/6 threshold, carried into the 28-row universe); \textbf{Reporting gap} (8, a mapping exists but cohort reporting falls below $\geq$5/6, not carried); \textbf{Structural gap} (5, no ESRS DR exists for the topic at all). \\
+\midrule
+Sector-material rows (2 origins) & 2 come from Structural-gap topics with no ESRS home at all - animal health \& welfare (13.11), supply-chain traceability (13.23). 2 come from sector-specific sub-disclosures (GRI 13.3.10, 13.3.11) nested inside Biodiversity (13.3), itself Covered. The remaining 3 Structural-gap topics (soil health, food security, anti-competitive behaviour) are judged not sector-defining for seafood and are not carried. \\
+\midrule
+A known edge case & Natural ecosystem conversion (13.4) clears Covered status on one generic disclosure only; its substantive content (conversion-free sourcing \%, hectares converted) sits in Additional sector disclosures a processor doesn't generate. Reporting burden here is closer to Structural-gap than ``Covered'' suggests - same issue flagged for ASC's conversion-free criterion in Section~7.6. \\
+\midrule
+Full classification (26 rows) & \emph{GRI\_13\_Topics\_FINAL.xlsx}, sheet ``Classification'' \\
+\bottomrule
+\end{tabularx}
+
+\section*{Appendix C - Instrument scope classification}\label{app:scope}
+\addcontentsline{toc}{subsection}{Appendix C - Instrument scope classification}
+
+\begin{tabularx}{\textwidth}{@{} >{\bfseries}p{3.4cm} X @{}}
+\toprule
+The two admission gates & \emph{Gate 1 - ESG relevance}: bears on an environmental, social or governance matter (excludes fiscal, customs, data-protection law). \emph{Gate 2 - organisation-level obligation}: places a binding disclosure, due-diligence, certification or market-access requirement on the processor itself, not merely a Member State or another actor. Gate 1 is applied before an instrument is even added to the catalogue, so every exclusion below is a Gate-2 outcome. \\
+\midrule
+Outcome & Passing both gates: \emph{scored} (30 instruments, 4 further gated by firm profile as \emph{opt-in}). CSRD/ESRS: passes both but held out as \emph{baseline}. The remaining 18: \emph{context} (7) or \emph{excluded} (11) - regrouped by reason below. \\
+\bottomrule
+\end{tabularx}
+
+\begin{longtable}{@{}p{2.7cm}p{2.3cm}p{6.5cm}@{}}
+\toprule
+\textbf{Instrument} & \textbf{Gate-2 outcome} & \textbf{Reason} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Instrument} & \textbf{Gate-2 outcome} & \textbf{Reason} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Common Fisheries Policy (Reg 1380/2013) & Context & Binds Member States on quota-setting; reaches the processor only through the Fisheries Control and IUU Regulations. \\
+Marine Strategy Framework Directive (Dir 2008/56/EC) & Context & Binds Member States on marine environmental status; no processor-facing obligation. \\
+RFMOs (Regional Fisheries Management Organisations) & Context & Set stock-level catch rules via Member State implementation; reach the processor only through IUU catch documentation. \\
+EMFAF (Reg 2021/1139) & Context & A Member-State-administered funding instrument the processor may access; imposes no compliance or disclosure duty. \\
+Water Framework Directive (Dir 2000/60/EC) & Context & Binds Member States; reaches the processor via national discharge permits, not directly. \\
+Urban Waste Water Treatment Directive (Dir 2024/3019) & Context & Binds Member States/agglomerations; processor wastewater regulated via national permits. \\
+Waste Framework Directive / EPR (Dir 2008/98/EC) & Context & Member-State-transposed EPR duties; now operationally consolidated for the processor under PPWR. \\
+Dolphin Safe & Excluded - superseded & Largely obsolete labelling scheme for an EU processor; retained in the catalogue for completeness only. \\
+Fisheries labour conditions (Council Dir 2017/159) & Excluded - wrong bound party & Binds vessel owners, not the processor; the labour content it covers reaches the processor anyway via buyer SMETA audits and ESRS~S2, so scoring it separately would double-count. \\
+RSPO (conditional) & Excluded - redundant exposure & Certifies palm-oil sourcing; for a seafood processor this is a feed-input exposure already carried by EUDR at Tier~1, so it is not scored as a second instrument on the same exposure unless the processor directly handles palm as an input. The soy schemes (RTRS, ProTerra) and the timber and fibre schemes (FSC, PEFC) are excluded on the same reasoning; RSPO is catalogued rather than these because palm is the commodity most often present in a processor's own inputs, through oils and coatings. \\
+FIPs / FisheryProgress & Excluded - no own obligation & An engagement platform for sourcing commitments, not a reporting or certification duty; the topics it touches are already scored via MSC, ASC, GDST and the IUU Regulation. \\
+GSSI (Global Sustainable Seafood Initiative) & Excluded - rates schemes, not the processor & Benchmarks certification schemes and shapes which certs buyers accept; it does not itself demand anything of the processor. \\
+EU Taxonomy (Reg 2020/852) & Excluded - no eligible activity & The Taxonomy's technical screening criteria define no eligible economic activity for NACE~C10.20 (seafood processing), so it imposes no disclosure trigger on this activity; reaches the processor only indirectly via customer/financier data requests. \\
+SeaBOS (Seafood Business for Ocean Stewardship) & Excluded - closed membership & A CEO-led keystone-company coalition with no admission path for an SME; aspirational rather than an obligation it could ever hold. \\
+UN Sustainable Development Goals & Excluded - no reporting obligation & An aspirational reference framework for goal alignment; imposes no corporate reporting requirement or datapoint. \\
+Move to Minus~15 & Excluded - no reporting obligation & An industry decarbonisation campaign (cold-chain temperature); no reporting requirement attaches to participation. \\
+Coller FAIRR Protein Producer Index & Excluded - rated, not a member & An investor benchmark the processor is rated by, not one it joins or reports into. \\
+Dow Jones Best-in-Class Indices (S\&P) & Excluded - rated, not a member & An investor index the processor is rated by, not one it joins or reports into. \\
+\end{longtable}
+
+\textbf{Firm-profile opt-in switches.} Four scored instruments are further
+gated by the profile of the individual firm being modelled, and are switched
+off (excluded from that firm's demand sums, though they remain scored
+columns in the matrix itself) when the condition below is not met.
+
+\begin{longtable}{@{}p{2.7cm}p{2.6cm}p{6.2cm}@{}}
+\toprule
+\textbf{Instrument} & \textbf{Switch dimension} & \textbf{Condition to be switched on} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Instrument} & \textbf{Switch dimension} & \textbf{Condition to be switched on} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+ASC / GSA BAP & Production system & Firm produces or sources farmed (aquaculture) product; a wild-only firm switches both off. \\
+F-gas Regulation (2024/573) & Equipment profile & Firm operates fluorinated-refrigerant refrigeration or freezing equipment; a firm with none switches it off. \\
+Pay Transparency Directive (2023/970) & Headcount & Applies from 150 employees (gender pay-gap reporting); below that threshold the instrument is switched off. \\
+Whistleblowing Directive (2019/1937) & Headcount & Applies from 50 employees; below that threshold the instrument is switched off. \\
+ISSF (Intl Seafood Sustainability Foundation) & Species profile & Firm sources tuna; a non-tuna firm switches it off. \\
+\end{longtable}
+
+The full per-instrument reference - domain, stakeholder source, obligation
+locus, legal citation and official source URL, for all 49 catalogued
+instruments including those in the tables above - is given in
+\nameref{app:glossary}.
+
+\section*{Appendix D - Cross-framework coverage matrix and justification log}\label{app:matrix}
+\addcontentsline{toc}{subsection}{Appendix D - Cross-framework coverage matrix and justification log}
+The complete coded instrument\,$\times$\,topic matrix and
+the per-cell justification log (rationale, source clause, and mapped ESRS
+datapoint), which covers 120 of the 188 scored cells (Chapter~6), are held in
+\emph{Phase3\_Coverage\_Matrix\_v18.xlsx} (sheets ``Coverage matrix'' and
+``Justifications log''). Figure~\ref{fig:cell-coding-appendix} below sets out
+the decision-tree coding protocol applied to every cell; a representative
+excerpt of the matrix itself is shown in Chapter~6
+(Figure~\ref{fig:coverage-matrix-screenshot}), and the full matrix is
+available in the source workbook.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance = 8mm and 18mm, font = \footnotesize,
+  box/.style   = {rectangle, rounded corners, draw, align=center, text width=36mm, inner sep=4pt},
+  dec/.style   = {diamond, aspect=2.4, draw, align=center, inner sep=1pt, text width=27mm},
+  term/.style  = {rectangle, draw, fill=black!6, align=center, text width=33mm, inner sep=4pt},
+  lbl/.style   = {midway, font=\scriptsize\itshape, inner sep=1.5pt, fill=white},
+  arr/.style   = {-{Stealth[length=1.8mm]}, thick}
+]
+\node[box] (start) {Cell: instrument $i$ $\times$ requirement $r$};
+\node[dec, below=of start] (gap) {Sector-material gap row?};
+\node[dec, below=of gap] (addr) {$i$ addresses $r$ at all?};
+\node[dec, below=of addr] (map) {$i$ demands a datapoint of $r$?};
+\node[dec, below=of map] (inuni) {Datapoint in the universe?};
+\node[term, below=of inuni] (req) {\textbf{2} -- required datapoint hit};
+\node[term, right=of gap]   (crit)   {Scored 0/1/2 against the instrument's own criteria};
+\node[term, right=of addr]  (silent) {\textbf{0} -- silent};
+\node[term, right=of map]   (touch)  {\textbf{1} -- topic \mbox{referenced} only};
+\node[term, right=of inuni] (oof)    {\textbf{0} -- logged out of frame};
+\draw[arr] (start)  -- (gap);
+\draw[arr] (gap)    -- node[lbl,right]{no}         (addr);
+\draw[arr] (gap)    -- node[lbl,above]{yes}        (crit);
+\draw[arr] (addr)   -- node[lbl,right]{yes}        (map);
+\draw[arr] (addr)   -- node[lbl,above]{no}         (silent);
+\draw[arr] (map)    -- node[lbl,right]{yes}        (inuni);
+\draw[arr] (map)    -- node[lbl,above]{topic only} (touch);
+\draw[arr] (inuni)  -- node[lbl,right]{yes}        (req);
+\draw[arr] (inuni)  -- node[lbl,above]{no}         (oof);
+\end{tikzpicture}
+\caption{Per-cell coding protocol. Each
+instrument~$\times$~requirement cell is scored against the requirement's
+constituent ESRS datapoints; gap rows, which have no ESRS datapoints by
+construction, are scored against the demanding instrument's own criteria; an
+instrument silent on the requirement scores~0, and demand mapping only to
+out-of-universe datapoints also scores~0 and is logged separately.}
+\label{fig:cell-coding-appendix}
+\end{figure}
+
+
+
+\section*{Appendix E - ESRS to VSME crosswalk}\label{app:crosswalk}
+\addcontentsline{toc}{subsection}{Appendix E - ESRS to VSME crosswalk}
+
+\begin{tabularx}{\textwidth}{@{} >{\bfseries}p{3.4cm} X @{}}
+\toprule
+What this maps & Every datapoint in the VSME Basic (B1--B11) and Comprehensive (C1--C9) modules to its thematically closest ESRS disclosure requirement, flagging whether it's realistic for an SME to self-report as a low-effort ``start-here'' item. \\
+\midrule
+Sources \& limitation & No official EFRAG VSME-to-ESRS crosswalk existed at time of writing. Combines: topic-level mapping from CSR Tools (2024); the author's own DR-level extension of that mapping (checked against Commission Delegated Regulation (EU) 2023/2772); and, for a minority of rows, direct author mapping. \textbf{Operates at DR level, not datapoint level} - a match shows shared topic, not equivalent scope (\nameref{app:esrs-mapping} gives DR-to-datapoint depth separately). A July 2026 check of EFRAG's Knowledge Hub and VSME XBRL taxonomy found no official crosswalk that supersedes this one. \\
+\midrule
+Cross-check vs.\ build-first set & Of the 7 ESRS-anchored Stage-1 build-first topics (\nameref{cm-build-first}), 5 have direct VSME coverage (energy, GHG, water, waste, health \& safety). Biodiversity (E4) has coverage only via one site-count datapoint. \textbf{Value-chain workers (S2-1) has no VSME datapoint at all} - confirming, at datapoint level, the gap already flagged at topic level in \nameref{app:esrs-mapping}. \\
+\midrule
+Full crosswalk (all datapoints) & \emph{VSME\_Basic\_and\_Comprehensive.xlsx}, sheet ``Crosswalk'' \\
+\bottomrule
+\end{tabularx}
+
+\section*{Appendix F - ESRS 2023-to-2026 revision mapping and VSME cross-reference}\label{app:esrs-mapping}
+\addcontentsline{toc}{subsection}{Appendix F - ESRS 2023-to-2026 revision mapping and VSME cross-reference}
+The European Commission adopted a revised ESRS and a new VSME-based
+voluntary reporting standard on 3~July 2026 (Section~7.5), while this thesis
+was built on the 2023 ESRS Set~1 structure throughout. This appendix checks
+every disclosure requirement in the thesis's 13-requirement universal core
+(Section~5.5) and four-topic Stage-1 universal core (Section~6.7)
+against EFRAG's November~2025 draft revised standards - the technical
+basis for the adopted delegated act - for the six topical standards this
+thesis draws on (E1, E3, E4, G1, S1, S2), and cross-references each against
+the VSME voluntary standard's Basic and Comprehensive modules.
+
+\emph{Headline finding.} Every one of these disclosure requirements survives
+the revision in substance; none was deleted. Most carry a new DR code,
+because two or three new requirements were inserted earlier in several
+standards (chiefly on risk identification and resilience for climate, and on
+actions/targets for business conduct), shifting everything after them down
+by one to three positions. One requirement - prevention and detection of
+corruption and bribery, old G1-3, part of the thesis's universal core - is no longer a separately numbered DR: its substance is now distributed
+across the policies (G1-1) and actions (G1-2) requirements instead.
+
+\emph{VSME cross-reference.} The clearest asymmetry is that the VSME
+voluntary standard has no dedicated module for value-chain workers,
+unlike the mandatory ESRS's ESRS~S2: it surfaces only inside a general
+practices-and-policies template and a single yes/no incidents question.
+Climate targets and detailed water/biodiversity metrics are similarly
+absent from the VSME's Basic module, appearing only if a firm reports at
+Comprehensive level. Both observations are consistent with this thesis's
+broader finding (Section~6.6) that disclosure burden cascades down the
+value chain from large-firm obligations rather than being symmetric with
+what a smaller firm's own operations generate.
+
+The complete requirement-by-requirement mapping - old code, old title, new
+code, new title, type of change, and VSME module cross-reference, each row
+sourced to the specific EFRAG draft standard it was verified against - is
+held in \emph{ESRS\_VSME\_revision\_mapping.xlsx} (sheets ``DR\_mapping'' and
+``VSME\_crossref''; full source list in the ``Sources'' sheet). This mapping
+reflects EFRAG's November~2025 drafts and the Commission's 3~July~2026
+adoption; it should be re-checked against the final Official Journal text
+once the Parliament and Council scrutiny period concludes.
+
+\section*{Appendix G - GRI/ESRS cohort coverage analysis and admission rules}\label{app:gri-esrs-coverage}
+\addcontentsline{toc}{subsection}{Appendix G - GRI/ESRS cohort coverage analysis and admission rules}
+
+This appendix documents the disclosure-requirement-level analysis underlying
+Chapter~5's cohort funnel (Section~5.5) and gives the admission
+rule by which each of the 70 disclosure requirements (DRs) in the ESRS
+universe was classified.
+
+\textbf{Admission tiers.} Two evidentiary tiers are applied at the same
+threshold ($\geq$5 of the 6 cohort firms) but at different levels of
+aggregation. \emph{Tier 1} admits a DR directly where at least five firms
+report it: 28 DRs qualify, matching the ``reported by at least five'' band in
+Figure~\ref{fig:p1-frequency-r}. Seven of the 70 DRs have no route through the GRI-ESRS
+bridge and so cannot be reported by more than three of the six firms; six of
+those seven are reported by no firm at all (Section~5.3). \emph{Tier 2} admits a \emph{topic} where
+signal is dispersed across its sub-DRs such that no single sub-DR clears the
+bar alone but at least five firms report \emph{some} DR within the topic;
+two topics qualify this way - Biodiversity (E4) and Consumer health \&
+food safety (S4). A third, qualitatively different \emph{Tier 3} records
+four sector-material topics that the cohort-consensus test cannot surface at
+all because ESRS has no corresponding DR for them: supply-chain traceability,
+wild-stock status, feed and marine-ingredient sourcing, and animal health and
+welfare (with antimicrobial use folded into the last). These are anchored instead in the sector-specific GRI~13
+standard and the relevant sector law (IUU Regulation, IHR/GDST, MSC/ASC chain
+of custody), and are included as an explicit structural gap rather than a
+cohort finding.
+
+\textbf{GRI-reported firms as a cross-check.} Five of the six cohort firms'
+year-editions publish a GRI content index rather than a native ESRS index
+(Nomad Foods 2024 and 2025; Profand 2024 and 2025; Thai Union). Their
+disclosures were independently mapped to ESRS through the official EFRAG/GRI
+interoperability crosswalk (GRI and EFRAG, \emph{GRI--ESRS Interoperability
+Index}, November 2024) rather than read directly, giving a second,
+differently-sourced route into the same coverage matrix. The two routes
+converge on the same output schema and are combined without distinction in
+the coverage counts above.
+
+\textbf{Where each part of the analysis is held.} The underlying material is
+split across two workbooks, two notebooks, and one methodology note, each
+covering a specific stage:
+
+\begin{itemize}
+\item \emph{ESRS\_KPI\_Mapping\_V10.xlsx} - the per-company ESRS mapping
+  database. Sheet \texttt{ESRS\_MASTER} holds the full 70-DR universe;
+  sheets \texttt{Bolton\_Mapping}, \texttt{Mowi\_Mapping},
+  \texttt{Espersen\_Mapping} / \texttt{Espersen2025\_Mapping},
+  \texttt{Nomad\_Mapping} / \texttt{Nomad2025\_Mapping},
+  \texttt{Profand\_Mapping} / \texttt{Profand2025\_Mapping} and
+  \texttt{ThaiUnion\_Mapping} hold each firm-year's reported DRs;
+  \texttt{Mapping\_ALLStacked\_TU\_N25} stacks all six current firm-years into
+  the single table the coverage analysis reads. (\texttt{Nomad\_Mapping} and
+  \texttt{Profand\_Mapping} used to contain live external-workbook-link
+  formulas pointing back to \emph{GRI\_ESRS\_v8.xlsx}; these were converted
+  to static values on 2026-08-01, verified cell-by-cell against the original,
+  so the file is now safe to open or resave normally.)
+\item \emph{ESRS\_Coverage\_Analytics\_v7.ipynb} - reads
+  \texttt{Mapping\_ALLStacked\_TU\_N25}, builds the coverage matrix, and
+  applies the Tier~1/Tier~2 admission rule above.
+\item \emph{ESRS\_Coverage\_Results.xlsx} - the notebook's output, consolidated:
+  sheets \texttt{Coverage\_Matrix} (70 DRs $\times$ 6 companies), \texttt{Topic\_Universe}
+  (the 28 Tier~1/2 rows plus the 4 hand-added Tier~3 rows), \texttt{BACKBONE}
+  (the datapoint-level shortlist) and \texttt{Excluded\_DR}, plus a
+  \texttt{Summary}, \texttt{Coverage\_Rate}, per-standard heatmap and
+  \texttt{DR\_Frequency} breakdown computed from them.
+\item \emph{GRI\_ESRS\_v8.xlsx} - the GRI-to-ESRS bridge (renamed from
+  \emph{v5} once the file was located and re-verified, 2026-07-30). Sheet
+  \texttt{Interop\_Index} is the transcribed EFRAG/GRI crosswalk;
+  sheets ending \texttt{\_GRI\_Index} (one per GRI-reporting firm-year) are
+  each firm's own published content index; sheets ending
+  \texttt{\_Topical\_Mapping} are the per-firm result of joining the two
+  (full row-level detail: GRI standard/number, description, location in
+  report, mapped ESRS topic/standard/DR, paragraph reference, notes,
+  coverage). A further-condensed layer of sheets, all following the
+  \texttt{\emph{Firm}\_Mapping} pattern as of 2026-08-01 (previously
+  inconsistent - some were named \texttt{Mapping\_\emph{Firm}}), holds
+  just Company/Topic/DR/Datapoint/Page/Comments; this is the format
+  \texttt{ESRS\_KPI\_Mapping\_V10.xlsx}'s own per-company sheets used to pull
+  from via external-workbook-link formulas before those were converted to
+  static values on the same date. This file did not previously have a
+  README sheet; one has now been added as the first sheet.
+\item \emph{GRI\_ESRS\_Mapping\_v4.ipynb} - performs the join
+  (Lookup\_Key match, topical-DR filter, one-row-per-datapoint expansion) for
+  every GRI-reporting firm-year in its \texttt{COMPANIES} list. Its own header
+  previously referenced the bridge file as \emph{v5} and named a separate
+  output file (\texttt{GRI\_ESRS\_Topical\_Mapping\_AllCompanies.xlsx}) that,
+  in practice, was merged directly into the bridge workbook instead of staying
+  separate - both now corrected in the notebook's own documentation.
+\item \emph{Mapping\_Methodology.docx} - \textbf{dropped per your
+  2026-07-30 instruction ("we don't include mapping\_methodology")}; the
+  join/filter/expand/condense procedure is instead documented directly in the
+  two notebooks' own headers.
+\end{itemize}
+
+Both notebooks are reproducible end to end from the two workbooks above; the
+only manual step is transcribing a newly-added firm's own published index
+into a new \texttt{\_GRI\_Index} or \texttt{\_Mapping} sheet before re-running.
+
+\section*{Appendix H - Master file index (all phases)}\label{app:file-index}
+\addcontentsline{toc}{subsection}{Appendix H - Master file index (all phases)}
+
+This appendix consolidates, in one place, every workbook and notebook
+underlying the three empirical phases (Chapter~4 ecosystem scan, Chapter~5
+cohort scan, Chapter~6 cross-mapping and tool), plus the diagnostic tool
+itself. All workbooks below carry a README sheet as their first sheet as of
+the 2026-07-30 verification pass, except where noted.
+
+\begin{landscape}\footnotesize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{p{2.5cm}p{3.8cm}p{1.0cm}p{5.2cm}p{3.7cm}}
+\toprule \textbf{Phase} & \textbf{File} & \textbf{Type} & \textbf{Contents} & \textbf{Status} \\ \midrule \endhead
+\multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 1 - Chapter 4, the disclosure ecosystem}}\\[1pt]
+Phase 1 & \emph{Necessity\_\fb Domain\_\fb Matrix\_\fb v8.xlsx} & Excel & The 49-instrument necessity/domain catalogue underlying Appendix~A.2, plus a Tier-0 food-integrity foundation band, a Layer-2 enabler list, and a count-reconciliation sheet tying 49 catalogued instruments down to the 30 Phase~3-scored columns. & Verified 2026-07-30; numbers match Ch5/Ch8 prose exactly (49$\to$30, 26 always-scored + 4 opt-in). README already first sheet. \\
+Phase 1 & \emph{necessity\_\fb domain\_\fb matrix.pptx / .pdf} & Slides/PDF & Visual rendering of the necessity/domain matrix (Figure~\ref{fig:necessity-domain}). & Visual companion only, not a data source - see the Excel above for the underlying rows. \\
+\multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 2 - Chapter 5, the cohort frontier}}\\[1pt]
+Phase 2 & \emph{ESRS\_\fb KPI\_\fb Mapping\_\fb V10.xlsx} & Excel & Per-company ESRS mapping database (see Appendix~G for full sheet guide). & Corrected (Profand 2025 fix). \textbf{Regenerated 2026-08-04} from the rebuilt bridge: all five GRI-firm mapping sheets and all three stacked sheets refreshed. External-workbook-link formulas in \texttt{Nomad\_Mapping} / \texttt{Profand\_Mapping} converted to static values 2026-08-01 (surgically, cell-by-cell verified against the original with zero value changes elsewhere) - now safe to open or resave normally. \\
+Phase 2 & \emph{GRI\_\fb ESRS\_\fb v8.xlsx} & Excel & GRI-to-ESRS bridge for the 5 GRI-reporting firm-years (see Appendix~G). & Verified 2026-07-30; README added. Naming inconsistency fixed 2026-08-01. \textbf{Rebuilt 2026-08-04:} \texttt{Interop\_Index} regenerated in full from the GRI-EFRAG interoperability index (previous version was under-populated); old bridge retained as \texttt{Interop\_Index\_v6\_ARCHIVE}, changes logged in \texttt{Bridge\_CHANGES}, and the seven ESRS requirements with no GRI counterpart screened directly in the reports (\texttt{Unlinked\_DR\_Screening}). \\
+Phase 2 & \emph{GRI\_\fb ESRS\_\fb Mapping\_\fb v4.ipynb} & Notebook & Builds the bridge workbook's \texttt{\_Topical\_Mapping} sheets. & Doc header corrected 2026-07-30 (was referencing v5). \\
+Phase 2 & \emph{ESRS\_\fb Coverage\_\fb Analytics\_\fb v7.ipynb} & Notebook & Builds the coverage matrix and applies the Tier~1/2 admission rule. & Doc header corrected 2026-07-30 (was referencing an old V5 database and a stale 5-company preset); config cell itself was already correctly set. Renamed from \texttt{...v7 (1).ipynb} to drop the duplicate-download suffix. \\
+Phase 2 & \emph{ESRS\_\fb Coverage\_\fb Results.xlsx} & Excel & The notebook's output, consolidated with summary/heatmap/frequency analytics (see Appendix~G). & Regenerated 2026-08-01 with the Profand-2025 fix and the animal-health/AMU topic merge. \\
+Phase 2 & Six firms' sustainability reports & External (web) & Primary source documents. & Linked via URL in references.tex, not held locally. \\
+\multicolumn{5}{l}{\rule{0pt}{1.1em}\textbf{Phase 3 - Chapter 6, cross-mapping and the tool}}\\[1pt]
+Phase 3 & \emph{GRI\_\fb 13\_\fb Topics\_\fb FINAL.xlsx} & Excel & GRI~13 topic-to-ESRS reconciliation underlying Appendix~B. & Verified 2026-07-30; numbers match Appendix~B/G exactly (28-topic universe, 26+2 Tier~1/2, 4 sector-material). README moved to first sheet. \\
+Phase 3 & \emph{Phase3\_\fb Coverage\_\fb Matrix\_\fb v18.xlsx} & Excel & The full instrument$\times$topic demand matrix underlying Appendix~D (\texttt{Coverage matrix} + \texttt{Justifications log} sheets). & README already first sheet. \textbf{Rebuilt 2026-08-04} from v17: G1-5 removed and the S4 topic-level row replaced by S4-1 and S4-3 following the bridge rebuild, E1-1 added following the body screening; 33 rows $\times$ 31 instruments. All 30 unchanged rows verified to recompute identically to v17. Thirteen new scored cells logged in \texttt{Justifications log}. \\
+Phase 3 & \emph{VSME\_\fb Basic\_\fb and\_\fb Comprehensive.xlsx} & Excel & VSME-to-ESRS crosswalk underlying Appendix~E. & Verified 2026-07-30; matches Appendix~E's description exactly. Added a workbook-level orientation block to its legend sheet and moved it to first position. \\
+Phase 3 & \emph{SME\_\fb Datapoint\_\fb Guide.xlsx} & Excel & Master datapoint$\to$enabling-instrument mapping behind the diagnostic tool (Section~6.8). & \texttt{Sources \& methodology} renamed \texttt{READ ME} and moved to first sheet 2026-08-01, consistent with the rest of the package. \\
+Phase 3 & Diagnostic tool & Web app & The live Seafood SME Priority Navigator. & \url{https://seafood-sme-priority-navigator.netlify.app/} - confirmed live 2026-08-07. \\
+\bottomrule\end{longtable}\end{landscape}
+
+\clearpage
+\section*{Appendix I - Year-over-year reporting in the cohort}\label{app:yoy}
+\addcontentsline{toc}{subsection}{Appendix I - Year-over-year reporting in the cohort}
+
+Three of the six cohort firms - Nomad Foods, Profand and Espersen - published a
+structured report in both 2024 and 2025, allowing a like-for-like comparison.
+Reported coverage was flat or fell very slightly: Nomad Foods from 53 to 52
+requirements, Profand unchanged at 43, and Espersen from 36 to 34, driven by a
+handful of requirements dropped and none added (Figure~\ref{fig:p1-year}).
+
+These are changes in what the indexes carry, and not necessarily changes in what
+the firms disclose. Nomad Foods' single decline illustrates the distinction.
+E1-9 was reached in 2024 through GRI 201-2, indexed to the firm's TCFD
+statement; the 2025 index no longer carries that disclosure, yet the TCFD
+statement itself is still published and linked from the 2025 report. The firm
+confirms that its own position on the requirement did not change between the two
+years. The measurement limitation set out in Section~\ref{cohort-method}
+therefore applies to the year-over-year reading at least as strongly as to the
+levels, and arguably more so: a change in coverage can be produced by a change
+in indexing practice alone.
+
+Two further cautions apply. Only firms publishing in both years can be examined,
+so the comparison covers half the cohort and is silent on the other half; the
+three firms not examined are not thereby shown to be stable. And with three
+firms over two years, no weight can be placed on the result beyond its
+direction. It is reported because that direction runs against the common
+assumption of ever-expanding disclosure, and because a comparable movement
+appears at scale. The first large-scale longitudinal study of double-materiality
+outcomes under the CSRD, covering 241 large listed EU companies, finds
+materiality rates declining moderately between FY2024 and FY2025, concentrated in
+the environmental standards other than climate (Nahrstedt, 2026). That study
+measures which topics firms judge \emph{material} rather than how much they
+disclose, so it is a parallel indicator and not a direct comparison; the two
+nonetheless move the same way. The discussion returns to this under the Omnibus
+simplification.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{phase1/p1_year_evolution.pdf}
+\caption{Year-over-year reporting for the three firms with both a 2024 and
+a 2025 report. Panel~A: total requirements reported, on a zero-based axis.
+Panel~B: requirements retained, added and dropped in 2025 - change is
+dominated by retention, with a small net reduction.}
+\label{fig:p1-year}
+\end{figure}
+
+
+\end{document}

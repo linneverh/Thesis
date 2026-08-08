@@ -4,15 +4,53 @@ Every comment across all three rounds, with status and owner. Updated 6 August.
 
 ---
 
+# ✅ FULL AUDIT AGAINST THE ANNOTATED PDF — 7 August
+
+I extracted all annotations from `Thesis_Draft_FORREVIEW_OS_comments-ae283011.pdf` and checked each against the current build. **44 comments, all located.** That file is cumulative: comments 1–21 are round 1 (pp. 1–22), comments 22–44 are round 2 (pp. 23–85).
+
+**All 44 are now addressed except the two below that need you.** Three things the audit turned up:
+
+**The missing comment was real — PDF #28, p.24.** On the Tier 1 definition, *"only laws? or customer requirements as well?"* My earlier extract skipped it, which is why my round-2 list ran 1–6 and 8–23. It's the same point he makes in #7 about licence to operate versus licence to sell. Now answered in §4.1: the tier is deliberately restricted to legal obligation, with the customer equivalent separated into Tier 2, because breaching Tier 1 means you cannot lawfully trade whereas failing Tier 2 loses one customer.
+
+**Comment #22 was only half done.** He asked for two things — don't say what the chapter doesn't do, *and* avoid question marks. I'd fixed the first and left "who asks, and how bindingly?" in place. The Chapter 4 opening is now declarative throughout.
+
+**Comment #44, p.85, is the cell-coding decision tree** in Appendix D, not an appendix table as I'd assumed. Rebuilt: wider uniform terminal boxes, branch labels in italic with white fill so they no longer collide with the arrows, consistent spacing, and the bad "topic ref-erenced" hyphenation fixed.
+
+**Still needing you:** #24 and #25, the Seafood Europe membership assumption — he suggests asking Kata whether any large player is not a member, and notes some Faroese and Icelandic firms are not.
+
+---
+
 # ⭐ YOUR LIST — what only you can do
 
 Build is clean: **102 pages, 0 errors, 0 undefined references.**
 
 **Every Oliver comment through Chapter 5 is now handled except one (#23, p.85) and the items below that need you.** Decisions 1–3 and the three voice items are done and in the build.
 
-## ⚠️ Two stale numbers caught in §5.8 — please sanity-check the fix
+## ⚠️ Stale numbers found in a full sweep — please sanity-check the fixes
 
-The chapter's concluding summary still carried **pre-rebuild** figures: it said the deepest reporter reached **53** requirements and the median firm **57%** of the screened set. Verified against the workbook: the universe is 70, the deepest reporter is **60**, and the median is 44, or **63%**. Both corrected. The old values are exactly what the pre-rebuild bridge produced, which is how they survived.
+Three pre-rebuild figures had survived the cascade, all in Chapter 5 **prose** rather than in workbook-derived tables, which is why the 4 August audit missed them.
+
+| Where | Said | Correct |
+|---|---|---|
+| §5.8 conclusion | deepest reporter **53** requirements | **60** of 70 |
+| §5.8 conclusion | median firm **57%** of the screened set | **63%** (44 of 70) |
+| §5.4 | deepest leaves *"one requirement in four uncovered (roughly 25 per cent)"* | **one in seven** — 10 of 70, 14% |
+
+All three are exactly what the old bridge produced (Thai Union was ~53 before the rebuild, i.e. 24% uncovered). Corrected, and the §5.4 median figure tightened to 26 of 70 (37%).
+
+**Then verified the whole numeric chain against the workbooks:** universe 70, reported by ≥1 = 63, ≥5 = 28, all six = 13, none = 7; firm coverage 60/52/45/43/34/33 with percentages 86/74/64/61/49/47; matrix 33 × 31 = 1,023 cells, 188 demand (18.4%); 23 of 31 columns regulator-plus-customer (74%); ESG normalised means 69/56/70 reconciling to the 44 median. Abstract and Chapter 7 both consistent. **No further discrepancies.**
+
+## 📦 Packages rebuilt (7 Aug)
+
+Everything downstream was stale. All refreshed; superseded copies kept in `_superseded/` rather than overwritten.
+
+- **Reviewer draft PDF** in `ATTACHMENTS/` was from 4 Aug and in `supervisor_package/` from 2 Aug. Both replaced with the current 102-page build.
+- **`Verhoeven_thesis_supporting_files.zip` held a stale coverage matrix** — the 4 Aug 16:07 copy, taken *before* the 13 justification entries were restored at 19:58 that evening. A reviewer opening the zip would have found 186 log rows instead of 199. Rebuilt: the zip now carries 199 rows and reproduces 33 × 31 = 1,023 cells with 188 demand. `SME_Datapoint_Guide.xlsx` was also stale and is refreshed. Integrity verified, all 11 files present.
+- **Figure 2** was regenerated into both locations it lives in.
+
+## 🔤 Appendix ordering — my error, fixed
+
+I originally inserted the new year-over-year appendix *before* Appendix H, so the letters ran …G, I, H. Moved to the end; order is now A–I clean.
 
 ## Checks only you can run
 
