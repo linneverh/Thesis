@@ -1,0 +1,150 @@
+QUARANTINE MANIFEST — 2026-08-08
+Nothing deleted. Everything below was MOVED here for your review.
+
+[build_artifacts] regenerable by latexmk; all in .gitignore
+  tmp1.tmp
+  tmp10.tmp
+  tmp11.tmp
+  tmp12.tmp
+  tmp13.tmp
+  tmp14.tmp
+  tmp15.tmp
+  tmp16.tmp
+  tmp17.tmp
+  tmp18.tmp
+  tmp19.tmp
+  tmp2.tmp
+  tmp20.tmp
+  tmp21.tmp
+  tmp22.tmp
+  tmp23.tmp
+  tmp24.tmp
+  tmp25.tmp
+  tmp26.tmp
+  tmp27.tmp
+  tmp28.tmp
+  tmp29.tmp
+  tmp3.tmp
+  tmp30.tmp
+  tmp31.tmp
+  tmp32.tmp
+  tmp33.tmp
+  tmp34.tmp
+  tmp35.tmp
+  tmp36.tmp
+  tmp37.tmp
+  tmp38.tmp
+  tmp39.tmp
+  tmp4.tmp
+  tmp40.tmp
+  tmp41.tmp
+  tmp42.tmp
+  tmp43.tmp
+  tmp44.tmp
+  tmp45.tmp
+  tmp46.tmp
+  tmp47.tmp
+  tmp48.tmp
+  tmp49.tmp
+  tmp5.tmp
+  tmp50.tmp
+  tmp51.tmp
+  tmp52.tmp
+  tmp53.tmp
+  tmp54.tmp
+  tmp55.tmp
+  tmp56.tmp
+  tmp57.tmp
+  tmp58.tmp
+  tmp59.tmp
+  tmp6.tmp
+  tmp60.tmp
+  tmp61.tmp
+  tmp62.tmp
+  tmp63.tmp
+  tmp64.tmp
+  tmp65.tmp
+  tmp66.tmp
+  tmp67.tmp
+  tmp68.tmp
+  tmp69.tmp
+  tmp7.tmp
+  tmp70.tmp
+  tmp71.tmp
+  tmp72.tmp
+  tmp73.tmp
+  tmp74.tmp
+  tmp75.tmp
+  tmp76.tmp
+  tmp77.tmp
+  tmp78.tmp
+  tmp79.tmp
+  tmp8.tmp
+  tmp80.tmp
+  tmp81.tmp
+  tmp82.tmp
+  tmp83.tmp
+  tmp84.tmp
+  tmp85.tmp
+  tmp86.tmp
+  tmp87.tmp
+  tmp88.tmp
+  tmp9.tmp
+  main.aux
+  b1.log
+  b2.log
+  build.log
+  build2.log
+  main.log
+  r1.log
+  r2.log
+  main.toc
+  main.fls
+  main.fdb_latexmk
+  .DS_Store
+  ~$sponse_to_Oliver_Spring_comments.docx
+
+[old_tool_versions] superseded by Seafood_SME_Priority_Navigator_v2.html
+  Seafood SME — Sustainability Priority Navigator.html
+  Seafood_Priority_Navigator.html
+  Necessity_Mapping.html
+
+[duplicates] identical copy exists at the path the build actually uses
+  ./p1_year_evolution.pdf  (build uses phase1/p1_year_evolution.pdf)
+  phase3/topic_distribution.pdf  (build uses ./topic_distribution.pdf)
+
+[stale_docs] superseded working notes
+  BEFORE_YOU_SEND.md
+  COVERAGE_GRADE_TITLE.md
+  FINAL_GRADE.md
+  REVIEW_before_submission.md
+  SUPERVISOR_REVIEW.md
+  Thesis_Status_2026-07-29.md
+  WHATS_CHANGED_READ_THIS.md
+  COMMANDS.md
+  ROADMAP_bridge_fix.md
+  BRIDGE_REBUILD_RUNBOOK.md
+  EMAILS_TO_SEND.md
+  DRAFTS_for_your_voice.md
+  ./p1_frequency.pdf  (STALE older version - build uses phase1/p1_frequency.pdf, which differs)
+
+[superseded_packages]
+  reviewer_package/  - contains ESRS_KPI_Mapping_V9.xlsx (pre-rebuild).
+    Superseded by ATTACHMENTS/, which carries V10 and the current draft.
+    KEEP THIS ONE if you want a record of what reviewers originally received.
+
+[NOT moved - your call, both regenerable and already gitignored]
+  .venv/         339 MB  python virtualenv   -> rm -rf .venv    (recreate when needed)
+  node_modules/   26 MB  jsdom, used to test the tool -> rm -rf node_modules package.json package-lock.json
+  .build/                stale build dir
+
+[empty directories - safe to remove]
+  analysis/  figures/  references/     -> rmdir analysis figures references
+
+------------------------------------------------------------------
+TO FINISH: check this folder, then from the thesis root run
+    rm -rf _CLEANUP_REVIEW
+and optionally
+    rm -rf .venv node_modules package.json package-lock.json .build
+    rmdir analysis figures references
+------------------------------------------------------------------
